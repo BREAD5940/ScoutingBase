@@ -31,30 +31,30 @@ class Team:
     #add match row
     def addMatch(self,match):
         self.matches.append(match)
-        self.avGPSand = (self.avGPSand + (int(match[5])+int(match[6])+int(match[8])+int(match[9])))/2 #average
-        self.avHPShip = (self.avHPShip + int(match[14]))/2
-        self.avHPRocket = (self.avHPRocket +int(match[15]))/2
-        self.avHPDrop = (self.avHPDrop + int(match[16]))/2
-        self.avCShip = (self.avCShip + int(match[11]))/2
-        self.avCRocket = (self.avCRocket +int(match[12]))/2
-        self.avCDrop = (self.avCDrop + int(match[13]))/2
+        self.avGPSand = (self.avGPSand + (float(match[5])+float(match[6])+float(match[8])+float(match[9])))/2 #average
+        self.avHPShip = (self.avHPShip + float(match[14]))/2
+        self.avHPRocket = (self.avHPRocket +float(match[15]))/2
+        self.avHPDrop = (self.avHPDrop + float(match[16]))/2
+        self.avCShip = (self.avCShip + float(match[11]))/2
+        self.avCRocket = (self.avCRocket +float(match[12]))/2
+        self.avCDrop = (self.avCDrop + float(match[13]))/2
         if match[17]!="Assist":
-            self.scaleLevels.append(int(match[17]))
+            self.scaleLevels.append(float(match[17]))
         try:
             self.consistScaleLevel = mode(self.scaleLevels)
         except:
             print("multi num")
             self.consistScaleLevel = self.consistScaleLevel
         self.isHelper = self.isHelper or match[17]=="Assist" 
-        self.startHabs.append(int(match[4]))
+        self.startHabs.append(float(match[4]))
         try:
             self.consistStartHab = mode(self.startHabs)
         except:
             print("multi num")
             self.consistStartHab = self.consistStartHab
         # self.habs.append(match[]) #reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-        self.avFoul = (self.avFoul + int(match[19]))/2
-        self.avTech = (self.avTech +int(match[18]))
+        self.avFoul = (self.avFoul + float(match[19]))/2
+        self.avTech = (self.avTech +float(match[18]))
         if(match[20]=="true"):
             self.totalYellow +=1
         if(match[21]=="true"):
@@ -65,23 +65,23 @@ class Team:
     def toString(self):
         string= "\n%4d  --  %s\n"%(self.number, self.name)
         string+="-----------------------------------------------------------------------\n\n"
-        string+="Most common starting hab: %1d\n\n"%(self.consistStartHab)
-        string+="Average game pieces in sandstorm: %2d\n\n"%(self.avGPSand)
+        string+="Most common starting hab: %f\n\n"%(self.consistStartHab)
+        string+="Average game pieces in sandstorm: %f\n\n"%(self.avGPSand)
         string+="AVERAGE HATCH PANELS:                     AVERAGE CARGO:\n"
-        string+="	Cargo ship: %2d                             Cargo ship: %2d\n"%(self.avHPShip, self.avCShip)
-        string+="	Rocket: %2d                                 Rocket: %2d\n"%(self.avHPRocket, self.avCRocket)
-        string+="	Dropped: %2d                                Dropped: %2d\n\n"%(self.avHPDrop, self.avCDrop)
-        string+="Most common scale level: %1d                 Is assistant? %s\n\n"%(self.consistScaleLevel, self.isHelper)
-        string+="Average fouls: %3d                         Average tech fouls: %3d\n\n"%(self.avFoul, self.avTech)
-        string+="TOTAL yellow cards: %3d                    TOTAL red cards: %3d\n\n"%(self.totalYellow, self.totalRed)
-        string+="TOTAL E-stops/breaks: %3d\n\n"%(self.borks)
+        string+="	Cargo ship: %f                             Cargo ship: %f\n"%(self.avHPShip, self.avCShip)
+        string+="	Rocket: %f                                 Rocket: %f\n"%(self.avHPRocket, self.avCRocket)
+        string+="	Dropped: %f                                Dropped: %f\n\n"%(self.avHPDrop, self.avCDrop)
+        string+="Most common scale level: %f                 Is assistant? %s\n\n"%(self.consistScaleLevel, self.isHelper)
+        string+="Average fouls: %f                         Average tech fouls: %f\n\n"%(self.avFoul, self.avTech)
+        string+="TOTAL yellow cards: %f                    TOTAL red cards: %f\n\n"%(self.totalYellow, self.totalRed)
+        string+="TOTAL E-stops/breaks: %f\n\n"%(self.borks)
         string+="-------------------------------------------------------------------------\n"
         string+="NOTES:\n\n"
         string+="Qualifier number     |  Note\n"
         for match in self.matches:
             print(match)
             try:
-                string+="%2d                   | %s\n"%(int(match[1]), match[24])
+                string+="%2d                   | %s\n"%(float(match[1]), match[24])
             except:
                 print("nullllllllllllllllllllllllllllllllllll")
         string+="\n\n\nMATCHES:\n\n"
