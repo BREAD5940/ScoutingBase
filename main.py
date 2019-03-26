@@ -2,9 +2,12 @@ import json
 import csv
 from team import Team
 from match import Match
+import os
 
 
 teams = []
+dataDirectory = "ScoutingBase/data_sac_2019/"
+resultDirectory = "output_sac_2019"
 with open('ScoutingBase/teams.csv', newline='') as csvfile:
      spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
      for row in spamreader:
@@ -73,36 +76,35 @@ def writy(fl):
 
         
 def theLargeCsv():
-    file = open("largeCSV.csv", "w")
-    word1=writy('ScoutingBase/max.csv')
-    for w in word1:
-        file.write(w)
-    word2=writy('ScoutingBase/claire.csv')
-    for w in word2:
-        file.write(w)
-    word3=writy('ScoutingBase/geran.csv')
-    for w in word3:
-        file.write(w)
-    word4=writy('ScoutingBase/nick.csv')
-    for w in word4:
-        file.write(w)
-    word5=writy('ScoutingBase/thomas.csv')
-    for w in word5:
-        file.write(w)
-    word6=writy('ScoutingBase/missing.csv')
-    for w in word6:
-        file.write(w)
-    file.close()
+    outfile = open("largeCSV.csv", "w")
+
+    csvdirectory = os.fsencode(dataDirectory)
+
+    for file in os.listdir(csvdirectory):
+        filename = os.fsdecode(file)
+        if filename.endswith(".csv"): 
+            print(filename)
+            word1=writy(dataDirectory+filename)
+            for w in word1:
+                outfile.write(w)            
+            continue
+        else:
+            continue
 
 
-addFile('ScoutingBase/max.csv')
-addFile('ScoutingBase/claire.csv')
-addFile('ScoutingBase/geran.csv')
-addFile('ScoutingBase/nick.csv')
-addFile('ScoutingBase/thomas.csv')
-addFile('ScoutingBase/missing.csv')
 
-print(teams[59].toString())
+directory = os.fsencode(dataDirectory)
+
+for file in os.listdir(directory):
+     filename = os.fsdecode(file)
+     if filename.endswith(".csv"): 
+         print(filename)
+         addFile(dataDirectory+filename)
+         continue
+     else:
+         continue
+
+# print(teams[59].toString())
 for t in teams:
     file = open(str(t.number)+".txt","w") 
     
@@ -112,3 +114,7 @@ for t in teams:
 
 theLargeCsv()
 
+
+for t in teams:
+    if(t.consistScaleLevel):
+        
