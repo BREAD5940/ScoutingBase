@@ -1,0 +1,51 @@
+
+5871  --  Chickadees
+-----------------------------------------------------------------------
+
+Groups: ['LevelTwoClimbers', 'LevelTwoStarters']
+
+Most common starting hab: 1.000000                 Highest starting hab: 2.000000
+
+Average game pieces in sandstorm: 0.437500
+
+AVERAGE HATCH PANELS:                     AVERAGE CARGO:
+	Cargo ship: 0.750000                             Cargo ship: 0.937500
+	Rocket: 0.781250                                 Rocket: 0.406250
+	Dropped: 1.375000                                Dropped: 0.218750
+
+Most common scale level: 1.000000                 Highest scale level: 2.000000
+
+Is assistant? False
+
+Average fouls: 0.125000                         Average tech fouls: 0.000000
+
+TOTAL yellow cards: 0.000000                    TOTAL red cards: 0.000000
+
+TOTAL E-stops/breaks: 0.000000
+
+-------------------------------------------------------------------------
+NOTES:
+
+Qualifier number     |  Note
+              27     | had trouble sticking the hatch panels to the ship and rocket 
+average speed
+hatch panel outtake could be improved (needs to be stronger)
+              51     | kept dropping hatch panels, slow cycle time, didn't seem to have any sort of strategy, no cargo mech?
+              82     | doesn't do much. the way they grab hatch panels doesn't really work well
+              19     | barely functional. do not pick
+              68     | drops at loading station 
+collision in sandstorm 
+
+
+
+MATCHES:
+
+Number | Position | Starting Hab Level | S.S. Cargo in Ship | SS Cargo in Rocket | SS Cargo Dropped | SS Hatch in Ship | SS Hatch in Rocket | SS Hatch Dropped | Game Cargo in Ship | Game Cargo in Rocket | Game Cargo Dropped | Game Hatch in Ship | Game Hatch in Rocket | Game Hatch Dropped | Scale | Tech Foul | Foul | Yellow Card | Red Card | Broke | Final Points | Notes
+     27|     Red 1|                   2|                   1|                   0|                 0|                 1|                   2|                 1|                   6|                     1|                   1|                   2|                     1|                   2|      1|          0|     0|        false|     false|  false|            70|had trouble sticking the hatch panels to the ship and rocket 
+average speed
+hatch panel outtake could be improved (needs to be stronger)
+     51|     Red 1|                   2|                   1|                   0|                 1|                 0|                   2|                 0|                   2|                     6|                   1|                   1|                     2|                   3|      1|          0|     2|        false|     false|   true|            71|kept dropping hatch panels, slow cycle time, didn't seem to have any sort of strategy, no cargo mech?
+     82|Practice Match|                   1|                   1|                   0|                 0|                 0|                   0|                 0|                   5|                     0|                   1|                   1|                     1|                   1|      1|          0|     0|        false|     false|  false|            34|doesn't do much. the way they grab hatch panels doesn't really work well
+     19|     Red 2|                   1|                   0|                   0|                 0|                 0|                   0|                 0|                   0|                     0|                   0|                   0|                     0|                   2|      0|          0|     0|        false|     false|  false|            36|barely functional. do not pick
+     68| Qualifier|                   1|                   0|                   0|                 0|                 0|                   0|                 0|                   0|                     0|                   0|                   1|                     1|                   1|      2|          0|     0|        false|     false|  false|            58|drops at loading station 
+collision in sandstorm 

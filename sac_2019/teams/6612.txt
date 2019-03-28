@@ -1,0 +1,49 @@
+
+6612  --  NexGen Robotics
+-----------------------------------------------------------------------
+
+Groups: ['LevelTwoClimbers', 'LevelTwoStarters']
+
+Most common starting hab: 1.000000                 Highest starting hab: 2.000000
+
+Average game pieces in sandstorm: 0.281250
+
+AVERAGE HATCH PANELS:                     AVERAGE CARGO:
+	Cargo ship: 0.171875                             Cargo ship: 0.734375
+	Rocket: 3.531250                                 Rocket: 0.437500
+	Dropped: 0.343750                                Dropped: 0.343750
+
+Most common scale level: 0.000000                 Highest scale level: 2.000000
+
+Is assistant? False
+
+Average fouls: 3.218750                         Average tech fouls: 2.000000
+
+TOTAL yellow cards: 0.000000                    TOTAL red cards: 0.000000
+
+TOTAL E-stops/breaks: 0.000000
+
+-------------------------------------------------------------------------
+NOTES:
+
+Qualifier number     |  Note
+              13     | played defense, has 4 mecxanum wheels in drivetrain ramps accidentally deployed while playing defense. Didn't get to use their ramps, a teammate failed their climb and blocked lv3 for them
+              48     | They broke after being hit by their own teammate at the beginning of the match.
+              62     | rAMpbOt. played defense. didn't do much but keep the rampbot(5250, which probably wouldn't have scored anything anyways) on the other team busy. no assist, never used ramp. good entertainment value
+            6612     | good for nothing 
+POS pathetic excuse for a robot. (ramp bot)
+              29     | playing defense.... ramp unfolded during teleop.... at least they are kinda good at defense? they are just a ramp bpt so they kinda just drove around until emdngame but somehow thwortheoir mech fai!ed and nothing happened so yeah don't pick them lmao 
+               3     | I'm pretty sure they broke. Stayed on HAB 1 the whole game.
+
+
+
+MATCHES:
+
+Number | Position | Starting Hab Level | S.S. Cargo in Ship | SS Cargo in Rocket | SS Cargo Dropped | SS Hatch in Ship | SS Hatch in Rocket | SS Hatch Dropped | Game Cargo in Ship | Game Cargo in Rocket | Game Cargo Dropped | Game Hatch in Ship | Game Hatch in Rocket | Game Hatch Dropped | Scale | Tech Foul | Foul | Yellow Card | Red Card | Broke | Final Points | Notes
+     13|     Red 1|                   1|                   0|                   0|                 1|                 0|                   0|                 0|                   3|                     0|                   4|                   1|                     0|                   0|      0|          1|     2|        false|     false|  false|            38|played defense, has 4 mecxanum wheels in drivetrain ramps accidentally deployed while playing defense. Didn't get to use their ramps, a teammate failed their climb and blocked lv3 for them
+     48|    Blue 1|                   1|                   0|                   0|                 0|                 1|                   2|                 1|                   2|                     2|                   1|                   1|                     1|                   1|      0|          1|     2|        false|     false|   true|            42|They broke after being hit by their own teammate at the beginning of the match.
+     62|    Blue 2|                   1|                   1|                   0|                 0|                 0|                   0|                 0|                   2|                     0|                   2|                   0|                     0|                   1|      0|          0|     0|        false|     false|  false|            36|rAMpbOt. played defense. didn't do much but keep the rampbot(5250, which probably wouldn't have scored anything anyways) on the other team busy. no assist, never used ramp. good entertainment value
+   6612|     Red 2|                   2|                   1|                   0|                 0|                 0|                   0|                 1|                   2|                     3|                   1|                   1|                     0|                   0|      2|          0|     1|        false|     false|  false|            44|good for nothing 
+POS pathetic excuse for a robot. (ramp bot)
+     29|     Red 3|                   1|                   0|                   0|                 0|                 0|                   0|                 1|                   1|                     0|                   0|                   0|                     2|                   1|      0|          0|     0|        false|     false|  false|            43|playing defense.... ramp unfolded during teleop.... at least they are kinda good at defense? they are just a ramp bpt so they kinda just drove around until emdngame but somehow thwortheoir mech fai!ed and nothing happened so yeah don't pick them lmao 
+      3|    Blue 1|                   1|                   0|                   0|                 0|                 0|                   0|                 0|                   0|                     0|                   0|                   0|                     6|                   0|      0|          0|     6|        false|     false|   true|            47|I'm pretty sure they broke. Stayed on HAB 1 the whole game.

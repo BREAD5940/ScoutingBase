@@ -1,0 +1,51 @@
+
+2839  --  Daedalus
+-----------------------------------------------------------------------
+
+Groups: ['LevelThreeClimbers', 'LevelTwoClimbers', 'LevelTwoStarters']
+
+Most common starting hab: 2.000000                 Highest starting hab: 2.000000
+
+Average game pieces in sandstorm: 1.492188
+
+AVERAGE HATCH PANELS:                     AVERAGE CARGO:
+	Cargo ship: 0.812500                             Cargo ship: 2.808594
+	Rocket: 2.976562                                 Rocket: 3.046875
+	Dropped: 0.468750                                Dropped: 1.585938
+
+Most common scale level: 3.000000                 Highest scale level: 3.000000
+
+Is assistant? False
+
+Average fouls: 0.007812                         Average tech fouls: 1.000000
+
+TOTAL yellow cards: 0.000000                    TOTAL red cards: 0.000000
+
+TOTAL E-stops/breaks: 0.000000
+
+-------------------------------------------------------------------------
+NOTES:
+
+Qualifier number     |  Note
+              21     | pretty solid, used meccanum wheels on drivetrains, were able to almost compete rocket by themselves with minimal help. drives slow but cycles are optimized. honestly a solid pick.
+              81     | only focused on cargo. played a little defense. smooth ride
+               7     | they did okay. they were taking their time getting around the field, but you could tell that they were carrying their alliance. the other teams sucked. their climb was smooth, however they are close to then edge of the platform so there is a possibility they may fall back. 
+              13     | fucked up their climb real bad. looks like they parked backward or something. pretty OK overall, they look like they have swerve(plez double check that thanks) 
+              64     | Very good hatch & ball intake, just needs a bit more skillful driving and maybe speed to get themselves a solo rocket.
+              71     | 
+              51     | uhhh pretty sick team actually even tho their elevator is a tad slow 
+              41     | the robot worked well and real smooth.interesting intake for cargo it was like a box
+
+
+
+MATCHES:
+
+Number | Position | Starting Hab Level | S.S. Cargo in Ship | SS Cargo in Rocket | SS Cargo Dropped | SS Hatch in Ship | SS Hatch in Rocket | SS Hatch Dropped | Game Cargo in Ship | Game Cargo in Rocket | Game Cargo Dropped | Game Hatch in Ship | Game Hatch in Rocket | Game Hatch Dropped | Scale | Tech Foul | Foul | Yellow Card | Red Card | Broke | Final Points | Notes
+     21|     Red 1|                   2|                   0|                   0|                 1|                 1|                   1|                 1|                   3|                     4|                   4|                   0|                     2|                   0|      2|          1|     2|        false|     false|  false|            91|pretty solid, used meccanum wheels on drivetrains, were able to almost compete rocket by themselves with minimal help. drives slow but cycles are optimized. honestly a solid pick.
+     81|     Red 2|                   1|                   0|                   0|                 0|                 0|                   0|                 0|                   2|                     0|                   1|                   0|                     0|                   0|      3|          0|     0|        false|     false|  false|            70|only focused on cargo. played a little defense. smooth ride
+      7|    Blue 3|                   2|                   0|                   0|                 0|                 0|                   1|                 0|                   2|                     0|                   2|                   0|                     0|                   0|      3|          0|     0|        false|     false|  false|            45|they did okay. they were taking their time getting around the field, but you could tell that they were carrying their alliance. the other teams sucked. their climb was smooth, however they are close to then edge of the platform so there is a possibility they may fall back. 
+     13|     Red 3|                   1|                   0|                   0|                 0|                 1|                   0|                 0|                   4|                     1|                   1|                   2|                     1|                   1|      1|          0|     0|        false|     false|  false|            38|fucked up their climb real bad. looks like they parked backward or something. pretty OK overall, they look like they have swerve(plez double check that thanks) 
+     64|Practice Match|                   2|                   0|                   0|                 0|                 0|                   1|                 0|                   0|                     2|                   0|                   0|                     3|                   1|      0|          0|     0|        false|     false|  false|            66|Very good hatch & ball intake, just needs a bit more skillful driving and maybe speed to get themselves a solo rocket.
+     71|Practice Match|                   2|                   0|                   0|                 1|                 0|                   1|                 0|                   3|                     1|                   2|                   0|                     2|                   1|      1|          0|     0|        false|     false|   true|            54|
+     51|     Red 3|                   1|                   1|                   0|                 1|                 1|                   1|                 0|                   1|                     1|                   3|                   1|                     2|                   1|      3|          0|     0|        false|     false|  false|            71|uhhh pretty sick team actually even tho their elevator is a tad slow 
+     41|     Red 2|                   2|                   0|                   0|                 0|                 0|                   1|                 0|                   4|                     5|                   1|                   1|                     4|                   0|      2|          0|     0|        false|     false|  false|            96|the robot worked well and real smooth.interesting intake for cargo it was like a box

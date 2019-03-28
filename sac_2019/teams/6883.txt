@@ -1,0 +1,51 @@
+
+6883  --  Leviathan Robotics
+-----------------------------------------------------------------------
+
+Groups: ['LevelTwoStarters']
+
+Most common starting hab: 2.000000                 Highest starting hab: 2.000000
+
+Average game pieces in sandstorm: 0.593750
+
+AVERAGE HATCH PANELS:                     AVERAGE CARGO:
+	Cargo ship: 0.250000                             Cargo ship: 1.781250
+	Rocket: 0.187500                                 Rocket: 0.781250
+	Dropped: 0.156250                                Dropped: 1.218750
+
+Most common scale level: 0.000000                 Highest scale level: 1.000000
+
+Is assistant? False
+
+Average fouls: 3.312500                         Average tech fouls: 0.000000
+
+TOTAL yellow cards: 0.000000                    TOTAL red cards: 0.000000
+
+TOTAL E-stops/breaks: 0.000000
+
+-------------------------------------------------------------------------
+NOTES:
+
+Qualifier number     |  Note
+              79     | elevator still broke,has no intake. tried to do defense but got blocked by a pair of fighting ramp bots. tried to yeet to hab 2 but failed at that as well. Don't know why they aren't trying to repair. 
+              68     | it has some wood parts. There must have been a problem with the drive station because the robot wouldn't move 
+              45     | elevator was broken still, had no intake or outtake. disconnected or estopped (think disconnect). played defense in a mediocre manner before disconnect
+              13     | elevator flopped over and tried to play defense/counter defense
+see Tyler's drawing for more info
+during sandstorm just went and whacked into the cargo ship
+16 penalty pts from red
+               1     | Something seems to have gone wrong with their robot. Random Driving and many fouls.
+
+
+
+MATCHES:
+
+Number | Position | Starting Hab Level | S.S. Cargo in Ship | SS Cargo in Rocket | SS Cargo Dropped | SS Hatch in Ship | SS Hatch in Rocket | SS Hatch Dropped | Game Cargo in Ship | Game Cargo in Rocket | Game Cargo Dropped | Game Hatch in Ship | Game Hatch in Rocket | Game Hatch Dropped | Scale | Tech Foul | Foul | Yellow Card | Red Card | Broke | Final Points | Notes
+     79|     Red 1|                   2|                   1|                   0|                 0|                 1|                   1|                 1|                   1|                     1|                   3|                   2|                     2|                   1|      1|          0|     0|        false|     false|   true|            44|elevator still broke,has no intake. tried to do defense but got blocked by a pair of fighting ramp bots. tried to yeet to hab 2 but failed at that as well. Don't know why they aren't trying to repair. 
+     68|     Red 2|                   2|                   0|                   0|                 0|                 0|                   0|                 1|                   6|                     0|                   0|                   1|                     0|                   0|      0|          0|     1|        false|     false|  false|            48|it has some wood parts. There must have been a problem with the drive station because the robot wouldn't move 
+     45|     Red 1|                   2|                   2|                   0|                 1|                 0|                   2|                 0|                   3|                     6|                   3|                   1|                     1|                   1|      0|          0|     2|        false|     false|   true|            38|elevator was broken still, had no intake or outtake. disconnected or estopped (think disconnect). played defense in a mediocre manner before disconnect
+     13|    Blue 2|                   1|                   0|                   0|                 0|                 0|                   0|                 0|                   4|                     0|                   3|                   0|                     0|                   0|      0|          0|     0|        false|     false|   true|            47|elevator flopped over and tried to play defense/counter defense
+see Tyler's drawing for more info
+during sandstorm just went and whacked into the cargo ship
+16 penalty pts from red
+      1|    Blue 1|                   1|                   0|                   0|                 0|                 0|                   0|                 0|                   0|                     0|                   0|                   0|                     0|                   0|      1|          0|     6|        false|     false|  false|             9|Something seems to have gone wrong with their robot. Random Driving and many fouls.

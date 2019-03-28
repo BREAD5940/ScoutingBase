@@ -1,0 +1,52 @@
+
+1678  --  Citrus Circuits
+-----------------------------------------------------------------------
+
+Groups: ['LevelThreeClimbers']
+
+Most common starting hab: 1.000000                 Highest starting hab: 1.000000
+
+Average game pieces in sandstorm: 1.187500
+
+AVERAGE HATCH PANELS:                     AVERAGE CARGO:
+	Cargo ship: 0.625000                             Cargo ship: 1.687500
+	Rocket: 4.812500                                 Rocket: 5.375000
+	Dropped: 0.250000                                Dropped: 0.437500
+
+Most common scale level: 0.000000                 Highest scale level: 3.000000
+
+Is assistant? False
+
+Average fouls: 0.625000                         Average tech fouls: 0.000000
+
+TOTAL yellow cards: 0.000000                    TOTAL red cards: 0.000000
+
+TOTAL E-stops/breaks: 0.000000
+
+-------------------------------------------------------------------------
+NOTES:
+
+Qualifier number     |  Note
+              17     | they did really well during the sandstorm but they had some problems during the game. 
+              41     | preloaded hatch panel
+very strong intake
+experienced drivers
+fast cycle time
+finished a rocket on their own with 50 sec left
+outtake is also very strong
+              74     | As someone probably already said, really good everything. The odd part was that they weren't able to get to HAB 3.
+
+
+
+MATCHES:
+
+Number | Position | Starting Hab Level | S.S. Cargo in Ship | SS Cargo in Rocket | SS Cargo Dropped | SS Hatch in Ship | SS Hatch in Rocket | SS Hatch Dropped | Game Cargo in Ship | Game Cargo in Rocket | Game Cargo Dropped | Game Hatch in Ship | Game Hatch in Rocket | Game Hatch Dropped | Scale | Tech Foul | Foul | Yellow Card | Red Card | Broke | Final Points | Notes
+     17|    Blue 3|                   1|                   0|                   0|                 1|                 0|                   1|                 1|                   1|                     2|                   1|                   0|                     1|                   0|      0|          0|     0|        false|     false|  false|            62|they did really well during the sandstorm but they had some problems during the game. 
+     41|     Red 1|                   1|                   1|                   0|                 1|                 0|                   2|                 1|                   1|                     6|                   1|                   1|                     4|                   2|      3|          0|     5|        false|     false|  false|            96|preloaded hatch panel
+very strong intake
+experienced drivers
+fast cycle time
+finished a rocket on their own with 50 sec left
+outtake is also very strong
+     74|Practice Match|                   1|                   0|                   0|                 1|                 0|                   1|                 0|                   4|                     6|                   1|                   0|                     5|                   0|      1|          0|     0|        false|     false|   true|            77|As someone probably already said, really good everything. The odd part was that they weren't able to get to HAB 3.
+     40| Qualifier|                   1|                   0|                   0|                 0|                 0|                   1|                 0|                   1|                     6|                   0|                   1|                     6|                   0|      0|          0|     0|        false|     false|  false|            15|

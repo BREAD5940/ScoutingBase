@@ -1,0 +1,59 @@
+
+5274  --  Wolverines
+-----------------------------------------------------------------------
+
+Groups: ['LevelTwoClimbers', 'LevelTwoStarters']
+
+Most common starting hab: 2.000000                 Highest starting hab: 2.000000
+
+Average game pieces in sandstorm: 2.195312
+
+AVERAGE HATCH PANELS:                     AVERAGE CARGO:
+	Cargo ship: 1.351562                             Cargo ship: 6.093750
+	Rocket: 0.828125                                 Rocket: 2.992188
+	Dropped: 0.906250                                Dropped: 2.531250
+
+Most common scale level: 1.000000                 Highest scale level: 2.000000
+
+Is assistant? False
+
+Average fouls: 0.007812                         Average tech fouls: 0.000000
+
+TOTAL yellow cards: 0.000000                    TOTAL red cards: 0.000000
+
+TOTAL E-stops/breaks: 0.000000
+
+-------------------------------------------------------------------------
+NOTES:
+
+Qualifier number     |  Note
+               9     | very wobbly and jerky. slow but decent and got the job done. they were half on hab two 
+              73     | their intake is WACK
+              28     | intake was efficient
+driver  had somewhat precise aiming
+moved around at an average speed
+average cycle time
+              34     | connection broke twice. cycles at average speed.only was in control for perhaps 45 secs. 
+              68     | OK with balls. 
+              16     | ok intake after filling cargo ship had to wait for another bot to place hatches probably could have done better if talked to alliance before match 
+              49     | average not tbh, reliable 
+              84     | cargo only? 
+seemed to be trying lvl 2 hab not enough time 
+
+
+
+MATCHES:
+
+Number | Position | Starting Hab Level | S.S. Cargo in Ship | SS Cargo in Rocket | SS Cargo Dropped | SS Hatch in Ship | SS Hatch in Rocket | SS Hatch Dropped | Game Cargo in Ship | Game Cargo in Rocket | Game Cargo Dropped | Game Hatch in Ship | Game Hatch in Rocket | Game Hatch Dropped | Scale | Tech Foul | Foul | Yellow Card | Red Card | Broke | Final Points | Notes
+      9|    Blue 3|                   2|                   0|                   0|                 0|                 0|                   0|                 0|                   4|                     0|                   2|                   0|                     0|                   0|      1|          0|     0|        false|     false|  false|            48|very wobbly and jerky. slow but decent and got the job done. they were half on hab two 
+     73|     Red 2|                   2|                   1|                   0|                 0|                 0|                   0|                 1|                   4|                     1|                   1|                   1|                     0|                   0|      1|          0|     1|        false|     false|  false|            40|their intake is WACK
+     28|     Red 1|                   2|                   1|                   0|                 0|                 1|                   2|                 1|                   5|                     1|                   1|                   2|                     1|                   2|      1|          0|     0|        false|     false|  false|            42|intake was efficient
+driver  had somewhat precise aiming
+moved around at an average speed
+average cycle time
+     34|     Red 1|                   2|                   0|                   0|                 0|                 1|                   1|                 1|                   1|                     1|                   4|                   2|                     4|                   2|      0|          0|     0|        false|     false|  false|            62|connection broke twice. cycles at average speed.only was in control for perhaps 45 secs. 
+     68|Practice Match|                   2|                   0|                   0|                 1|                 0|                   1|                 0|                   3|                     1|                   2|                   0|                     3|                   1|      2|          0|     0|        false|     false|   true|            58|OK with balls. 
+     16|    Blue 2|                   2|                   0|                   0|                 0|                 0|                   0|                 0|                   4|                     1|                   0|                   0|                     0|                   0|      0|          0|     0|        false|     false|  false|            62|ok intake after filling cargo ship had to wait for another bot to place hatches probably could have done better if talked to alliance before match 
+     49|     Red 3|                   2|                   1|                   0|                 1|                 0|                   1|                 0|                   5|                     1|                   3|                   1|                     2|                   1|      1|          0|     0|        false|     false|  false|            49|average not tbh, reliable 
+     84| Qualifier|                   2|                   1|                   0|                 0|                 0|                   2|                 0|                   8|                     5|                   3|                   2|                     0|                   1|      1|          0|     0|        false|     false|  false|            48|cargo only? 
+seemed to be trying lvl 2 hab not enough time 

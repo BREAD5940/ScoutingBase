@@ -1,0 +1,53 @@
+
+2473  --  Goldstrikers
+-----------------------------------------------------------------------
+
+Groups: []
+
+Most common starting hab: 1.000000                 Highest starting hab: 1.000000
+
+Average game pieces in sandstorm: 1.234375
+
+AVERAGE HATCH PANELS:                     AVERAGE CARGO:
+	Cargo ship: 0.750000                             Cargo ship: 3.296875
+	Rocket: 1.187500                                 Rocket: 2.437500
+	Dropped: 1.218750                                Dropped: 1.031250
+
+Most common scale level: 1.000000                 Highest scale level: 1.000000
+
+Is assistant? False
+
+Average fouls: 0.093750                         Average tech fouls: 2.000000
+
+TOTAL yellow cards: 0.000000                    TOTAL red cards: 0.000000
+
+TOTAL E-stops/breaks: 0.000000
+
+-------------------------------------------------------------------------
+NOTES:
+
+Qualifier number     |  Note
+              18     | preloaded hatch panel
+hatch panel fell when cargo was put in
+struggled to align hatch panel
+slow cycle times
+              54     | good at placing hatch panels
+              26     | dropped is hatch and cargo that fell out of rocket. our robot but slow
+              84     | Kinda bad in all senses.
+              64     | intake didn't work... yeah pretty bad tbh 
+              72     | decent cargo bot
+
+
+
+MATCHES:
+
+Number | Position | Starting Hab Level | S.S. Cargo in Ship | SS Cargo in Rocket | SS Cargo Dropped | SS Hatch in Ship | SS Hatch in Rocket | SS Hatch Dropped | Game Cargo in Ship | Game Cargo in Rocket | Game Cargo Dropped | Game Hatch in Ship | Game Hatch in Rocket | Game Hatch Dropped | Scale | Tech Foul | Foul | Yellow Card | Red Card | Broke | Final Points | Notes
+     18|     Red 1|                   1|                   0|                   0|                 0|                 1|                   0|                 1|                   3|                     2|                   4|                   0|                     2|                   0|      1|          1|     2|        false|     false|  false|            57|preloaded hatch panel
+hatch panel fell when cargo was put in
+struggled to align hatch panel
+slow cycle times
+     54|    Blue 1|                   1|                   0|                   0|                 0|                 0|                   1|                 0|                   2|                     1|                   1|                   2|                     3|                   1|      1|          1|     2|        false|     false|   true|            60|good at placing hatch panels
+     26|    Blue 2|                   1|                   0|                   0|                 0|                 1|                   0|                 0|                   1|                     2|                   1|                   1|                     3|                   1|      1|          0|     0|        false|     false|  false|            58|dropped is hatch and cargo that fell out of rocket. our robot but slow
+     84|Practice Match|                   1|                   1|                   0|                 1|                 0|                   0|                 0|                   3|                     0|                   1|                   1|                     1|                   1|      0|          0|     0|        false|     false|  false|            48|Kinda bad in all senses.
+     64|     Red 3|                   1|                   0|                   0|                 0|                 0|                   0|                 1|                   1|                     3|                   1|                   0|                     1|                   2|      0|          0|     0|        false|     false|  false|            32|intake didn't work... yeah pretty bad tbh 
+     72|     Red 3|                   1|                   1|                   0|                 0|                 0|                   1|                 1|                   5|                     3|                   1|                   1|                     1|                   1|      1|          0|     0|        false|     false|  false|            26|decent cargo bot

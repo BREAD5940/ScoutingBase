@@ -1,0 +1,47 @@
+
+6662  --  FalconX
+-----------------------------------------------------------------------
+
+Groups: ['LevelThreeClimbers', 'LevelTwoClimbers', 'LevelTwoStarters']
+
+Most common starting hab: 2.000000                 Highest starting hab: 2.000000
+
+Average game pieces in sandstorm: 1.640625
+
+AVERAGE HATCH PANELS:                     AVERAGE CARGO:
+	Cargo ship: 0.203125                             Cargo ship: 0.968750
+	Rocket: 1.203125                                 Rocket: 3.203125
+	Dropped: 1.109375                                Dropped: 0.484375
+
+Most common scale level: 1.000000                 Highest scale level: 3.000000
+
+Is assistant? False
+
+Average fouls: 0.015625                         Average tech fouls: 1.000000
+
+TOTAL yellow cards: 0.000000                    TOTAL red cards: 0.000000
+
+TOTAL E-stops/breaks: 0.000000
+
+-------------------------------------------------------------------------
+NOTES:
+
+Qualifier number     |  Note
+              39     | Hatch mechanism OK...
+              85     | slow, mech isn't very good but driver makes up for it to a degree. alignment is OK speed, robot is a little slow. parked to climb at 50 secs left.
+              27     | played defense against the defense in order to keep themnout of citrus,s. way... yeah that's all lmao
+              48     | look like they have vision in auto. mostly played defence. half climbed but got memed by the timer 
+              78     | climber failed and fell on alliance member wtf 
+              16     | the robot just mainly played defense . they had a good intake for hatch 
+
+
+
+MATCHES:
+
+Number | Position | Starting Hab Level | S.S. Cargo in Ship | SS Cargo in Rocket | SS Cargo Dropped | SS Hatch in Ship | SS Hatch in Rocket | SS Hatch Dropped | Game Cargo in Ship | Game Cargo in Rocket | Game Cargo Dropped | Game Hatch in Ship | Game Hatch in Rocket | Game Hatch Dropped | Scale | Tech Foul | Foul | Yellow Card | Red Card | Broke | Final Points | Notes
+     39|    Blue 1|                   2|                   0|                   0|                 1|                 1|                   2|                 1|                   0|                     3|                   1|                   1|                     1|                   1|      2|          1|     1|        false|     false|   true|            24|Hatch mechanism OK...
+     85|     Red 1|                   2|                   1|                   0|                 0|                 1|                   1|                 1|                   5|                     1|                   3|                   2|                     2|                   1|      3|          0|     0|        false|     false|   true|            74|slow, mech isn't very good but driver makes up for it to a degree. alignment is OK speed, robot is a little slow. parked to climb at 50 secs left.
+     27|     Red 3|                   2|                   0|                   0|                 0|                 0|                   0|                 1|                   1|                     0|                   0|                   0|                     2|                   7|      1|          0|     0|        false|     false|  false|            70|played defense against the defense in order to keep themnout of citrus,s. way... yeah that's all lmao
+     48|     Red 3|                   2|                   1|                   0|                 1|                 0|                   1|                 0|                   2|                     1|                   3|                   1|                     2|                   1|      0|          0|     0|        false|     false|  false|            42|look like they have vision in auto. mostly played defence. half climbed but got memed by the timer 
+     78|     Red 3|                   1|                   0|                   0|                 0|                 1|                   0|                 1|                   2|                     0|                   0|                   0|                     1|                   2|      1|          0|     0|        false|     false|  false|            41|climber failed and fell on alliance member wtf 
+     16|     Red 2|                   2|                   0|                   0|                 0|                 0|                   2|                 0|                   0|                     6|                   0|                   0|                     1|                   0|      2|          0|     0|        false|     false|  false|            61|the robot just mainly played defense . they had a good intake for hatch 

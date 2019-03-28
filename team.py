@@ -30,6 +30,7 @@ class Team:
         self.totalRed=0
         # self.eStops=0
         self.borks=0
+        self.groups = []
 
     #add match row
     def addMatch(self,match):
@@ -69,10 +70,11 @@ class Team:
             self.totalRed +=1
         if match[23]=="true" or match[23]=="1":
             self.borks += 1
-
+            
     def toString(self):
         string= "\n%4d  --  %s\n"%(self.number, self.name)
         string+="-----------------------------------------------------------------------\n\n"
+        string+="Groups: "+str(self.groups)+"\n\n"
         string+="Most common starting hab: %f                 Highest starting hab: %f\n\n"%(self.consistStartHab, self.maxStartHab)
         string+="Average game pieces in sandstorm: %f\n\n"%(self.avGPSand)
         string+="AVERAGE HATCH PANELS:                     AVERAGE CARGO:\n"
@@ -90,17 +92,22 @@ class Team:
         for match in self.matches:
             # print(match)
             try:
-                string+="%2d \t\t| %s\n"%(float(match[1]), match[24])
+                string+="%16d     | %s\n"%(float(match[1]), match[24])
             except:
                 print("nullllllllllllllllllllllllllllllllllll")
         string+="\n\n\nMATCHES:\n\n"
         string+="Number | Position | Starting Hab Level | S.S. Cargo in Ship | SS Cargo in Rocket | SS Cargo Dropped | SS Hatch in Ship | SS Hatch in Rocket | SS Hatch Dropped | Game Cargo in Ship | Game Cargo in Rocket | Game Cargo Dropped | Game Hatch in Ship | Game Hatch in Rocket | Game Hatch Dropped | Scale | Tech Foul | Foul | Yellow Card | Red Card | Broke | Final Points | Notes\n"
         for match in self.matches:
             try:
-                string+=match[0]+"\t"+match[1]+"\t"+match[2]+"\t"+match[3]+"\t"+match[4]+"\t"+match[5]+"\t"+match[6]+"\t"+match[7]+"\t"+match[8]+"\t"+match[9]+"\t"+match[10]+"\t"+match[11]+"\t"+match[12]+"\t"+match[13]+"\t"+match[14]+"\t"+match[15]+"\t"+match[16]+"\t"+match[17]+"\t"+match[18]+"\t"+match[19]+"\t"+match[20]+"\t"+match[21]+"\t"+match[22]+"\t"+match[23]+"\t"+match[24]+"\n"
+                string+="%7s|%10s|%20s|%20s|%20s|%18s|%18s|%20s|%18s|%20s|%22s|%20s|%20s|%22s|%20s|%7s|%11s|%6s|%13s|%10s|%7s|%14s|%s\n"%(match[1],match[3],match[4],match[5],match[6],match[7],match[8],match[9],match[10],match[11],match[12],match[13],match[14],match[15],match[16],match[17],match[18],match[19],match[20],match[21],match[22],match[23],match[24])
+                # string+=match[0]+"\t"+match[1]+"\t"+match[2]+"\t"+match[3]+"\t"+match[4]+"\t"+match[5]+"\t"+match[6]+"\t"+match[7]+"\t"+match[8]+"\t"+match[9]+"\t"+match[10]+"\t"+match[11]+"\t"+match[12]+"\t"+match[13]+"\t"+match[14]+"\t"+match[15]+"\t"+match[16]+"\t"+match[17]+"\t"+match[18]+"\t"+match[19]+"\t"+match[20]+"\t"+match[21]+"\t"+match[22]+"\t"+match[23]+"\t"+match[24]+"\n"
             except:
                 print("nulllllllllllllllllllllll")
-                string+=match[0]+", "+match[1]+", "+match[2]+", "+match[3]+", "+match[4]+", "+match[5]+", "+match[6]+", "+match[7]+", "+match[8]+", "+match[9]+", "+match[10]+", "+match[11]+", "+match[12]+", "+match[13]+", "+match[14]+", "+match[15]+", "+match[16]+", "+match[17]+", "+match[18]+", "+match[19]+", "+match[20]+", "+match[21]+", "+match[22]+", "+match[23]+"\n"
+                string+="%7s|%10s|%20s|%20s|%20s|%18s|%18s|%20s|%18s|%20s|%22s|%20s|%20s|%22s|%20s|%7s|%11s|%6s|%13s|%10s|%7s|%14s|\n"%(match[1],match[3],match[4],match[5],match[6],match[7],match[8],match[9],match[10],match[11],match[12],match[13],match[14],match[15],match[16],match[17],match[18],match[19],match[20],match[21],match[22],match[23])
+                # string+=match[0]+", "+match[1]+", "+match[2]+", "+match[3]+", "+match[4]+", "+match[5]+", "+match[6]+", "+match[7]+", "+match[8]+", "+match[9]+", "+match[10]+", "+match[11]+", "+match[12]+", "+match[13]+", "+match[14]+", "+match[15]+", "+match[16]+", "+match[17]+", "+match[18]+", "+match[19]+", "+match[20]+", "+match[21]+", "+match[22]+", "+match[23]+"\n"
 
         return string
+
+
+
 

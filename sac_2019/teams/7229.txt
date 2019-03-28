@@ -1,0 +1,49 @@
+
+7229  --  Electronic Eagles
+-----------------------------------------------------------------------
+
+Groups: []
+
+Most common starting hab: 1.000000                 Highest starting hab: 1.000000
+
+Average game pieces in sandstorm: 1.734375
+
+AVERAGE HATCH PANELS:                     AVERAGE CARGO:
+	Cargo ship: 0.593750                             Cargo ship: 3.640625
+	Rocket: 0.093750                                 Rocket: 1.375000
+	Dropped: 0.625000                                Dropped: 1.718750
+
+Most common scale level: 1.000000                 Highest scale level: 1.000000
+
+Is assistant? False
+
+Average fouls: 0.281250                         Average tech fouls: 0.000000
+
+TOTAL yellow cards: 0.000000                    TOTAL red cards: 0.000000
+
+TOTAL E-stops/breaks: 0.000000
+
+-------------------------------------------------------------------------
+NOTES:
+
+Qualifier number     |  Note
+               6     | made of wood but their auto actually works surprisingly well oh wait I forgot auto doesn't exist this year I'm less impressed now....they also played sme defense 
+
+              38     | preloaded cargo, average cycle time, moderate speed
+              44     | has to take cargo from. human player, alignment is slow because they use camera. they are consistent, but they were defended. also made of wood.
+              78     | Agonisingly slow. Also drops a lot of balls. 
+              11     | pretty good robot it was smooth but the intake is like sometimes hard to get possession of. only focused on cargo
+              63     | wood bot. not a bad cargo not, compared to some others. kinda slow getting cargo from loading station- dropped a few and can't pick up from floor
+
+
+
+MATCHES:
+
+Number | Position | Starting Hab Level | S.S. Cargo in Ship | SS Cargo in Rocket | SS Cargo Dropped | SS Hatch in Ship | SS Hatch in Rocket | SS Hatch Dropped | Game Cargo in Ship | Game Cargo in Rocket | Game Cargo Dropped | Game Hatch in Ship | Game Hatch in Rocket | Game Hatch Dropped | Scale | Tech Foul | Foul | Yellow Card | Red Card | Broke | Final Points | Notes
+      6|     Red 3|                   1|                   1|                   0|                 0|                 0|                   0|                 0|                   1|                     0|                   0|                   0|                     0|                   0|      1|          0|     0|        false|     false|  false|            33|made of wood but their auto actually works surprisingly well oh wait I forgot auto doesn't exist this year I'm less impressed now....they also played sme defense 
+
+     38|     Red 1|                   1|                   1|                   0|                 0|                 1|                   1|                 1|                   2|                     0|                   1|                   1|                     1|                   2|      1|          0|     5|        false|     false|  false|            27|preloaded cargo, average cycle time, moderate speed
+     44|     Red 1|                   1|                   2|                   0|                 1|                 0|                   2|                 0|                   3|                     6|                   3|                   1|                     1|                   1|      1|          0|     2|        false|     false|  false|            62|has to take cargo from. human player, alignment is slow because they use camera. they are consistent, but they were defended. also made of wood.
+     78|Practice Match|                   1|                   1|                   0|                 0|                 0|                   0|                 0|                   1|                     0|                   2|                   0|                     0|                   0|      0|          0|     0|        false|     false|  false|            64|Agonisingly slow. Also drops a lot of balls. 
+     11|     Red 2|                   1|                   1|                   0|                 0|                 0|                   0|                 1|                   3|                     0|                   1|                   0|                     0|                   0|      0|          0|     0|        false|     false|  false|            42|pretty good robot it was smooth but the intake is like sometimes hard to get possession of. only focused on cargo
+     63| Qualifier|                   1|                   1|                   0|                 0|                 1|                   0|                 1|                   5|                     2|                   2|                   1|                     0|                   1|      0|          0|     0|        false|     false|  false|            47|wood bot. not a bad cargo not, compared to some others. kinda slow getting cargo from loading station- dropped a few and can't pick up from floor

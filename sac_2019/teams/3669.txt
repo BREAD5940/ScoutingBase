@@ -1,0 +1,45 @@
+
+3669  --  RoboKnights
+-----------------------------------------------------------------------
+
+Groups: ['LevelTwoClimbers', 'LevelTwoStarters']
+
+Most common starting hab: 2.000000                 Highest starting hab: 2.000000
+
+Average game pieces in sandstorm: 1.687500
+
+AVERAGE HATCH PANELS:                     AVERAGE CARGO:
+	Cargo ship: 0.500000                             Cargo ship: 1.812500
+	Rocket: 0.343750                                 Rocket: 2.531250
+	Dropped: 0.656250                                Dropped: 1.031250
+
+Most common scale level: 2.000000                 Highest scale level: 2.000000
+
+Is assistant? False
+
+Average fouls: 0.031250                         Average tech fouls: 1.000000
+
+TOTAL yellow cards: 0.000000                    TOTAL red cards: 0.000000
+
+TOTAL E-stops/breaks: 0.000000
+
+-------------------------------------------------------------------------
+NOTES:
+
+Qualifier number     |  Note
+              32     | cargo only bot I think
+               4     | they just completely stopped out of the blue. we couldn't find a light so we couldn't tell if it was broken or E stopped 5507 pushed 3669 onto level one. 
+              77     | jerky drive trainnpretty slow too
+              17     | there were issues with the robot. the driving was really bumpy. I think it was problems with drive station. the robot design is  good and intake for hatch is creative 
+              55     | double stacked cargo. super slow cycle time. keeps running into teammates. 3 stars on Amazon. 
+
+
+
+MATCHES:
+
+Number | Position | Starting Hab Level | S.S. Cargo in Ship | SS Cargo in Rocket | SS Cargo Dropped | SS Hatch in Ship | SS Hatch in Rocket | SS Hatch Dropped | Game Cargo in Ship | Game Cargo in Rocket | Game Cargo Dropped | Game Hatch in Ship | Game Hatch in Rocket | Game Hatch Dropped | Scale | Tech Foul | Foul | Yellow Card | Red Card | Broke | Final Points | Notes
+     32|    Blue 1|                   2|                   0|                   0|                 0|                 1|                   1|                 1|                   2|                     1|                   1|                   0|                     1|                   1|      2|          1|     1|        false|     false|   true|            52|cargo only bot I think
+      4|    Blue 3|                   2|                   0|                   0|                 0|                 0|                   0|                 0|                   0|                     0|                   0|                   0|                     1|                   0|      1|          0|     0|        false|     false|   true|            29|they just completely stopped out of the blue. we couldn't find a light so we couldn't tell if it was broken or E stopped 5507 pushed 3669 onto level one. 
+     77|     Red 3|                   2|                   0|                   0|                 0|                 1|                   0|                 0|                   2|                     0|                   0|                   0|                     0|                   1|      0|          0|     0|        false|     false|  false|            32|jerky drive trainnpretty slow too
+     17|     Red 2|                   2|                   0|                   0|                 0|                 0|                   2|                 0|                   0|                     6|                   0|                   0|                     1|                   0|      2|          0|     0|        false|     false|  false|            52|there were issues with the robot. the driving was really bumpy. I think it was problems with drive station. the robot design is  good and intake for hatch is creative 
+     55|     Red 2|                   2|                   1|                   0|                 0|                 1|                   0|                 1|                   3|                     2|                   2|                   1|                     0|                   1|      0|          0|     0|        false|     false|  false|            29|double stacked cargo. super slow cycle time. keeps running into teammates. 3 stars on Amazon. 

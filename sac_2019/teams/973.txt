@@ -1,0 +1,41 @@
+
+ 973  --  Greybots
+-----------------------------------------------------------------------
+
+Groups: ['LevelThreeClimbers', 'LevelTwoStarters']
+
+Most common starting hab: 2.000000                 Highest starting hab: 2.000000
+
+Average game pieces in sandstorm: 0.625000
+
+AVERAGE HATCH PANELS:                     AVERAGE CARGO:
+	Cargo ship: 0.125000                             Cargo ship: 1.750000
+	Rocket: 2.250000                                 Rocket: 2.000000
+	Dropped: 0.125000                                Dropped: 0.375000
+
+Most common scale level: 3.000000                 Highest scale level: 3.000000
+
+Is assistant? False
+
+Average fouls: 0.125000                         Average tech fouls: 1.000000
+
+TOTAL yellow cards: 0.000000                    TOTAL red cards: 0.000000
+
+TOTAL E-stops/breaks: 0.000000
+
+-------------------------------------------------------------------------
+NOTES:
+
+Qualifier number     |  Note
+              40     | pretty good 
+              17     | A good robot. Knows what it is doing
+              23     | "Souter continued past sandstorm
+
+
+
+MATCHES:
+
+Number | Position | Starting Hab Level | S.S. Cargo in Ship | SS Cargo in Rocket | SS Cargo Dropped | SS Hatch in Ship | SS Hatch in Rocket | SS Hatch Dropped | Game Cargo in Ship | Game Cargo in Rocket | Game Cargo Dropped | Game Hatch in Ship | Game Hatch in Rocket | Game Hatch Dropped | Scale | Tech Foul | Foul | Yellow Card | Red Card | Broke | Final Points | Notes
+     40|    Blue 1|                   2|                   0|                   0|                 1|                 1|                   2|                 1|                   2|                     2|                   1|                   1|                     2|                   1|      3|          1|     1|        false|     false|   true|            64|pretty good 
+     17|    Blue 1|                   2|                   0|                   0|                 0|                 0|                   1|                 0|                   0|                     3|                   1|                   0|                     4|                   0|      3|          0|     0|            0|         0|      0|            62|A good robot. Knows what it is doing
+     23|    Blue 1|                   1|                   0|                   0|                 0|                 0|                   0|                 0|                   3|                     2|                   0|                   0|                     2|                   0|      3|          0|     0|            0|         0|      0|           103|"Souter continued past sandstorm
