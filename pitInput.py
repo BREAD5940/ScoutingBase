@@ -1,6 +1,7 @@
 import PySimpleGUI as sg
+# import main
 
-# Very basic window.  Return values as a list
+# as dumb as it sounds, this is linked in with the rest of the base. line 107 (ish)
 
 robotColumnTwoElectricBoogaloo = [
           [sg.Text('         '), sg.Checkbox('Climbs')],     
@@ -15,7 +16,7 @@ robotColumnTwoElectricBoogaloo = [
           [sg.Text('         '), sg.Checkbox('Can reach over cargo')], 
           [sg.Text('         '), sg.Checkbox('Rampbot')],
           [sg.Text('\tRobot nicknames (comma-seperated): ')],
-          [sg.Text('\t  '), sg.Multiline()]
+          [sg.Text('\t  '), sg.InputText()]
 ]
 
 robotColumn = [
@@ -103,4 +104,48 @@ layout = [
 window = sg.Window('Pit Scouting Data Entry', resizable=True).Layout(layout)         
 button, values = window.Read()
 
-print(button, values)
+'''
+0: number
+1: name
+2: Climbs (t/f)
+3: Climb level 2
+4: climb level 3
+5: climb assist
+6: cargo intake
+7: hatch intake
+8: reach level 1
+9: reach level 2
+10: reach level 3
+11: mechanical issues (float)
+12: camera
+13: sense/lime
+14: presets
+15: cog high
+16: cog low
+17: cog unknown
+18: long arm
+19: rampy boi
+20: nicknames
+21: level 1 start
+22: level 2 start
+23: hatch close rocket
+24: hatch far rocket
+25: hatch front
+26: hatch cargo
+27: line
+28: multi
+29: other
+30: sandstorm strat notes
+31: driver + cam
+32: auto
+33: ship c + h
+34: ship c
+35: ship h
+36: rocket c+h
+37: rocket c
+38: rocket
+'''
+print(values)
+# outFile = open(main.dataDirectory+values[0]+"Pit.csv", "w")
+
+
