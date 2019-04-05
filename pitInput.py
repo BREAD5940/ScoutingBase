@@ -1,7 +1,7 @@
 import PySimpleGUI as sg
-# import main
+import main
 
-# as dumb as it sounds, this is linked in with the rest of the base. line 107 (ish)
+# as dumb as it sounds, this is linked in with the rest of the base. line 165 (ish)
 
 robotColumnTwoElectricBoogaloo = [
           [sg.Text('         '), sg.Checkbox('Climbs')],     
@@ -162,6 +162,6 @@ button, values = window.Read()
 54: notes
 '''
 print(values)
-# outFile = open(main.dataDirectory+values[0]+"Pit.csv", "w")
-
-
+outFile = open(main.dataDirectory+"pitData.csv", "a")
+outFile.write(values[0]+","+values[2]+","+climbLvl+","+)
+# imma make this be a thing where shit is stored as strings, but comparable strings so it can be pretty and i can do a Logic on it
