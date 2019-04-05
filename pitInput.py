@@ -143,7 +143,23 @@ button, values = window.Read()
 35: ship h
 36: rocket c+h
 37: rocket c
-38: rocket
+38: rocket h
+39: mixed rocket/ship
+40: defense
+41: flexible
+42: other
+43: teleop strat notes
+44: gps per match
+45: av cycle time
+46: pref h
+47: pref c
+48: relies on hp
+49: would like hp
+50: no pref on hp
+51: strong strat
+52: pref strat
+53: flex strat
+54: notes
 '''
 print(values)
 # outFile = open(main.dataDirectory+values[0]+"Pit.csv", "w")
