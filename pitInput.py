@@ -163,5 +163,5 @@ button, values = window.Read()
 '''
 print(values)
 outFile = open(main.dataDirectory+"pitData.csv", "a")
-outFile.write(values[0]+","+values[2]+","+climbLvl+","+)
+# outFile.write(values[0]+","+values[2]+","+climbLvl+","+)
 # imma make this be a thing where shit is stored as strings, but comparable strings so it can be pretty and i can do a Logic on it

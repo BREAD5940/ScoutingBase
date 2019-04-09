@@ -1,0 +1,15 @@
+GUI
+- c o m p l e t e  GUI
+    - like it does all the things
+- better output for team data
+
+APP
+- autoname files
+    - or do it it the GUI
+- 
+
+CODE
+- Fix the thing where you have to run 'python ScoutingBase/main.py' from GitHub/ScoutingBase or the files won't show (reeeeee)
+- Easier getters and setters than a heckin csv. maybe a custom csvreader class?
+- Tbh we should just use java at this point
+- fix the Thing with the modes
