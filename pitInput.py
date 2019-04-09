@@ -132,36 +132,89 @@ button, values = window.Read()
 24: hatch far rocket
 25: hatch front
 26: hatch cargo
-27: line
-28: multi
-29: other
-30: sandstorm strat notes
-31: driver + cam
-32: auto
-33: ship c + h
-34: ship c
-35: ship h
-36: rocket c+h
-37: rocket c
-38: rocket h
-39: mixed rocket/ship
-40: defense
-41: flexible
-42: other
-43: teleop strat notes
-44: gps per match
-45: av cycle time
-46: pref h
-47: pref c
-48: relies on hp
-49: would like hp
-50: no pref on hp
-51: strong strat
-52: pref strat
-53: flex strat
-54: notes
+27: cargo
+28: line
+29: multi
+30: other
+31: sandstorm strat notes
+32: driver + cam
+33: auto
+34: ship c + h
+35: ship c
+36: ship h
+37: rocket c+h
+38: rocket c
+39: rocket h
+40: mixed rocket/ship
+41: defense
+42: flexible
+43: other
+44: teleop strat notes
+45: gps per match
+46: av cycle time
+47: pref h
+48: pref c
+49: relies on hp
+50: would like hp
+51: no pref on hp
+52: strong strat
+53: pref strat
+54: flex strat
+55: notes
 '''
 print(values)
+climbLvl = 1
+reachLvl=0
+cog='u'
+startLvl=1
+sandStrat='none'
+autoDrive=False
+teleStrat='none'
+gpPref='none'
+humanPrefs='none'
+stratPrefs='none'
+
+if values[3]:
+        climbLvl=2
+elif values[4]:
+        climbLvl=3
+
+if values[8]:
+        reachLvl=1
+elif values[9]:
+        reachLvl=2
+elif values[10]:
+        reachLvl=3
+
+if values[15]:
+        cog='h'
+elif values[16]:
+        cog='l'
+elif values[17]:
+        cog='u'
+
+if values[21]:
+        startLvl=1
+elif values[22]:
+        startLvl=2
+
+if values[23]:
+        sandStrat="hatch close side rocket"
+elif values[24]:
+        sandStrat="hatch far side rocket"
+elif values[25]:
+        sandStrat="hatch front cargo ship"
+elif values[26]:
+        sandStrat="hatch cargo ship"
+elif values[27]:
+        sandStrat="cargo cargo ship"
+elif values[28]:
+        sandStrat="across hab line"
+elif values[29]:
+        sandStrat="god-tier multi piece"
+elif values[30]:
+        sandStrat="other"
+
 outFile = open(main.dataDirectory+"pitData.csv", "a")
-# outFile.write(values[0]+","+values[2]+","+climbLvl+","+)
+outFile.write(values[0]+","+values[2]+","+climbLvl+","+values[5]+","+values[6]+","+values[7]+","+reachLvl+","+values[11]+","+values[12]+","+values[13]+","+values[14]+","+cog+","+values[18]+","+values[19]+","+startLvl+","+sandStrat+","+values[31]+","+autoDrive+","+teleStrat+","+values[44]+","+values[45]+","+values[46]+","+gpPref+","+humanPrefs+","+stratPrefs+","+values[20]+","+values[55])
 # imma make this be a thing where shit is stored as strings, but comparable strings so it can be pretty and i can do a Logic on it

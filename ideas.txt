@@ -13,3 +13,10 @@ CODE
 - Easier getters and setters than a heckin csv. maybe a custom csvreader class?
 - Tbh we should just use java at this point
 - fix the Thing with the modes
+- add more 'sorts'
+- incorporate pit data into the team objects
+- store cached team data as csvs?
+    - make stuff bold/highlighted if it's changed since the last program run
+        - need something that's not txt for this
+        - what defines a 'run'?
+        - cache previous data filenames too?
