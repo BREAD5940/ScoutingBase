@@ -163,16 +163,22 @@ button, values = window.Read()
 55: notes
 '''
 print(values)
+i=0
+while i < len(values):
+        if isinstance(values[i], str):
+                values[i] = values[i].replace('\n', '   ')
+        i=i+1
+
 climbLvl = 1
 reachLvl=0
 cog='u'
 startLvl=1
-sandStrat='none'
+sandStrat=[]
 autoDrive=False
-teleStrat='none'
-gpPref='none'
-humanPrefs='none'
-stratPrefs='none'
+teleStrat=[]
+gpPref=[]
+humanPrefs=[]
+stratPrefs=[]
 
 if values[3]:
         climbLvl=2
@@ -199,22 +205,66 @@ elif values[22]:
         startLvl=2
 
 if values[23]:
-        sandStrat="hatch close side rocket"
-elif values[24]:
-        sandStrat="hatch far side rocket"
-elif values[25]:
-        sandStrat="hatch front cargo ship"
-elif values[26]:
-        sandStrat="hatch cargo ship"
-elif values[27]:
-        sandStrat="cargo cargo ship"
-elif values[28]:
-        sandStrat="across hab line"
-elif values[29]:
-        sandStrat="god-tier multi piece"
-elif values[30]:
-        sandStrat="other"
+        sandStrat.append("hatch close side rocket")
+if values[24]:
+        sandStrat.append("hatch far side rocket")
+if values[25]:
+        sandStrat.append("hatch front cargo ship")
+if values[26]:
+        sandStrat.append("hatch cargo ship")
+if values[27]:
+        sandStrat.append("cargo cargo ship")
+if values[28]:
+        sandStrat.append("across hab line")
+if values[29]:
+        sandStrat.append("god-tier multi piece")
+if values[30]:
+        sandStrat.append("other")
+
+if values[32]:
+        autoDrive=False
+elif values[33]:
+        autoDrive=True
+
+if values[34]:
+        teleStrat.append("cargo and hatch cargo ship")
+if values[35]:
+        teleStrat.append("cargo cargo ship")
+if values[36]:
+        teleStrat.append("hatch cargo ship")
+if values[37]:
+        teleStrat.append("cargo and hatch rocket")
+if values[38]:
+        teleStrat.append("cargo rocket")
+if values[39]:
+        teleStrat.append("hatch rocket")
+if values[40]:
+        teleStrat.append("rocket/cargo ship mixed")
+if values[41]:
+        teleStrat.append("defense")
+if values[42]:
+        teleStrat.append("flexible")
+if values[43]:
+        teleStrat.append("other")
+
+if values[47]:
+        gpPref.append("h")
+if values[48]:
+        gpPref.append("c")
+
+if values[49]:
+        humanPrefs.append("relies on")
+if values[50]:
+        humanPrefs.append("would like")
+if values[51]:
+        humanPrefs.append("no pref")
+
+if values[52]:
+        stratPrefs.append("strong plan")
+if values[53]:
+        stratPrefs.append("prefers their plan")
+if values[54]:
+        stratPrefs.append("flexible on plan")
 
 outFile = open(main.dataDirectory+"pitData.csv", "a")
-outFile.write(values[0]+","+values[2]+","+climbLvl+","+values[5]+","+values[6]+","+values[7]+","+reachLvl+","+values[11]+","+values[12]+","+values[13]+","+values[14]+","+cog+","+values[18]+","+values[19]+","+startLvl+","+sandStrat+","+values[31]+","+autoDrive+","+teleStrat+","+values[44]+","+values[45]+","+values[46]+","+gpPref+","+humanPrefs+","+stratPrefs+","+values[20]+","+values[55])
-# imma make this be a thing where shit is stored as strings, but comparable strings so it can be pretty and i can do a Logic on it
+outFile.write(str(values[0])+","+str(values[2])+","+str(climbLvl)+","+str(values[5])+","+str(values[6])+","+str(values[7])+","+str(reachLvl)+","+str(values[11])+","+str(values[12])+","+str(values[13])+","+str(values[14])+","+cog+","+str(values[18])+","+str(values[19])+","+str(startLvl)+","+str(sandStrat)+","+"|"+str(values[31])+"|"+","+str(autoDrive)+","+str(teleStrat)+","+"|"+str(values[44])+"|"+","+str(values[45])+","+str(values[46])+","+str(gpPref)+","+str(humanPrefs)+","+str(stratPrefs)+","+"|"+str(values[20])+"|"+","+"|"+str(values[55])+"|\n")
