@@ -1,0 +1,32 @@
+plugins {
+  id 'application'
+  id 'org.openjfx.javafxplugin' version '0.0.7'
+}
+
+javafx {
+    version = "11.0.2"
+    modules = [ 'javafx.controls' ]
+}
+
+apply plugin: 'java'
+
+apply plugin: 'application'
+
+
+
+mainClassName = 'Main'
+
+repositories {
+    mavenCentral()
+
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+	implementation 'com.github.wdavies973:tba-api-v3:1.0.6'
+}
+
+
+run{
+    standardInput = System.in
+}

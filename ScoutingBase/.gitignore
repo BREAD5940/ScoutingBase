@@ -1,0 +1,10 @@
+
+*.bin
+*.lock
+.gradle/5.0/fileChanges/last-build.bin
+build/distributions/ScoutingBase.tar
+build/distributions/ScoutingBase.zip
+build/libs/ScoutingBase.jar
+build/scripts/ScoutingBase
+build/scripts/ScoutingBase.bat
+build/tmp/jar/MANIFEST.MF
