@@ -1,8 +1,8 @@
 package base;
 
-import com.cpjd.models.teams.Team;
+import java.util.ArrayList;
 
-public class Team extends Team{
+public class Team {
 
     String name;
     int number;
@@ -16,13 +16,13 @@ public class Team extends Team{
     double avCRocket;
     double avCDrop;
 
-    ArrayList<Integer> scaleLevels;
+    ArrayList<Integer> scaleLevels = new ArrayList<Integer>();
     double consistScaleLevel;
     double maxScaleLevel;
 
     boolean isRamp;
 
-    ArrayList<Integer> startHabs;
+    ArrayList<Integer> startHabs = new ArrayList<Integer>();
     double consistStartHab;
     double maxStartHab;
     boolean consistOffHab;
@@ -95,7 +95,7 @@ public class Team extends Team{
     public String toCSVString(){
         return name+","+number+","+avGPSand+","+avHPShip+","+avHPRocket+","+
                 avHPDrop+","+avCShip+","+avCRocket+","+avCDrop+","+scaleLevels+","+
-                    consistScaleLevel+","+maxScaleLevel+","+isRamp+","+starthabs+","+
+                    consistScaleLevel+","+maxScaleLevel+","+isRamp+","+startHabs+","+
                         consistStartHab+","+maxStartHab+","+consistOffHab+","+avFoul+","+
                             avTech+","+totalYellow+","+totalRed+","+eStops+","+borks+","+
                                 groups+","+matches;
