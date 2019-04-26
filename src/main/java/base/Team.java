@@ -1,11 +1,14 @@
 package base;
 
 import java.util.ArrayList;
+import base.Match;
+import base.Lib;
 
 public class Team {
 
     String name;
     int number;
+    
     ArrayList<Match> matches = new ArrayList<Match>();
 
     double avGPSand;
@@ -54,13 +57,13 @@ public class Team {
         this.avCDrop = (this.avCDrop + (match.CDropGame + match.CDropSand))/2;
 
         this.scaleLevels.add(match.scaleLevel);
-        this.consistScaleLevel = lib.mode(this.scaleLevels);
-        this.maxScaleLevel = lib.max(this.scaleLevels);
+        this.consistScaleLevel = Lib.mode(this.scaleLevels);
+        this.maxScaleLevel = Lib.max(this.scaleLevels);
         this.isRamp = this.isRamp || match.isHelp;
 
         this.startHabs.add(match.startHab);
-        this.consistStartHab = lib.mode(this.startHabs);
-        this.maxStartHab = lib.max(this.startHabs);
+        this.consistStartHab = Lib.mode(this.startHabs);
+        this.maxStartHab = Lib.max(this.startHabs);
         this.consistOffHab = consistStartHab != 0;
 
         this.avFoul = (this.avFoul + match.fouls)/2;
