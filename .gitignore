@@ -9,6 +9,8 @@
 *.lo
 *.o
 *.obj
+*.bin
+*.lock
 
 # Precompiled Headers
 *.gch
@@ -172,3 +174,5 @@ src\main\python\twoHatchLLtest.csv
 src\main\python\twoHatchLLtest.csv
 *.gz
 .gradle/5.0/fileHashes/fileHashes.bin
+
+.gradle/
