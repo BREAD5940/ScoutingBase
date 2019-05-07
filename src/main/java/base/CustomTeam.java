@@ -1,15 +1,15 @@
 package base;
 
 import java.util.ArrayList;
-import base.Match;
+import base.CustomMatch;
 import base.Lib;
 
-public class Team {
+public class CustomTeam {
 
     String name;
     int number;
     
-    ArrayList<Match> matches = new ArrayList<Match>();
+    ArrayList<CustomMatch> matches = new ArrayList<CustomMatch>();
 
     double avGPSand;
     double avHPShip;
@@ -40,13 +40,13 @@ public class Team {
 
     ArrayList<String> groups = new ArrayList<String>();
 
-    public Team (String name_, int number_){
+    public CustomTeam (String name_, int number_){
         this.name = name_;
         this.number = number_;
     }
 
 
-    public void addMatch(Match match){
+    public void addMatch(CustomMatch match){
         this.avGPSand = (this.avGPSand + match.getSandPlaces())/2;
 
         this.avHPShip = (this.avHPShip + (match.HPShipGame+match.HPShipSand))/2;

@@ -1,7 +1,8 @@
 package base;
 
+import com.cpjd.models.matches.Match;
 
-public class Match{
+public class CustomMatch{
 
     public int teamNum;
     public String matchType;
@@ -39,7 +40,7 @@ public class Match{
 
     public String matchNotes;
 
-    public Match(String[] csvRow){
+    public CustomMatch(String[] csvRow){
         this.matchType = csvRow[0];
         this.matchNum = Integer.valueOf(csvRow[1]);
         this.teamNum = Integer.valueOf(csvRow[2]);
@@ -77,7 +78,16 @@ public class Match{
         return HPShipSand+HPRocketSand+CShipSand+CRocketSand;
     }
 
-    private void getTBAVals(int matchNum){
+    public void syncTBA(){
+        String[] keys = Main.tbaApi.getMatchKeys(Main.tbaEventKey);
+        Match foundMatch;
 
+        for(String key : keys){
+            if( this.matchNum == Main.tbaApi.getMatch(key).getMatchNumber()){
+                foundMatch = Main.tbaApi.getMatch(key);
+            }
+        }
+
+        //TODO make data match or something
     }
 }
