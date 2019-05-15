@@ -8,6 +8,7 @@ public class CustomMatch{
     public String matchType;
     public int matchNum;
     public String alliancePosition;
+    public boolean isBlueAlliance;
 
     public int HPShipGame;
     public int HPShipSand;
@@ -35,7 +36,7 @@ public class CustomMatch{
     public boolean eStopped;
     public boolean borked;
 
-    public int scoutedPoints;
+    public int points;
     public int tbaPoints;
 
     public String matchNotes;
@@ -45,6 +46,7 @@ public class CustomMatch{
         this.matchNum = Integer.valueOf(csvRow[1]);
         this.teamNum = Integer.valueOf(csvRow[2]);
         this.alliancePosition = csvRow[3];
+        this.isBlueAlliance = alliancePosition.charAt(0) == 'B';
 
         this.startHab = Integer.valueOf(csvRow[4]);
 
@@ -69,7 +71,7 @@ public class CustomMatch{
         this.yellow = (csvRow[20].equalsIgnoreCase("true"));
         this.red = csvRow[21].equalsIgnoreCase("true");
         this.borked = csvRow[22].equalsIgnoreCase("true");
-        this.scoutedPoints = Integer.valueOf(csvRow[23]);
+        this.points = Integer.valueOf(csvRow[23]);
 
         this.matchNotes = csvRow[24];
     }
@@ -80,7 +82,7 @@ public class CustomMatch{
 
     public void syncTBA(){
         String[] keys = Main.tbaApi.getMatchKeys(Main.tbaEventKey);
-        Match foundMatch;
+        Match foundMatch = new Match();
 
         for(String key : keys){
             if( this.matchNum == Main.tbaApi.getMatch(key).getMatchNumber()){
@@ -88,6 +90,15 @@ public class CustomMatch{
             }
         }
 
+        if(this.points != foundMatch.getBlue().getScore() && this.isBlueAlliance) {
+            Lib.report(String.format("Scouted points for match %d, Blue Alliance. %nScouted points: %d%nTBA points: %d",this.matchNum, this.points, foundMatch.getBlue().getScore()));
+            this.points = (int)(foundMatch.getBlue().getScore());
+        }
+        
+        if (this.points != foundMatch.getRed().getScore() && !this.isBlueAlliance){
+            Lib.report(String.format("Scouted points for match %d, Red Alliance. %nScouted points: %d%nTBA points: %d", this.matchNum, this.points, foundMatch.getRed().getScore()));
+            this.points = (int)(foundMatch.getRed().getScore());
+        }
         //TODO make data match or something
     }
 }

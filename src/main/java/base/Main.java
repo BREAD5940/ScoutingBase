@@ -1,7 +1,7 @@
 package base;
 
-
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.cpjd.main.TBA;
 import com.cpjd.models.events.Award;
@@ -23,8 +23,10 @@ public class Main{
     public static void main(String[] args){
         TBA.setAuthToken("OPynqKt8K0vueAXqxZzdigY9OBYK3KMgQQrsM4l8jE5cBmGfByhy6YzVIb2Ts7xD");
         tbaApi = new TBA();
-        for (Award aard : tbaApi.getEventAwards(tbaEventKey)){
-            System.out.println(aard.getName());
+        HashMap<String, Object> samplebreakdown = tbaApi.getMatch("2019casa_qm25").getBlueScoreBreakdown();
+        for (String key : samplebreakdown.keySet()){
+            System.out.printf("%23s | ", key);
+            System.out.println(samplebreakdown.get(key));
         }
     }
 

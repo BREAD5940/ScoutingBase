@@ -30,4 +30,10 @@ public class Lib {
         return tempIn;
     }
 
+
+    public static void report(String re){
+        //TODO this should report to the gui, not the console
+        System.out.println(re);
+    }
+
 }
