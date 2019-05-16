@@ -1,5 +1,7 @@
 package base;
 
+import java.util.HashMap;
+
 import com.cpjd.models.matches.Match;
 
 public class CustomMatch{
@@ -28,6 +30,7 @@ public class CustomMatch{
     public boolean isHelp;
 
     public int startHab;
+    public boolean crossedLine;
 
     public int fouls;
     public int techs;
@@ -37,7 +40,8 @@ public class CustomMatch{
     public boolean borked;
 
     public int points;
-    public int tbaPoints;
+    public int nonFoulPoints;
+    HashMap<String, Object> scoreBreakdown;
 
     public String matchNotes;
 
@@ -91,14 +95,42 @@ public class CustomMatch{
         }
 
         if(this.points != foundMatch.getBlue().getScore() && this.isBlueAlliance) {
-            Lib.report(String.format("Scouted points for match %d, Blue Alliance. %nScouted points: %d%nTBA points: %d",this.matchNum, this.points, foundMatch.getBlue().getScore()));
+            Lib.report(String.format("Scouted points for match %d, Blue Alliance are incorrect. %nScouted points: %d%nTBA points: %d",this.matchNum, this.points, foundMatch.getBlue().getScore()));
             this.points = (int)(foundMatch.getBlue().getScore());
         }
         
         if (this.points != foundMatch.getRed().getScore() && !this.isBlueAlliance){
-            Lib.report(String.format("Scouted points for match %d, Red Alliance. %nScouted points: %d%nTBA points: %d", this.matchNum, this.points, foundMatch.getRed().getScore()));
+            Lib.report(String.format("Scouted points for match %d, Red Alliance are incorrect. %nScouted points: %d%nTBA points: %d", this.matchNum, this.points, foundMatch.getRed().getScore()));
             this.points = (int)(foundMatch.getRed().getScore());
         }
-        //TODO make data match or something
+
+
+        if(this.isBlueAlliance){
+            this.scoreBreakdown = foundMatch.getBlueScoreBreakdown();
+        }else{
+            this.scoreBreakdown = foundMatch.getRedScoreBreakdown();
+        }
+
+        if(this.fouls > (int)scoreBreakdown.get("foulCount")){
+            Lib.report(String.format("Fouls for match %d, alliance position %s are more than the total fouls. %nReported fouls: %d%nTotal fouls: %d",
+                         this.matchNum, this.alliancePosition, this.fouls, this.scoreBreakdown.get("foulCount")));
+            this.fouls = (int)scoreBreakdown.get("foulCount");
+        }
+
+        if(this.techs > (int)scoreBreakdown.get("techFoulCount")){
+            Lib.report(String.format("Tech fouls for match %d, alliance position %s are more than the total tech fouls. %nReported tech fouls: %d%nTotal fouls: %d",
+                        this.matchNum, this.alliancePosition, this.techs, this.scoreBreakdown.get("techFoulCount"))); 
+            this.techs = (int)scoreBreakdown.get("techFoulCount");
+        }
+
+        this.nonFoulPoints = this.points - (int)this.scoreBreakdown.get("foulPoints");
+
+        int alPos = this.alliancePosition.charAt(alliancePosition.length()-1);
+
+        if(this.startHab != Integer.valueOf(this.scoreBreakdown.get("preMatchLevelRobot"+alPos).toString().charAt(8))){
+            Lib.report(String.format("Start level for match %d, alliance position %s is incorrect. %nReported level: %d%nTBA level: %d",
+                        this.matchNum, this.alliancePosition, this.startHab, (int)this.scoreBreakdown.get("preMatchLevelRobot"+alPos).toString().charAt(8)));
+            this.startHab = Integer.valueOf(this.scoreBreakdown.get("preMatchLevelRobot"+alPos).toString().charAt(8));
+        }
     }
 }
