@@ -41,7 +41,11 @@ public class CustomMatch{
 
     public int points;
     public int nonFoulPoints;
+    public int rankingPoints;
+    public boolean rRocket, lRocket, habRP, crRP;
+
     HashMap<String, Object> scoreBreakdown;
+    public boolean tbaSynced=false;
 
     public String matchNotes;
 
@@ -85,15 +89,19 @@ public class CustomMatch{
     }
 
     public void syncTBA(){
+        //grab all the matches
         String[] keys = Main.tbaApi.getMatchKeys(Main.tbaEventKey);
         Match foundMatch = new Match();
 
+        //find the correct match
+        // TODO this could probably be done with key string modification (to save loops), but that's jank
         for(String key : keys){
             if( this.matchNum == Main.tbaApi.getMatch(key).getMatchNumber()){
                 foundMatch = Main.tbaApi.getMatch(key);
             }
         }
 
+        //get the correct points TODO find a better way to do blue vs red
         if(this.points != foundMatch.getBlue().getScore() && this.isBlueAlliance) {
             Lib.report(String.format("Scouted points for match %d, Blue Alliance are incorrect. %nScouted points: %d%nTBA points: %d",this.matchNum, this.points, foundMatch.getBlue().getScore()));
             this.points = (int)(foundMatch.getBlue().getScore());
@@ -104,33 +112,50 @@ public class CustomMatch{
             this.points = (int)(foundMatch.getRed().getScore());
         }
 
-
+        //get the big fancy hashmap
         if(this.isBlueAlliance){
             this.scoreBreakdown = foundMatch.getBlueScoreBreakdown();
         }else{
             this.scoreBreakdown = foundMatch.getRedScoreBreakdown();
         }
 
+        //sync fouls
         if(this.fouls > (int)scoreBreakdown.get("foulCount")){
             Lib.report(String.format("Fouls for match %d, alliance position %s are more than the total fouls. %nReported fouls: %d%nTotal fouls: %d",
                          this.matchNum, this.alliancePosition, this.fouls, this.scoreBreakdown.get("foulCount")));
             this.fouls = (int)scoreBreakdown.get("foulCount");
         }
 
+        //sync tech fouls
         if(this.techs > (int)scoreBreakdown.get("techFoulCount")){
             Lib.report(String.format("Tech fouls for match %d, alliance position %s are more than the total tech fouls. %nReported tech fouls: %d%nTotal fouls: %d",
                         this.matchNum, this.alliancePosition, this.techs, this.scoreBreakdown.get("techFoulCount"))); 
             this.techs = (int)scoreBreakdown.get("techFoulCount");
         }
 
+        //get the points excluding points from fouls
         this.nonFoulPoints = this.points - (int)this.scoreBreakdown.get("foulPoints");
 
         int alPos = this.alliancePosition.charAt(alliancePosition.length()-1);
 
+        //the starting hab
         if(this.startHab != Integer.valueOf(this.scoreBreakdown.get("preMatchLevelRobot"+alPos).toString().charAt(8))){
             Lib.report(String.format("Start level for match %d, alliance position %s is incorrect. %nReported level: %d%nTBA level: %d",
                         this.matchNum, this.alliancePosition, this.startHab, (int)this.scoreBreakdown.get("preMatchLevelRobot"+alPos).toString().charAt(8)));
             this.startHab = Integer.valueOf(this.scoreBreakdown.get("preMatchLevelRobot"+alPos).toString().charAt(8));
         }
+
+        //get the number of ranking points
+        this.rankingPoints = (int)this.scoreBreakdown.get("rp");
+
+        this.rRocket = (boolean)this.scoreBreakdown.get("completedRocketNear");
+        this.lRocket = (boolean)this.scoreBreakdown.get("completedRocketFar");
+
+        this.habRP = (boolean)this.scoreBreakdown.get("habDockingRankingPoint");
+        this.crRP = (boolean)this.scoreBreakdown.get("completeRocketRankingPoint");
+
+        //TODO add more?
+
+        this.tbaSynced = true;
     }
 }

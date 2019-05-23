@@ -1,54 +1,54 @@
-                    KEY    |  DATA OPTIONS 
-               totalPoints | int
-              adjustPoints | int
-                 foulCount | int
-             techFoulCount | int
-                foulPoints | int
-          hatchPanelPoints | int
-               cargoPoints | int
-            habClimbPoints | int
-      sandStormBonusPoints | int
-              teleopPoints | int
-                autoPoints | int
-                        rp | int (0-5)
-         topRightRocketFar | None/Panel/Cargo/PanelAndCargo
-         midRightRocketFar | None/Panel/Cargo/PanelAndCargo
-         lowRightRocketFar | None/Panel/Cargo/PanelAndCargo
-        topRightRocketNear | None/Panel/Cargo/PanelAndCargo
-        midRightRocketNear | None/Panel/Cargo/PanelAndCargo
-        lowRightRocketNear | None/Panel/Cargo/PanelAndCargo
-          topLeftRocketFar | None/Panel/Cargo/PanelAndCargo
-          midLeftRocketFar | None/Panel/Cargo/PanelAndCargo
-          lowLeftRocketFar | None/Panel/Cargo/PanelAndCargo
-         topLeftRocketNear | None/Panel/Cargo/PanelAndCargo
-         midLeftRocketNear | None/Panel/Cargo/PanelAndCargo
-         lowLeftRocketNear | None/Panel/Cargo/PanelAndCargo
-       preMatchLevelRobot1 | HabLevel1/HabLevel2
-       preMatchLevelRobot2 | HabLevel1/HabLevel2
-       preMatchLevelRobot3 | HabLevel1/HabLevel2
-             habLineRobot1 | CrossedHabLineInSandstorm/None
-             habLineRobot2 | CrossedHabLineInSandstorm/None
-             habLineRobot3 | CrossedHabLineInSandstorm/None
-              preMatchBay1 | Panel/Cargo/None
-              preMatchBay2 | Panel/Cargo/None
-              preMatchBay3 | Panel/Cargo/None
-              preMatchBay4 | Panel/Cargo/None
-              preMatchBay5 | Panel/Cargo/None
-              preMatchBay6 | Panel/Cargo/None
-              preMatchBay7 | Panel/Cargo/None
-              preMatchBay8 | Panel/Cargo/None
-                      bay1 | None/Panel/Cargo/PanelAndCargo
-                      bay2 | None/Panel/Cargo/PanelAndCargo
-                      bay3 | None/Panel/Cargo/PanelAndCargo
-                      bay4 | None/Panel/Cargo/PanelAndCargo
-                      bay5 | None/Panel/Cargo/PanelAndCargo
-                      bay6 | None/Panel/Cargo/PanelAndCargo
-                      bay7 | None/Panel/Cargo/PanelAndCargo
-                      bay8 | None/Panel/Cargo/PanelAndCargo
-             endgameRobot1 | HabLevel1/HabLevel2/HabLevel3
-             endgameRobot2 | HabLevel1/HabLevel2/HabLevel3
-             endgameRobot3 | HabLevel1/HabLevel2/HabLevel3
-       completedRocketNear | boolean
-        completedRocketFar | boolean
-    habDockingRankingPoint | boolean
-completeRocketRankingPoint | boolean
+                    KEY    | MEANING         | DATA OPTIONS 
+               totalPoints |                 |  int
+              adjustPoints | ?               |  int
+                 foulCount |                 |  int
+             techFoulCount |                 |  int
+                foulPoints | from fouls      |  int
+          hatchPanelPoints | from hatch      |  int
+               cargoPoints | from cargo      |  int
+            habClimbPoints | from climb      |  int
+      sandStormBonusPoints | extra sand      |  int
+              teleopPoints | tele            |  int
+                autoPoints | auto            |  int
+                        rp |                 |  int (0-4)
+         topRightRocketFar | l rocket, far   |  None/Panel/Cargo/PanelAndCargo
+         midRightRocketFar | l rocket, far   |  None/Panel/Cargo/PanelAndCargo
+         lowRightRocketFar | l rocket, far   |  None/Panel/Cargo/PanelAndCargo
+        topRightRocketNear | r , far         |  None/Panel/Cargo/PanelAndCargo
+        midRightRocketNear | r, far          |  None/Panel/Cargo/PanelAndCargo
+        lowRightRocketNear | r, far          |  None/Panel/Cargo/PanelAndCargo
+          topLeftRocketFar | l, near         |  None/Panel/Cargo/PanelAndCargo
+          midLeftRocketFar | l, near         |  None/Panel/Cargo/PanelAndCargo
+          lowLeftRocketFar | l, near         |  None/Panel/Cargo/PanelAndCargo
+         topLeftRocketNear | r, near         |  None/Panel/Cargo/PanelAndCargo
+         midLeftRocketNear | r, near         |  None/Panel/Cargo/PanelAndCargo
+         lowLeftRocketNear | r, near         |  None/Panel/Cargo/PanelAndCargo
+       preMatchLevelRobot1 | start           |  HabLevel1/HabLevel2
+       preMatchLevelRobot2 | start           |  HabLevel1/HabLevel2
+       preMatchLevelRobot3 | start           |  HabLevel1/HabLevel2
+             habLineRobot1 | crossed         |  CrossedHabLineInSandstorm/None
+             habLineRobot2 | crossed         |  CrossedHabLineInSandstorm/None
+             habLineRobot3 | crossed         | CrossedHabLineInSandstorm/None
+              preMatchBay1 | preload         | Panel/Cargo/None
+              preMatchBay2 | preload         | Panel/Cargo/None
+              preMatchBay3 | preload         | Panel/Cargo/None
+              preMatchBay4 | preload         | Panel/Cargo/None
+              preMatchBay5 | preload         | Panel/Cargo/None
+              preMatchBay6 | preload         | Panel/Cargo/None
+              preMatchBay7 | preload         | Panel/Cargo/None
+              preMatchBay8 | preload         | Panel/Cargo/None
+                      bay1 | placed          | None/Panel/Cargo/PanelAndCargo
+                      bay2 | placed          | None/Panel/Cargo/PanelAndCargo
+                      bay3 | placed          | None/Panel/Cargo/PanelAndCargo
+                      bay4 | placed          | None/Panel/Cargo/PanelAndCargo
+                      bay5 | placed          | None/Panel/Cargo/PanelAndCargo
+                      bay6 | placed          | None/Panel/Cargo/PanelAndCargo
+                      bay7 | placed          | None/Panel/Cargo/PanelAndCargo
+                      bay8 | placed          | None/Panel/Cargo/PanelAndCargo
+             endgameRobot1 | lvl             | HabLevel1/HabLevel2/HabLevel3
+             endgameRobot2 | lvl             | HabLevel1/HabLevel2/HabLevel3
+             endgameRobot3 | lvl             | HabLevel1/HabLevel2/HabLevel3
+       completedRocketNear | complete r      | boolean
+        completedRocketFar | complete l      | boolean
+    habDockingRankingPoint |                 | boolean
+completeRocketRankingPoint |                 | boolean
