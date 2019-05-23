@@ -176,3 +176,16 @@ src\main\python\twoHatchLLtest.csv
 .gradle/5.0/fileHashes/fileHashes.bin
 
 .gradle/
+.gradle/5.0/fileHashes/fileHashes.bin
+.gradle/5.0/fileHashes/fileHashes.lock
+.gradle/5.0/javaCompile/classAnalysis.bin
+.gradle/5.0/javaCompile/javaCompile.lock
+.gradle/5.0/taskHistory/taskHistory.bin
+.gradle/5.0/taskHistory/taskHistory.lock
+.gradle/buildOutputCleanup/buildOutputCleanup.lock
+build/distributions/ScoutingBase.tar
+build/distributions/ScoutingBase.zip
+build/libs/ScoutingBase.jar
+Offseason-Croissant/
+src/main/java/base/CustomMatch.java
+src/main/java/base/Lib.java
