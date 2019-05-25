@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import com.cpjd.main.TBA;
 import com.cpjd.models.events.Award;
+import com.cpjd.models.teams.Team;
 
 public class Main{
     public static TBA tbaApi;
@@ -21,19 +22,46 @@ public class Main{
     static final String teamsDir = eventDir+"teams/";
 
     public static void main(String[] args){
+
+        System.out.print("\n"+
+        "                            ***********************                             \n"+
+        "                        *******************************                         \n"+
+        "                      *******+                   ?*******                       \n"+
+        "                   ******                             ******                    \n"+
+        "                :********                             ********:                 \n"+
+        "             :***********                            :***********~              \n"+
+        "           *******    ****                           ****    *******            \n"+
+        "         ******        ***                           ***        ******          \n"+
+        "       $*****          ****                         ****          ******        \n"+
+        "      *****            ****                         ***:            *****       \n"+
+        "     ****               ***                         ***               ****      \n"+
+        "    ****                ****                       ****                ****     \n"+
+        "    ***                  ***                       ***                  ***~    \n"+
+        "    ****+                ****                     ****                :*****    \n"+
+        "   *******               ****                     ***                *******    \n"+
+        "  **** ****               ***+                   ?***               **** ****   \n"+
+        " ****   *****             ****                   ****             *****   ****  \n"+
+        " ***      ****             ***                   ***             ****      ***  \n"+
+        "****       *****           ****                 ****           *****       **** \n"+
+        "***:         ****           ***                 ***           ****          *** \n"+
+        "***           *****         ****               ****         *****           *** \n"+
+        "***            ~****     ~***************************=     ****~            ***:\n"+
+        "***              ***** ********************************* *****              *** \n"+
+        "***              **********                         **********              *** \n"+
+        "****           *********                               *********           **** \n"+
+        " ****        ******                                         ******        ****  \n"+
+        "  *****  :*******                                             *******   *****   \n"+
+        "    ***********                                                 ************    \n"+
+        "      *****                                                         *****       \n"+
+        "                                                                                \n"+
+        "\n\nBREAD scouting base. Current robot: Croissant\t"+
+        "Current event: "+event+"\n");
+
+
+
         TBA.setAuthToken("OPynqKt8K0vueAXqxZzdigY9OBYK3KMgQQrsM4l8jE5cBmGfByhy6YzVIb2Ts7xD");
         tbaApi = new TBA();
-        HashMap<String, Object> samplebreakdown = tbaApi.getMatch("2019cada_qm25").getBlueScoreBreakdown();
-        HashMap<String, Object> samplebreakdown2 = tbaApi.getMatch("2019cada_qm20").getRedScoreBreakdown();
-        for (String key : samplebreakdown.keySet()){
-            System.out.printf("%23s | ", key);
-            System.out.println(samplebreakdown.get(key));
-        }
-        System.out.println("-------------------------------------------");
-        for(String key : samplebreakdown2.keySet()){
-            System.out.printf("%23s | ", key);
-            System.out.println(samplebreakdown2.get(key));
-        }
+        System.out.println(tbaApi.getTeam(5940).getName());
     }
 
 

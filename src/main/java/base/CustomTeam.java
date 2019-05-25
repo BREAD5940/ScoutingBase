@@ -6,8 +6,14 @@ import base.Lib;
 
 public class CustomTeam {
 
+    public static enum Groups{
+        Level3Climbers, Level2Climbers, Level2Starters, GotRed, 
+        HasBorked, LowScorers, HighScorers, Completed3Rockets
+    }
+
     String name;
     int number;
+    boolean isFullySync = false;
     
     ArrayList<CustomMatch> matches = new ArrayList<CustomMatch>();
 
@@ -38,7 +44,10 @@ public class CustomTeam {
     double eStops;
     double borks;
 
-    ArrayList<String> groups = new ArrayList<String>();
+    int totalRPs;
+
+    ArrayList<Groups> groups = new ArrayList<Groups>();
+    ArrayList<String> matchNotes = new ArrayList<String>();
 
     public CustomTeam (String name_, int number_){
         this.name = name_;
@@ -81,18 +90,27 @@ public class CustomTeam {
         if(match.borked)
             this.borks++;
 
+        this.totalRPs+=match.rankingPoints;
+
+        this.matchNotes.add(match.matchNotes);
+        this.isFullySync = this.isFullySync && match.tbaSynced;
+
     }
 
     public void addPit(Pit pitData){
 
     }
 
-    public void addGroup(String group){
-        this.groups.add(group);
+    public void addGroups(){
+        
+    }
+
+    public void syncTBA(){
+        
     }
 
     public String toReadableString(){
-        return "";
+        return this.toCSVString();
     }
 
     public String toCSVString(){
