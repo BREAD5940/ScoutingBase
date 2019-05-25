@@ -11,7 +11,9 @@ public class CustomTeam {
         HasBorked, LowScorers, HighScorers, Completed3Rockets
     }
 
-    String name;
+    String scoutedName;
+    String tbaName;
+    String sponsors;
     int number;
     boolean isFullySync = false;
     
@@ -50,7 +52,7 @@ public class CustomTeam {
     ArrayList<String> matchNotes = new ArrayList<String>();
 
     public CustomTeam (String name_, int number_){
-        this.name = name_;
+        this.scoutedName = name_;
         this.number = number_;
     }
 
@@ -106,15 +108,16 @@ public class CustomTeam {
     }
 
     public void syncTBA(){
-        
+        this.tbaName = Main.tbaApi.getTeam(this.number).getNickname();
+        this.sponsors = Main.tbaApi.getTeam(this.number).getName(); //i stg this is the sponsors
     }
 
     public String toReadableString(){
-        return this.toCSVString();
+        return this.toCSVString(); //TODO fix
     }
 
     public String toCSVString(){
-        return name+","+number+","+avGPSand+","+avHPShip+","+avHPRocket+","+
+        return scoutedName+","+number+","+avGPSand+","+avHPShip+","+avHPRocket+","+
                 avHPDrop+","+avCShip+","+avCRocket+","+avCDrop+","+scaleLevels+","+
                     consistScaleLevel+","+maxScaleLevel+","+isRamp+","+startHabs+","+
                         consistStartHab+","+maxStartHab+","+consistOffHab+","+avFoul+","+
