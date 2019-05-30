@@ -79,9 +79,7 @@ public class Main{
         
         matches.addAll(Lib.convertMatches(dataDir+"claire2.csv"));
         matches.addAll(Lib.convertMatches(dataDir+"geran2.csv"));
-        matches.addAll(Lib.convertMatches(dataDir+"max2.csv"));
         matches.addAll(Lib.convertMatches(dataDir+"nick2.csv"));
-        matches.addAll(Lib.convertMatches(dataDir+"thomas2.csv"));
 
         FileWriter writer = null;
         File file = new File(eventDir+"matchOutput.txt");
