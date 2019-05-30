@@ -3,6 +3,7 @@ package base;
 import java.util.HashMap;
 
 import com.cpjd.models.matches.Match;
+import com.cpjd.utils.exceptions.DataNotFoundException;
 
 public class CustomMatch{
 
@@ -27,22 +28,22 @@ public class CustomMatch{
     public int CDropSand;
 
     public int scaleLevel;
-    public boolean isHelp;
+    public boolean isHelp = false;
 
     public int startHab;
-    public boolean crossedLine;
+    public boolean crossedLine = false;
 
-    public int fouls;
-    public int techs;
+    public Long fouls;
+    public Long techs;
     public boolean yellow;
     public boolean red;
     public boolean eStopped;
     public boolean borked;
 
     public int points;
-    public int nonFoulPoints;
-    public int rankingPoints;
-    public boolean rRocket, lRocket, habRP, crRP;
+    public int nonFoulPoints = 0;
+    public int rankingPoints = 0;
+    public boolean rRocket=false, lRocket=false, habRP=false, crRP=false;
 
     HashMap<String, Object> scoreBreakdown;
     public boolean tbaSynced=false;
@@ -53,8 +54,9 @@ public class CustomMatch{
         this.matchType = csvRow[0];
         this.matchNum = Integer.valueOf(csvRow[1]);
         this.teamNum = Integer.valueOf(csvRow[2]);
+        System.out.println(csvRow[3].charAt(0));
         this.alliancePosition = csvRow[3];
-        this.isBlueAlliance = alliancePosition.charAt(0) == 'B';
+        this.isBlueAlliance = this.alliancePosition.charAt(0)=='B';
 
         this.startHab = Integer.valueOf(csvRow[4]);
 
@@ -72,16 +74,23 @@ public class CustomMatch{
         this.HPRocketGame = Integer.valueOf(csvRow[15]);
         this.HPDropGame = Integer.valueOf(csvRow[16]);
 
-        this.scaleLevel = Integer.valueOf(csvRow[17]);
+        try{
+            this.scaleLevel = Integer.valueOf(csvRow[17]);
+        }catch(NumberFormatException e){
+            Lib.report("Scale Level is not a number. Setting to 0.");
+            this.scaleLevel = 0;
+        }
 
-        this.techs = Integer.valueOf(csvRow[18]);
-        this.fouls = Integer.valueOf(csvRow[19]);
+        this.techs = Long.valueOf(csvRow[18]);
+        this.fouls = Long.valueOf(csvRow[19]);
         this.yellow = (csvRow[20].equalsIgnoreCase("true"));
         this.red = csvRow[21].equalsIgnoreCase("true");
         this.borked = csvRow[22].equalsIgnoreCase("true");
         this.points = Integer.valueOf(csvRow[23]);
 
         this.matchNotes = csvRow[24];
+
+        this.matchNotes = this.matchNotes.replace("\n", ".  ");
     }
 
     public int getSandPlaces(){
@@ -89,16 +98,12 @@ public class CustomMatch{
     }
 
     public void syncTBA(){
-        //grab all the matches
-        String[] keys = Main.tbaApi.getMatchKeys(Main.tbaEventKey);
         Match foundMatch = new Match();
-
-        //find the correct match
-        // TODO this could probably be done with key string modification (to save loops), but that's jank
-        for(String key : keys){
-            if( this.matchNum == Main.tbaApi.getMatch(key).getMatchNumber()){
-                foundMatch = Main.tbaApi.getMatch(key);
-            }
+        try{
+            foundMatch = Main.tbaApi.getMatch(Main.tbaEventKey+"_qm"+this.matchNum);
+        }catch(DataNotFoundException e){
+            System.out.println("Match not found. \n"+e+"\n\n");
+            return;
         }
 
         //get the correct points TODO find a better way to do blue vs red
@@ -120,33 +125,34 @@ public class CustomMatch{
         }
 
         //sync fouls
-        if(this.fouls > (int)scoreBreakdown.get("foulCount")){
+        //TODO fix the 0 thing
+        if(this.fouls > (Long)scoreBreakdown.get("foulCount")){
             Lib.report(String.format("Fouls for match %d, alliance position %s are more than the total fouls. %nReported fouls: %d%nTotal fouls: %d",
                          this.matchNum, this.alliancePosition, this.fouls, this.scoreBreakdown.get("foulCount")));
-            this.fouls = (int)scoreBreakdown.get("foulCount");
+            // this.fouls = (Long)scoreBreakdown.get("foulCount");
         }
 
         //sync tech fouls
-        if(this.techs > (int)scoreBreakdown.get("techFoulCount")){
+        if(this.techs > (Long)scoreBreakdown.get("techFoulCount")){
             Lib.report(String.format("Tech fouls for match %d, alliance position %s are more than the total tech fouls. %nReported tech fouls: %d%nTotal fouls: %d",
                         this.matchNum, this.alliancePosition, this.techs, this.scoreBreakdown.get("techFoulCount"))); 
-            this.techs = (int)scoreBreakdown.get("techFoulCount");
+            // this.techs = (Long)scoreBreakdown.get("techFoulCount");
         }
 
         //get the points excluding points from fouls
-        this.nonFoulPoints = this.points - (int)this.scoreBreakdown.get("foulPoints");
+        this.nonFoulPoints = this.points - ((Long)this.scoreBreakdown.get("foulPoints")).intValue();
 
-        int alPos = this.alliancePosition.charAt(alliancePosition.length()-1);
-
+        int alPos = Character.getNumericValue(this.alliancePosition.charAt(this.alliancePosition.length()-1));
+        System.out.println("alpos:"+alPos);
         //the starting hab
-        if(this.startHab != Integer.valueOf(this.scoreBreakdown.get("preMatchLevelRobot"+alPos).toString().charAt(8))){
+        if(this.startHab != Character.getNumericValue(this.scoreBreakdown.get("preMatchLevelRobot"+alPos).toString().charAt(8))){
             Lib.report(String.format("Start level for match %d, alliance position %s is incorrect. %nReported level: %d%nTBA level: %d",
-                        this.matchNum, this.alliancePosition, this.startHab, (int)this.scoreBreakdown.get("preMatchLevelRobot"+alPos).toString().charAt(8)));
-            this.startHab = Integer.valueOf(this.scoreBreakdown.get("preMatchLevelRobot"+alPos).toString().charAt(8));
+                        this.matchNum, this.alliancePosition, this.startHab, Character.getNumericValue(this.scoreBreakdown.get("preMatchLevelRobot"+alPos).toString().charAt(8))));
+            this.startHab = Character.getNumericValue(this.scoreBreakdown.get("preMatchLevelRobot"+alPos).toString().charAt(8));
         }
 
         //get the number of ranking points
-        this.rankingPoints = (int)this.scoreBreakdown.get("rp");
+        this.rankingPoints = ((Long)this.scoreBreakdown.get("rp")).intValue();
 
         this.rRocket = (boolean)this.scoreBreakdown.get("completedRocketNear");
         this.lRocket = (boolean)this.scoreBreakdown.get("completedRocketFar");
@@ -157,5 +163,22 @@ public class CustomMatch{
         //TODO add more?
 
         this.tbaSynced = true;
+    }
+
+    public String toString(){
+        return String.format("Team Number: %d, Match Type: %s, Match Number: %d, Position: %s, isBlue: %b, "
+                                +"HPShipGame: %d, HPShipSand: %d, HPRocketGame: %d, HPRocketSand: %d, HPDropGame: %d, "
+                                +"HPDropSand: %d, CShipGame: %d, CShipSand: %d, CRocketGame: %d, CRocketSand: %d, CDropGame: %d, "
+                                +"CDropSand: %d, Scale Level: %d, Is a Helper: %b, Starting Level: %d, Crossed the Line: %b, Fouls: %d, Tech Fouls: %d, Yellow Card: %b, "
+                                +"Red Card: %b, Emergency Stop: %b, Broken: %b, Total Points: %d, Points w/o Penalties: %d, "
+                                +"Ranking Points: %d, Filled Right Rocket: %b, Filled Left Rocket: %b, Hab Docking RP: %b, "
+                                +"Rocket RP: %b, Synced? %b, Notes: %s%n",
+                                this.teamNum, this.matchType, this.matchNum, this.alliancePosition, this.isBlueAlliance,
+                                this.HPShipGame, this.HPShipSand, this.HPRocketGame, this.HPRocketSand, this.HPDropGame,
+                                this.HPDropSand, this.CShipGame, this.CShipSand, this.CRocketGame, this.CRocketSand, this.CDropGame,
+                                this.CDropSand, this.scaleLevel, this.isHelp, this.startHab, this.crossedLine, this.fouls, this.techs, this.yellow,
+                                this.red, this.eStopped, this.borked, this.points, this.nonFoulPoints,
+                                this.rankingPoints, this.rRocket, this.lRocket, this.habRP,
+                                this.crRP, this.tbaSynced, this.matchNotes);
     }
 }
