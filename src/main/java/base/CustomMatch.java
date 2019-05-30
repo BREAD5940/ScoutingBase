@@ -102,7 +102,7 @@ public class CustomMatch{
         try{
             foundMatch = Main.tbaApi.getMatch(Main.tbaEventKey+"_qm"+this.matchNum);
         }catch(DataNotFoundException e){
-            System.out.println("Match not found. \n"+e+"\n\n");
+            System.out.println("Match not found. \n"+e);
             return;
         }
 
@@ -125,18 +125,17 @@ public class CustomMatch{
         }
 
         //sync fouls
-        //TODO fix the 0 thing
         if(this.fouls > (Long)scoreBreakdown.get("foulCount")){
             Lib.report(String.format("Fouls for match %d, alliance position %s are more than the total fouls. %nReported fouls: %d%nTotal fouls: %d",
                          this.matchNum, this.alliancePosition, this.fouls, this.scoreBreakdown.get("foulCount")));
-            // this.fouls = (Long)scoreBreakdown.get("foulCount");
+            this.fouls = (Long)scoreBreakdown.get("foulCount");
         }
 
         //sync tech fouls
         if(this.techs > (Long)scoreBreakdown.get("techFoulCount")){
             Lib.report(String.format("Tech fouls for match %d, alliance position %s are more than the total tech fouls. %nReported tech fouls: %d%nTotal fouls: %d",
                         this.matchNum, this.alliancePosition, this.techs, this.scoreBreakdown.get("techFoulCount"))); 
-            // this.techs = (Long)scoreBreakdown.get("techFoulCount");
+            this.techs = (Long)scoreBreakdown.get("techFoulCount");
         }
 
         //get the points excluding points from fouls

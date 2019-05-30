@@ -1,5 +1,6 @@
 package base;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -44,6 +45,7 @@ public class Lib {
 
     //FIXME why are there so many  h e c k i n  try catches
     public static List<CustomMatch> convertMatches(String filePath){
+        report("NOW CONVERTING MATCHES FROM: "+filePath);
         CSVReader reader;
         try{
             reader = new CSVReader(new FileReader(filePath), ',', '|');
@@ -60,8 +62,12 @@ public class Lib {
             report("Match Read IO Exception:\n"+e);
         }
         for(String[] row : rows){
-            System.out.println(row[3].charAt(0));
-            collectedMatches.add(new CustomMatch(row));
+            if(row[0].equals("Qualifier")){
+                collectedMatches.add(new CustomMatch(row));
+                // report("Match created");
+            }else{
+                report("Not a qualifier. Passing.");
+            }
         }
 
         try{
