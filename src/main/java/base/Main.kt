@@ -82,12 +82,13 @@ object Main {
         matches.addAll(Lib.convertMatches(dataDir + "nick2.csv")!!)
         matches.addAll(Lib.convertMatches(dataDir + "thomas2.csv")!!)
 
-        var writer: FileWriter? = null
-        try {
-            writer = FileWriter(eventDir + "matchOutput.txt", true)
+        var writer: FileWriter? = try {
+            FileWriter(eventDir + "matchOutput.txt", true)
         } catch (e: IOException) {
             println("File not found error")
             println(e)
+            return
+            null
         }
 
         try {
