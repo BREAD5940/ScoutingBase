@@ -1,5 +1,6 @@
 package base;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -76,39 +77,44 @@ public class Main{
         matches.addAll(Lib.convertMatches(dataDir+"thomas.csv"));
 
         
-        // matches.addAll(Lib.convertMatches(dataDir+"claire2.csv"));
-        // matches.addAll(Lib.convertMatches(dataDir+"geran2.csv"));
-        // matches.addAll(Lib.convertMatches(dataDir+"max2.csv"));
-        // matches.addAll(Lib.convertMatches(dataDir+"nick2.csv"));
-        // matches.addAll(Lib.convertMatches(dataDir+"thomas2.csv"));
+        matches.addAll(Lib.convertMatches(dataDir+"claire2.csv"));
+        matches.addAll(Lib.convertMatches(dataDir+"geran2.csv"));
+        matches.addAll(Lib.convertMatches(dataDir+"max2.csv"));
+        matches.addAll(Lib.convertMatches(dataDir+"nick2.csv"));
+        matches.addAll(Lib.convertMatches(dataDir+"thomas2.csv"));
 
         FileWriter writer = null;
+        File file = new File(eventDir+"matchOutput.txt");
+        int i=1;
+
+        while(file.exists()){
+            file = new File(eventDir+"matchOutput("+i+").txt");
+            i++;
+        }
         try{
-            writer = new FileWriter(eventDir+"matchOutput.txt", true);
+            writer = new FileWriter(file, true);
         }catch(IOException e){
             System.out.println("File not found error");
             System.out.println(e);
         }
 
-        writer.write("\n");
-
         for(CustomMatch match : matches){
-            if(!Lib.InternettyChecky()){
-                throw new Exception("Internet has disconnected. Aborting sync.");
-            }
-            // System.out.println("SCOUTED MATCH: ");
-            // System.out.println(match.toString());
+            // if(!Lib.InternettyChecky()){
+            //     throw new Exception("Internet has disconnected. Aborting sync.");
+            // }
+
             writer.write("\nSCOUTED MATCH: "+match.toString());
+
             match.syncTBA();
-            // System.out.println("SYNCED MATCH: ");
-            // System.out.println(match.toString());
-            // System.out.println("------------------------------------------------------------------------------------");
+
             if(match.tbaSynced){
                 writer.write("\nSYNCED MATCH: "+match.toString()+"------------------------------------------------------------------------------------\n");
             }else{
                 writer.write("\nMATCH NOT SYNCED\n"+"------------------------------------------------------------------------------------\n");
             }
         }
+
+        writer.close();
     }
 
 

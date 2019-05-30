@@ -80,6 +80,7 @@ public class Lib {
         
     }
 
+    @Deprecated //this b the Big Slow
     public static boolean InternettyChecky() throws Exception { 
         Process process = java.lang.Runtime.getRuntime().exec("ping www.thebluealliance.com"); 
         int x = process.waitFor(); 
