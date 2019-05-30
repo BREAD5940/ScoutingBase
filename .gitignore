@@ -189,3 +189,4 @@ build/libs/ScoutingBase.jar
 Offseason-Croissant/
 src/main/java/base/CustomMatch.java
 src/main/java/base/Lib.java
+*.xml
