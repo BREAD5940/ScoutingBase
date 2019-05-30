@@ -7,30 +7,30 @@ import com.cpjd.utils.exceptions.DataNotFoundException
 
 class CustomMatch(csvRow: Array<String>) {
 
-    var teamNum: Int = 0
+    var teamNum = 0
     var matchType: String
-    var matchNum: Int = 0
+    var matchNum = 0
     var alliancePosition: String
     var isBlueAlliance: Boolean = false
 
-    var HPShipGame: Int = 0
-    var HPShipSand: Int = 0
-    var HPRocketGame: Int = 0
-    var HPRocketSand: Int = 0
-    var HPDropGame: Int = 0
-    var HPDropSand: Int = 0
+    var HPShipGame = 0
+    var HPShipSand = 0
+    var HPRocketGame = 0
+    var HPRocketSand = 0
+    var HPDropGame = 0
+    var HPDropSand = 0
 
-    var CShipGame: Int = 0
-    var CShipSand: Int = 0
-    var CRocketGame: Int = 0
-    var CRocketSand: Int = 0
-    var CDropGame: Int = 0
-    var CDropSand: Int = 0
+    var CShipGame = 0
+    var CShipSand = 0
+    var CRocketGame = 0
+    var CRocketSand = 0
+    var CDropGame = 0
+    var CDropSand = 0
 
-    var scaleLevel: Int = 0
+    var scaleLevel = 0
     var isHelp = false
 
-    var startHab: Int = 0
+    var startHab = 0
     var crossedLine = false
 
     var fouls: Long? = null
@@ -40,7 +40,7 @@ class CustomMatch(csvRow: Array<String>) {
     var eStopped: Boolean = false
     var borked: Boolean = false
 
-    var points: Int = 0
+    var points = 0
     var nonFoulPoints = 0
     var rankingPoints = 0
     var rRocket = false
@@ -58,41 +58,41 @@ class CustomMatch(csvRow: Array<String>) {
 
     init {
         this.matchType = csvRow[0]
-        this.matchNum = Integer.valueOf(csvRow[1])
-        this.teamNum = Integer.valueOf(csvRow[2])
+        this.matchNum = csvRow[1].toInt()
+        this.teamNum = csvRow[2].toInt()
         println(csvRow[3][0])
         this.alliancePosition = csvRow[3]
         this.isBlueAlliance = this.alliancePosition[0] == 'B'
 
-        this.startHab = Integer.valueOf(csvRow[4])
+        this.startHab = csvRow[4].toInt()
 
-        this.CShipSand = Integer.valueOf(csvRow[5])
-        this.CRocketSand = Integer.valueOf(csvRow[6])
-        this.CDropSand = Integer.valueOf(csvRow[7])
-        this.HPShipSand = Integer.valueOf(csvRow[8])
-        this.HPRocketSand = Integer.valueOf(csvRow[9])
-        this.HPDropSand = Integer.valueOf(csvRow[10])
+        this.CShipSand = csvRow[5].toInt()
+        this.CRocketSand = csvRow[6].toInt()
+        this.CDropSand = csvRow[7].toInt()
+        this.HPShipSand = csvRow[8].toInt()
+        this.HPRocketSand = csvRow[9].toInt()
+        this.HPDropSand = csvRow[10].toInt()
 
-        this.CShipGame = Integer.valueOf(csvRow[11])
-        this.CRocketGame = Integer.valueOf(csvRow[12])
-        this.CDropGame = Integer.valueOf(csvRow[13])
-        this.HPShipGame = Integer.valueOf(csvRow[14])
-        this.HPRocketGame = Integer.valueOf(csvRow[15])
-        this.HPDropGame = Integer.valueOf(csvRow[16])
+        this.CShipGame = csvRow[11].toInt()
+        this.CRocketGame = csvRow[12].toInt()
+        this.CDropGame = csvRow[13].toInt()
+        this.HPShipGame = csvRow[14].toInt()
+        this.HPRocketGame = csvRow[15].toInt()
+        this.HPDropGame = csvRow[16].toInt()
 
         try {
-            this.scaleLevel = Integer.valueOf(csvRow[17])
+            this.scaleLevel = csvRow[17].toInt()
         } catch (e: NumberFormatException) {
             Lib.report("Scale Level is not a number. Setting to 0.")
             this.scaleLevel = 0
         }
 
-        this.techs = java.lang.Long.valueOf(csvRow[18])
-        this.fouls = java.lang.Long.valueOf(csvRow[19])
+        this.techs = csvRow[18].toLong()
+        this.fouls = csvRow[19].toLong()
         this.yellow = csvRow[20].equals("true", ignoreCase = true)
         this.red = csvRow[21].equals("true", ignoreCase = true)
         this.borked = csvRow[22].equals("true", ignoreCase = true)
-        this.points = Integer.valueOf(csvRow[23])
+        this.points = csvRow[23].toInt()
 
         this.matchNotes = csvRow[24]
 
@@ -100,7 +100,7 @@ class CustomMatch(csvRow: Array<String>) {
     }
 
     fun syncTBA() {
-        var foundMatch = Match()
+        var foundMatch: Match
         try {
             foundMatch = Main.tbaApi.getMatch(Main.tbaEventKey + "_qm" + this.matchNum)
         } catch (e: DataNotFoundException) {
