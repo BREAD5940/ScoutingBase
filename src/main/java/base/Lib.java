@@ -80,11 +80,13 @@ public class Lib {
         if (x == 0) { 
             // System.out.println("Connection Successful, "
             //                    + "Output was " + x); 
+            report("Internet connection checked and active, output "+x);
             return true;
         } 
         else { 
             // System.out.println("Internet Not Connected, "
             //                    + "Output was " + x); 
+            report("Internet connection failed, output "+x);
             return false;
         } 
     } 

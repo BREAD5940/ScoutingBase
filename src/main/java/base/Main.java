@@ -76,11 +76,11 @@ public class Main{
         matches.addAll(Lib.convertMatches(dataDir+"thomas.csv"));
 
         
-        matches.addAll(Lib.convertMatches(dataDir+"claire2.csv"));
-        matches.addAll(Lib.convertMatches(dataDir+"geran2.csv"));
-        matches.addAll(Lib.convertMatches(dataDir+"max2.csv"));
-        matches.addAll(Lib.convertMatches(dataDir+"nick2.csv"));
-        matches.addAll(Lib.convertMatches(dataDir+"thomas2.csv"));
+        // matches.addAll(Lib.convertMatches(dataDir+"claire2.csv"));
+        // matches.addAll(Lib.convertMatches(dataDir+"geran2.csv"));
+        // matches.addAll(Lib.convertMatches(dataDir+"max2.csv"));
+        // matches.addAll(Lib.convertMatches(dataDir+"nick2.csv"));
+        // matches.addAll(Lib.convertMatches(dataDir+"thomas2.csv"));
 
         FileWriter writer = null;
         try{
@@ -90,9 +90,7 @@ public class Main{
             System.out.println(e);
         }
 
-        try{
-            writer.write("\n");
-        }catch(IOException e){}
+        writer.write("\n");
 
         for(CustomMatch match : matches){
             if(!Lib.InternettyChecky()){
@@ -100,21 +98,15 @@ public class Main{
             }
             // System.out.println("SCOUTED MATCH: ");
             // System.out.println(match.toString());
-            try{
-                writer.write("\nSCOUTED MATCH: "+match.toString());
-            }catch(IOException e){}
+            writer.write("\nSCOUTED MATCH: "+match.toString());
             match.syncTBA();
             // System.out.println("SYNCED MATCH: ");
             // System.out.println(match.toString());
             // System.out.println("------------------------------------------------------------------------------------");
             if(match.tbaSynced){
-                try{
-                    writer.write("\nSYNCED MATCH: "+match.toString()+"------------------------------------------------------------------------------------\n");
-                }catch(IOException e){}
+                writer.write("\nSYNCED MATCH: "+match.toString()+"------------------------------------------------------------------------------------\n");
             }else{
-                try{
-                    writer.write("\nMATCH NOT SYNCED"+"------------------------------------------------------------------------------------\n");
-                }catch(IOException e){}
+                writer.write("\nMATCH NOT SYNCED\n"+"------------------------------------------------------------------------------------\n");
             }
         }
     }

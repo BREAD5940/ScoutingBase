@@ -143,7 +143,6 @@ public class CustomMatch{
         this.nonFoulPoints = this.points - ((Long)this.scoreBreakdown.get("foulPoints")).intValue();
 
         int alPos = Character.getNumericValue(this.alliancePosition.charAt(this.alliancePosition.length()-1));
-        System.out.println("alpos:"+alPos);
         //the starting hab
         if(this.startHab != Character.getNumericValue(this.scoreBreakdown.get("preMatchLevelRobot"+alPos).toString().charAt(8))){
             Lib.report(String.format("Start level for match %d, alliance position %s is incorrect. %nReported level: %d%nTBA level: %d",
