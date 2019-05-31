@@ -67,6 +67,8 @@ public class Main{
         tbaApi = new TBA();
         // System.out.println(tbaApi.getTeam(5940).getName());
 
+        List<CustomTeam> teams = Lib.generateTeams(eventDir+"teams.csv");
+
         List<CustomMatch> matches = new ArrayList<CustomMatch>();
 
         matches.addAll(Lib.convertMatches(dataDir+"claire.csv"));
@@ -110,9 +112,23 @@ public class Main{
             }else{
                 writer.write("\nMATCH NOT SYNCED\n"+"------------------------------------------------------------------------------------\n");
             }
+
+            for(CustomTeam team : teams){
+                if(team.number == match.teamNum){
+                    team.addMatch(match);
+                }
+            }
         }
 
         writer.close();
+
+    
+        for (CustomTeam team : teams){
+            team.syncTBA();
+            team.sendToTxt(teamsDir);
+        }
+        Lib.report("\n\n"+teams.get(0).toReadableString());
+
     }
 
 

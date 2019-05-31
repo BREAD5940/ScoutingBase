@@ -4,10 +4,14 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.security.acl.Group;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import com.opencsv.CSVReader;
+
+import base.CustomTeam.Groups;
 
 public class Lib {
 
@@ -22,19 +26,39 @@ public class Lib {
 
     //FIXME this is a terrible horible no good very bad way to do this
     public static int mode(ArrayList<Integer> ints){
-        int[] mags = new int[10];
+        HashMap<Integer, Integer> map = new HashMap<>();
         int tempIn = 0;
         int tempVal = 0;
 
-        for (int i : ints){
-            mags[i]++;
+        for(Integer i : ints){
+            if(!map.keySet().contains(i)){
+                map.put(i, 1);
+            }else{
+                map.put(i, map.get(i)+1);
+            }
         }
 
-        for(int i=0; i<mags.length; i++){
-            tempIn = tempVal>mags[i] ? tempIn : i;
+        for (Integer key : map.keySet()){
+            if(tempVal<=map.get(key)){
+                tempIn = key;
+                tempVal = map.get(key);
+            }
         }
 
         return tempIn;
+    }
+
+    //FIXME aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa superclass no work
+    public static String listToString(Object[] groups){
+        String str="[";
+        if(groups.length>1){
+            for(int i=0; i<=groups.length-1; i++){
+                str+=groups[i].toString();
+                str+=",";
+            }
+            str+=groups[groups.length-1].toString();
+        }
+        return str+"]";
     }
 
 
@@ -78,6 +102,36 @@ public class Lib {
 
         return collectedMatches;
         
+    }
+
+    public static List<CustomTeam> generateTeams(String teamCSVPath){
+        report("NOW GENERATING TEAMS FROM: "+teamCSVPath);
+        CSVReader reader;
+        try{
+            reader = new CSVReader(new FileReader(teamCSVPath), ',');
+        }catch(FileNotFoundException e){
+            report("Team Generation file not found:\n"+e);
+            return null;
+        }
+
+        List<CustomTeam> gennedTeams = new ArrayList<CustomTeam>();
+        List<String[]> rows=null;
+        try{
+            rows = reader.readAll();
+        }catch(IOException e){
+            report("Team Read IO Exception:\n"+e);
+        }
+        for(String[] row : rows){
+            gennedTeams.add(new CustomTeam(row[1], Integer.valueOf(row[0])));
+        }
+
+        try{
+            reader.close();
+        }catch(IOException e){
+            report("Reader close IO Exception:\n"+e);
+        }
+
+        return gennedTeams;
     }
 
     @Deprecated //this b the Big Slow
