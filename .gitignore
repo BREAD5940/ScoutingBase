@@ -187,5 +187,7 @@ build/distributions/ScoutingBase.tar
 build/distributions/ScoutingBase.zip
 build/libs/ScoutingBase.jar
 Offseason-Croissant/
-src/main/java/base/CustomMatch.java
-src/main/java/base/Lib.java
+# src/main/java/base/CustomMatch.java
+# src/main/java/base/Lib.java
+
+sac_2019/teams

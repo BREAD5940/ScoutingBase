@@ -115,6 +115,7 @@ public class CustomTeam {
             this.totalRockets++;
 
         this.matchNotes.put(match.matchNum,match.matchNotes);
+        this.matches.add(match);
         this.isFullySync = this.isFullySync && match.tbaSynced;
 
     }
@@ -155,7 +156,7 @@ public class CustomTeam {
     public void sendToTxt(String directory){
         FileWriter writer = null;
         try{
-            writer = new FileWriter(directory+this.number+".txt", true);
+            writer = new FileWriter(directory+this.number+".txt", false);
         }catch(IOException e){
             Lib.report("File not found error");
             System.out.println(e);
@@ -163,26 +164,27 @@ public class CustomTeam {
 
         try{
             writer.write(String.format(
-                "IS FULLY SYNCED WITH TBA: %b"+
-                "%4d  (%s/%s) -- %s\n"+
+                "IS FULLY SYNCED WITH TBA: %b\n"+
+                "%-4d  (%s/%s) \nSponsors: %s\n"+
                 "-----------------------------------------------------------------------\n\n"+
                 "Groups: %s\n"+
-                "Consistantly Off the Hab? %b    Most Common Starting Hab: %1f    Maximum Starting Hab: %1f\n"+
+                "Consistantly Off the Hab? %b    Most Common Starting Hab: %.0f    Maximum Starting Hab: %.0f\n"+
                 "Starting Hab Levels (By Match): %s\n\n"+
-                "Is Ramp Bot? %b                 Most Common Scale Level: %1f     Maximum Scale Level: %1f\n"+
+                "Is Ramp Bot? %b                 Most Common Scale Level: %.0f     Maximum Scale Level: %.0f\n"+
                 "Scale Levels (By Match): %s\n\n"+
                 "Total Ranking Points: %d    Hab-Related RPs: %d    Rocket-Realted RPs: %d    Filled Rockets: %d\n\n"+
-                "Average Fouls Per Match: %3f    Average Tech Fouls Per Match: %3f\n"+
-                "Total Yellow Cards: %1f           Total Red Cards: %1f\n"+
-                "Total Emergency Stops: %1f        Total Robot Breakages: %1f\n\n"+
-                "Average Game Pieces Placed (Sandstorm): %3f\n"+
+                "Average Fouls Per Match: %.2f    Average Tech Fouls Per Match: %.2f\n"+
+                "Total Yellow Cards: %.0f           Total Red Cards: %.0f\n"+
+                "Total Emergency Stops: %.0f        Total Robot Breakages: %.0f\n\n"+
+                "Average Game Pieces Placed (Sandstorm): %.2f\n"+
                 "Average Hatch Panel Placement:    Average Cargo Placement:\n"+
-                "    Cargo Ship: %3f                  Cargo Ship: %3f\n"+
-                "    Rocket: %3f                      Rocket: %3f\n"+
-                "    Dropped: %3f                     Dropped: %3f\n\n"+
+                "    Cargo Ship: %.2f                  Cargo Ship: %.2f\n"+
+                "    Rocket: %.2f                      Rocket: %.2f\n"+
+                "    Dropped: %.2f                     Dropped: %.2f\n\n"+
                 "Match Number | Note\n"
                 ,this.isFullySync
                 ,this.number, this.scoutedName, this.tbaName, this.sponsors
+
                 ,Lib.listToString(this.groups.toArray())
                 ,this.consistOffHab, this.consistStartHab, this.maxStartHab
                 ,Lib.listToString(this.startHabs.toArray())
@@ -191,6 +193,7 @@ public class CustomTeam {
                 ,this.totalRPs, this.totalHabRPs, this.totalRocketRPs, this.totalRockets
                 ,this.avFoul, this.avTech
                 ,this.totalYellow, this.totalRed
+                ,this.eStops, this.borks
                 ,this.avGPSand
 
                 ,this.avHPShip, this.avCShip
@@ -198,10 +201,11 @@ public class CustomTeam {
                 ,this.avHPDrop, this.avHPDrop
             ));
             for(Integer key : this.matchNotes.keySet()){
-                writer.write(String.format("%-12f | %s\n", key, this.matchNotes.get(key)));
+                writer.write(String.format("%12d | %s\n", key, this.matchNotes.get(key)));
             }
             writer.write("\n-----------------------------------------------------------------------\n\nMATCHES: \n");
             for(CustomMatch match : this.matches){
+                Lib.report(this.number+", match "+match.matchNum);
                 writer.write(match.toString()+"\n");
             }
             writer.close();
