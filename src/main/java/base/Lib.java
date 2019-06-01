@@ -48,9 +48,8 @@ public class Lib {
         return tempIn;
     }
 
-    //FIXME aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa superclass no work
-    public static String listToString(Object[] groups){
-        String str="[";
+    public static String arrayToString(Object[] groups){
+        String str="|";
         if(groups.length>1){
             for(int i=0; i<=groups.length-1; i++){
                 str+=groups[i].toString();
@@ -58,7 +57,21 @@ public class Lib {
             }
             str+=groups[groups.length-1].toString();
         }
-        return str+"]";
+        return str+"|";
+    }
+
+    public static String[] stringToArray(String string, boolean hasSides) {
+        String commaString = "";
+        if(hasSides){
+            commaString = string.substring(1, string.length()-2);
+        }else{
+            commaString = string;
+        }
+        return commaString.split(",");
+    }
+
+    public static String[] stringToArray(String string){
+        return stringToArray(string, false);
     }
 
 

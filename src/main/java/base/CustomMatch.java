@@ -163,7 +163,7 @@ public class CustomMatch{
         this.tbaSynced = true;
     }
 
-    public String toString(){
+    public String toReadableString(){
         return String.format("Team Number: %d, Match Type: %s, Match Number: %d, Position: %s, isBlue: %b, "
                                 +"HPShipGame: %d, HPShipSand: %d, HPRocketGame: %d, HPRocketSand: %d, HPDropGame: %d, "
                                 +"HPDropSand: %d, CShipGame: %d, CShipSand: %d, CRocketGame: %d, CRocketSand: %d, CDropGame: %d, "
@@ -178,5 +178,16 @@ public class CustomMatch{
                                 this.red, this.eStopped, this.borked, this.points, this.nonFoulPoints,
                                 this.rankingPoints, this.rRocket, this.lRocket, this.habRP,
                                 this.crRP, this.tbaSynced, this.matchNotes);
+    }
+
+    @Override
+    public String toString(){
+        return this.teamNum+","+this.matchType+","+this.matchNum+","+this.alliancePosition
+                +","+this.isBlueAlliance+","+this.HPShipGame+","+this.HPShipSand+","+this.HPRocketGame
+                +","+this.HPRocketSand+","+this.HPDropGame+","+this.HPDropSand+","+this.CShipGame
+                +","+this.CShipSand+","+this.CRocketGame+","+this.CRocketSand+","+this.CRocketGame
+                +","+this.CRocketSand+","+this.CDropGame+","+this.CDropSand+","+this.scaleLevel+","+this.isHelp
+                +","+this.startHab+","+this.crossedLine+","+this.fouls+","+this.techs+","+this.yellow
+                +","+this.red+","+this.eStopped+","+this.borked+","+
     }
 }

@@ -63,6 +63,21 @@ public class CustomTeam {
         this.number = number_;
     }
 
+    public CustomTeam(String[] csvRow){
+
+        //QUTOECHAR IS |
+        this.scoutedName = csvRow[0];
+        this.tbaName = csvRow[1];
+        this.sponsors = csvRow[2];
+        this.number = Integer.valueOf(csvRow[3]);
+        this.isFullySync = (csvRow[4].equals("true"));
+
+        for(String match : Lib.stringToArray(csvRow[5])){
+            this.matches.add(new CustomMatch(Lib.stringToArray(match, true)));
+        }
+
+    }
+
 
     public void addMatch(CustomMatch match){
         this.avGPSand = (this.avGPSand + match.getSandPlaces())/2;
@@ -150,7 +165,7 @@ public class CustomTeam {
         this.isRamp, this.consistStartHab, this.maxStartHab, this.consistOffHab,
         this.avFoul, this.avTech, this.totalYellow, this.totalRed, this.eStops, 
         this.borks, this.totalRPs, this.totalHabRPs, this.totalRocketRPs, this.totalRockets,
-        Lib.listToString(this.groups.toArray()));
+        Lib.arrayToString(this.groups.toArray()));
     }
 
     public void sendToTxt(String directory){
@@ -185,11 +200,11 @@ public class CustomTeam {
                 ,this.isFullySync
                 ,this.number, this.scoutedName, this.tbaName, this.sponsors
 
-                ,Lib.listToString(this.groups.toArray())
+                ,Lib.arrayToString(this.groups.toArray())
                 ,this.consistOffHab, this.consistStartHab, this.maxStartHab
-                ,Lib.listToString(this.startHabs.toArray())
+                ,Lib.arrayToString(this.startHabs.toArray())
                 ,this.isRamp, this.consistScaleLevel, this.maxScaleLevel
-                ,Lib.listToString(this.scaleLevels.toArray())
+                ,Lib.arrayToString(this.scaleLevels.toArray())
                 ,this.totalRPs, this.totalHabRPs, this.totalRocketRPs, this.totalRockets
                 ,this.avFoul, this.avTech
                 ,this.totalYellow, this.totalRed
@@ -213,11 +228,12 @@ public class CustomTeam {
     }
 
     public String toCSVString(){
-        return scoutedName+","+number+","+avGPSand+","+avHPShip+","+avHPRocket+","+
-                avHPDrop+","+avCShip+","+avCRocket+","+avCDrop+","+scaleLevels+","+
-                    consistScaleLevel+","+maxScaleLevel+","+isRamp+","+startHabs+","+
-                        consistStartHab+","+maxStartHab+","+consistOffHab+","+avFoul+","+
-                            avTech+","+totalYellow+","+totalRed+","+eStops+","+borks+","+
-                                groups+","+matches;
+        return this.scoutedName+","+this.tbaName+","+this.sponsors+","+this.number+","+this.isFullySync+","+
+                Lib.arrayToString(this.matches.toArray())+","+this.avGPSand+","+this.avHPShip+","+this.avHPRocket+","+
+                    this.avHPDrop+","+this.avCShip+","+this.avCRocket+","+this.avCDrop+","+Lib.arrayToString(this.scaleLevels.toArray())+","+
+                        this.consistScaleLevel+","+this.maxScaleLevel+","+this.isRamp+","+Lib.arrayToString(this.startHabs.toArray())+","+
+                            this.consistStartHab+","+this.maxStartHab+","+this.consistOffHab+","+this.avFoul+","+this.avTech+","+this.totalYellow+","+
+                                this.totalRed+","+eStops+","+borks+","+totalRPs+","+totalHabRPs+","+totalRocketRPs+","+totalRockets+","+Lib.arrayToString(this.groups.toArray())
+                                    ;//does NOT inclue match notes
     }
 }
