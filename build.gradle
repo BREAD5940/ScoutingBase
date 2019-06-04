@@ -33,7 +33,7 @@ dependencies {
 	implementation 'com.github.wdavies973:tba-api-v3:1.0.6'
 
   compile group: 'com.opencsv', name: 'opencsv', version: '3.8'
-
+compile group: 'com.fasterxml', name: 'jackson-module-json-org', version: '0.9.1'
 
 }
 

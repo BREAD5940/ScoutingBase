@@ -9,11 +9,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.xml.namespace.QName;
+
 import com.opencsv.CSVReader;
+
+import org.codehaus.jackson.map.ObjectMapper;
 
 import base.CustomTeam.Groups;
 
 public class Lib {
+
+    static ObjectMapper mapper = new ObjectMapper();
+
 
     public static int max(ArrayList<Integer> ints){
         int temp=0;
@@ -164,5 +171,62 @@ public class Lib {
             return false;
         } 
     } 
+
+
+    public static void saveMatches(List<CustomMatch> matches, String eventDir){
+        for(CustomMatch match : matches){
+            try{
+                mapper.writeValue(new File(eventDir+"backups/matches/qm"+match.matchNum+match.alliancePosition+".json"), match);
+            }catch (Exception e){
+                report("write failed for match "+match.matchNum);
+                report(e.toString());
+            }
+        }
+    }
+
+    public static List<CustomMatch> recoverMatches(String eventDir){
+        List<CustomMatch> recovered = new ArrayList<>();
+
+        File[] files = new File(eventDir+"backups/matches/").listFiles();
+
+        for(File file : files){
+            try{
+                recovered.add(mapper.readValue(file, CustomMatch.class));
+            }catch(Exception e){
+                report("recover failed");
+                report(e.toString());
+            }
+        }
+
+        return recovered;
+    }
+
+    public static void saveTeams(List<CustomTeam> teams, String eventDir){
+        for(CustomTeam team : teams){
+            try{
+                mapper.writeValue(new File(eventDir+"backups/teams/"+team.number+".json"), team);
+            }catch (Exception e){
+                report("write failed for team "+team.number);
+                report(e.toString());
+            }
+        }
+    }
+
+    public static List<CustomTeam> recoverTeams(String eventDir){
+        List<CustomTeam> recovered = new ArrayList<>();
+
+        File[] files = new File(eventDir+"backups/teams/").listFiles();
+
+        for(File file : files){
+            try{
+                recovered.add(mapper.readValue(file, CustomTeam.class));
+            }catch(Exception e){
+                report("recover failed");
+                report(e.toString());
+            }
+        }
+
+        return recovered;
+    }
 
 }

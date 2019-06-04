@@ -92,8 +92,12 @@ public class CustomMatch{
 
         this.matchNotes = this.matchNotes.replace("\n", ".  ");
     }
+    
+    public CustomMatch(){
+        //dummy constructor
+    }
 
-    public int getSandPlaces(){
+    public int sandPlaces(){
         return HPShipSand+HPRocketSand+CShipSand+CRocketSand;
     }
 
@@ -188,6 +192,6 @@ public class CustomMatch{
                 +","+this.CShipSand+","+this.CRocketGame+","+this.CRocketSand+","+this.CRocketGame
                 +","+this.CRocketSand+","+this.CDropGame+","+this.CDropSand+","+this.scaleLevel+","+this.isHelp
                 +","+this.startHab+","+this.crossedLine+","+this.fouls+","+this.techs+","+this.yellow
-                +","+this.red+","+this.eStopped+","+this.borked+","+
+                +","+this.red+","+this.eStopped+","+this.borked+","; //TODO
     }
 }

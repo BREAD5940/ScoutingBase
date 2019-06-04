@@ -129,6 +129,18 @@ public class Main{
         }
         Lib.report("\n\n"+teams.get(0).toReadableString());
 
+        Lib.saveTeams(teams, eventDir);
+        Lib.saveMatches(matches, eventDir);
+
+        matches.clear();
+        teams.clear();
+
+        matches = Lib.recoverMatches(eventDir);
+        teams = Lib.recoverTeams(eventDir);
+
+        Lib.report(matches.get(5).toReadableString());
+        Lib.report(teams.get(11).toReadableString());
+
     }
 
 

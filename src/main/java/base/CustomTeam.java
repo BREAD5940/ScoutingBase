@@ -15,54 +15,55 @@ public class CustomTeam {
         HasBorked, LowScorers, HighScorers, Completed3Rockets
     }
 
-    String scoutedName;
-    String tbaName;
-    String sponsors;
-    int number;
-    boolean isFullySync = true;
+    public String scoutedName;
+    public String tbaName;
+    public String sponsors;
+    public int number;
+    public boolean isFullySync = true;
     
-    ArrayList<CustomMatch> matches = new ArrayList<CustomMatch>();
+    public ArrayList<CustomMatch> matches = new ArrayList<CustomMatch>();
 
-    double avGPSand;
-    double avHPShip;
-    double avHPRocket;
-    double avHPDrop;
-    double avCShip;
-    double avCRocket;
-    double avCDrop;
+    public double avGPSand;
+    public double avHPShip;
+    public double avHPRocket;
+    public double avHPDrop;
+    public double avCShip;
+    public double avCRocket;
+    public double avCDrop;
 
-    ArrayList<Integer> scaleLevels = new ArrayList<Integer>();
-    double consistScaleLevel;
-    double maxScaleLevel;
+    public ArrayList<Integer> scaleLevels = new ArrayList<Integer>();
+    public double consistScaleLevel;
+    public double maxScaleLevel;
 
-    boolean isRamp;
+    public boolean isRamp;
 
-    ArrayList<Integer> startHabs = new ArrayList<Integer>();
-    double consistStartHab;
-    double maxStartHab;
-    boolean consistOffHab;
+    public ArrayList<Integer> startHabs = new ArrayList<Integer>();
+    public double consistStartHab;
+    public double maxStartHab;
+    public boolean consistOffHab;
 
-    double avFoul;
-    double avTech;
-    double totalYellow;
-    double totalRed;
+    public double avFoul;
+    public double avTech;
+    public double totalYellow;
+    public double totalRed;
 
-    double eStops;
-    double borks;
+    public double eStops;
+    public double borks;
 
-    int totalRPs;
-    int totalHabRPs;
-    int totalRocketRPs;
-    int totalRockets;
+    public int totalRPs;
+    public int totalHabRPs;
+    public int totalRocketRPs;
+    public int totalRockets;
 
-    ArrayList<Groups> groups = new ArrayList<Groups>();
-    HashMap<Integer,String> matchNotes = new HashMap<Integer,String>();
+    public ArrayList<Groups> groups = new ArrayList<Groups>();
+    public HashMap<Integer,String> matchNotes = new HashMap<Integer,String>();
 
     public CustomTeam (String name_, int number_){
         this.scoutedName = name_;
         this.number = number_;
     }
 
+    @Deprecated
     public CustomTeam(String[] csvRow){
 
         //QUTOECHAR IS |
@@ -78,9 +79,13 @@ public class CustomTeam {
 
     }
 
+    public CustomTeam(){
+        //dummy constructor
+    }
+
 
     public void addMatch(CustomMatch match){
-        this.avGPSand = (this.avGPSand + match.getSandPlaces())/2;
+        this.avGPSand = (this.avGPSand + match.sandPlaces())/2;
 
         this.avHPShip = (this.avHPShip + (match.HPShipGame+match.HPShipSand))/2;
         this.avHPRocket = (this.avHPRocket + (match.HPRocketGame+match.HPRocketSand))/2;
