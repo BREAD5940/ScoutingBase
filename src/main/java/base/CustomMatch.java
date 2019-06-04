@@ -104,7 +104,7 @@ public class CustomMatch{
     public void syncTBA(){
         Match foundMatch = new Match();
         try{
-            foundMatch = Main.tbaApi.getMatch(Main.tbaEventKey+"_qm"+this.matchNum);
+            foundMatch = Main.tbaApi.getMatch(Main.sesh.tbaEventKey+"_qm"+this.matchNum);
         }catch(DataNotFoundException e){
             System.out.println("Match not found. \n"+e);
             return;
