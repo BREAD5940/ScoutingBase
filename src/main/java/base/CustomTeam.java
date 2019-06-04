@@ -63,22 +63,6 @@ public class CustomTeam {
         this.number = number_;
     }
 
-    @Deprecated
-    public CustomTeam(String[] csvRow){
-
-        //QUTOECHAR IS |
-        this.scoutedName = csvRow[0];
-        this.tbaName = csvRow[1];
-        this.sponsors = csvRow[2];
-        this.number = Integer.valueOf(csvRow[3]);
-        this.isFullySync = (csvRow[4].equals("true"));
-
-        for(String match : Lib.stringToArray(csvRow[5])){
-            this.matches.add(new CustomMatch(Lib.stringToArray(match, true)));
-        }
-
-    }
-
     public CustomTeam(){
         //dummy constructor
     }

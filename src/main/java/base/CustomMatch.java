@@ -192,6 +192,8 @@ public class CustomMatch{
                 +","+this.CShipSand+","+this.CRocketGame+","+this.CRocketSand+","+this.CRocketGame
                 +","+this.CRocketSand+","+this.CDropGame+","+this.CDropSand+","+this.scaleLevel+","+this.isHelp
                 +","+this.startHab+","+this.crossedLine+","+this.fouls+","+this.techs+","+this.yellow
-                +","+this.red+","+this.eStopped+","+this.borked+","; //TODO
+                +","+this.red+","+this.eStopped+","+this.borked+","+this.points+","+this.nonFoulPoints
+                +","+this.rankingPoints+","+this.rRocket+","+this.lRocket+","+this.habRP+","+this.crRP
+                +","+this.tbaSynced+",|"+this.matchNotes+"|"; //TODO
     }
 }
