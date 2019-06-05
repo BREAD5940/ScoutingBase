@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="457.0" prefWidth="667.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="431.0" prefWidth="640.0" VBox.vgrow="ALWAYS">
+         <children>
+            <ImageView accessibleRole="BUTTON" fitHeight="32.0" fitWidth="37.0" layoutX="16.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@circled-left-2.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="124.0" layoutY="28.0" prefHeight="112.0" prefWidth="391.0" text="Stand Scouting Rotations (view)" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <TableView layoutX="30.0" layoutY="152.0" prefHeight="95.0" prefWidth="600.0">
+              <columns>
+                <TableColumn prefWidth="103.20001220703125" text="Blue 1" />
+                <TableColumn prefWidth="100.0" text="Blue 2" />
+                  <TableColumn prefWidth="100.79998779296875" text="Blue 3" />
+                  <TableColumn prefWidth="95.20001220703125" text="Red 1" />
+                  <TableColumn prefWidth="96.800048828125" text="Red 2" />
+                  <TableColumn prefWidth="100.79998779296875" text="Red 3" />
+              </columns>
+            </TableView>
+            <TableView layoutX="30.0" layoutY="288.0" prefHeight="95.0" prefWidth="600.0">
+               <columns>
+                  <TableColumn prefWidth="103.20001220703125" text="Blue 1" />
+                  <TableColumn prefWidth="100.0" text="Blue 2" />
+                  <TableColumn prefWidth="100.79998779296875" text="Blue 3" />
+                  <TableColumn prefWidth="95.20001220703125" text="Red 1" />
+                  <TableColumn prefWidth="96.800048828125" text="Red 2" />
+                  <TableColumn prefWidth="100.79998779296875" text="Red 3" />
+               </columns>
+            </TableView>
+            <Label layoutX="32.0" layoutY="129.0" text="Current: ">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="266.0" text="Upcoming (in _____ minutes):">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Button layoutX="22.0" layoutY="392.0" mnemonicParsing="false" text="View All" />
+            <Button layoutX="94.0" layoutY="392.0" mnemonicParsing="false" text="Edit" />
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
