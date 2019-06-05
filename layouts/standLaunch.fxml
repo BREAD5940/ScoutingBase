@@ -60,22 +60,22 @@
                   <Image url="@circled-left-2.png" />
                </image>
             </ImageView>
-            <Label layoutX="216.0" layoutY="28.0" text="Pit Scouting">
+            <Label layoutX="191.0" layoutY="28.0" text="Stand Scouting">
                <font>
                   <Font name="System Bold" size="36.0" />
                </font>
             </Label>
-            <Button layoutX="259.0" layoutY="133.0" mnemonicParsing="false" text="Enter Data" wrapText="true">
+            <Button layoutX="260.0" layoutY="131.0" mnemonicParsing="false" text="Enter Data" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button layoutX="137.0" layoutY="209.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="121.0" text="View Assignments" textAlignment="CENTER" wrapText="true">
+            <Button layoutX="150.0" layoutY="207.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="109.0" text="View Rotations" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="380.0" layoutY="209.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="121.0" text="Edit Assignments" textAlignment="CENTER" wrapText="true">
+            <Button layoutX="381.0" layoutY="207.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="102.0" text="Edit Rotations" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="15.0" />
                </font>

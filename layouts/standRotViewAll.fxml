@@ -6,13 +6,15 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="508.0" prefWidth="758.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -60,26 +62,24 @@
                   <Image url="@circled-left-2.png" />
                </image>
             </ImageView>
-            <Label layoutX="216.0" layoutY="28.0" text="Pit Scouting">
+            <Label layoutX="183.0" layoutY="28.0" prefHeight="112.0" prefWidth="391.0" text="Stand Scouting Rotations (view all)" textAlignment="CENTER" wrapText="true">
                <font>
-                  <Font name="System Bold" size="36.0" />
+                  <Font name="System Bold" size="30.0" />
                </font>
             </Label>
-            <Button layoutX="259.0" layoutY="133.0" mnemonicParsing="false" text="Enter Data" wrapText="true">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Button>
-            <Button layoutX="137.0" layoutY="209.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="121.0" text="View Assignments" textAlignment="CENTER" wrapText="true">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Button>
-            <Button layoutX="380.0" layoutY="209.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="121.0" text="Edit Assignments" textAlignment="CENTER" wrapText="true">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Button>
+            <TableView layoutX="25.0" layoutY="139.0" prefHeight="292.0" prefWidth="706.0">
+               <columns>
+                  <TableColumn prefWidth="79.20001602172852" text="Time" />
+                  <TableColumn prefWidth="124.79998779296875" text="Blue 1" />
+                  <TableColumn prefWidth="100.79998779296875" text="Blue 2" />
+                  <TableColumn prefWidth="95.20001220703125" text="Blue 3" />
+                  <TableColumn prefWidth="96.800048828125" text="Red 1" />
+                  <TableColumn prefWidth="100.79998779296875" text="Red 2" />
+                  <TableColumn prefWidth="103.20001220703125" text="Red 3" />
+               </columns>
+            </TableView>
+            <Button layoutX="16.0" layoutY="442.0" mnemonicParsing="false" text="View Current" />
+            <Button layoutX="111.0" layoutY="442.0" mnemonicParsing="false" text="Edit" />
          </children>
     </AnchorPane>
   </children>
