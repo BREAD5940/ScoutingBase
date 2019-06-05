@@ -5,20 +5,25 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+
 
 import com.cpjd.main.TBA;
 import com.cpjd.models.events.Award;
 import com.cpjd.models.teams.Team;
 
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.collections.FXCollections;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
 
 public class Main extends Application{
     public static TBA tbaApi;
@@ -30,19 +35,25 @@ public class Main extends Application{
         tbaApi = new TBA();
 
         primaryStage.setTitle("Team 5940 Scouting Base");
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
+        Button submit = new Button();
+        Menu selector = new Menu();
+        VBox box = new VBox();
+        String selected;
+        ToggleGroup toggleGroup = new ToggleGroup();
+        RadioMenuItem sacChoice = new RadioMenuItem("Choice 1");
+        toggleGroup.getToggles().add(sacChoice);
+        selector.getItems().add(sacChoice);
+        submit.setText("Select");
+        submit.setOnAction(new EventHandler<ActionEvent>() {
  
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
+                System.out.println("Current Session: "+toggleGroup.getSelectedToggle().toString());
             }
         });
         
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
-        primaryStage.setScene(new Scene(root, 300, 250));
+        box.getChildren().add(selector);
+        primaryStage.setScene(new Scene(box, 300, 250));
         primaryStage.show();
     }
 
