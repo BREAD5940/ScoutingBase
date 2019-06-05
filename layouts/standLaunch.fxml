@@ -6,8 +6,6 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -62,18 +60,26 @@
                   <Image url="@circled-left-2.png" />
                </image>
             </ImageView>
-            <Label layoutX="108.0" layoutY="14.0" prefHeight="112.0" prefWidth="434.0" text="Pit Scouting Assignments (view)" textAlignment="CENTER" wrapText="true">
+            <Label layoutX="191.0" layoutY="28.0" text="Stand Scouting">
                <font>
-                  <Font name="System Bold" size="30.0" />
+                  <Font name="System Bold" size="36.0" />
                </font>
             </Label>
-            <TableView layoutX="139.0" layoutY="126.0" prefHeight="200.0" prefWidth="371.0">
-              <columns>
-                <TableColumn prefWidth="109.5999755859375" text="Name" />
-                <TableColumn prefWidth="259.99993896484375" text="Assignments" />
-              </columns>
-            </TableView>
-            <Button layoutX="48.0" layoutY="301.0" mnemonicParsing="false" text="Edit" />
+            <Button layoutX="260.0" layoutY="131.0" mnemonicParsing="false" text="Enter Data" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button layoutX="150.0" layoutY="207.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="109.0" text="View Rotations" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="381.0" layoutY="207.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="102.0" text="Edit Rotations" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
          </children>
     </AnchorPane>
   </children>
