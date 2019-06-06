@@ -24,6 +24,8 @@ import javafx.stage.Stage;
 import javafx.collections.FXCollections;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
+import javafx.scene.*;
+import javafx.fxml.*;
 
 public class Main extends Application{
     public static TBA tbaApi;
@@ -34,26 +36,12 @@ public class Main extends Application{
         TBA.setAuthToken("OPynqKt8K0vueAXqxZzdigY9OBYK3KMgQQrsM4l8jE5cBmGfByhy6YzVIb2Ts7xD");
         tbaApi = new TBA();
 
-        primaryStage.setTitle("Team 5940 Scouting Base");
-        Button submit = new Button();
-        Menu selector = new Menu();
-        VBox box = new VBox();
-        String selected;
-        ToggleGroup toggleGroup = new ToggleGroup();
-        RadioMenuItem sacChoice = new RadioMenuItem("Choice 1");
-        toggleGroup.getToggles().add(sacChoice);
-        selector.getItems().add(sacChoice);
-        submit.setText("Select");
-        submit.setOnAction(new EventHandler<ActionEvent>() {
- 
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Current Session: "+toggleGroup.getSelectedToggle().toString());
-            }
-        });
-        
-        box.getChildren().add(selector);
-        primaryStage.setScene(new Scene(box, 300, 250));
+        Parent root = FXMLLoader.load(getClass().getResource("/layouts/startup.fxml"));
+    
+        Scene scene = new Scene(root, 600, 400);
+    
+        primaryStage.setTitle("BREAD 5940 Scouting Base");
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 
