@@ -43,6 +43,16 @@ public class Main extends Application{
         primaryStage.setTitle("BREAD 5940 Scouting Base");
         primaryStage.setScene(scene);
         primaryStage.show();
+
+
+        while(true){
+            if(FXMLControl.switchWindow){
+                root = FXMLLoader.load(getClass().getResource(FXMLControl.currentWindow.filePath));
+                scene = new Scene(root);
+                primaryStage.setScene(scene);
+                primaryStage.show();
+            }
+        }
     }
 
 
