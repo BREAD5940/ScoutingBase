@@ -31,26 +31,40 @@ public class Main extends Application{
     public static TBA tbaApi;
     public static Session sesh = new Session(2019, "Sac 2019", "2019cada", "sac_2019/", new Color(100, 199, 254));
 
+    private static Stage stage;
+    private static Parent rootPage;
+    private static Scene scene;
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         TBA.setAuthToken("OPynqKt8K0vueAXqxZzdigY9OBYK3KMgQQrsM4l8jE5cBmGfByhy6YzVIb2Ts7xD");
         tbaApi = new TBA();
 
-        Parent root = FXMLLoader.load(getClass().getResource("/layouts/startup.fxml"));
-    
-        Scene scene = new Scene(root, 600, 400);
-    
-        primaryStage.setTitle("BREAD 5940 Scouting Base");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        stage = primaryStage;
 
+        Parent root = FXMLLoader.load(getClass().getResource("/layouts/startup.fxml"));
+
+        rootPage = root;
+    
+        scene = new Scene(root, 600, 400);
+    
+        stage.setTitle("BREAD 5940 Scouting Base");
+        stage.setScene(scene);
+        stage.show();
+
+
+        
+    }
+
+    public static void main(String[] args) throws Exception{
+        launch(args);
 
         while(true){
             if(FXMLControl.switchWindow){
-                root = FXMLLoader.load(getClass().getResource(FXMLControl.currentWindow.filePath));
-                scene = new Scene(root);
-                primaryStage.setScene(scene);
-                primaryStage.show();
+                rootPage = FXMLLoader.load(Application.class.getResource(FXMLControl.currentWindow.filePath));
+                scene = new Scene(rootPage);
+                stage.setScene(scene);
+                stage.show();
             }
         }
     }
