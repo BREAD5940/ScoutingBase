@@ -9,11 +9,11 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-
 import com.cpjd.main.TBA;
 import com.cpjd.models.events.Award;
 import com.cpjd.models.teams.Team;
 
+import base.control.StartupControl;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -27,46 +27,33 @@ import javafx.scene.layout.*;
 import javafx.scene.*;
 import javafx.fxml.*;
 
-public class Main extends Application{
+public class Main{
     public static TBA tbaApi;
     public static Session sesh = new Session(2019, "Sac 2019", "2019cada", "sac_2019/", new Color(100, 199, 254));
 
-    private static Stage stage;
-    private static Parent rootPage;
-    private static Scene scene;
 
-    @Override
-    public void start(Stage primaryStage) throws Exception {
+    public enum Windows{
+        adminSignIn("/layouts/adminSignIn.fxml"), newSession("/layouts/newSession.fxml"), pitAssignEdit("/layouts/pitAssignEdit.fxml"), 
+        pitAssignView("/layouts/pitAssignView.fxml"), pitDataEntry("/layouts/pitDataEntry.fxml"), pitLaunch("/layouts/pitLaunch.fxml"),
+        pitScoutSignIn("/layouts/pitScoutSignIn.fxml"), sessionLaunch("/layouts/sessionLaunch.fxml"), standEntry("/layouts/standEntry.fxml"),
+        standLaunch("/layouts/standLaunch.fxml"), standRotEdit("/layouts/standRotEdit.fxml"), standRotView("/layouts/standRotView.fxml"), 
+        standRotViewAll("/layouts/standRotViewAll.fxml"), startup("/layouts/startup.fxml"), statsOffline("/layouts/statsOffline.fxml"), 
+        teamCompare("/layouts/teamCompare.fxml"), teamSearch("/layouts/teamSearch.fxml"), teamStatsOnline("/layouts/teamStatsOnline.fxml");
+
+        public String filePath;
+        private Windows(String filePath){
+            this.filePath = filePath;
+        }
+
+    }
+    public static Windows currentWindow=Windows.startup;
+    public static boolean switchWindow = false;
+
+    public static void main(String[] args) throws Exception{
         TBA.setAuthToken("OPynqKt8K0vueAXqxZzdigY9OBYK3KMgQQrsM4l8jE5cBmGfByhy6YzVIb2Ts7xD");
         tbaApi = new TBA();
 
-        stage = primaryStage;
-
-        Parent root = FXMLLoader.load(getClass().getResource("/layouts/startup.fxml"));
-
-        rootPage = root;
-    
-        scene = new Scene(root, 600, 400);
-    
-        stage.setTitle("BREAD 5940 Scouting Base");
-        stage.setScene(scene);
-        stage.show();
-
-
-        
-    }
-
-    public static void main(String[] args) throws Exception{
-        launch(args);
-
-        while(true){
-            if(FXMLControl.switchWindow){
-                rootPage = FXMLLoader.load(Application.class.getResource(FXMLControl.currentWindow.filePath));
-                scene = new Scene(rootPage);
-                stage.setScene(scene);
-                stage.show();
-            }
-        }
+        StartupControl.launch(args);
     }
 
 
