@@ -1,9 +1,11 @@
-package base.control;
+package base.controllers;
 
 import javafx.event.ActionEvent;
 
 import javafx.fxml.*;
+import base.Lib;
 import base.Main;
+import base.Session;
 import base.Main.Windows;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
@@ -20,22 +22,18 @@ import javafx.fxml.*;
 
 public class StartupControl extends Application{
 
+    @FXML private ComboBox<Session> sessionSelect;
+
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/layouts/startup.fxml"));
-
-        Scene scene = new Scene(root, 600, 400);
-    
-        primaryStage.setTitle("BREAD 5940 Scouting Base");
-        primaryStage.setScene(scene);
-        primaryStage.show(); 
+        Lib.memeStart(primaryStage, FXMLLoader.load(getClass().getResource("/layouts/startup.fxml")));
+        sessionSelect.getItems().addAll(Main.activeSessions);
     }
 
 
-    @FXML public void handleStartupGoButton(ActionEvent event){
+    @FXML public void handleGoButton(ActionEvent event){
         System.out.println("Go button pressed");
         Main.switchWindow=true;
         Main.currentWindow = Windows.sessionLaunch;
-
     }
 }

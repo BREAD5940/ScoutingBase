@@ -17,6 +17,23 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 import base.CustomTeam.Groups;
 
+
+import javafx.fxml.*;
+import base.Main;
+import base.Main.Windows;
+import javafx.application.Application;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+import javafx.collections.FXCollections;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
+import javafx.scene.*;
+import javafx.fxml.*;
+
 public class Lib {
 
     static ObjectMapper mapper = new ObjectMapper();
@@ -227,6 +244,46 @@ public class Lib {
         }
 
         return recovered;
+    }
+
+    public static void saveSession(Session session){
+        try{
+            mapper.writeValue(new File("main_storage/"+session.tbaEventKey+".json"), session);
+        }catch (Exception e){
+            report("write failed for session "+session.tbaEventKey);
+            report(e.toString());
+        }
+    }
+
+    public static List<Session> recoverAllSessions(){
+        List<Session> recovered = new ArrayList<>();
+
+        File[] files = new File("main_storage/").listFiles();
+
+        for(File file : files){
+            try{
+                recovered.add(mapper.readValue(file, Session.class));
+            }catch(Exception e){
+                report("recover failed");
+                report(e.toString());
+            }
+        }
+
+        return recovered;
+    }
+
+
+    public static void memeStart(Stage primaryStage, Parent root, String title) throws Exception{
+
+        Scene scene = new Scene(root, 600, 400);
+    
+        primaryStage.setTitle(title);
+        primaryStage.setScene(scene);
+        primaryStage.show(); 
+    }
+
+    public static void memeStart(Stage primaryStage, Parent root) throws Exception{
+        memeStart(primaryStage, root, "BREAD 5940 Scouting Base");
     }
 
 }

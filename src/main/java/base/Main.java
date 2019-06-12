@@ -13,7 +13,7 @@ import com.cpjd.main.TBA;
 import com.cpjd.models.events.Award;
 import com.cpjd.models.teams.Team;
 
-import base.control.StartupControl;
+import base.controllers.StartupControl;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -29,7 +29,7 @@ import javafx.fxml.*;
 
 public class Main{
     public static TBA tbaApi;
-    public static Session sesh = new Session(2019, "Sac 2019", "2019cada", "sac_2019/", new Color(100, 199, 254));
+    // public static Session sesh = new Session(2019, "Sac 2019", "2019cada", "sac_2019/", 0xffffff);
 
 
     public enum Windows{
@@ -46,6 +46,14 @@ public class Main{
         }
 
     }
+
+    public static HashMap<Windows, Application> controllersMap = new HashMap<Windows, Application>(){{
+        put(Windows.startup, new StartupControl());
+    }};
+    
+    public static List<Session> activeSessions = new ArrayList<Session>();
+
+    public static Session currentSession = null;
     public static Windows currentWindow=Windows.startup;
     public static boolean switchWindow = false;
 
@@ -53,7 +61,13 @@ public class Main{
         TBA.setAuthToken("OPynqKt8K0vueAXqxZzdigY9OBYK3KMgQQrsM4l8jE5cBmGfByhy6YzVIb2Ts7xD");
         tbaApi = new TBA();
 
-        StartupControl.launch(args);
+        // controllersMap.get(Windows.startup).launch(args);
+
+        // while(true){
+        //     if(switchWindow){
+        //         controllersMap.get(currentWindow).launch(args);
+        //     }
+        // }
     }
 
 
