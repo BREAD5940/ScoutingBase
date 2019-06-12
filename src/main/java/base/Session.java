@@ -1,8 +1,6 @@
 package base;
 
-import java.awt.Color;
-
-public class Session{
+public class Session {
     public int season;
     public String event;
     public String tbaEventKey;

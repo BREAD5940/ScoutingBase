@@ -4,29 +4,18 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.security.acl.Group;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
-import javax.xml.namespace.QName;
 
 import com.opencsv.CSVReader;
 
 import org.codehaus.jackson.map.ObjectMapper;
 
-import base.CustomTeam.Groups;
-
-
 import javafx.fxml.*;
-import base.Main;
-import base.Main.Windows;
-import javafx.application.Application;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.collections.FXCollections;
 import javafx.scene.control.*;
