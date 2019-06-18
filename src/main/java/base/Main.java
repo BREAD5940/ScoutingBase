@@ -1,5 +1,6 @@
 package base;
 
+import java.awt.Window;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -32,6 +33,10 @@ public class Main{
     public static HashMap<Windows, Application> controllersMap = new HashMap<Windows, Application>(){{
         put(Windows.startup, new StartupControl());
     }};
+
+    public static ArrayList<Windows> backButtonList = new ArrayList<Windows>();
+    public static int backIndex = 0; // the PREVIOUS page
+    public static boolean isBack = false;
     
     public static List<Session> activeSessions = new ArrayList<Session>();
 
@@ -43,13 +48,21 @@ public class Main{
         TBA.setAuthToken("OPynqKt8K0vueAXqxZzdigY9OBYK3KMgQQrsM4l8jE5cBmGfByhy6YzVIb2Ts7xD");
         tbaApi = new TBA();
 
-        // controllersMap.get(Windows.startup).launch(args);
+        controllersMap.get(Windows.startup).launch(args);
+        backButtonList.add(Windows.startup);
 
-        // while(true){
-        //     if(switchWindow){
-        //         controllersMap.get(currentWindow).launch(args);
-        //     }
-        // }
+
+        while(true){
+            if(switchWindow){
+                controllersMap.get(currentWindow).launch(args);
+                if(!isBack){
+                    backButtonList.add(currentWindow);
+                    backIndex = backButtonList.size() - 2; //the page before the current page
+                }else{
+                    isBack = false;
+                }
+            }
+        }
     }
 
 

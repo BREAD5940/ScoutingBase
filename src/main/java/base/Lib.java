@@ -275,4 +275,15 @@ public class Lib {
         memeStart(primaryStage, root, "BREAD 5940 Scouting Base");
     }
 
+
+    public static void universalBackButton() {
+        Main.backIndex--;
+        for (int i=Main.backIndex+1; i<Main.backButtonList.size(); i++){
+            Main.backButtonList.remove(i);
+        }
+        Main.currentWindow = Main.backButtonList.get(Main.backIndex);
+        Main.isBack = true;
+        Main.switchWindow = true;
+    }
+
 }
