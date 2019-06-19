@@ -9,9 +9,9 @@ public class Session {
     public String sortsDir;
     public String teamsDir;
     public String backupsDir;
-    public int backgroundColor;
+    public String backgroundColor;
 
-    public Session(int season, String event, String eventKey, String eventDir, int backColor){
+    public Session(int season, String event, String eventKey, String eventDir, String backColor){
         this.season = season;
         this.event = event;
         this.tbaEventKey = eventKey;

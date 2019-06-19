@@ -52,7 +52,7 @@
         </Menu>
       </menus>
     </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane fx:id="basePane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
             <Button layoutX="291.0" layoutY="243.0" mnemonicParsing="false" onAction="#handleGoButton" text="GO!" />
             <Label alignment="TOP_CENTER" layoutX="145.0" layoutY="66.0" prefHeight="50.0" prefWidth="351.0" text="Team 5940 ">

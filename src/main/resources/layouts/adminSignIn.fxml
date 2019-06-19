@@ -54,7 +54,7 @@
         </Menu>
       </menus>
     </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane fx:id="basePane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
             <Label alignment="TOP_CENTER" layoutX="98.0" layoutY="87.0" prefHeight="50.0" prefWidth="459.0" text="Please sign in as an admin:" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true">
                <font>

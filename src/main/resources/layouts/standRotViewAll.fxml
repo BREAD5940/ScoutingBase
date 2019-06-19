@@ -55,7 +55,7 @@
         </Menu>
       </menus>
     </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane fx:id="basePane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
             <ImageView accessibleRole="BUTTON" fitHeight="32.0" fitWidth="37.0" layoutX="16.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                <image>
