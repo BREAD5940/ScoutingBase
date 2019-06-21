@@ -8,8 +8,8 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -57,11 +57,18 @@
     </MenuBar>
     <AnchorPane fx:id="basePane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <ImageView accessibleRole="BUTTON" fitHeight="32.0" fitWidth="37.0" layoutX="16.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@circled-left-2.png" />
-               </image>
-            </ImageView>
+            <Button graphicTextGap="0.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" prefHeight="26.0" prefWidth="54.0" style="-fx-background-color: #ffffff;" text="Back" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <effect>
+                  <Lighting diffuseConstant="1.28" light="$null">
+                     <bumpInput>
+                        <Shadow blurType="ONE_PASS_BOX" />
+                     </bumpInput>
+                  </Lighting>
+               </effect>
+            </Button>
             <Label layoutX="103.0" layoutY="28.0" prefHeight="112.0" prefWidth="434.0" text="Pit Scouting Assignments (edit)" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="System Bold" size="30.0" />
