@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base.controllers.NewSessionControl">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -70,8 +70,8 @@
             <TextField fx:id="year" layoutX="191.0" layoutY="92.0" />
             <TextField fx:id="name" layoutX="191.0" layoutY="124.0" />
             <TextField fx:id="tbaKey" layoutX="191.0" layoutY="158.0" />
-            <ColorPicker fx:id="colorPicker" layoutX="192.0" layoutY="228.0" onAction="#handleColorPicker" prefHeight="26.0" prefWidth="150.0" />
-            <Button graphicTextGap="0.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" prefHeight="26.0" prefWidth="54.0" style="-fx-background-color: #ffffff;" text="Back" textAlignment="CENTER">
+            <ColorPicker fx:id="colorPicker" layoutX="192.0" layoutY="228.0" prefHeight="26.0" prefWidth="150.0" />
+            <Button fx:id="backButton" graphicTextGap="0.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" prefHeight="26.0" prefWidth="54.0" style="-fx-background-color: #ffffff;" text="Back" textAlignment="CENTER" onAction="#handleBackButton">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>

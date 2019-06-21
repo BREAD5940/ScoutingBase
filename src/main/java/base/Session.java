@@ -1,5 +1,7 @@
 package base;
 
+import javafx.scene.paint.Color;
+
 public class Session {
     public int season;
     public String event;
@@ -9,9 +11,9 @@ public class Session {
     public String sortsDir;
     public String teamsDir;
     public String backupsDir;
-    public String backgroundColor;
+    public Color backgroundColor;
 
-    public Session(int season, String event, String eventKey, String eventDir, String backColor){
+    public Session(int season, String event, String eventKey, String eventDir, Color backColor){
         this.season = season;
         this.event = event;
         this.tbaEventKey = eventKey;

@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 
 import com.opencsv.CSVReader;
 
@@ -22,6 +23,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.*;
 import javafx.fxml.*;
+import javafx.application.Application;
+
 
 public class Lib {
 
@@ -276,14 +279,32 @@ public class Lib {
     }
 
 
-    public static void universalBackButton() {
-        Main.backIndex--;
-        for (int i=Main.backIndex+1; i<Main.backButtonList.size(); i++){
-            Main.backButtonList.remove(i);
+    public static void pageChangeRequest(Optional<Main.Windows> reqPage, boolean isBack){
+        if(!isBack && !reqPage.isPresent()){
+            report("Page is required for non-back-button changes.");
+            return;
         }
-        Main.currentWindow = Main.backButtonList.get(Main.backIndex);
-        Main.isBack = true;
-        Main.switchWindow = true;
+
+        if(isBack){
+            reqPage = Optional.of(Main.backButtonList.get(Main.backIndex));
+            for(int i=Main.backButtonList.size()-1; i>Main.backIndex; i--){
+                Main.backButtonList.remove(i);
+            }
+            Main.backIndex--;
+        }else{
+            Main.backIndex++;
+            Main.backButtonList.add(reqPage.get());
+        }
+
+        try{
+            (Main.controllersMap.get(reqPage.get())).start(new Stage());
+            report("Page changed to "+reqPage.get().toString()+". This "+((isBack) ? "was" : "was not")+" a back button change.");
+        }catch(Exception e){
+            report("Page launch failed. Exception: "+e.toString());
+            return;
+        }
+
+        
     }
 
 }
