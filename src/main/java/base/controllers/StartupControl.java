@@ -20,6 +20,7 @@ public class StartupControl extends Application{
 
     @FXML private ComboBox<Session> sessionSelect;
     @FXML AnchorPane basePane;
+    Stage stage;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -28,17 +29,19 @@ public class StartupControl extends Application{
         if(!Main.activeSessions.isEmpty()){
             sessionSelect.getItems().addAll(Main.activeSessions);
         }
+
+        stage = primaryStage;
     }
 
 
     @FXML public void handleGoButton(ActionEvent event){
         System.out.println("Go button pressed");
         Main.currentSession = sessionSelect.getValue();
-        Lib.pageChangeRequest(Optional.of(Windows.sessionLaunch), false);
+        Lib.pageChangeRequest(Optional.of(Windows.sessionLaunch), false, this);
     }
 
     @FXML public void handleBakeNew(ActionEvent event){
         System.out.println("Bake new pressed");
-        Lib.pageChangeRequest(Optional.of(Windows.newSession), false);
+        Lib.pageChangeRequest(Optional.of(Windows.newSession), false, this);
     }
 }

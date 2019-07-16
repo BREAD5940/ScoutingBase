@@ -279,32 +279,39 @@ public class Lib {
     }
 
 
-    public static void pageChangeRequest(Optional<Main.Windows> reqPage, boolean isBack){
+    public static void pageChangeRequest(Optional<Main.Windows> reqPage, boolean isBack, Application app){
         if(!isBack && !reqPage.isPresent()){
             report("Page is required for non-back-button changes.");
             return;
         }
 
+        report("[");
+        for(Main.Windows window : Main.backButtonList){
+            report(window.toString());
+        }
+        report("]");
+
         if(isBack){
             reqPage = Optional.of(Main.backButtonList.get(Main.backIndex));
-            for(int i=Main.backButtonList.size()-1; i>Main.backIndex; i--){
+            for(int i = Main.backIndex; i<Main.backButtonList.size(); i++){
+                report(Main.backButtonList.get(i).toString());
                 Main.backButtonList.remove(i);
             }
-            Main.backIndex--;
+            Main.backIndex = Main.backButtonList.size()-1;
         }else{
-            Main.backIndex++;
             Main.backButtonList.add(reqPage.get());
+            Main.backIndex++;
         }
 
-        try{
+        try{ 
             (Main.controllersMap.get(reqPage.get())).start(new Stage());
+            app.stop();
             report("Page changed to "+reqPage.get().toString()+". This "+((isBack) ? "was" : "was not")+" a back button change.");
         }catch(Exception e){
             report("Page launch failed. Exception: "+e.toString());
             return;
         }
 
-        
     }
 
 }

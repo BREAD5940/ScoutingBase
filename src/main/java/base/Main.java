@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.cpjd.main.TBA;
 
+import base.controllers.NewSessionControl;
 import base.controllers.StartupControl;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -43,11 +44,12 @@ public class Main{
     public static HashMap<Windows, Application> controllersMap = new HashMap<Windows, Application>() {
         {
             put(Windows.startup, new StartupControl());
+            put(Windows.newSession, new NewSessionControl());
         }
     };
 
     public static ArrayList<Windows> backButtonList = new ArrayList<Windows>();
-    public static int backIndex = 0; // the PREVIOUS page
+    public static int backIndex = -1; // the PREVIOUS page
     public static boolean isBack = false;
 
     public static List<Session> activeSessions = new ArrayList<Session>();
@@ -61,8 +63,11 @@ public class Main{
         tbaApi = new TBA();
 
         // controllersMap.get(Windows.startup).start(new Stage());
-        Application.launch(StartupControl.class, args);
         backButtonList.add(Windows.startup);
+        System.out.println(backButtonList.size());
+        Lib.report(backButtonList.get(0).toString());
+        Application.launch(StartupControl.class, args);
+        
 
     }
 

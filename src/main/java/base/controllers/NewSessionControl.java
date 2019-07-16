@@ -27,6 +27,7 @@ public class NewSessionControl extends Application{
     @FXML TextField name;
     @FXML TextField tbaKey;
     @FXML ColorPicker colorPicker;
+    @FXML Button dirSelect;
     File dir;
     Stage stage;
 
@@ -39,18 +40,19 @@ public class NewSessionControl extends Application{
 
     @FXML public void handleBackButton(ActionEvent event){
         Lib.report("Back button pressed");
-        Lib.pageChangeRequest(null, true);
+        Lib.pageChangeRequest(null, true, this);
     }
 
     @FXML public void handleDirSelect(ActionEvent event){
-        FileChooser chooser = new FileChooser();
-        dir = chooser.showOpenDialog(stage);
+        DirectoryChooser chooser = new DirectoryChooser();
+        dir = chooser.showDialog(stage);
+        dirSelect.setText(dir.getName());
     }
 
     @FXML public void handleSubmit(ActionEvent event){
         Main.currentSession = new Session(Integer.valueOf(year.getText()), name.getText(), tbaKey.getText(), dir.getAbsolutePath(), colorPicker.getValue());
         Main.activeSessions.add(Main.currentSession);
-        Lib.pageChangeRequest(Optional.of(Main.Windows.sessionLaunch), false);
+        Lib.pageChangeRequest(Optional.of(Main.Windows.sessionLaunch), false, this);
     }
 
 }
