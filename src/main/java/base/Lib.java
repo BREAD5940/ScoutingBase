@@ -288,7 +288,7 @@ public class Lib {
             newApp.setPreviousPage(app.getName());
             report("Page changed to "+reqPage.toString()+". This "+((isBack) ? "was" : "was not")+" a back button change.");
         }catch(Exception e){
-            report("Page launch failed. Exception: "+e.toString());
+            report("Page launch failed. Exception: "+e.getMessage());
             return;
         }
         try{
