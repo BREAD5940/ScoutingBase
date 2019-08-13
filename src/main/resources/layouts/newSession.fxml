@@ -71,7 +71,7 @@
             <TextField fx:id="name" layoutX="191.0" layoutY="124.0" />
             <TextField fx:id="tbaKey" layoutX="191.0" layoutY="158.0" />
             <ColorPicker fx:id="colorPicker" layoutX="192.0" layoutY="228.0" prefHeight="26.0" prefWidth="150.0" />
-            <Button fx:id="backButton" graphicTextGap="0.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" prefHeight="26.0" prefWidth="54.0" style="-fx-background-color: #ffffff;" text="Back" textAlignment="CENTER" onAction="#handleBackButton">
+            <Button fx:id="backButton" graphicTextGap="0.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" prefHeight="26.0" prefWidth="54.0" style="-fx-background-color: #ffffff;" text="Back" textAlignment="CENTER" onAction="#handleBack">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>

@@ -16,11 +16,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 
-public class StartupControl extends Application{
+public class StartupControl extends Application implements ControlInterface{
 
     @FXML private ComboBox<Session> sessionSelect;
     @FXML AnchorPane basePane;
     Stage stage;
+    Windows previousPage = Windows.startup;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -37,11 +38,41 @@ public class StartupControl extends Application{
     @FXML public void handleGoButton(ActionEvent event){
         System.out.println("Go button pressed");
         Main.currentSession = sessionSelect.getValue();
-        Lib.pageChangeRequest(Optional.of(Windows.sessionLaunch), false, this);
+        Lib.pageChangeRequest(Windows.sessionLaunch, false, this);
     }
 
     @FXML public void handleBakeNew(ActionEvent event){
         System.out.println("Bake new pressed");
-        Lib.pageChangeRequest(Optional.of(Windows.newSession), false, this);
+        Lib.pageChangeRequest(Windows.newSession, false, this);
+    }
+
+    @Override
+    public Windows getPreviousPage() {
+        return this.previousPage;
+    }
+
+    @Override
+    public void setPreviousPage(Windows prev) {
+        this.previousPage = prev;
+    }
+
+    @Override
+    public AnchorPane getBasePane() {
+        return this.basePane;
+    }
+
+    @Override
+    public Windows getName() {
+        return Windows.startup;
+    }
+
+    @Override
+    public Stage getStage() {
+        return (Stage)this.basePane.getScene().getWindow();
+    }
+
+    @Override
+    public <T extends Application & ControlInterface> T getThis() {
+        return (T)this;
     }
 }

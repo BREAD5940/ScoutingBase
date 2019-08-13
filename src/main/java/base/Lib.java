@@ -13,6 +13,7 @@ import com.opencsv.CSVReader;
 
 import org.codehaus.jackson.map.ObjectMapper;
 
+import base.controllers.ControlInterface;
 import javafx.fxml.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -279,37 +280,21 @@ public class Lib {
     }
 
 
-    public static void pageChangeRequest(Optional<Main.Windows> reqPage, boolean isBack, Application app){
-        if(!isBack && !reqPage.isPresent()){
-            report("Page is required for non-back-button changes.");
-            return;
-        }
-
-        report("[");
-        for(Main.Windows window : Main.backButtonList){
-            report(window.toString());
-        }
-        report("]");
-
-        if(isBack){
-            reqPage = Optional.of(Main.backButtonList.get(Main.backIndex));
-            for(int i = Main.backIndex; i<Main.backButtonList.size(); i++){
-                report(Main.backButtonList.get(i).toString());
-                Main.backButtonList.remove(i);
-            }
-            Main.backIndex = Main.backButtonList.size()-1;
-        }else{
-            Main.backButtonList.add(reqPage.get());
-            Main.backIndex++;
-        }
+    public static <T extends Application & ControlInterface> void pageChangeRequest(Main.Windows reqPage, boolean isBack, T app){
 
         try{ 
-            (Main.controllersMap.get(reqPage.get())).start(new Stage());
-            app.stop();
-            report("Page changed to "+reqPage.get().toString()+". This "+((isBack) ? "was" : "was not")+" a back button change.");
+            T newApp = (T)(Main.controllersMap.get(reqPage));
+            newApp.start(new Stage());
+            newApp.setPreviousPage(app.getName());
+            report("Page changed to "+reqPage.toString()+". This "+((isBack) ? "was" : "was not")+" a back button change.");
         }catch(Exception e){
             report("Page launch failed. Exception: "+e.toString());
             return;
+        }
+        try{
+            app.getStage().close();
+        }catch(Exception e){
+            report("App stop failed. Exception: "+e.toString());
         }
 
     }

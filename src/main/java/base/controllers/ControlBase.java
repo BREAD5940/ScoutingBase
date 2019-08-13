@@ -1,6 +1,7 @@
 package base.controllers;
 
 import java.util.Optional;
+import java.util.ResourceBundle.Control;
 
 import base.Lib;
 import base.Main.Windows;
@@ -14,14 +15,20 @@ import javafx.event.ActionEvent;
 
 
 
-
-abstract class ControlBase extends Application{
+@Deprecated
+class ControlBase extends Application{
 
     public Windows previousPage;
     @FXML AnchorPane basePane;
-    Stage stage;
     String resourceLoc;
     Windows name;
+    Stage stage;
+
+    protected ControlBase(Windows name){
+        resourceLoc = name.toString();
+        this.name = name;
+    }
+
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -32,7 +39,7 @@ abstract class ControlBase extends Application{
 
     @FXML public void handleBack(ActionEvent event){
         Lib.report("back button pressed from "+this.name.toString()+". Reversing to "+this.previousPage.toString());
-        Lib.pageChangeRequest(Optional.of(this.previousPage), false, this);
+        // Lib.pageChangeRequest(this.previousPage, false, this);
     }
 
 

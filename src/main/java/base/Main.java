@@ -11,8 +11,9 @@ import base.controllers.NewSessionControl;
 import base.controllers.StartupControl;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import base.controllers.ControlInterface;
 
-public class Main{
+public class Main {
     public static TBA tbaApi;
     // public static Session sesh = new Session(2019, "Sac 2019", "2019cada",
     // "sac_2019/", 0xffffff);
@@ -41,7 +42,9 @@ public class Main{
 
     }
 
-    public static HashMap<Windows, Application> controllersMap = new HashMap<Windows, Application>() {
+    //EVERYTHING IN THIS MAP MUST BE AN APPLICATION THAT EXTENDS ControlInterface
+    //OTHERWISE STUFF WILL BREAK
+    public static  HashMap<Windows, Application> controllersMap = new HashMap<Windows, Application>() {
         {
             put(Windows.startup, new StartupControl());
             put(Windows.newSession, new NewSessionControl());
