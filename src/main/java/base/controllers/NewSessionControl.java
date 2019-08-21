@@ -30,6 +30,15 @@ public class NewSessionControl extends Application implements ControlInterface{
     @FXML Button dirSelect;
     File dir;
     Windows previousPage = Windows.startup;
+    private static NewSessionControl inst;
+
+    public static <T extends Application & ControlInterface> T getInstance(){
+        if(inst==null){
+            inst = new NewSessionControl();
+        }
+
+        return (T) inst;
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -73,11 +82,6 @@ public class NewSessionControl extends Application implements ControlInterface{
     @Override
     public Windows getName() {
         return Windows.newSession;
-    }
-
-    @Override
-    public Stage getStage() {
-        return (Stage)this.basePane.getScene().getWindow();
     }
 
     @Override

@@ -13,6 +13,8 @@ import com.opencsv.CSVReader;
 
 import org.codehaus.jackson.map.ObjectMapper;
 
+import base.Main.Windows;
+import base.controllers.AdminSignInControl;
 import base.controllers.ControlInterface;
 import javafx.fxml.*;
 import javafx.event.ActionEvent;
@@ -282,21 +284,51 @@ public class Lib {
 
     public static <T extends Application & ControlInterface> void pageChangeRequest(Main.Windows reqPage, boolean isBack, T app){
 
-        try{ 
+        // try{ 
+            System.out.println("APP HASH: "+app);
             T newApp = (T)(Main.controllersMap.get(reqPage));
-            newApp.start(new Stage());
+            report(newApp.toString());
+            try{
+                report(newApp.getName().toString());
+                newApp.start(new Stage());
+            }catch(Exception e){
+                report(e.toString());
+            }
+            report(app.getName().toString());
             newApp.setPreviousPage(app.getName());
             report("Page changed to "+reqPage.toString()+". This "+((isBack) ? "was" : "was not")+" a back button change.");
-        }catch(Exception e){
-            report("Page launch failed. Exception: "+e.getMessage());
-            return;
-        }
+        // }catch(Exception e){
+        //     report("Page launch failed. Exception: "+e.toString()+" at "+e.getCause().toString());
+        //     return;
+        // }
         try{
             app.getStage().close();
         }catch(Exception e){
             report("App stop failed. Exception: "+e.toString());
         }
 
+    }
+
+
+    public static <T extends Application & ControlInterface> void pwProteccPageChangeRequest(Main.Windows finalPage, boolean isBack, T app){
+        try{
+            AdminSignInControl newApp = (AdminSignInControl)(Main.controllersMap.get(Windows.adminSignIn));
+            newApp.start(new Stage());
+            newApp.setPreviousPage(app.getName());
+            newApp.setFollowThroughPage(finalPage);
+            System.out.println("APP HASH: "+newApp);
+            report("Follow through page: "+newApp.getFollowThroughPage().toString());
+            report("Page changed to "+Windows.adminSignIn.toString()+". This "+((isBack) ? "was" : "was not")+" a back button change.");
+        }catch(Exception e){
+            report("Page launch failed. Exception: "+e.getMessage()+", "+e.toString());
+            return;
+        }
+
+        try{
+            app.getStage().close();
+        }catch(Exception e){
+            report("App stop failed. Exception: "+e.toString());
+        }
     }
 
 }

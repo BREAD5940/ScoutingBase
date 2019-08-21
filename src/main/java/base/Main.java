@@ -11,6 +11,7 @@ import base.controllers.NewSessionControl;
 import base.controllers.StartupControl;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import base.controllers.AdminSignInControl;
 import base.controllers.ControlInterface;
 
 public class Main {
@@ -46,10 +47,14 @@ public class Main {
     //OTHERWISE STUFF WILL BREAK
     public static  HashMap<Windows, Application> controllersMap = new HashMap<Windows, Application>() {
         {
-            put(Windows.startup, new StartupControl());
-            put(Windows.newSession, new NewSessionControl());
+            put(Windows.startup, StartupControl.getInstance());
+            put(Windows.newSession, NewSessionControl.getInstance());
+            put(Windows.adminSignIn, AdminSignInControl.getInstance());
         }
     };
+
+    //FIXME i know, i know, i'm just too lazy to encrypt it
+    public static String adminPw = "croissant";
 
     public static ArrayList<Windows> backButtonList = new ArrayList<Windows>();
     public static int backIndex = -1; // the PREVIOUS page
@@ -64,6 +69,8 @@ public class Main {
     public static void main(String[] args) throws Exception {
         TBA.setAuthToken("OPynqKt8K0vueAXqxZzdigY9OBYK3KMgQQrsM4l8jE5cBmGfByhy6YzVIb2Ts7xD");
         tbaApi = new TBA();
+
+        System.out.println("APP HASH: "+controllersMap.get(Windows.adminSignIn));
 
         // controllersMap.get(Windows.startup).start(new Stage());
         backButtonList.add(Windows.startup);

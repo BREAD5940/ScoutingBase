@@ -22,6 +22,16 @@ public class StartupControl extends Application implements ControlInterface{
     @FXML AnchorPane basePane;
     Stage stage;
     Windows previousPage = Windows.startup;
+    private static StartupControl inst;
+
+
+    public static <T extends Application & ControlInterface> T getInstance(){
+        if(inst==null){
+            inst = new StartupControl();
+        }
+
+        return (T) inst;
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -43,7 +53,7 @@ public class StartupControl extends Application implements ControlInterface{
 
     @FXML public void handleBakeNew(ActionEvent event){
         System.out.println("Bake new pressed");
-        Lib.pageChangeRequest(Windows.newSession, false, this);
+        Lib.pwProteccPageChangeRequest(Windows.newSession, false, this);
     }
 
     @Override
@@ -66,10 +76,6 @@ public class StartupControl extends Application implements ControlInterface{
         return Windows.startup;
     }
 
-    @Override
-    public Stage getStage() {
-        return (Stage)this.basePane.getScene().getWindow();
-    }
 
     @Override
     public <T extends Application & ControlInterface> T getThis() {

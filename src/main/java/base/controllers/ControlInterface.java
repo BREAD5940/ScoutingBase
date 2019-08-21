@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.event.ActionEvent;
 
 public interface ControlInterface{
+
     public Windows getPreviousPage();
     void setPreviousPage(Windows prev);
 
@@ -23,7 +24,9 @@ public interface ControlInterface{
         return this.getName().toString();
     }
 
-    public Stage getStage();
+    public default Stage getStage(){
+        return (Stage)this.getBasePane().getScene().getWindow();
+    }
 
     public <T extends Application & ControlInterface> T getThis();
 
