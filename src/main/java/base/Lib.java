@@ -238,6 +238,39 @@ public class Lib {
         return recovered;
     }
 
+    /**
+     * Search for a team by it's team number
+     * @param teamNumber the team number to search for
+     * @param teams the list of teams to search through
+     * @return the team found with the match team number, or
+     * @throws TeamNotFoundException an exception :)
+     */
+    public static CustomTeam searchForTeamNumber(int teamNumber, List<CustomTeam> teams) throws TeamNotFoundException {
+        for(CustomTeam team : teams) {
+            if(team.number == teamNumber) return team;
+        }
+        throw new TeamNotFoundException("Team " + teamNumber + " could not be found!");
+    }
+
+    /**
+     * Search for a team by it's team number
+     * @param teamName the team name to search for by scouted name or tbaName
+     * @param teams the list of teams to search through
+     * @return the team found with the match team number, or
+     * @throws TeamNotFoundException an exception :)
+     */
+    public static CustomTeam searchForTeamName(String teamName, List<CustomTeam> teams) throws TeamNotFoundException {
+        for(CustomTeam team : teams) {
+            if(team.scoutedName.toLowerCase().equals(teamName.toLowerCase())
+                || team.tbaName.toLowerCase().equals(teamName.toLowerCase()))
+
+                return team;
+        }
+        throw new TeamNotFoundException("Team " + teamName + " could not be found!");
+    }
+
+    static class TeamNotFoundException extends Exception { TeamNotFoundException(String message) { super(message); } }
+
     public static void saveSession(Session session){
         try{
             mapper.writeValue(new File("main_storage/"+session.tbaEventKey+".json"), session);
