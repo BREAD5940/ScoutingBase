@@ -168,7 +168,7 @@ public class Lib {
     public static boolean InternettyChecky() throws Exception {
         var now = (new Date()).getTime();
 
-        Process process = java.lang.Runtime.getRuntime().exec("ping -w 1 google.com");
+        Process process = java.lang.Runtime.getRuntime().exec("ping -w 1 -n 2 google.com");
         int x = process.waitFor(); 
         if (x == 0) {
             var dt = (new Date()).getTime() - now;
