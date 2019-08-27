@@ -4,10 +4,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Optional;
+import java.nio.channels.NotYetConnectedException;
+import java.util.*;
 
 import com.opencsv.CSVReader;
 
@@ -166,24 +164,23 @@ public class Lib {
         return gennedTeams;
     }
 
-    @Deprecated //this b the Big Slow
-    public static boolean InternettyChecky() throws Exception { 
-        Process process = java.lang.Runtime.getRuntime().exec("ping www.thebluealliance.com"); 
+//    @Deprecated //this b the Big Slow
+    public static boolean InternettyChecky() throws Exception {
+        var now = (new Date()).getTime();
+
+        Process process = java.lang.Runtime.getRuntime().exec("ping -w 1 google.com");
         int x = process.waitFor(); 
-        if (x == 0) { 
-            // System.out.println("Connection Successful, "
-            //                    + "Output was " + x); 
-            report("Internet connection checked and active, output "+x);
+        if (x == 0) {
+            var dt = (new Date()).getTime() - now;
+            report("Internet connection checked and active in " + dt / 1000d + "s, output "+x);
             return true;
         } 
-        else { 
-            // System.out.println("Internet Not Connected, "
-            //                    + "Output was " + x); 
-            report("Internet connection failed, output "+x);
+        else {
+            var dt = (new Date()).getTime() - now;
+            report("Internet connection failed in " + dt / 1000d + "s, output "+x);
             return false;
         } 
-    } 
-
+    }
 
     public static void saveMatches(List<CustomMatch> matches, String eventDir){
         for(CustomMatch match : matches){
