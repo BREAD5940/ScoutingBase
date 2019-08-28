@@ -1,145 +1,83 @@
 package base;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.awt.Window;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import com.cpjd.main.TBA;
-import com.cpjd.models.events.Award;
-import com.cpjd.models.teams.Team;
 
-public class Main{
+import base.controllers.NewSessionControl;
+import base.controllers.StartupControl;
+import javafx.application.Application;
+import javafx.stage.Stage;
+import base.controllers.AdminSignInControl;
+import base.controllers.ControlInterface;
+
+public class Main {
     public static TBA tbaApi;
-    static ArrayList<CustomTeam> teams = new ArrayList<CustomTeam>();
-    static ArrayList<CustomMatch> matches = new ArrayList<CustomMatch>();
+    // public static Session sesh = new Session(2019, "Sac 2019", "2019cada",
+    // "sac_2019/", 0xffffff);
 
-    //TODO make some sort of session file to store these
-    static final int season = 2019;
-    static final String event = "Sacramento";
-    static final String tbaEventKey = "2019cada";
-    static final String eventDir = "sac_2019/";
-    static final String dataDir = eventDir+"data/";
-    static final String sortsDir = eventDir+"sorts/";
-    static final String teamsDir = eventDir+"teams/";
+    public enum Windows {
+        adminSignIn("/layouts/adminSignIn.fxml"), newSession("/layouts/newSession.fxml"),
+        pitAssignEdit("/layouts/pitAssignEdit.fxml"), pitAssignView("/layouts/pitAssignView.fxml"),
+        pitDataEntry("/layouts/pitDataEntry.fxml"), pitLaunch("/layouts/pitLaunch.fxml"),
+        pitScoutSignIn("/layouts/pitScoutSignIn.fxml"), sessionLaunch("/layouts/sessionLaunch.fxml"),
+        standEntry("/layouts/standEntry.fxml"), standLaunch("/layouts/standLaunch.fxml"),
+        standRotEdit("/layouts/standRotEdit.fxml"), standRotView("/layouts/standRotView.fxml"),
+        standRotViewAll("/layouts/standRotViewAll.fxml"), startup("/layouts/startup.fxml"),
+        statsOffline("/layouts/statsOffline.fxml"), teamCompare("/layouts/teamCompare.fxml"),
+        teamSearch("/layouts/teamSearch.fxml"), teamStatsOnline("/layouts/teamStatsOnline.fxml");
 
-    public static void main(String[] args) throws Exception{
+        public String filePath;
 
-        System.out.print("\n"+
-        "                            ***********************                             \n"+
-        "                        *******************************                         \n"+
-        "                      *******+                   ?*******                       \n"+
-        "                   ******                             ******                    \n"+
-        "                :********                             ********:                 \n"+
-        "             :***********                            :***********~              \n"+
-        "           *******    ****                           ****    *******            \n"+
-        "         ******        ***                           ***        ******          \n"+
-        "       $*****          ****                         ****          ******        \n"+
-        "      *****            ****                         ***:            *****       \n"+
-        "     ****               ***                         ***               ****      \n"+
-        "    ****                ****                       ****                ****     \n"+
-        "    ***                  ***                       ***                  ***~    \n"+
-        "    ****+                ****                     ****                :*****    \n"+
-        "   *******               ****                     ***                *******    \n"+
-        "  **** ****               ***+                   ?***               **** ****   \n"+
-        " ****   *****             ****                   ****             *****   ****  \n"+
-        " ***      ****             ***                   ***             ****      ***  \n"+
-        "****       *****           ****                 ****           *****       **** \n"+
-        "***:         ****           ***                 ***           ****          *** \n"+
-        "***           *****         ****               ****         *****           *** \n"+
-        "***            ~****     ~***************************=     ****~            ***:\n"+
-        "***              ***** ********************************* *****              *** \n"+
-        "***              **********                         **********              *** \n"+
-        "****           *********                               *********           **** \n"+
-        " ****        ******                                         ******        ****  \n"+
-        "  *****  :*******                                             *******   *****   \n"+
-        "    ***********                                                 ************    \n"+
-        "      *****                                                         *****       \n"+
-        "                                                                                \n"+
-        "\n\nBREAD scouting base. Current robot: Croissant\t"+
-        "Current event: "+event+"\n");
+        private Windows(String filePath) {
+            this.filePath = filePath;
+        }
 
+        @Override
+        public String toString() {
+            return filePath;
+        }
 
+    }
 
+    //EVERYTHING IN THIS MAP MUST BE AN APPLICATION THAT EXTENDS ControlInterface
+    //OTHERWISE STUFF WILL BREAK
+    public static  HashMap<Windows, Application> controllersMap = new HashMap<Windows, Application>() {
+        {
+            put(Windows.startup, StartupControl.getInstance());
+            put(Windows.newSession, NewSessionControl.getInstance());
+            put(Windows.adminSignIn, AdminSignInControl.getInstance());
+        }
+    };
+
+    //FIXME i know, i know, i'm just too lazy to encrypt it
+    public static String adminPw = "croissant";
+
+    public static ArrayList<Windows> backButtonList = new ArrayList<Windows>();
+    public static int backIndex = -1; // the PREVIOUS page
+    public static boolean isBack = false;
+
+    public static List<Session> activeSessions = new ArrayList<Session>();
+
+    public static Session currentSession = null;
+    // public static Windows currentWindow=Windows.startup;
+    // public static boolean switchWindow = false;
+
+    public static void main(String[] args) throws Exception {
         TBA.setAuthToken("OPynqKt8K0vueAXqxZzdigY9OBYK3KMgQQrsM4l8jE5cBmGfByhy6YzVIb2Ts7xD");
         tbaApi = new TBA();
-        // System.out.println(tbaApi.getTeam(5940).getName());
 
-        List<CustomTeam> teams = Lib.generateTeams(eventDir+"teams.csv");
+        System.out.println("APP HASH: "+controllersMap.get(Windows.adminSignIn));
 
-        List<CustomMatch> matches = new ArrayList<CustomMatch>();
-
-        matches.addAll(Lib.convertMatches(dataDir+"claire.csv"));
-        matches.addAll(Lib.convertMatches(dataDir+"geran.csv"));
-        matches.addAll(Lib.convertMatches(dataDir+"max.csv"));
-        // matches.addAll(Lib.convertMatches(dataDir+"missing.csv"));
-        matches.addAll(Lib.convertMatches(dataDir+"nick.csv"));
-        matches.addAll(Lib.convertMatches(dataDir+"thomas.csv"));
-
+        // controllersMap.get(Windows.startup).start(new Stage());
+        backButtonList.add(Windows.startup);
+        System.out.println(backButtonList.size());
+        Lib.report(backButtonList.get(0).toString());
+        Application.launch(StartupControl.class, args);
         
-        matches.addAll(Lib.convertMatches(dataDir+"claire2.csv"));
-        matches.addAll(Lib.convertMatches(dataDir+"geran2.csv"));
-        matches.addAll(Lib.convertMatches(dataDir+"nick2.csv"));
-
-        FileWriter writer = null;
-        File file = new File(eventDir+"matchOutput.txt");
-        int i=1;
-
-        while(file.exists()){
-            file = new File(eventDir+"matchOutput("+i+").txt");
-            i++;
-        }
-        try{
-            writer = new FileWriter(file, true);
-        }catch(IOException e){
-            System.out.println("File not found error");
-            System.out.println(e);
-        }
-
-        for(CustomMatch match : matches){
-            // if(!Lib.InternettyChecky()){
-            //     throw new Exception("Internet has disconnected. Aborting sync.");
-            // }
-
-            writer.write("\nSCOUTED MATCH: "+match.toString());
-
-            match.syncTBA();
-
-            if(match.tbaSynced){
-                writer.write("\nSYNCED MATCH: "+match.toString()+"------------------------------------------------------------------------------------\n");
-            }else{
-                writer.write("\nMATCH NOT SYNCED\n"+"------------------------------------------------------------------------------------\n");
-            }
-
-            for(CustomTeam team : teams){
-                if(team.number == match.teamNum){
-                    team.addMatch(match);
-                }
-            }
-        }
-
-        writer.close();
-
-    
-        for (CustomTeam team : teams){
-            team.syncTBA();
-            team.sendToTxt(teamsDir);
-        }
-        Lib.report("\n\n"+teams.get(0).toReadableString());
-
-        Lib.saveTeams(teams, eventDir);
-        Lib.saveMatches(matches, eventDir);
-
-        matches.clear();
-        teams.clear();
-
-        matches = Lib.recoverMatches(eventDir);
-        teams = Lib.recoverTeams(eventDir);
-
-        Lib.report(matches.get(5).toReadableString());
-        Lib.report(teams.get(11).toReadableString());
 
     }
 

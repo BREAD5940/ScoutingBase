@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="593.0" prefWidth="853.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane fx:id="basePane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="601.0" prefWidth="854.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Button fx:id="backButton" graphicTextGap="0.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" prefHeight="26.0" prefWidth="54.0" style="-fx-background-color: #ffffff;" text="Back" textAlignment="CENTER" onAction="#handleBackButton">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <effect>
+                  <Lighting diffuseConstant="1.28" light="$null">
+                     <bumpInput>
+                        <Shadow blurType="ONE_PASS_BOX" />
+                     </bumpInput>
+                  </Lighting>
+               </effect>
+            </Button>
+            <Label layoutX="344.0" layoutY="17.0" text="Enter Data">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+            <TabPane layoutX="32.0" layoutY="150.0" prefHeight="337.0" prefWidth="802.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Robot">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="232.0" prefWidth="742.0" style="-fx-background-color: #eeeeee;">
+                           <children>
+                              <CheckBox layoutX="21.0" layoutY="14.0" mnemonicParsing="false" text="Climbs" />
+                              <RadioButton layoutX="91.0" layoutY="39.0" mnemonicParsing="false" text="2">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="level" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton layoutX="140.0" layoutY="39.0" mnemonicParsing="false" text="3" toggleGroup="$level" />
+                              <Label layoutX="50.0" layoutY="39.0" text="Level:" />
+                              <Label layoutX="21.0" layoutY="69.0" text="Type of Intake:" />
+                              <CheckBox layoutX="104.0" layoutY="69.0" mnemonicParsing="false" text="Cargo" />
+                              <CheckBox layoutX="169.0" layoutY="69.0" mnemonicParsing="false" text="Hatch" />
+                              <Label layoutX="249.0" layoutY="69.0" text="Rocket Reach:" />
+                              <RadioButton layoutX="333.0" layoutY="69.0" mnemonicParsing="false" text="1">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="reach" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton layoutX="410.0" layoutY="69.0" mnemonicParsing="false" text="3" toggleGroup="$reach" />
+                              <RadioButton layoutX="373.0" layoutY="69.0" mnemonicParsing="false" text="2" toggleGroup="$reach" />
+                              <Label layoutX="18.0" layoutY="102.0" text="Mechanical Issues:" />
+                              <Slider blockIncrement="1.0" layoutX="123.0" layoutY="104.0" majorTickUnit="1.0" max="10.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                              <CheckBox layoutX="22.0" layoutY="164.0" mnemonicParsing="false" text="Has camera" />
+                              <CheckBox layoutX="255.0" layoutY="164.0" mnemonicParsing="false" text="Uses presets" />
+                              <CheckBox layoutX="112.0" layoutY="164.0" mnemonicParsing="false" text="Has sensor/LimeLight" />
+                              <CheckBox layoutX="347.0" layoutY="164.0" mnemonicParsing="false" text="Can reach over cargo" />
+                              <CheckBox layoutX="494.0" layoutY="164.0" mnemonicParsing="false" text="Rampbot" />
+                              <Label layoutX="19.0" layoutY="196.0" text="Robot nicknames (comma-seperated):" />
+                              <TextArea layoutX="40.0" layoutY="214.0" prefHeight="67.0" prefWidth="391.0" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Auto Strategy">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #eeeeee;">
+                           <children>
+                              <RadioButton layoutX="105.0" layoutY="14.0" mnemonicParsing="false" text="1" />
+                              <Label layoutX="22.0" layoutY="14.0" text="Starting Hab:" />
+                              <RadioButton layoutX="145.0" layoutY="14.0" mnemonicParsing="false" text="2">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="startHab" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <Label layoutX="358.0" layoutY="14.0" text="Control:" />
+                              <CheckBox layoutX="412.0" layoutY="14.0" mnemonicParsing="false" text="Driver + camera" />
+                              <CheckBox layoutX="541.0" layoutY="14.0" mnemonicParsing="false" text="Auto paths" />
+                              <CheckBox layoutX="637.0" layoutY="14.0" mnemonicParsing="false" text="No" />
+                              <Label layoutX="22.0" layoutY="50.0" text="Main Strategy:" />
+                              <CheckBox layoutX="47.0" layoutY="68.0" mnemonicParsing="false" text="Hatch on the close side rocket" />
+                              <CheckBox layoutX="47.0" layoutY="94.0" mnemonicParsing="false" text="Hatch on the far side rocket" />
+                              <CheckBox layoutX="47.0" layoutY="120.0" mnemonicParsing="false" text="Hatch on the front of the cargo ship" />
+                              <CheckBox layoutX="47.0" layoutY="145.0" mnemonicParsing="false" text="Hatch elsewhere on the cargo ship" />
+                              <CheckBox layoutX="47.0" layoutY="170.0" mnemonicParsing="false" text="Cargo in the cargo ship" />
+                              <CheckBox layoutX="47.0" layoutY="195.0" mnemonicParsing="false" text="Crosses line" />
+                              <CheckBox layoutX="47.0" layoutY="221.0" mnemonicParsing="false" text="Multi game piece (describe in notes)" />
+                              <CheckBox layoutX="47.0" layoutY="246.0" mnemonicParsing="false" text="No" />
+                              <CheckBox layoutX="47.0" layoutY="271.0" mnemonicParsing="false" text="Other (describe in notes)" />
+                              <Label layoutX="358.0" layoutY="50.0" text="Notes:" />
+                              <TextArea layoutX="358.0" layoutY="70.0" prefHeight="200.0" prefWidth="414.0" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Teleop Strategy">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #eeeeee;">
+                           <children>
+                              <Label layoutX="14.0" layoutY="14.0" text="Preferred Game Piece:" />
+                              <CheckBox layoutX="143.0" layoutY="14.0" mnemonicParsing="false" text="Hatch" />
+                              <CheckBox layoutX="208.0" layoutY="14.0" mnemonicParsing="false" text="Cargo" />
+                              <Label layoutX="298.0" layoutY="14.0" text="Game Pieces per Match:" />
+                              <Slider blockIncrement="1.0" layoutX="436.0" layoutY="15.0" majorTickUnit="1.0" max="40.0" prefHeight="38.0" prefWidth="328.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                              <Label layoutX="14.0" layoutY="45.0" text="Main Strategy:" />
+                              <CheckBox layoutX="34.0" layoutY="63.0" mnemonicParsing="false" text="Cargo ship cargo" />
+                              <CheckBox layoutX="34.0" layoutY="87.0" mnemonicParsing="false" text="Cargo ship hatch" />
+                              <CheckBox layoutX="34.0" layoutY="110.0" mnemonicParsing="false" text="Rocket cargo" />
+                              <CheckBox layoutX="34.0" layoutY="133.0" mnemonicParsing="false" text="Rocket hatch" />
+                              <CheckBox layoutX="34.0" layoutY="156.0" mnemonicParsing="false" text="Defense" />
+                              <CheckBox layoutX="34.0" layoutY="179.0" mnemonicParsing="false" text="Mixed (describe in notes)" />
+                              <CheckBox layoutX="34.0" layoutY="202.0" mnemonicParsing="false" text="Flexible (describe in notes)" />
+                              <CheckBox layoutX="34.0" layoutY="226.0" mnemonicParsing="false" text="Other (describe in notes)" />
+                              <Label layoutX="298.0" layoutY="63.0" text="Cycle Time (average, in seconds):" />
+                              <Slider blockIncrement="1.0" layoutX="479.0" layoutY="62.0" majorTickUnit="1.0" max="30.0" minorTickCount="0" prefHeight="38.0" prefWidth="286.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                              <Label layoutX="298.0" layoutY="105.0" text="Notes:" />
+                              <TextArea layoutX="298.0" layoutY="123.0" prefHeight="118.0" prefWidth="419.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Preferences/Notes">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #eeeeee;">
+                           <children>
+                              <Label layoutX="14.0" layoutY="14.0" text="Human Player:" />
+                              <CheckBox layoutX="26.0" layoutY="34.0" mnemonicParsing="false" text="Integral to strategy" />
+                              <CheckBox layoutX="26.0" layoutY="58.0" mnemonicParsing="false" text="Would be ideal, but flexible" />
+                              <CheckBox layoutX="26.0" layoutY="83.0" mnemonicParsing="false" text="No preference" />
+                              <Label layoutX="14.0" layoutY="121.0" text="Strategy:" />
+                              <CheckBox layoutX="25.0" layoutY="141.0" mnemonicParsing="false" text="Has a strong strategy and sticks to it" />
+                              <CheckBox layoutX="25.0" layoutY="167.0" mnemonicParsing="false" text="Would prefer their strategy, but can adjust" />
+                              <CheckBox layoutX="26.0" layoutY="192.0" mnemonicParsing="false" text="Very flexible" />
+                              <Label layoutX="373.0" layoutY="23.0" text="Notes:" />
+                              <TextArea layoutX="373.0" layoutY="39.0" prefHeight="238.0" prefWidth="399.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+            <Label layoutX="34.0" layoutY="123.0" text="Team Number:" />
+            <TextField layoutX="123.0" layoutY="119.0" />
+            <Label layoutX="298.0" layoutY="123.0" text="Team Name:" />
+            <TextField layoutX="373.0" layoutY="119.0" prefHeight="26.0" prefWidth="242.0" />
+            <Button layoutX="47.0" layoutY="488.0" mnemonicParsing="false" text="Submit" />
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
