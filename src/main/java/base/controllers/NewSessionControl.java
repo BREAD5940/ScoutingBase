@@ -59,9 +59,10 @@ public class NewSessionControl extends Application implements ControlInterface{
     }
 
     @FXML public void handleSubmit(ActionEvent event){
-        Main.currentSession = new Session(Integer.valueOf(year.getText()), name.getText(), tbaKey.getText(), dir.getAbsolutePath(), colorPicker.getValue());
-        Main.activeSessions.add(Main.currentSession);
-        Lib.pageChangeRequest(Main.Windows.sessionLaunch, false, this);
+        // Main.currentSession = new Session(Integer.valueOf(year.getText()), name.getText(), tbaKey.getText(), dir.getAbsolutePath(), colorPicker.getValue());
+        Main.activeSessions.put(name.getText(),new Session(Integer.valueOf(year.getText()), name.getText(), tbaKey.getText(), dir.getAbsolutePath(), colorPicker.getValue()));
+        Lib.report(Main.activeSessions.get(0).toString());
+        Lib.pageChangeRequest(Main.Windows.startup, false, this);
     }
 
     @Override
@@ -92,5 +93,10 @@ public class NewSessionControl extends Application implements ControlInterface{
     @Override
     public void handleBack(ActionEvent event){
         ControlInterface.super.handleBack(event);
+    }
+
+    @Override
+    public void initialize() {
+
     }
 }

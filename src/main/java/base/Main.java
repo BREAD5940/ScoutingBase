@@ -8,6 +8,7 @@ import java.util.List;
 import com.cpjd.main.TBA;
 
 import base.controllers.NewSessionControl;
+import base.controllers.SessionLaunchControl;
 import base.controllers.StartupControl;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -50,6 +51,7 @@ public class Main {
             put(Windows.startup, StartupControl.getInstance());
             put(Windows.newSession, NewSessionControl.getInstance());
             put(Windows.adminSignIn, AdminSignInControl.getInstance());
+            put(Windows.sessionLaunch, SessionLaunchControl.getInstance());
         }
     };
 
@@ -60,7 +62,7 @@ public class Main {
     public static int backIndex = -1; // the PREVIOUS page
     public static boolean isBack = false;
 
-    public static List<Session> activeSessions = new ArrayList<Session>();
+    public static HashMap<String, Session> activeSessions = new HashMap<String,Session>();
 
     public static Session currentSession = null;
     // public static Windows currentWindow=Windows.startup;
@@ -72,10 +74,16 @@ public class Main {
 
         System.out.println("APP HASH: "+controllersMap.get(Windows.adminSignIn));
 
+        List<Session> tempActiveSessions= Lib.recoverAllSessions();
+
+        for(Session sesh : tempActiveSessions){
+            activeSessions.put(sesh.toString(), sesh);
+        }
+
         // controllersMap.get(Windows.startup).start(new Stage());
         backButtonList.add(Windows.startup);
         System.out.println(backButtonList.size());
-        Lib.report(backButtonList.get(0).toString());
+        // Lib.report(backButtonList.get(0).toString());
         Application.launch(StartupControl.class, args);
         
 

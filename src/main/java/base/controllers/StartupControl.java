@@ -18,8 +18,10 @@ import javafx.scene.paint.Color;
 
 public class StartupControl extends Application implements ControlInterface{
 
-    @FXML private ComboBox<Session> sessionSelect;
-    @FXML AnchorPane basePane;
+    @FXML
+    private ComboBox<String> sessionSelect;
+    @FXML
+    AnchorPane basePane;
     Stage stage;
     Windows previousPage = Windows.startup;
     private static StartupControl inst;
@@ -35,19 +37,32 @@ public class StartupControl extends Application implements ControlInterface{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        // sessionSelect = new ComboBox<String>();
         Lib.memeStart(primaryStage, FXMLLoader.load(getClass().getResource("/layouts/startup.fxml")));
         // basePane.setBorder(new Border(new BorderStroke(Color.web(Main.currentSession.backgroundColor), BorderStrokeStyle.SOLID, new CornerRadii(1.0), BorderStroke.THICK)));
-        if(!Main.activeSessions.isEmpty()){
-            sessionSelect.getItems().addAll(Main.activeSessions);
-        }
 
         stage = primaryStage;
+    }
+
+    @Override
+    public void initialize(){
+        ControlInterface.super.initialize();
+        System.out.println("isempty: "+Main.activeSessions.isEmpty());
+        System.out.println("sessSel: "+ sessionSelect);
+        if(!Main.activeSessions.isEmpty()){
+            System.out.println(Main.activeSessions.isEmpty());
+            sessionSelect.getItems().clear();
+            sessionSelect.getItems().setAll(Main.activeSessions.keySet());
+            System.out.println("Session select:"+sessionSelect.getItems().toString());
+            System.out.println("select size "+sessionSelect.getItems().size());
+        }
+
     }
 
 
     @FXML public void handleGoButton(ActionEvent event){
         System.out.println("Go button pressed");
-        Main.currentSession = sessionSelect.getValue();
+        Main.currentSession = Main.activeSessions.get(sessionSelect.getValue());
         Lib.pageChangeRequest(Windows.sessionLaunch, false, this);
     }
 

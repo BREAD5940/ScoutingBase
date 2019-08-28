@@ -83,7 +83,6 @@ public class AdminSignInControl extends Application implements ControlInterface{
     @Override
     public void start(Stage primaryStage) throws Exception {
         Lib.memeStart(primaryStage, FXMLLoader.load(getClass().getResource(this.getResourceLocation())));
-        // basePane.setBorder(new Border(new BorderStroke(Color.web(Main.currentSession.backgroundColor), BorderStrokeStyle.SOLID, new CornerRadii(1.0), BorderStroke.THICK)));
         Lib.report(primaryStage.toString());
     }
 
@@ -103,6 +102,11 @@ public class AdminSignInControl extends Application implements ControlInterface{
             Lib.report("Admin sign in failed");
             PrankToast.makeText(this.getStage(),"Password Incorrect",4000,500,500);
         }
+    }
+
+    @Override
+    public void initialize() {
+
     }
 
 }

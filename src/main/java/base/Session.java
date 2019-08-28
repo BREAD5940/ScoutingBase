@@ -11,9 +11,9 @@ public class Session {
     public String sortsDir;
     public String teamsDir;
     public String backupsDir;
-    public Color backgroundColor;
+    public CustColor backgroundColor;
 
-    public Session(int season, String event, String eventKey, String eventDir, Color backColor){
+    public Session(int season, String event, String eventKey, String eventDir, CustColor backColor){
         this.season = season;
         this.event = event;
         this.tbaEventKey = eventKey;
@@ -25,11 +25,24 @@ public class Session {
         this.backgroundColor = backColor;
     }
 
+    public Session(int season, String event, String eventKey, String eventDir, Color backColor){
+        this(season, event, eventKey, eventDir, new CustColor(backColor));
+    }
+
+    public Session(int season, String event, String eventKey, String eventDir, String backColor){
+        this(season, event, eventKey, eventDir, new CustColor(backColor));
+    }
+
     public Session(){};
 
     @Override
     public String toString(){
+        return event;
+    }
+
+    public String fullToString(){
         return "Season: "+season+", Event Name: "+event+", Event Key: "+tbaEventKey+", Directory: "+eventDir+", Color: "+backgroundColor;
     }
+
 
 }

@@ -70,7 +70,8 @@
                   <Font name="Futura Medium" size="13.0" />
                </font>
             </Label>
-            <ComboBox fx:id="sessionSelect" layoutX="237.0" layoutY="209.0" prefWidth="150.0" promptText="Session.." />
+            <ComboBox fx:id="sessionSelect" layoutX="237.0" layoutY="209.0" prefWidth="150.0" promptText="Session..">
+            </ComboBox>
             <Button alignment="CENTER" layoutX="33.0" layoutY="295.0" mnemonicParsing="false" onAction="#handleBakeNew" prefHeight="57.0" prefWidth="59.0" text="Bake A New Session" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="Futura Medium" size="10.0" />

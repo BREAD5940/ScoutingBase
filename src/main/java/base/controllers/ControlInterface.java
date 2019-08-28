@@ -11,8 +11,33 @@ import javafx.scene.layout.AnchorPane;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.event.ActionEvent;
+import base.Lib;
+import base.PrankToast;
+import base.Main;
+import base.Main.Windows;
+import base.Session;
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.ComboBox;
+import javafx.stage.Stage;
+import javafx.stage.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.*;
+import javafx.scene.control.*;
+import javafx.scene.paint.Color;
 
 public interface ControlInterface{
+
+    
+    
+    public default void initialize(){
+        if(!(Main.currentSession==null)){
+            this.getBasePane().setBorder(new Border(new BorderStroke(Color.web(Main.currentSession.backgroundColor.getHexVal()), BorderStrokeStyle.SOLID, new CornerRadii(1.0), BorderStroke.THICK)));
+    
+        }
+    }
 
     public Windows getPreviousPage();
     void setPreviousPage(Windows prev);
