@@ -80,10 +80,6 @@ public class Main {
             activeSessions.put(sesh.toString(), sesh);
         }
 
-        // controllersMap.get(Windows.startup).start(new Stage());
-        backButtonList.add(Windows.startup);
-        System.out.println(backButtonList.size());
-        // Lib.report(backButtonList.get(0).toString());
         Application.launch(StartupControl.class, args);
         
 

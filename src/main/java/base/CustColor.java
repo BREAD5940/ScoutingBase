@@ -18,6 +18,7 @@ public class CustColor{
 
         public CustColor(int intColor){
             hexVal = String.format("#%06X", (0xFFFFFF & intColor));
+            Lib.report(hexVal);
         }
 
         /**

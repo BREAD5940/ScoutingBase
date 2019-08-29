@@ -16,11 +16,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.*;
 import javafx.scene.control.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.TextAlignment;
 
 public class SessionLaunchControl extends Application implements ControlInterface{
 
     Windows previousPage = Windows.startup;
     @FXML AnchorPane basePane;
+    @FXML Label sessionTitle;
     static SessionLaunchControl inst;
 
     public static <T extends Application & ControlInterface> T getInstance(){
@@ -29,6 +31,13 @@ public class SessionLaunchControl extends Application implements ControlInterfac
         }
 
         return (T) inst;
+    }
+
+    @Override
+    public void initialize() {
+        ControlInterface.super.initialize();
+        sessionTitle.setText(Main.currentSession.event);
+        sessionTitle.setTextAlignment(TextAlignment.CENTER);
     }
 
     @Override
