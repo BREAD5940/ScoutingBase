@@ -1,5 +1,5 @@
 import PySimpleGUI as sg
-import main
+# import main
 
 # as dumb as it sounds, this is linked in with the rest of the base. line 165 (ish)
 
@@ -266,5 +266,5 @@ if values[53]:
 if values[54]:
         stratPrefs.append("flexible on plan")
 
-outFile = open(main.dataDirectory+"pitData.csv", "a")
-outFile.write(str(values[0])+","+str(values[2])+","+str(climbLvl)+","+str(values[5])+","+str(values[6])+","+str(values[7])+","+str(reachLvl)+","+str(values[11])+","+str(values[12])+","+str(values[13])+","+str(values[14])+","+cog+","+str(values[18])+","+str(values[19])+","+str(startLvl)+","+str(sandStrat)+","+"|"+str(values[31])+"|"+","+str(autoDrive)+","+str(teleStrat)+","+"|"+str(values[44])+"|"+","+str(values[45])+","+str(values[46])+","+str(gpPref)+","+str(humanPrefs)+","+str(stratPrefs)+","+"|"+str(values[20])+"|"+","+"|"+str(values[55])+"|\n")
+# outFile = open(main.dataDirectory+"pitData.csv", "a")
+# outFile.write(str(values[0])+","+str(values[2])+","+str(climbLvl)+","+str(values[5])+","+str(values[6])+","+str(values[7])+","+str(reachLvl)+","+str(values[11])+","+str(values[12])+","+str(values[13])+","+str(values[14])+","+cog+","+str(values[18])+","+str(values[19])+","+str(startLvl)+","+str(sandStrat)+","+"|"+str(values[31])+"|"+","+str(autoDrive)+","+str(teleStrat)+","+"|"+str(values[44])+"|"+","+str(values[45])+","+str(values[46])+","+str(gpPref)+","+str(humanPrefs)+","+str(stratPrefs)+","+"|"+str(values[20])+"|"+","+"|"+str(values[55])+"|\n")

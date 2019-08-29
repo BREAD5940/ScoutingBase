@@ -4,18 +4,28 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.security.acl.Group;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-import javax.xml.namespace.QName;
+import java.nio.channels.NotYetConnectedException;
+import java.util.*;
 
 import com.opencsv.CSVReader;
 
 import org.codehaus.jackson.map.ObjectMapper;
 
-import base.CustomTeam.Groups;
+import base.Main.Windows;
+import base.controllers.AdminSignInControl;
+import base.controllers.ControlInterface;
+import javafx.fxml.*;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.collections.FXCollections;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
+import javafx.scene.*;
+import javafx.fxml.*;
+import javafx.application.Application;
+
 
 public class Lib {
 
@@ -154,24 +164,23 @@ public class Lib {
         return gennedTeams;
     }
 
-    @Deprecated //this b the Big Slow
-    public static boolean InternettyChecky() throws Exception { 
-        Process process = java.lang.Runtime.getRuntime().exec("ping www.thebluealliance.com"); 
+//    @Deprecated //this b the Big Slow
+    public static boolean InternettyChecky() throws Exception {
+        long now = (new Date()).getTime();
+
+        Process process = java.lang.Runtime.getRuntime().exec("ping -w 1 -n 2 google.com");
         int x = process.waitFor(); 
-        if (x == 0) { 
-            // System.out.println("Connection Successful, "
-            //                    + "Output was " + x); 
-            report("Internet connection checked and active, output "+x);
+        if (x == 0) {
+            long dt = (new Date()).getTime() - now;
+            report("Internet connection checked and active in " + dt / 1000d + "s, output "+x);
             return true;
         } 
-        else { 
-            // System.out.println("Internet Not Connected, "
-            //                    + "Output was " + x); 
-            report("Internet connection failed, output "+x);
+        else {
+            long dt = (new Date()).getTime() - now;
+            report("Internet connection failed in " + dt / 1000d + "s, output "+x);
             return false;
         } 
-    } 
-
+    }
 
     public static void saveMatches(List<CustomMatch> matches, String eventDir){
         for(CustomMatch match : matches){
@@ -227,6 +236,141 @@ public class Lib {
         }
 
         return recovered;
+    }
+
+    /**
+     * Search for a team by it's team number
+     * @param teamNumber the team number to search for
+     * @param teams the list of teams to search through
+     * @return the team found with the match team number, or
+     * @throws TeamNotFoundException an exception :)
+     */
+    public static CustomTeam searchForTeamNumber(int teamNumber, List<CustomTeam> teams) throws TeamNotFoundException {
+        for(CustomTeam team : teams) {
+            if(team.number == teamNumber) return team;
+        }
+        throw new TeamNotFoundException("Team " + teamNumber + " could not be found!");
+    }
+
+    /**
+     * Search for a team by it's team name
+     * @param teamName the team name to search for by scouted name or tbaName
+     * @param teams the list of teams to search through
+     * @return the team found with the match team number, or
+     * @throws TeamNotFoundException an exception :)
+     */
+    public static CustomTeam searchForTeamName(String teamName, List<CustomTeam> teams) throws TeamNotFoundException {
+        //TODO improve this function to inclued close matches in team name (ex. "BREAD" vs "B.R.E.A.D.")
+        for(CustomTeam team : teams) {
+            if(team.scoutedName.equalsIgnoreCase(teamName)
+                || team.tbaName.equalsIgnoreCase(teamName))
+
+                return team;
+        }
+        throw new TeamNotFoundException("Team " + teamName + " could not be found!");
+    }
+
+    public static CustomTeam searchForRobotNickname(String nickname, List<CustomTeam> teams) throws TeamNotFoundException{
+        for(CustomTeam team : teams) {
+            for(String nick : team.robotNicknames){
+                if(nick.equalsIgnoreCase(nickname)){
+                    return team;
+                }
+            }
+        }
+        throw new TeamNotFoundException("A robot called "+nickname+" could not be found!");
+    }
+
+    static class TeamNotFoundException extends Exception { TeamNotFoundException(String message) { super(message); } }
+
+    public static void saveSession(Session session){
+        try{
+            mapper.writeValue(new File("main_storage/"+session.tbaEventKey+".json"), session);
+        }catch (Exception e){
+            report("write failed for session "+session.tbaEventKey);
+            report(e.toString());
+        }
+    }
+
+    public static List<Session> recoverAllSessions(){
+        List<Session> recovered = new ArrayList<>();
+
+        File[] files = new File("main_storage/").listFiles();
+
+        for(File file : files){
+            try{
+                recovered.add(mapper.readValue(file, Session.class));
+            }catch(Exception e){
+                report("recover failed");
+                report(e.toString());
+            }
+        }
+
+        return recovered;
+    }
+
+
+    public static void memeStart(Stage primaryStage, Parent root, String title) throws Exception{
+
+        Scene scene = new Scene(root, 600, 400);
+    
+        primaryStage.setTitle(title);
+        primaryStage.setScene(scene);
+        primaryStage.show(); 
+    }
+
+    public static void memeStart(Stage primaryStage, Parent root) throws Exception{
+        memeStart(primaryStage, root, "BREAD 5940 Scouting Base");
+    }
+
+
+    public static <T extends Application & ControlInterface> void pageChangeRequest(Main.Windows reqPage, boolean isBack, T app){
+
+        // try{ 
+            System.out.println("APP HASH: "+app);
+            T newApp = (T)(Main.controllersMap.get(reqPage));
+            report(newApp.toString());
+            try{
+                report(newApp.getName().toString());
+                newApp.start(new Stage());
+            }catch(Exception e){
+                report(e.toString());
+            }
+            report(app.getName().toString());
+            newApp.setPreviousPage(app.getName());
+            report("Page changed to "+reqPage.toString()+". This "+((isBack) ? "was" : "was not")+" a back button change.");
+        // }catch(Exception e){
+        //     report("Page launch failed. Exception: "+e.toString()+" at "+e.getCause().toString());
+        //     return;
+        // }
+        try{
+            app.getStage().close();
+        }catch(Exception e){
+            report("App stop failed. Exception: "+e.toString());
+        }
+
+    }
+
+
+    public static <T extends Application & ControlInterface> void pwProteccPageChangeRequest(Main.Windows finalPage, boolean isBack, T app){
+        try{
+            AdminSignInControl newApp = (AdminSignInControl)(Main.controllersMap.get(Windows.adminSignIn));
+            newApp.start(new Stage());
+            newApp.setPreviousPage(app.getName());
+            newApp.setFollowThroughPage(finalPage);
+            System.out.println("APP HASH: "+newApp);
+            report("Follow through page: "+newApp.getFollowThroughPage().toString());
+            report("Page changed to "+Windows.adminSignIn.toString()+". This "+((isBack) ? "was" : "was not")+" a back button change.");
+        }catch(Exception e){
+            report("Page launch failed. Exception: "+e.getMessage()+", "+e.toString());
+            return;
+        }
+
+        try{
+            app.getStage().close();
+        }catch(Exception e){
+            report("App stop failed. Exception: "+e.toString());
+        }
     }
 
 }
