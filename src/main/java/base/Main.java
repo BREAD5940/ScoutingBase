@@ -70,14 +70,15 @@ public class Main {
         TBA.setAuthToken("OPynqKt8K0vueAXqxZzdigY9OBYK3KMgQQrsM4l8jE5cBmGfByhy6YzVIb2Ts7xD");
         tbaApi = new TBA();
 
-        System.out.println("APP HASH: "+controllersMap.get(Windows.adminSignIn));
 
-        // controllersMap.get(Windows.startup).start(new Stage());
-        backButtonList.add(Windows.startup);
-        System.out.println(backButtonList.size());
-        Lib.report(backButtonList.get(0).toString());
-        Application.launch(StartupControl.class, args);
-        
+        // controllersMap.get(Windows.startup).start(new Stage()); //FIXME does this need to be uncommented?
+        // Application.launch(StartupControl.class, args); //TODO this does need to be uncommented
+
+        List<CustomTeam> teamList = Lib.recoverTeams("sac_2019/");
+
+        System.out.println("namesearch: "+Lib.searchForTeamName("Madtown Robotics", teamList).number);
+        System.out.println("numbersearch: "+Lib.searchForTeamNumber(1678, teamList).scoutedName);
+        System.out.println("nicknamesearch: "+Lib.searchForRobotNickname("orange boi", teamList).number);
 
     }
 

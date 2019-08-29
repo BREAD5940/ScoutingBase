@@ -166,17 +166,17 @@ public class Lib {
 
 //    @Deprecated //this b the Big Slow
     public static boolean InternettyChecky() throws Exception {
-        var now = (new Date()).getTime();
+        long now = (new Date()).getTime();
 
         Process process = java.lang.Runtime.getRuntime().exec("ping -w 1 -n 2 google.com");
         int x = process.waitFor(); 
         if (x == 0) {
-            var dt = (new Date()).getTime() - now;
+            long dt = (new Date()).getTime() - now;
             report("Internet connection checked and active in " + dt / 1000d + "s, output "+x);
             return true;
         } 
         else {
-            var dt = (new Date()).getTime() - now;
+            long dt = (new Date()).getTime() - now;
             report("Internet connection failed in " + dt / 1000d + "s, output "+x);
             return false;
         } 
@@ -253,20 +253,32 @@ public class Lib {
     }
 
     /**
-     * Search for a team by it's team number
+     * Search for a team by it's team name
      * @param teamName the team name to search for by scouted name or tbaName
      * @param teams the list of teams to search through
      * @return the team found with the match team number, or
      * @throws TeamNotFoundException an exception :)
      */
     public static CustomTeam searchForTeamName(String teamName, List<CustomTeam> teams) throws TeamNotFoundException {
+        //TODO improve this function to inclued close matches in team name (ex. "BREAD" vs "B.R.E.A.D.")
         for(CustomTeam team : teams) {
-            if(team.scoutedName.toLowerCase().equals(teamName.toLowerCase())
-                || team.tbaName.toLowerCase().equals(teamName.toLowerCase()))
+            if(team.scoutedName.equalsIgnoreCase(teamName)
+                || team.tbaName.equalsIgnoreCase(teamName))
 
                 return team;
         }
         throw new TeamNotFoundException("Team " + teamName + " could not be found!");
+    }
+
+    public static CustomTeam searchForRobotNickname(String nickname, List<CustomTeam> teams) throws TeamNotFoundException{
+        for(CustomTeam team : teams) {
+            for(String nick : team.robotNicknames){
+                if(nick.equalsIgnoreCase(nickname)){
+                    return team;
+                }
+            }
+        }
+        throw new TeamNotFoundException("A robot called "+nickname+" could not be found!");
     }
 
     static class TeamNotFoundException extends Exception { TeamNotFoundException(String message) { super(message); } }
