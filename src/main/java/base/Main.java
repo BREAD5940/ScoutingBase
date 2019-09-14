@@ -8,6 +8,7 @@ import java.util.List;
 import com.cpjd.main.TBA;
 
 import base.controllers.NewSessionControl;
+import base.controllers.PitLaunchControl;
 import base.controllers.SessionLaunchControl;
 import base.controllers.StartupControl;
 import javafx.application.Application;
@@ -52,6 +53,7 @@ public class Main {
             put(Windows.newSession, NewSessionControl.getInstance());
             put(Windows.adminSignIn, AdminSignInControl.getInstance());
             put(Windows.sessionLaunch, SessionLaunchControl.getInstance());
+            put(Windows.pitLaunch, new PitLaunchControl());
         }
     };
 

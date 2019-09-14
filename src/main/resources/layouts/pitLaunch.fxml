@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base.controllers.PitLaunchControl">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -55,7 +55,7 @@
     </MenuBar>
     <AnchorPane fx:id="basePane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <Button fx:id="backButton" graphicTextGap="0.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" prefHeight="26.0" prefWidth="54.0" style="-fx-background-color: #ffffff;" text="Back" textAlignment="CENTER" onAction="#handleBackButton">
+            <Button fx:id="backButton" graphicTextGap="0.0" layoutX="14.0" layoutY="14.0" onAction="#handleBack" pickOnBounds="true" prefHeight="26.0" prefWidth="54.0" style="-fx-background-color: #ffffff;" text="Back" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -72,17 +72,17 @@
                   <Font name="System Bold" size="36.0" />
                </font>
             </Label>
-            <Button layoutX="259.0" layoutY="133.0" mnemonicParsing="false" text="Enter Data" wrapText="true">
+            <Button fx:id="enterData" layoutX="259.0" layoutY="133.0" mnemonicParsing="false" onAction="#handleEnterData" text="Enter Data" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button layoutX="137.0" layoutY="209.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="121.0" text="View Assignments" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="viewAssign" layoutX="137.0" layoutY="209.0" mnemonicParsing="false" onAction="#handleViewAssign" prefHeight="54.0" prefWidth="121.0" text="View Assignments" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="380.0" layoutY="209.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="121.0" text="Edit Assignments" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="editAssign" layoutX="380.0" layoutY="209.0" mnemonicParsing="false" onAction="#handleEditAssign" prefHeight="54.0" prefWidth="121.0" text="Edit Assignments" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="15.0" />
                </font>
