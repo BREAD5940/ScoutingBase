@@ -63,7 +63,7 @@
     </MenuBar>
     <AnchorPane fx:id="basePane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="601.0" prefWidth="854.0" VBox.vgrow="ALWAYS">
          <children>
-            <Button fx:id="backButton" graphicTextGap="0.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" prefHeight="26.0" prefWidth="54.0" style="-fx-background-color: #ffffff;" text="Back" textAlignment="CENTER" onAction="#handleBackButton">
+            <Button fx:id="backButton" graphicTextGap="0.0" layoutX="14.0" layoutY="14.0" onAction="#handleBack" pickOnBounds="true" prefHeight="26.0" prefWidth="54.0" style="-fx-background-color: #ffffff;" text="Back" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -86,34 +86,34 @@
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="232.0" prefWidth="742.0" style="-fx-background-color: #eeeeee;">
                            <children>
-                              <CheckBox layoutX="21.0" layoutY="14.0" mnemonicParsing="false" text="Climbs" />
-                              <RadioButton layoutX="91.0" layoutY="39.0" mnemonicParsing="false" text="2">
+                              <CheckBox fx:id="climbs" layoutX="21.0" layoutY="14.0" mnemonicParsing="false" text="Climbs" />
+                              <RadioButton fx:id="level2" layoutX="91.0" layoutY="39.0" mnemonicParsing="false" text="2">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="level" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton layoutX="140.0" layoutY="39.0" mnemonicParsing="false" text="3" toggleGroup="$level" />
+                              <RadioButton fx:id="level3" layoutX="140.0" layoutY="39.0" mnemonicParsing="false" text="3" toggleGroup="$level" />
                               <Label layoutX="50.0" layoutY="39.0" text="Level:" />
                               <Label layoutX="21.0" layoutY="69.0" text="Type of Intake:" />
-                              <CheckBox layoutX="104.0" layoutY="69.0" mnemonicParsing="false" text="Cargo" />
-                              <CheckBox layoutX="169.0" layoutY="69.0" mnemonicParsing="false" text="Hatch" />
+                              <CheckBox fx:id="cargoIntake" layoutX="104.0" layoutY="69.0" mnemonicParsing="false" text="Cargo" />
+                              <CheckBox fx:id="hatchIntake" layoutX="169.0" layoutY="69.0" mnemonicParsing="false" text="Hatch" />
                               <Label layoutX="249.0" layoutY="69.0" text="Rocket Reach:" />
-                              <RadioButton layoutX="333.0" layoutY="69.0" mnemonicParsing="false" text="1">
+                              <RadioButton fx:id="rocketLevel1" layoutX="333.0" layoutY="69.0" mnemonicParsing="false" text="1">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="reach" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton layoutX="410.0" layoutY="69.0" mnemonicParsing="false" text="3" toggleGroup="$reach" />
-                              <RadioButton layoutX="373.0" layoutY="69.0" mnemonicParsing="false" text="2" toggleGroup="$reach" />
+                              <RadioButton fx:id="rocketLevel3" layoutX="410.0" layoutY="69.0" mnemonicParsing="false" text="3" toggleGroup="$reach" />
+                              <RadioButton fx:id="rocketLevel2" layoutX="373.0" layoutY="69.0" mnemonicParsing="false" text="2" toggleGroup="$reach" />
                               <Label layoutX="18.0" layoutY="102.0" text="Mechanical Issues:" />
-                              <Slider blockIncrement="1.0" layoutX="123.0" layoutY="104.0" majorTickUnit="1.0" max="10.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
-                              <CheckBox layoutX="22.0" layoutY="164.0" mnemonicParsing="false" text="Has camera" />
-                              <CheckBox layoutX="255.0" layoutY="164.0" mnemonicParsing="false" text="Uses presets" />
-                              <CheckBox layoutX="112.0" layoutY="164.0" mnemonicParsing="false" text="Has sensor/LimeLight" />
-                              <CheckBox layoutX="347.0" layoutY="164.0" mnemonicParsing="false" text="Can reach over cargo" />
-                              <CheckBox layoutX="494.0" layoutY="164.0" mnemonicParsing="false" text="Rampbot" />
+                              <Slider fx:id="mechanicalIssues" blockIncrement="1.0" layoutX="123.0" layoutY="104.0" majorTickUnit="1.0" max="10.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                              <CheckBox fx:id="hasCamera" layoutX="22.0" layoutY="164.0" mnemonicParsing="false" text="Has camera" />
+                              <CheckBox fx:id="usesPresets" layoutX="255.0" layoutY="164.0" mnemonicParsing="false" text="Uses presets" />
+                              <CheckBox fx:id="hasSensor" layoutX="112.0" layoutY="164.0" mnemonicParsing="false" text="Has sensor/LimeLight" />
+                              <CheckBox fx:id="reachCargo" layoutX="347.0" layoutY="164.0" mnemonicParsing="false" text="Can reach over cargo" />
+                              <CheckBox fx:id="rampbot" layoutX="494.0" layoutY="164.0" mnemonicParsing="false" text="Rampbot" />
                               <Label layoutX="19.0" layoutY="196.0" text="Robot nicknames (comma-seperated):" />
-                              <TextArea layoutX="40.0" layoutY="214.0" prefHeight="67.0" prefWidth="391.0" />
+                              <TextArea fx:id="nicknames" layoutX="40.0" layoutY="214.0" prefHeight="67.0" prefWidth="391.0" />
                            </children>
                         </AnchorPane>
                   </content>
@@ -122,29 +122,29 @@
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #eeeeee;">
                            <children>
-                              <RadioButton layoutX="105.0" layoutY="14.0" mnemonicParsing="false" text="1" />
+                              <RadioButton fx:id="startHab1" layoutX="105.0" layoutY="14.0" mnemonicParsing="false" text="1" toggleGroup="$startHab"/>
                               <Label layoutX="22.0" layoutY="14.0" text="Starting Hab:" />
-                              <RadioButton layoutX="145.0" layoutY="14.0" mnemonicParsing="false" text="2">
+                              <RadioButton fx:id="startHab2" layoutX="145.0" layoutY="14.0" mnemonicParsing="false" text="2">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="startHab" />
                                  </toggleGroup>
                               </RadioButton>
                               <Label layoutX="358.0" layoutY="14.0" text="Control:" />
-                              <CheckBox layoutX="412.0" layoutY="14.0" mnemonicParsing="false" text="Driver + camera" />
-                              <CheckBox layoutX="541.0" layoutY="14.0" mnemonicParsing="false" text="Auto paths" />
-                              <CheckBox layoutX="637.0" layoutY="14.0" mnemonicParsing="false" text="No" />
+                              <CheckBox fx:id="driverControl" layoutX="412.0" layoutY="14.0" mnemonicParsing="false" text="Driver + camera" />
+                              <CheckBox fx:id="pathing" layoutX="541.0" layoutY="14.0" mnemonicParsing="false" text="Auto paths" />
+                              <CheckBox fx:id="noControl" layoutX="637.0" layoutY="14.0" mnemonicParsing="false" text="No" />
                               <Label layoutX="22.0" layoutY="50.0" text="Main Strategy:" />
-                              <CheckBox layoutX="47.0" layoutY="68.0" mnemonicParsing="false" text="Hatch on the close side rocket" />
-                              <CheckBox layoutX="47.0" layoutY="94.0" mnemonicParsing="false" text="Hatch on the far side rocket" />
-                              <CheckBox layoutX="47.0" layoutY="120.0" mnemonicParsing="false" text="Hatch on the front of the cargo ship" />
-                              <CheckBox layoutX="47.0" layoutY="145.0" mnemonicParsing="false" text="Hatch elsewhere on the cargo ship" />
-                              <CheckBox layoutX="47.0" layoutY="170.0" mnemonicParsing="false" text="Cargo in the cargo ship" />
-                              <CheckBox layoutX="47.0" layoutY="195.0" mnemonicParsing="false" text="Crosses line" />
-                              <CheckBox layoutX="47.0" layoutY="221.0" mnemonicParsing="false" text="Multi game piece (describe in notes)" />
-                              <CheckBox layoutX="47.0" layoutY="246.0" mnemonicParsing="false" text="No" />
-                              <CheckBox layoutX="47.0" layoutY="271.0" mnemonicParsing="false" text="Other (describe in notes)" />
+                              <CheckBox fx:id="autoCloseRocketHatch" layoutX="47.0" layoutY="68.0" mnemonicParsing="false" text="Hatch on the close side rocket" />
+                              <CheckBox fx:id="autoFarRocketHatch" layoutX="47.0" layoutY="94.0" mnemonicParsing="false" text="Hatch on the far side rocket" />
+                              <CheckBox fx:id="autoFrontShipHatch" layoutX="47.0" layoutY="120.0" mnemonicParsing="false" text="Hatch on the front of the cargo ship" />
+                              <CheckBox fx:id="autoOtherShipHatch" layoutX="47.0" layoutY="145.0" mnemonicParsing="false" text="Hatch elsewhere on the cargo ship" />
+                              <CheckBox fx:id="autoShipCargo" layoutX="47.0" layoutY="170.0" mnemonicParsing="false" text="Cargo in the cargo ship" />
+                              <CheckBox fx:id="autoline" layoutX="47.0" layoutY="195.0" mnemonicParsing="false" text="Crosses line" />
+                              <CheckBox fx:id="autoMultiPiece" layoutX="47.0" layoutY="221.0" mnemonicParsing="false" text="Multi game piece (describe in notes)" />
+                              <CheckBox fx:id="autoNoStrat" layoutX="47.0" layoutY="246.0" mnemonicParsing="false" text="No" />
+                              <CheckBox fx:id="autoOtherStrat" layoutX="47.0" layoutY="271.0" mnemonicParsing="false" text="Other (describe in notes)" />
                               <Label layoutX="358.0" layoutY="50.0" text="Notes:" />
-                              <TextArea layoutX="358.0" layoutY="70.0" prefHeight="200.0" prefWidth="414.0" />
+                              <TextArea fx:id="autoStratNotes" layoutX="358.0" layoutY="70.0" prefHeight="200.0" prefWidth="414.0" />
                            </children>
                         </AnchorPane>
                   </content>
@@ -154,23 +154,23 @@
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #eeeeee;">
                            <children>
                               <Label layoutX="14.0" layoutY="14.0" text="Preferred Game Piece:" />
-                              <CheckBox layoutX="143.0" layoutY="14.0" mnemonicParsing="false" text="Hatch" />
-                              <CheckBox layoutX="208.0" layoutY="14.0" mnemonicParsing="false" text="Cargo" />
+                              <CheckBox fx:id="prefHatch" layoutX="143.0" layoutY="14.0" mnemonicParsing="false" text="Hatch" />
+                              <CheckBox fx:id="prefCargo" layoutX="208.0" layoutY="14.0" mnemonicParsing="false" text="Cargo" />
                               <Label layoutX="298.0" layoutY="14.0" text="Game Pieces per Match:" />
-                              <Slider blockIncrement="1.0" layoutX="436.0" layoutY="15.0" majorTickUnit="1.0" max="40.0" prefHeight="38.0" prefWidth="328.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                              <Slider fx:id="piecesPerMatch" blockIncrement="1.0" layoutX="436.0" layoutY="15.0" majorTickUnit="1.0" max="40.0" prefHeight="38.0" prefWidth="328.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
                               <Label layoutX="14.0" layoutY="45.0" text="Main Strategy:" />
-                              <CheckBox layoutX="34.0" layoutY="63.0" mnemonicParsing="false" text="Cargo ship cargo" />
-                              <CheckBox layoutX="34.0" layoutY="87.0" mnemonicParsing="false" text="Cargo ship hatch" />
-                              <CheckBox layoutX="34.0" layoutY="110.0" mnemonicParsing="false" text="Rocket cargo" />
-                              <CheckBox layoutX="34.0" layoutY="133.0" mnemonicParsing="false" text="Rocket hatch" />
-                              <CheckBox layoutX="34.0" layoutY="156.0" mnemonicParsing="false" text="Defense" />
-                              <CheckBox layoutX="34.0" layoutY="179.0" mnemonicParsing="false" text="Mixed (describe in notes)" />
-                              <CheckBox layoutX="34.0" layoutY="202.0" mnemonicParsing="false" text="Flexible (describe in notes)" />
-                              <CheckBox layoutX="34.0" layoutY="226.0" mnemonicParsing="false" text="Other (describe in notes)" />
+                              <CheckBox fx:id="teleopShipCargo" layoutX="34.0" layoutY="63.0" mnemonicParsing="false" text="Cargo ship cargo" />
+                              <CheckBox fx:id="teleopShipHatch" layoutX="34.0" layoutY="87.0" mnemonicParsing="false" text="Cargo ship hatch" />
+                              <CheckBox fx:id="teleopRocketCargo" layoutX="34.0" layoutY="110.0" mnemonicParsing="false" text="Rocket cargo" />
+                              <CheckBox fx:id="teleopRocketHatch" layoutX="34.0" layoutY="133.0" mnemonicParsing="false" text="Rocket hatch" />
+                              <CheckBox fx:id="teleopDefense" layoutX="34.0" layoutY="156.0" mnemonicParsing="false" text="Defense" />
+                              <CheckBox fx:id="teleopMixed" layoutX="34.0" layoutY="179.0" mnemonicParsing="false" text="Mixed (describe in notes)" />
+                              <CheckBox fx:id="teleopFlex" layoutX="34.0" layoutY="202.0" mnemonicParsing="false" text="Flexible (describe in notes)" />
+                              <CheckBox fx:id="teleopStratOther" layoutX="34.0" layoutY="226.0" mnemonicParsing="false" text="Other (describe in notes)" />
                               <Label layoutX="298.0" layoutY="63.0" text="Cycle Time (average, in seconds):" />
-                              <Slider blockIncrement="1.0" layoutX="479.0" layoutY="62.0" majorTickUnit="1.0" max="30.0" minorTickCount="0" prefHeight="38.0" prefWidth="286.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                              <Slider fx:id="cycleTime" blockIncrement="1.0" layoutX="479.0" layoutY="62.0" majorTickUnit="1.0" max="30.0" minorTickCount="0" prefHeight="38.0" prefWidth="286.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
                               <Label layoutX="298.0" layoutY="105.0" text="Notes:" />
-                              <TextArea layoutX="298.0" layoutY="123.0" prefHeight="118.0" prefWidth="419.0" />
+                              <TextArea fx:id="teleopStratNotes" layoutX="298.0" layoutY="123.0" prefHeight="118.0" prefWidth="419.0" />
                            </children>
                         </AnchorPane>
                      </content>
@@ -180,15 +180,23 @@
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #eeeeee;">
                            <children>
                               <Label layoutX="14.0" layoutY="14.0" text="Human Player:" />
-                              <CheckBox layoutX="26.0" layoutY="34.0" mnemonicParsing="false" text="Integral to strategy" />
-                              <CheckBox layoutX="26.0" layoutY="58.0" mnemonicParsing="false" text="Would be ideal, but flexible" />
-                              <CheckBox layoutX="26.0" layoutY="83.0" mnemonicParsing="false" text="No preference" />
+                              <RadioButton fx:id="hpIntegral" layoutX="26.0" layoutY="34.0" mnemonicParsing="false" text="Integral to strategy">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="humanPlayer" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="hpIdeal" layoutX="26.0" layoutY="58.0" mnemonicParsing="false" text="Would be ideal, but flexible" toggleGroup="$humanPlayer" />
+                              <RadioButton fx:id="hpNoPref" layoutX="26.0" layoutY="83.0" mnemonicParsing="false" text="No preference" toggleGroup="$humanPlayer" />
                               <Label layoutX="14.0" layoutY="121.0" text="Strategy:" />
-                              <CheckBox layoutX="25.0" layoutY="141.0" mnemonicParsing="false" text="Has a strong strategy and sticks to it" />
-                              <CheckBox layoutX="25.0" layoutY="167.0" mnemonicParsing="false" text="Would prefer their strategy, but can adjust" />
-                              <CheckBox layoutX="26.0" layoutY="192.0" mnemonicParsing="false" text="Very flexible" />
+                              <RadioButton fx:id="sticksStrat" layoutX="25.0" layoutY="141.0" mnemonicParsing="false" text="Has a strong strategy and sticks to it">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="stratPref" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="prefStrat" layoutX="25.0" layoutY="167.0" mnemonicParsing="false" text="Would prefer their strategy, but can adjust" toggleGroup="$stratPref" />
+                              <RadioButton fx:id="flexStrat" layoutX="26.0" layoutY="192.0" mnemonicParsing="false" text="Very flexible" toggleGroup="$stratPref" />
                               <Label layoutX="373.0" layoutY="23.0" text="Notes:" />
-                              <TextArea layoutX="373.0" layoutY="39.0" prefHeight="238.0" prefWidth="399.0" />
+                              <TextArea fx:id="notes" layoutX="373.0" layoutY="39.0" prefHeight="238.0" prefWidth="399.0" />
                            </children>
                         </AnchorPane>
                      </content>
@@ -196,10 +204,12 @@
               </tabs>
             </TabPane>
             <Label layoutX="34.0" layoutY="123.0" text="Team Number:" />
-            <TextField layoutX="123.0" layoutY="119.0" />
+            <TextField fx:id="teamNumber" layoutX="123.0" layoutY="119.0" />
             <Label layoutX="298.0" layoutY="123.0" text="Team Name:" />
-            <TextField layoutX="373.0" layoutY="119.0" prefHeight="26.0" prefWidth="242.0" />
-            <Button layoutX="47.0" layoutY="488.0" mnemonicParsing="false" text="Submit" />
+            <TextField fx:id="teamName" layoutX="373.0" layoutY="119.0" prefHeight="26.0" prefWidth="242.0" />
+            <Button fx:id="submit" layoutX="47.0" layoutY="488.0" mnemonicParsing="false" onAction="#handleSubmit" text="Submit" />
+            <Label layoutX="264.0" layoutY="82.0" text="Scout Name:" />
+            <TextField fx:id="scoutName" layoutX="344.0" layoutY="78.0" prefHeight="26.0" prefWidth="242.0" />
          </children>
     </AnchorPane>
   </children>

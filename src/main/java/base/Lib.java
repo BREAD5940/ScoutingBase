@@ -79,6 +79,18 @@ public class Lib {
         return str+"|";
     }
 
+    public static String arrayToLinebreakString(Object[] array, String spacing){
+        String str="";
+        if(array.length>1){
+            for(int i=0; i<=array.length; i++){
+                str+=spacing;
+                str+=array[i].toString();
+                str+="\n";
+            }
+        }
+        return str;
+    }
+
     public static String[] stringToArray(String string, boolean hasSides) {
         String commaString = "";
         if(hasSides){
