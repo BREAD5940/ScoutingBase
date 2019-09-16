@@ -4,10 +4,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Optional;
+import java.nio.channels.NotYetConnectedException;
+import java.util.*;
 
 import com.opencsv.CSVReader;
 
@@ -178,24 +176,23 @@ public class Lib {
         return gennedTeams;
     }
 
-    @Deprecated //this b the Big Slow
-    public static boolean InternettyChecky() throws Exception { 
-        Process process = java.lang.Runtime.getRuntime().exec("ping www.thebluealliance.com"); 
+//    @Deprecated //this b the Big Slow
+    public static boolean InternettyChecky() throws Exception {
+        long now = (new Date()).getTime();
+
+        Process process = java.lang.Runtime.getRuntime().exec("ping -w 1 -n 2 google.com");
         int x = process.waitFor(); 
-        if (x == 0) { 
-            // System.out.println("Connection Successful, "
-            //                    + "Output was " + x); 
-            report("Internet connection checked and active, output "+x);
+        if (x == 0) {
+            long dt = (new Date()).getTime() - now;
+            report("Internet connection checked and active in " + dt / 1000d + "s, output "+x);
             return true;
         } 
-        else { 
-            // System.out.println("Internet Not Connected, "
-            //                    + "Output was " + x); 
-            report("Internet connection failed, output "+x);
+        else {
+            long dt = (new Date()).getTime() - now;
+            report("Internet connection failed in " + dt / 1000d + "s, output "+x);
             return false;
         } 
-    } 
-
+    }
 
     public static void saveMatches(List<CustomMatch> matches, String eventDir){
         for(CustomMatch match : matches){
@@ -252,6 +249,51 @@ public class Lib {
 
         return recovered;
     }
+
+    /**
+     * Search for a team by it's team number
+     * @param teamNumber the team number to search for
+     * @param teams the list of teams to search through
+     * @return the team found with the match team number, or
+     * @throws TeamNotFoundException an exception :)
+     */
+    public static CustomTeam searchForTeamNumber(int teamNumber, List<CustomTeam> teams) throws TeamNotFoundException {
+        for(CustomTeam team : teams) {
+            if(team.number == teamNumber) return team;
+        }
+        throw new TeamNotFoundException("Team " + teamNumber + " could not be found!");
+    }
+
+    /**
+     * Search for a team by it's team name
+     * @param teamName the team name to search for by scouted name or tbaName
+     * @param teams the list of teams to search through
+     * @return the team found with the match team number, or
+     * @throws TeamNotFoundException an exception :)
+     */
+    public static CustomTeam searchForTeamName(String teamName, List<CustomTeam> teams) throws TeamNotFoundException {
+        //TODO improve this function to inclued close matches in team name (ex. "BREAD" vs "B.R.E.A.D.")
+        for(CustomTeam team : teams) {
+            if(team.scoutedName.equalsIgnoreCase(teamName)
+                || team.tbaName.equalsIgnoreCase(teamName))
+
+                return team;
+        }
+        throw new TeamNotFoundException("Team " + teamName + " could not be found!");
+    }
+
+    public static CustomTeam searchForRobotNickname(String nickname, List<CustomTeam> teams) throws TeamNotFoundException{
+        for(CustomTeam team : teams) {
+            for(String nick : team.robotNicknames){
+                if(nick.equalsIgnoreCase(nickname)){
+                    return team;
+                }
+            }
+        }
+        throw new TeamNotFoundException("A robot called "+nickname+" could not be found!");
+    }
+
+    static class TeamNotFoundException extends Exception { TeamNotFoundException(String message) { super(message); } }
 
     public static void saveSession(Session session){
         try{

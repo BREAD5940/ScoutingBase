@@ -83,7 +83,6 @@ public class Main {
         }
 
         Application.launch(StartupControl.class, args);
-        
 
     }
 

@@ -4,6 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import base.CustomMatch;
 import base.Lib;
@@ -17,6 +18,7 @@ public class CustomTeam {
 
     public String scoutedName;
     public String tbaName;
+    public List<String> robotNicknames = new ArrayList<String>();
     public String sponsors;
     public int number;
     public boolean isFullySync = true;
@@ -141,14 +143,14 @@ public class CustomTeam {
 
     // does NOT include matches, scale levels, start habs, or match notes
     public String toReadableString(){
-        return String.format("Number: %d, Name: %s/%s, Sponsors: %s, Is Synced? %b, Average GPs in Sand: %f, "
+        return String.format("Number: %d, Name: %s/%s, Robot Nicknames: %s, Sponsors: %s, Is Synced? %b, Average GPs in Sand: %f, "
         +"Average HPs on Cargo Ship: %f, Average HPs on Rocket: %f, Average Dropped HPs: %f, Average Cargo on Cargo Ship: %f, "
         +"Average Cargo on Rocket: %f, Average Dropped Cargo: %f, Consistant Scale Level: %f, Maximum Scale Level: %f, "
         +"Is ramp? %b, Consistant Starting Hab Level: %f, Maximum Starting Hab Level: %f, Consistantly Off Hab? %b, "
         +"Average Fouls: %f, Average Tech Fouls: %f, Total Yellow Cards: %f, Total Red Cards: %f, Total Emergency Stops: %f, "
         +"Total Breaks: %f, Total Ranking Points: %d, Total Hab RPs: %d, Total Rocket RPs: %d, Total Full Rockets: %d, "
         +"Groups: %s",
-        this.number, this.scoutedName, this.tbaName, this.sponsors, this.isFullySync, this.avGPSand,
+        this.number, this.scoutedName, this.tbaName, Lib.arrayToString(robotNicknames.toArray()), this.sponsors, this.isFullySync, this.avGPSand,
         this.avHPShip, this.avHPRocket, this.avHPDrop, this.avCShip,
         this.avCRocket, this.avCDrop, this.consistScaleLevel, this.maxScaleLevel,
         this.isRamp, this.consistStartHab, this.maxStartHab, this.consistOffHab,
@@ -170,6 +172,7 @@ public class CustomTeam {
             writer.write(String.format(
                 "IS FULLY SYNCED WITH TBA: %b\n"+
                 "%-4d  (%s/%s) \nSponsors: %s\n"+
+                "Nicknames: %s\n"+
                 "-----------------------------------------------------------------------\n\n"+
                 "Groups: %s\n"+
                 "Consistantly Off the Hab? %b    Most Common Starting Hab: %.0f    Maximum Starting Hab: %.0f\n"+
@@ -188,6 +191,7 @@ public class CustomTeam {
                 "Match Number | Note\n"
                 ,this.isFullySync
                 ,this.number, this.scoutedName, this.tbaName, this.sponsors
+                ,Lib.arrayToString(this.robotNicknames.toArray())
 
                 ,Lib.arrayToString(this.groups.toArray())
                 ,this.consistOffHab, this.consistStartHab, this.maxStartHab
@@ -216,6 +220,7 @@ public class CustomTeam {
         }catch(IOException e){}
     }
 
+    @Deprecated
     public String toCSVString(){
         return this.scoutedName+","+this.tbaName+","+this.sponsors+","+this.number+","+this.isFullySync+","+
                 Lib.arrayToString(this.matches.toArray())+","+this.avGPSand+","+this.avHPShip+","+this.avHPRocket+","+
@@ -223,6 +228,6 @@ public class CustomTeam {
                         this.consistScaleLevel+","+this.maxScaleLevel+","+this.isRamp+","+Lib.arrayToString(this.startHabs.toArray())+","+
                             this.consistStartHab+","+this.maxStartHab+","+this.consistOffHab+","+this.avFoul+","+this.avTech+","+this.totalYellow+","+
                                 this.totalRed+","+eStops+","+borks+","+totalRPs+","+totalHabRPs+","+totalRocketRPs+","+totalRockets+","+Lib.arrayToString(this.groups.toArray())
-                                    ;//does NOT inclue match notes
+                                    ;//does NOT inclue match notes or nicknames
     }
 }
