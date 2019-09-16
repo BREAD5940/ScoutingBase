@@ -71,15 +71,19 @@ public class Lib {
     }
 
     public static String arrayToString(Object[] groups){
-        String str="|";
-        if(groups.length>1){
-            for(int i=0; i<=groups.length-1; i++){
-                str+=groups[i].toString();
-                str+=",";
+        if(groups!=null){
+            String str="|";
+            if(groups.length>1){
+                for(int i=0; i<=groups.length-1; i++){
+                    str+=groups[i].toString();
+                    str+=",";
+                }
+                str+=groups[groups.length-1].toString();
             }
-            str+=groups[groups.length-1].toString();
+            return str+"|";
+        }else{
+            return "";
         }
-        return str+"|";
     }
 
     public static String arrayToLinebreakString(Object[] array, String spacing){
@@ -223,6 +227,7 @@ public class Lib {
         for(File file : files){
             try{
                 recovered.add(mapper.readValue(file, CustomMatch.class));
+                // System.out.println(recovered.get(recovered.size()-1));
             }catch(Exception e){
                 report("recover failed");
                 report(e.toString());

@@ -162,7 +162,16 @@ public class CustomTeam {
         +"Average Fouls: %f, Average Tech Fouls: %f, Total Yellow Cards: %f, Total Red Cards: %f, Total Emergency Stops: %f, "
         +"Total Breaks: %f, Total Ranking Points: %d, Total Hab RPs: %d, Total Rocket RPs: %d, Total Full Rockets: %d, "
         +"Groups: %s",
-        this.number, this.scoutedName, this.tbaName, Lib.arrayToString(robotNicknames.toArray()), this.sponsors, this.isFullySync, this.avGPSand,
+
+        this.number, 
+        this.scoutedName, 
+        this.tbaName, 
+        "", //FIXME
+        //Lib.arrayToString(this.robotNicknames.toArray()), 
+        this.sponsors, 
+        this.isFullySync, 
+        this.avGPSand,
+        
         this.avHPShip, this.avHPRocket, this.avHPDrop, this.avCShip,
         this.avCRocket, this.avCDrop, this.consistScaleLevel, this.maxScaleLevel,
         this.isRamp, this.consistStartHab, this.maxStartHab, this.consistOffHab,

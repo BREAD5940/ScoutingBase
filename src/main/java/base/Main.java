@@ -1,6 +1,7 @@
 package base;
 
 import java.awt.Window;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.List;
 import com.cpjd.main.TBA;
 
 import base.controllers.NewSessionControl;
+import base.controllers.PitDataEntryControl;
 import base.controllers.PitLaunchControl;
 import base.controllers.SessionLaunchControl;
 import base.controllers.StartupControl;
@@ -54,6 +56,7 @@ public class Main {
             put(Windows.adminSignIn, AdminSignInControl.getInstance());
             put(Windows.sessionLaunch, SessionLaunchControl.getInstance());
             put(Windows.pitLaunch, new PitLaunchControl());
+            put(Windows.pitDataEntry, new PitDataEntryControl());
         }
     };
 
@@ -80,6 +83,25 @@ public class Main {
         for(Session sesh : tempActiveSessions){
             activeSessions.put(sesh.toString(), sesh);
         }
+
+        currentSession = activeSessions.get("Sac 2019");
+        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"claire.csv"));
+
+        openTeams.addAll(Lib.generateTeams(currentSession.eventDir+"teams.csv"));
+
+        for(CustomTeam team : openTeams){
+            for(CustomMatch match : openMatches){
+                if(match.getTeamNum()==team.getNumber()){
+                    team.addMatch(match);
+                }
+            }
+        }
+
+        Lib.saveTeams(openTeams, currentSession.eventDir);
+
+        openTeams.clear();
+
+        
 
         Application.launch(StartupControl.class, args);
 
