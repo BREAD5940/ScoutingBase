@@ -136,8 +136,10 @@ public class PitDataEntryControl extends Application implements ControlInterface
         ControlInterface.super.handleBack(event);
     }
 
+    @FXML
     public void handleSubmit(ActionEvent event){
         //TODO add The Thingy to make it part of the object
+        System.out.println("IM HANDLING IT");
     }
 
 }
