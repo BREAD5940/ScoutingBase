@@ -6,51 +6,57 @@ import java.util.ArrayList;
 
 public class Pit {
  
-    public int teamNumber;
-    public String teamName;
-    public String scoutName;
+    private int teamNumber;
+    private String teamName;
+    private String scoutName;
 
-    public boolean level2Climb, level3Climb;
+    private boolean level2Climb, level3Climb;
 
-    public String intakeType; // Hatch Cargo Both
+    private String intakeType; // Hatch Cargo Both
 
-    public int rocketLevel; // 1 2 3
+    private int rocketLevel; // 1 2 3
 
-    public int mechIssues;
+    private int mechIssues;
 
-    public boolean cam, preset, sense, reach, ramp;
+    private boolean cam, preset, sense, reach, ramp;
 
-    public String[] nicknames;
+    private String[] nicknames;
 
-    public int startHab; // 1 2
+    private int startHab; // 1 2
 
-    public boolean driverControl, pathing, noControl; // auto
+    private boolean driverControl, pathing, noControl; // auto
 
-    public ArrayList<String> autoStrats;
+    private ArrayList<String> autoStrats;
 
-    public String autoNotes;
+    private String autoNotes;
 
-    public boolean prefHatch, prefCargo;
+    private boolean prefHatch, prefCargo;
 
-    public int ppm; //pieces per match
+    private int ppm; //pieces per match
 
-    public ArrayList<String> teleStrats;
+    private ArrayList<String> teleStrats;
 
-    public int cycleTime;
+    private int cycleTime;
 
-    public String teleNotes;
+    private String teleNotes;
 
-    public String hpPref; // Integral Ideal Unnecessary
+    private String hpPref; // Integral Ideal Unnecessary
 
-    public String stratPref; // Strong Preferred Flexible
+    private String stratPref; // Strong Preferred Flexible
 
-    public String notes;
+    private String notes;
 
     public Pit(String[] csvRow){
+        //TODO match to vars
 
+        Lib.savePit(this, Main.currentSession.eventDir);
     }
 
     public Pit(){}
+
+    public String getName(){
+        return this.teamNumber+"-"+this.scoutName;
+    }
 
     public void s3ndToTxt(String directory){
         FileWriter writer = null;
@@ -108,7 +114,7 @@ public class Pit {
                     Lib.arrayToLinebreakString(this.autoStrats.toArray(), "         "),
                     this.autoNotes,
 
-                    ((this.prefCargo&&this.prefHatch) ? "Both" : (this.prefCargo ? "Cargo" : (this.prefHatch ? "Hatch" : "None")),
+                    ((this.prefCargo&&this.prefHatch) ? "Both" : (this.prefCargo ? "Cargo" : (this.prefHatch ? "Hatch" : "None"))),
                     this.ppm, this.cycleTime,
                     Lib.arrayToLinebreakString(this.teleStrats.toArray(), "         "),
                     this.teleNotes,
@@ -130,4 +136,6 @@ public class Pit {
                         
         }catch(IOException e){}
     }
+
+    
 }

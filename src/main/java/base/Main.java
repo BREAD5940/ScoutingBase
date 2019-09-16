@@ -60,11 +60,10 @@ public class Main {
     //FIXME i know, i know, i'm just too lazy to encrypt it
     public static String adminPw = "croissant";
 
-    public static ArrayList<Windows> backButtonList = new ArrayList<Windows>();
-    public static int backIndex = -1; // the PREVIOUS page
-    public static boolean isBack = false;
-
     public static HashMap<String, Session> activeSessions = new HashMap<String,Session>();
+    public static ArrayList<CustomMatch> openMatches = new ArrayList<>();
+    public static ArrayList<CustomTeam> openTeams = new ArrayList<>();
+    public static ArrayList<Pit> openPits = new ArrayList<>();
 
     public static Session currentSession = null;
     // public static Windows currentWindow=Windows.startup;

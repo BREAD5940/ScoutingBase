@@ -6,6 +6,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.channels.NotYetConnectedException;
 import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Optional;
 
 import com.opencsv.CSVReader;
 
@@ -192,14 +197,19 @@ public class Lib {
             report("Internet connection failed in " + dt / 1000d + "s, output "+x);
             return false;
         } 
+    } 
+
+    public static void saveMatch(CustomMatch match, String eventDir){
+        saveMatches(new ArrayList<>(Arrays.asList(match)), eventDir);
     }
+
 
     public static void saveMatches(List<CustomMatch> matches, String eventDir){
         for(CustomMatch match : matches){
             try{
-                mapper.writeValue(new File(eventDir+"backups/matches/qm"+match.matchNum+match.alliancePosition+".json"), match);
+                mapper.writeValue(new File(eventDir+"backups/matches/qm"+match.getMatchNum()+match.getAlliancePosition()+".json"), match);
             }catch (Exception e){
-                report("write failed for match "+match.matchNum);
+                report("write failed for match "+match.getMatchNum());
                 report(e.toString());
             }
         }
@@ -222,12 +232,16 @@ public class Lib {
         return recovered;
     }
 
+    public static void saveTeam(CustomTeam team, String eventDir){
+        saveTeams(new ArrayList<>(Arrays.asList(team)), eventDir);
+    }
+
     public static void saveTeams(List<CustomTeam> teams, String eventDir){
         for(CustomTeam team : teams){
             try{
-                mapper.writeValue(new File(eventDir+"backups/teams/"+team.number+".json"), team);
+                mapper.writeValue(new File(eventDir+"backups/teams/"+team.getNumber()+".json"), team);
             }catch (Exception e){
-                report("write failed for team "+team.number);
+                report("write failed for team "+team.getNumber());
                 report(e.toString());
             }
         }
@@ -294,6 +308,37 @@ public class Lib {
     }
 
     static class TeamNotFoundException extends Exception { TeamNotFoundException(String message) { super(message); } }
+    public static void savePit(Pit pit, String eventDir){
+        savePits(new ArrayList<Pit>(Arrays.asList(pit)), eventDir);
+    }
+
+    public static void savePits(List<Pit> pits, String eventDir){
+        for(Pit pit : pits){
+            try{
+                mapper.writeValue(new File(eventDir+"backups/pits/"+pit.getName()+".json"), pit);
+            }catch (Exception e){
+                report("write failed for pit "+pit.getName());
+                report(e.toString());
+            }
+        }
+    }
+
+    public static List<Pit> recoverPits(String eventDir){
+        List<Pit> recovered = new ArrayList<>();
+
+        File[] files = new File(eventDir+"backups/pits/").listFiles();
+
+        for(File file : files){
+            try{
+                recovered.add(mapper.readValue(file, Pit.class));
+            }catch(Exception e){
+                report("recover failed");
+                report(e.toString());
+            }
+        }
+
+        return recovered;
+    }
 
     public static void saveSession(Session session){
         try{

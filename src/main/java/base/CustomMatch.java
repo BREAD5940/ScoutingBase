@@ -7,49 +7,50 @@ import com.cpjd.utils.exceptions.DataNotFoundException;
 
 public class CustomMatch{
 
-    public int teamNum;
-    public String matchType;
-    public int matchNum;
-    public String alliancePosition;
-    public boolean isBlueAlliance;
+    private int teamNum;
+    private String matchType;
+    private int matchNum;
+    private String alliancePosition;
+    private boolean isBlueAlliance;
 
-    public int HPShipGame;
-    public int HPShipSand;
-    public int HPRocketGame;
-    public int HPRocketSand;
-    public int HPDropGame;
-    public int HPDropSand;
+    private int HPShipGame;
+    private int HPShipSand;
+    private int HPRocketGame;
+    private int HPRocketSand;
+    private int HPDropGame;
+    private int HPDropSand;
 
-    public int CShipGame;
-    public int CShipSand;
-    public int CRocketGame;
-    public int CRocketSand;
-    public int CDropGame;
-    public int CDropSand;
+    private int CShipGame;
+    private int CShipSand;
+    private int CRocketGame;
+    private int CRocketSand;
+    private int CDropGame;
+    private int CDropSand;
 
-    public int scaleLevel;
-    public boolean isHelp = false;
+    private int scaleLevel;
+    private boolean isHelp = false;
 
-    public int startHab;
-    public boolean crossedLine = false;
+    private int startHab;
+    private boolean crossedLine = false;
 
-    public Long fouls;
-    public Long techs;
-    public boolean yellow;
-    public boolean red;
-    public boolean eStopped;
-    public boolean borked;
+    private Long fouls;
+    private Long techs;
+    private boolean yellow;
+    private boolean red;
+    private boolean eStopped;
+    private boolean borked;
 
-    public int points;
-    public int nonFoulPoints = 0;
-    public int rankingPoints = 0;
-    public boolean rRocket=false, lRocket=false, habRP=false, crRP=false;
+    private int points;
+    private int nonFoulPoints = 0;
+    private int rankingPoints = 0;
+    private boolean rRocket = false, lRocket = false, habRP = false, crRP = false;
 
     HashMap<String, Object> scoreBreakdown;
-    public boolean tbaSynced=false;
+    private boolean tbaSynced = false;
 
-    public String matchNotes;
+    private String matchNotes;
 
+    
     public CustomMatch(String[] csvRow){
         this.matchType = csvRow[0];
         this.matchNum = Integer.valueOf(csvRow[1]);
@@ -91,6 +92,8 @@ public class CustomMatch{
         this.matchNotes = csvRow[24];
 
         this.matchNotes = this.matchNotes.replace("\n", ".  ");
+
+        Lib.saveMatch(this, Main.currentSession.eventDir);
     }
     
     public CustomMatch(){
@@ -165,6 +168,8 @@ public class CustomMatch{
         //TODO add more?
 
         this.tbaSynced = true;
+
+        Lib.saveMatch(this, Main.currentSession.eventDir);
     }
 
     public String toReadableString(){
@@ -195,5 +200,345 @@ public class CustomMatch{
                 +","+this.red+","+this.eStopped+","+this.borked+","+this.points+","+this.nonFoulPoints
                 +","+this.rankingPoints+","+this.rRocket+","+this.lRocket+","+this.habRP+","+this.crRP
                 +","+this.tbaSynced+",|"+this.matchNotes+"|"; //TODO
+    }
+
+
+
+
+
+
+
+
+    public int getTeamNum() {
+        return this.teamNum;
+    }
+
+    public void setTeamNum(int teamNum) {
+        this.teamNum = teamNum;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public String getMatchType() {
+        return this.matchType;
+    }
+
+    public void setMatchType(String matchType) {
+        this.matchType = matchType;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public int getMatchNum() {
+        return this.matchNum;
+    }
+
+    public void setMatchNum(int matchNum) {
+        this.matchNum = matchNum;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public String getAlliancePosition() {
+        return this.alliancePosition;
+    }
+
+    public void setAlliancePosition(String alliancePosition) {
+        this.alliancePosition = alliancePosition;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public boolean getIsBlueAlliance() {
+        return this.isBlueAlliance;
+    }
+
+    public void setIsBlueAlliance(boolean isBlueAlliance) {
+        this.isBlueAlliance = isBlueAlliance;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public int getHPShipGame() {
+        return this.HPShipGame;
+    }
+
+    public void setHPShipGame(int HPShipGame) {
+        this.HPShipGame = HPShipGame;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public int getHPShipSand() {
+        return this.HPShipSand;
+    }
+
+    public void setHPShipSand(int HPShipSand) {
+        this.HPShipSand = HPShipSand;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public int getHPRocketGame() {
+        return this.HPRocketGame;
+    }
+
+    public void setHPRocketGame(int HPRocketGame) {
+        this.HPRocketGame = HPRocketGame;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public int getHPRocketSand() {
+        return this.HPRocketSand;
+    }
+
+    public void setHPRocketSand(int HPRocketSand) {
+        this.HPRocketSand = HPRocketSand;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public int getHPDropGame() {
+        return this.HPDropGame;
+    }
+
+    public void setHPDropGame(int HPDropGame) {
+        this.HPDropGame = HPDropGame;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public int getHPDropSand() {
+        return this.HPDropSand;
+    }
+
+    public void setHPDropSand(int HPDropSand) {
+        this.HPDropSand = HPDropSand;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public int getCShipGame() {
+        return this.CShipGame;
+    }
+
+    public void setCShipGame(int CShipGame) {
+        this.CShipGame = CShipGame;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public int getCShipSand() {
+        return this.CShipSand;
+    }
+
+    public void setCShipSand(int CShipSand) {
+        this.CShipSand = CShipSand;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public int getCRocketGame() {
+        return this.CRocketGame;
+    }
+
+    public void setCRocketGame(int CRocketGame) {
+        this.CRocketGame = CRocketGame;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public int getCRocketSand() {
+        return this.CRocketSand;
+    }
+
+    public void setCRocketSand(int CRocketSand) {
+        this.CRocketSand = CRocketSand;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public int getCDropGame() {
+        return this.CDropGame;
+    }
+
+    public void setCDropGame(int CDropGame) {
+        this.CDropGame = CDropGame;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public int getCDropSand() {
+        return this.CDropSand;
+    }
+
+    public void setCDropSand(int CDropSand) {
+        this.CDropSand = CDropSand;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public int getScaleLevel() {
+        return this.scaleLevel;
+    }
+
+    public void setScaleLevel(int scaleLevel) {
+        this.scaleLevel = scaleLevel;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public boolean getIsHelp() {
+        return this.isHelp;
+    }
+
+    public void setIsHelp(boolean isHelp) {
+        this.isHelp = isHelp;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public int getStartHab() {
+        return this.startHab;
+    }
+
+    public void setStartHab(int startHab) {
+        this.startHab = startHab;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public boolean getCrossedLine() {
+        return this.crossedLine;
+    }
+
+    public void setCrossedLine(boolean crossedLine) {
+        this.crossedLine = crossedLine;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public Long getFouls() {
+        return this.fouls;
+    }
+
+    public void setFouls(Long fouls) {
+        this.fouls = fouls;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public Long getTechs() {
+        return this.techs;
+    }
+
+    public void setTechs(Long techs) {
+        this.techs = techs;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public boolean getYellow() {
+        return this.yellow;
+    }
+
+    public void setYellow(boolean yellow) {
+        this.yellow = yellow;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public boolean getRed() {
+        return this.red;
+    }
+
+    public void setRed(boolean red) {
+        this.red = red;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public boolean getEStopped() {
+        return this.eStopped;
+    }
+
+    public void setEStopped(boolean eStopped) {
+        this.eStopped = eStopped;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public boolean getBorked() {
+        return this.borked;
+    }
+
+    public void setBorked(boolean borked) {
+        this.borked = borked;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public int getPoints() {
+        return this.points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public int getNonFoulPoints() {
+        return this.nonFoulPoints;
+    }
+
+    public void setNonFoulPoints(int nonFoulPoints) {
+        this.nonFoulPoints = nonFoulPoints;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public int getRankingPoints() {
+        return this.rankingPoints;
+    }
+
+    public void setRankingPoints(int rankingPoints) {
+        this.rankingPoints = rankingPoints;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public boolean getRRocket(){
+        return this.rRocket;
+    }
+
+    public void setRRocket(boolean rRocket){
+        this.rRocket = rRocket;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public boolean getLRocket(){
+        return this.lRocket;
+    }
+
+    public void setLRocket(boolean lRocket){
+        this.lRocket = lRocket;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public boolean getHabRP(){
+        return this.habRP;
+    }
+
+    public void setHabRP(boolean habRP){
+        this.habRP = habRP;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public boolean getCrRP(){
+        return this.crRP;
+    }
+
+    public void setCrRP(boolean crRP){
+        this.crRP = crRP;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public HashMap<String, Object> getScoreBreakdown() {
+        return this.scoreBreakdown;
+    }
+
+    public void setScoreBreakdown(HashMap<String,Object> scoreBreakdown) {
+        this.scoreBreakdown = scoreBreakdown;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public boolean getTbaSynced(){
+        return this.tbaSynced;
+    }
+
+    public void setTbaSynced(boolean tbaSynced){
+        this.tbaSynced = tbaSynced;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+
+    public String getMatchNotes() {
+        return this.matchNotes;
+    }
+
+    public void setMatchNotes(String matchNotes) {
+        this.matchNotes = matchNotes;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
     }
 }
