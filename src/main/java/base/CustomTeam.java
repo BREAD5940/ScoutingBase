@@ -16,53 +16,56 @@ public class CustomTeam {
         HasBorked, LowScorers, HighScorers, Completed3Rockets
     }
 
-    public String scoutedName;
-    public String tbaName;
-    public List<String> robotNicknames = new ArrayList<String>();
-    public String sponsors;
-    public int number;
-    public boolean isFullySync = true;
+    private String scoutedName;
+    private String tbaName;
+    private String sponsors;
+    private int number;
+    private boolean isFullySync = true;
+
+    private ArrayList<CustomMatch> matches = new ArrayList<CustomMatch>();
+
+    private double avGPSand;
+    private double avHPShip;
+    private double avHPRocket;
+    private double avHPDrop;
+    private double avCShip;
+    private double avCRocket;
+    private double avCDrop;
+
+    private ArrayList<Integer> scaleLevels = new ArrayList<Integer>();
+    private double consistScaleLevel;
+    private double maxScaleLevel;
+
+    private boolean isRamp;
+
+    private ArrayList<Integer> startHabs = new ArrayList<Integer>();
+    private double consistStartHab;
+    private double maxStartHab;
+    private boolean consistOffHab;
+
+    private double avFoul;
+    private double avTech;
+    private double totalYellow;
+    private double totalRed;
+
+    private double eStops;
+    private double borks;
+
+    private int totalRPs;
+    private int totalHabRPs;
+    private int totalRocketRPs;
+    private int totalRockets;
+
+    private ArrayList<Groups> groups = new ArrayList<Groups>();
+    private HashMap<Integer, String> matchNotes = new HashMap<Integer, String>();
+
     
-    public ArrayList<CustomMatch> matches = new ArrayList<CustomMatch>();
-
-    public double avGPSand;
-    public double avHPShip;
-    public double avHPRocket;
-    public double avHPDrop;
-    public double avCShip;
-    public double avCRocket;
-    public double avCDrop;
-
-    public ArrayList<Integer> scaleLevels = new ArrayList<Integer>();
-    public double consistScaleLevel;
-    public double maxScaleLevel;
-
-    public boolean isRamp;
-
-    public ArrayList<Integer> startHabs = new ArrayList<Integer>();
-    public double consistStartHab;
-    public double maxStartHab;
-    public boolean consistOffHab;
-
-    public double avFoul;
-    public double avTech;
-    public double totalYellow;
-    public double totalRed;
-
-    public double eStops;
-    public double borks;
-
-    public int totalRPs;
-    public int totalHabRPs;
-    public int totalRocketRPs;
-    public int totalRockets;
-
-    public ArrayList<Groups> groups = new ArrayList<Groups>();
-    public HashMap<Integer,String> matchNotes = new HashMap<Integer,String>();
 
     public CustomTeam (String name_, int number_){
         this.scoutedName = name_;
         this.number = number_;
+
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public CustomTeam(){
@@ -73,65 +76,70 @@ public class CustomTeam {
     public void addMatch(CustomMatch match){
         this.avGPSand = (this.avGPSand + match.sandPlaces())/2;
 
-        this.avHPShip = (this.avHPShip + (match.HPShipGame+match.HPShipSand))/2;
-        this.avHPRocket = (this.avHPRocket + (match.HPRocketGame+match.HPRocketSand))/2;
-        this.avHPDrop = (this.avHPDrop + (match.HPDropGame + match.HPDropSand))/2;
-        this.avCShip = (this.avCShip + (match.CShipGame + match.CShipSand))/2;
-        this.avCRocket = (this.avCRocket + (match.CRocketGame +match.CRocketSand))/2;
-        this.avCDrop = (this.avCDrop + (match.CDropGame + match.CDropSand))/2;
+        this.avHPShip = (this.avHPShip + (match.getHPShipGame()+match.getHPShipSand()))/2;
+        this.avHPRocket = (this.avHPRocket + (match.getHPRocketGame()+match.getHPRocketSand()))/2;
+        this.avHPDrop = (this.avHPDrop + (match.getHPDropGame() + match.getHPDropSand()))/2;
+        this.avCShip = (this.avCShip + (match.getCShipGame() + match.getCShipSand()))/2;
+        this.avCRocket = (this.avCRocket + (match.getCRocketGame() +match.getCRocketSand()))/2;
+        this.avCDrop = (this.avCDrop + (match.getCDropGame() + match.getCDropSand()))/2;
 
-        this.scaleLevels.add(match.scaleLevel);
+        this.scaleLevels.add(match.getScaleLevel());
         this.consistScaleLevel = Lib.mode(this.scaleLevels);
         this.maxScaleLevel = Lib.max(this.scaleLevels);
-        this.isRamp = this.isRamp || match.isHelp;
+        this.isRamp = this.isRamp || match.getIsHelp();
 
-        this.startHabs.add(match.startHab);
+        this.startHabs.add(match.getStartHab());
 
         this.consistStartHab = Lib.mode(this.startHabs);
         this.maxStartHab = Lib.max(this.startHabs);
         this.consistOffHab = consistStartHab != 0;
 
-        this.avFoul = (this.avFoul + match.fouls)/2;
-        this.avTech = (this.avTech + match.techs)/2;
+        this.avFoul = (this.avFoul + match.getFouls())/2;
+        this.avTech = (this.avTech + match.getTechs())/2;
 
-        if(match.yellow)
+        if(match.getYellow())
             this.totalYellow++;
 
-        if(match.red)
+        if(match.getRed())
             this.totalRed++;
 
-        if(match.eStopped)
+        if(match.getEStopped())
             this.eStops++;
 
-        if(match.borked)
+        if(match.getBorked())
             this.borks++;
 
-        this.totalRPs+=match.rankingPoints;
+        this.totalRPs+=match.getRankingPoints();
 
-        if(match.habRP)
+        if(match.getHabRP())
             this.totalHabRPs++;
         
-        if(match.crRP)
+        if(match.getCrRP())
             this.totalRocketRPs++;
 
-        if(match.rRocket)
+        if(match.getRRocket())
             this.totalRockets++;
 
-        if(match.lRocket)
+        if(match.getLRocket())
             this.totalRockets++;
 
-        this.matchNotes.put(match.matchNum,match.matchNotes);
+        this.matchNotes.put(match.getMatchNum(),match.getMatchNotes());
         this.matches.add(match);
-        this.isFullySync = this.isFullySync && match.tbaSynced;
+        this.isFullySync = this.isFullySync && match.getTbaSynced();
 
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public void addPit(Pit pitData){
 
+
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public void addGroups(){
         
+
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public void syncTBA(){
@@ -139,6 +147,8 @@ public class CustomTeam {
         this.sponsors = Main.tbaApi.getTeam(this.number).getName(); //i stg this is the sponsors
         this.isFullySync = this.isFullySync && true;
         Lib.report("Team "+this.number+" synced.");
+
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     // does NOT include matches, scale levels, start habs, or match notes
@@ -213,7 +223,7 @@ public class CustomTeam {
             }
             writer.write("\n-----------------------------------------------------------------------\n\nMATCHES: \n");
             for(CustomMatch match : this.matches){
-                Lib.report(this.number+", match "+match.matchNum);
+                Lib.report(this.number+", match "+match.getMatchNum());
                 writer.write(match.toString()+"\n");
             }
             writer.close();
@@ -229,5 +239,275 @@ public class CustomTeam {
                             this.consistStartHab+","+this.maxStartHab+","+this.consistOffHab+","+this.avFoul+","+this.avTech+","+this.totalYellow+","+
                                 this.totalRed+","+eStops+","+borks+","+totalRPs+","+totalHabRPs+","+totalRocketRPs+","+totalRockets+","+Lib.arrayToString(this.groups.toArray())
                                     ;//does NOT inclue match notes or nicknames
+    }
+
+
+
+
+
+
+
+    public String getScoutedName() {
+        return this.scoutedName;
+    }
+
+    public void setScoutedName(String scoutedName) {
+        this.scoutedName = scoutedName;
+    }
+
+    public String getTbaName() {
+        return this.tbaName;
+    }
+
+    public void setTbaName(String tbaName) {
+        this.tbaName = tbaName;
+    }
+
+    public String getSponsors() {
+        return this.sponsors;
+    }
+
+    public void setSponsors(String sponsors) {
+        this.sponsors = sponsors;
+    }
+
+    public int getNumber() {
+        return this.number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public boolean getIsFullySync() {
+        return this.isFullySync;
+    }
+
+    public void setIsFullySync(boolean isFullySync) {
+        this.isFullySync = isFullySync;
+    }
+
+    public ArrayList<CustomMatch> getMatches() {
+        return this.matches;
+    }
+
+    public void setMatches(ArrayList<CustomMatch> matches) {
+        this.matches = matches;
+    }
+
+    public double getAvGPSand() {
+        return this.avGPSand;
+    }
+
+    public void setAvGPSand(double avGPSand) {
+        this.avGPSand = avGPSand;
+    }
+
+    public double getAvHPShip() {
+        return this.avHPShip;
+    }
+
+    public void setAvHPShip(double avHPShip) {
+        this.avHPShip = avHPShip;
+    }
+
+    public double getAvHPRocket() {
+        return this.avHPRocket;
+    }
+
+    public void setAvHPRocket(double avHPRocket) {
+        this.avHPRocket = avHPRocket;
+    }
+
+    public double getAvHPDrop() {
+        return this.avHPDrop;
+    }
+
+    public void setAvHPDrop(double avHPDrop) {
+        this.avHPDrop = avHPDrop;
+    }
+
+    public double getAvCShip() {
+        return this.avCShip;
+    }
+
+    public void setAvCShip(double avCShip) {
+        this.avCShip = avCShip;
+    }
+
+    public double getAvCRocket() {
+        return this.avCRocket;
+    }
+
+    public void setAvCRocket(double avCRocket) {
+        this.avCRocket = avCRocket;
+    }
+
+    public double getAvCDrop() {
+        return this.avCDrop;
+    }
+
+    public void setAvCDrop(double avCDrop) {
+        this.avCDrop = avCDrop;
+    }
+
+    public ArrayList<Integer> getScaleLevels() {
+        return this.scaleLevels;
+    }
+
+    public void setScaleLevels(ArrayList<Integer> scaleLevels) {
+        this.scaleLevels = scaleLevels;
+    }
+
+    public double getConsistScaleLevel() {
+        return this.consistScaleLevel;
+    }
+
+    public void setConsistScaleLevel(double consistScaleLevel) {
+        this.consistScaleLevel = consistScaleLevel;
+    }
+
+    public double getMaxScaleLevel() {
+        return this.maxScaleLevel;
+    }
+
+    public void setMaxScaleLevel(double maxScaleLevel) {
+        this.maxScaleLevel = maxScaleLevel;
+    }
+
+    public boolean getIsRamp() {
+        return this.isRamp;
+    }
+
+    public void setIsRamp(boolean isRamp) {
+        this.isRamp = isRamp;
+    }
+
+    public ArrayList<Integer> getStartHabs() {
+        return this.startHabs;
+    }
+
+    public void setStartHabs(ArrayList<Integer> startHabs) {
+        this.startHabs = startHabs;
+    }
+
+    public double getConsistStartHab() {
+        return this.consistStartHab;
+    }
+
+    public void setConsistStartHab(double consistStartHab) {
+        this.consistStartHab = consistStartHab;
+    }
+
+    public double getMaxStartHab() {
+        return this.maxStartHab;
+    }
+
+    public void setMaxStartHab(double maxStartHab) {
+        this.maxStartHab = maxStartHab;
+    }
+
+    public boolean getConsistOffHab() {
+        return this.consistOffHab;
+    }
+
+    public void setConsistOffHab(boolean consistOffHab) {
+        this.consistOffHab = consistOffHab;
+    }
+
+    public double getAvFoul() {
+        return this.avFoul;
+    }
+
+    public void setAvFoul(double avFoul) {
+        this.avFoul = avFoul;
+    }
+
+    public double getAvTech() {
+        return this.avTech;
+    }
+
+    public void setAvTech(double avTech) {
+        this.avTech = avTech;
+    }
+
+    public double getTotalYellow() {
+        return this.totalYellow;
+    }
+
+    public void setTotalYellow(double totalYellow) {
+        this.totalYellow = totalYellow;
+    }
+
+    public double getTotalRed() {
+        return this.totalRed;
+    }
+
+    public void setTotalRed(double totalRed) {
+        this.totalRed = totalRed;
+    }
+
+    public double getEStops() {
+        return this.eStops;
+    }
+
+    public void setEStops(double eStops) {
+        this.eStops = eStops;
+    }
+
+    public double getBorks() {
+        return this.borks;
+    }
+
+    public void setBorks(double borks) {
+        this.borks = borks;
+    }
+
+    public int getTotalRPs() {
+        return this.totalRPs;
+    }
+
+    public void setTotalRPs(int totalRPs) {
+        this.totalRPs = totalRPs;
+    }
+
+    public int getTotalHabRPs() {
+        return this.totalHabRPs;
+    }
+
+    public void setTotalHabRPs(int totalHabRPs) {
+        this.totalHabRPs = totalHabRPs;
+    }
+
+    public int getTotalRocketRPs() {
+        return this.totalRocketRPs;
+    }
+
+    public void setTotalRocketRPs(int totalRocketRPs) {
+        this.totalRocketRPs = totalRocketRPs;
+    }
+
+    public int getTotalRockets() {
+        return this.totalRockets;
+    }
+
+    public void setTotalRockets(int totalRockets) {
+        this.totalRockets = totalRockets;
+    }
+
+    public ArrayList<Groups> getGroups() {
+        return this.groups;
+    }
+
+    public void setGroups(ArrayList<Groups> groups) {
+        this.groups = groups;
+    }
+
+    public HashMap<Integer, String> getMatchNotes() {
+        return this.matchNotes;
+    }
+
+    public void setMatchNotes(HashMap<Integer, String> matchNotes) {
+        this.matchNotes = matchNotes;
     }
 }
