@@ -22,6 +22,8 @@ public class CustomTeam {
     private int number;
     private boolean isFullySync = true;
 
+    private ArrayList<String> robotNicknames;
+
     private ArrayList<CustomMatch> matches = new ArrayList<CustomMatch>();
 
     private double avGPSand;
@@ -253,6 +255,7 @@ public class CustomTeam {
 
     public void setScoutedName(String scoutedName) {
         this.scoutedName = scoutedName;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public String getTbaName() {
@@ -261,6 +264,7 @@ public class CustomTeam {
 
     public void setTbaName(String tbaName) {
         this.tbaName = tbaName;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public String getSponsors() {
@@ -269,6 +273,7 @@ public class CustomTeam {
 
     public void setSponsors(String sponsors) {
         this.sponsors = sponsors;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public int getNumber() {
@@ -277,6 +282,7 @@ public class CustomTeam {
 
     public void setNumber(int number) {
         this.number = number;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public boolean getIsFullySync() {
@@ -285,6 +291,16 @@ public class CustomTeam {
 
     public void setIsFullySync(boolean isFullySync) {
         this.isFullySync = isFullySync;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
+    }
+
+    public ArrayList<String> getRobotNicknames() {
+        return this.robotNicknames;
+    }
+
+    public void setRobotNicknames(ArrayList<String> robotNicknames) {
+        this.robotNicknames = robotNicknames;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public ArrayList<CustomMatch> getMatches() {
@@ -293,6 +309,7 @@ public class CustomTeam {
 
     public void setMatches(ArrayList<CustomMatch> matches) {
         this.matches = matches;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public double getAvGPSand() {
@@ -301,6 +318,7 @@ public class CustomTeam {
 
     public void setAvGPSand(double avGPSand) {
         this.avGPSand = avGPSand;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public double getAvHPShip() {
@@ -309,6 +327,7 @@ public class CustomTeam {
 
     public void setAvHPShip(double avHPShip) {
         this.avHPShip = avHPShip;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public double getAvHPRocket() {
@@ -317,6 +336,7 @@ public class CustomTeam {
 
     public void setAvHPRocket(double avHPRocket) {
         this.avHPRocket = avHPRocket;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public double getAvHPDrop() {
@@ -325,6 +345,7 @@ public class CustomTeam {
 
     public void setAvHPDrop(double avHPDrop) {
         this.avHPDrop = avHPDrop;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public double getAvCShip() {
@@ -333,6 +354,7 @@ public class CustomTeam {
 
     public void setAvCShip(double avCShip) {
         this.avCShip = avCShip;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public double getAvCRocket() {
@@ -341,6 +363,7 @@ public class CustomTeam {
 
     public void setAvCRocket(double avCRocket) {
         this.avCRocket = avCRocket;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public double getAvCDrop() {
@@ -349,6 +372,7 @@ public class CustomTeam {
 
     public void setAvCDrop(double avCDrop) {
         this.avCDrop = avCDrop;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public ArrayList<Integer> getScaleLevels() {
@@ -357,6 +381,7 @@ public class CustomTeam {
 
     public void setScaleLevels(ArrayList<Integer> scaleLevels) {
         this.scaleLevels = scaleLevels;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public double getConsistScaleLevel() {
@@ -365,6 +390,7 @@ public class CustomTeam {
 
     public void setConsistScaleLevel(double consistScaleLevel) {
         this.consistScaleLevel = consistScaleLevel;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public double getMaxScaleLevel() {
@@ -373,6 +399,7 @@ public class CustomTeam {
 
     public void setMaxScaleLevel(double maxScaleLevel) {
         this.maxScaleLevel = maxScaleLevel;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public boolean getIsRamp() {
@@ -381,6 +408,7 @@ public class CustomTeam {
 
     public void setIsRamp(boolean isRamp) {
         this.isRamp = isRamp;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public ArrayList<Integer> getStartHabs() {
@@ -389,6 +417,7 @@ public class CustomTeam {
 
     public void setStartHabs(ArrayList<Integer> startHabs) {
         this.startHabs = startHabs;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public double getConsistStartHab() {
@@ -397,6 +426,7 @@ public class CustomTeam {
 
     public void setConsistStartHab(double consistStartHab) {
         this.consistStartHab = consistStartHab;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public double getMaxStartHab() {
@@ -405,6 +435,7 @@ public class CustomTeam {
 
     public void setMaxStartHab(double maxStartHab) {
         this.maxStartHab = maxStartHab;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public boolean getConsistOffHab() {
@@ -413,6 +444,7 @@ public class CustomTeam {
 
     public void setConsistOffHab(boolean consistOffHab) {
         this.consistOffHab = consistOffHab;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public double getAvFoul() {
@@ -421,6 +453,7 @@ public class CustomTeam {
 
     public void setAvFoul(double avFoul) {
         this.avFoul = avFoul;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public double getAvTech() {
@@ -429,6 +462,7 @@ public class CustomTeam {
 
     public void setAvTech(double avTech) {
         this.avTech = avTech;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public double getTotalYellow() {
@@ -437,6 +471,7 @@ public class CustomTeam {
 
     public void setTotalYellow(double totalYellow) {
         this.totalYellow = totalYellow;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public double getTotalRed() {
@@ -445,6 +480,7 @@ public class CustomTeam {
 
     public void setTotalRed(double totalRed) {
         this.totalRed = totalRed;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public double getEStops() {
@@ -453,6 +489,7 @@ public class CustomTeam {
 
     public void setEStops(double eStops) {
         this.eStops = eStops;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public double getBorks() {
@@ -461,6 +498,7 @@ public class CustomTeam {
 
     public void setBorks(double borks) {
         this.borks = borks;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public int getTotalRPs() {
@@ -469,6 +507,7 @@ public class CustomTeam {
 
     public void setTotalRPs(int totalRPs) {
         this.totalRPs = totalRPs;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public int getTotalHabRPs() {
@@ -477,6 +516,7 @@ public class CustomTeam {
 
     public void setTotalHabRPs(int totalHabRPs) {
         this.totalHabRPs = totalHabRPs;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public int getTotalRocketRPs() {
@@ -485,6 +525,7 @@ public class CustomTeam {
 
     public void setTotalRocketRPs(int totalRocketRPs) {
         this.totalRocketRPs = totalRocketRPs;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public int getTotalRockets() {
@@ -493,6 +534,7 @@ public class CustomTeam {
 
     public void setTotalRockets(int totalRockets) {
         this.totalRockets = totalRockets;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public ArrayList<Groups> getGroups() {
@@ -501,6 +543,7 @@ public class CustomTeam {
 
     public void setGroups(ArrayList<Groups> groups) {
         this.groups = groups;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
     public HashMap<Integer, String> getMatchNotes() {
@@ -509,5 +552,6 @@ public class CustomTeam {
 
     public void setMatchNotes(HashMap<Integer, String> matchNotes) {
         this.matchNotes = matchNotes;
+        Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 }

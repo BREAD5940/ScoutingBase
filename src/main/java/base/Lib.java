@@ -273,7 +273,7 @@ public class Lib {
      */
     public static CustomTeam searchForTeamNumber(int teamNumber, List<CustomTeam> teams) throws TeamNotFoundException {
         for(CustomTeam team : teams) {
-            if(team.number == teamNumber) return team;
+            if(team.getNumber() == teamNumber) return team;
         }
         throw new TeamNotFoundException("Team " + teamNumber + " could not be found!");
     }
@@ -288,8 +288,8 @@ public class Lib {
     public static CustomTeam searchForTeamName(String teamName, List<CustomTeam> teams) throws TeamNotFoundException {
         //TODO improve this function to inclued close matches in team name (ex. "BREAD" vs "B.R.E.A.D.")
         for(CustomTeam team : teams) {
-            if(team.scoutedName.equalsIgnoreCase(teamName)
-                || team.tbaName.equalsIgnoreCase(teamName))
+            if(team.getScoutedName().equalsIgnoreCase(teamName)
+                || team.getTbaName().equalsIgnoreCase(teamName))
 
                 return team;
         }
@@ -298,7 +298,7 @@ public class Lib {
 
     public static CustomTeam searchForRobotNickname(String nickname, List<CustomTeam> teams) throws TeamNotFoundException{
         for(CustomTeam team : teams) {
-            for(String nick : team.robotNicknames){
+            for(String nick : team.getRobotNicknames()){
                 if(nick.equalsIgnoreCase(nickname)){
                     return team;
                 }
