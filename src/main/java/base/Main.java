@@ -23,6 +23,9 @@ public class Main {
     // public static Session sesh = new Session(2019, "Sac 2019", "2019cada",
     // "sac_2019/", 0xffffff);
 
+    public static DataRecoveryThread matchRecoveryThread;
+    public static DataRecoveryThread teamRecoveryThread;
+
     public enum Windows {
         adminSignIn("/layouts/adminSignIn.fxml"), newSession("/layouts/newSession.fxml"),
         pitAssignEdit("/layouts/pitAssignEdit.fxml"), pitAssignView("/layouts/pitAssignView.fxml"),
@@ -68,16 +71,23 @@ public class Main {
     public static ArrayList<CustomTeam> openTeams = new ArrayList<>();
     public static ArrayList<Pit> openPits = new ArrayList<>();
 
+
+    public static synchronized void addToOpenMatches(List<CustomMatch> matches){
+        openMatches.addAll(matches);
+    }
+
+    public static synchronized void addToOpenTeams(List<CustomTeam> teams){
+        openTeams.addAll(teams);
+    }
+
     public static Session currentSession = null;
     // public static Windows currentWindow=Windows.startup;
     // public static boolean switchWindow = false;
 
     public static void main(String[] args) throws Exception {
+
         TBA.setAuthToken("OPynqKt8K0vueAXqxZzdigY9OBYK3KMgQQrsM4l8jE5cBmGfByhy6YzVIb2Ts7xD");
         tbaApi = new TBA();
-
-        System.out.println("APP HASH: "+controllersMap.get(Windows.adminSignIn));
-
         List<Session> tempActiveSessions= Lib.recoverAllSessions();
 
         for(Session sesh : tempActiveSessions){
@@ -86,8 +96,19 @@ public class Main {
 
         currentSession = activeSessions.get("Sac 2019");
         openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"claire.csv"));
+        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"claire2.csv"));
+        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"geran.csv"));
+        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"geran2.csv"));
+        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"max.csv"));
+        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"nick.csv"));
+        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"nick2.csv"));
+        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"thomas.csv"));
 
         openTeams.addAll(Lib.generateTeams(currentSession.eventDir+"teams.csv"));
+
+        for(CustomMatch match : openMatches){
+            match.syncTBA();
+        }
 
         for(CustomTeam team : openTeams){
             for(CustomMatch match : openMatches){
@@ -95,6 +116,7 @@ public class Main {
                     team.addMatch(match);
                 }
             }
+            team.syncTBA();
         }
 
         Lib.saveTeams(openTeams, currentSession.eventDir);

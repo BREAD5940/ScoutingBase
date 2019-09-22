@@ -221,6 +221,7 @@ public class Lib {
 
     public static List<CustomMatch> recoverMatches(String eventDir){
         List<CustomMatch> recovered = new ArrayList<>();
+        int recoverFails = 0;
 
         File[] files = new File(eventDir+"backups/matches/").listFiles();
 
@@ -231,8 +232,10 @@ public class Lib {
             }catch(Exception e){
                 report("recover failed");
                 report(e.toString());
+                recoverFails++;
             }
         }
+        report(recoverFails+" RECOVER FAILURES");
 
         return recovered;
     }
@@ -254,6 +257,7 @@ public class Lib {
 
     public static List<CustomTeam> recoverTeams(String eventDir){
         List<CustomTeam> recovered = new ArrayList<>();
+        int recoverFails = 0;
 
         File[] files = new File(eventDir+"backups/teams/").listFiles();
 
@@ -263,8 +267,10 @@ public class Lib {
             }catch(Exception e){
                 report("recover failed");
                 report(e.toString());
+                recoverFails++;
             }
         }
+        report(recoverFails+" RECOVER FAILURES");
 
         return recovered;
     }

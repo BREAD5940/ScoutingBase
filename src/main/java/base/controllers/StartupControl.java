@@ -64,7 +64,10 @@ public class StartupControl extends Application implements ControlInterface{
     @FXML public void handleGoButton(ActionEvent event){
         System.out.println("Go button pressed");
         Main.currentSession = Main.activeSessions.get(sessionSelect.getValue());
-        new DataRecoveryThread().start();
+        Main.teamRecoveryThread = new DataRecoveryThread(true);
+        Main.matchRecoveryThread = new DataRecoveryThread(false);
+        Main.teamRecoveryThread.start();
+        Main.matchRecoveryThread.start();
         Lib.pageChangeRequest(Windows.sessionLaunch, false, this);
     }
 
