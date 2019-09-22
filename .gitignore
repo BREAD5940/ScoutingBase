@@ -190,8 +190,7 @@ Offseason-Croissant/
 # src/main/java/base/CustomMatch.java
 # src/main/java/base/Lib.java
 
-sac_2019/teams
-sac_2019/backups
+*.json
 
 .idea/*
 .idea
