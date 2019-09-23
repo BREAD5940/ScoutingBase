@@ -95,14 +95,14 @@ public class Main {
         }
 
         currentSession = activeSessions.get("Sac 2019");
-        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"claire.csv"));
-        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"claire2.csv"));
-        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"geran.csv"));
-        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"geran2.csv"));
-        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"max.csv"));
-        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"nick.csv"));
-        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"nick2.csv"));
-        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"thomas.csv"));
+        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/claire.csv"));
+        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/claire2.csv"));
+        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/geran.csv"));
+        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/geran2.csv"));
+        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/max.csv"));
+        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/nick.csv"));
+        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/nick2.csv"));
+        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/thomas.csv"));
 
         openTeams.addAll(Lib.generateTeams(currentSession.eventDir+"teams.csv"));
 
