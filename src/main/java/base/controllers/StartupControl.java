@@ -2,6 +2,7 @@ package base.controllers;
 
 import java.util.Optional;
 
+import base.DataRecoveryThread;
 import base.Lib;
 import base.Main;
 import base.Main.Windows;
@@ -63,14 +64,10 @@ public class StartupControl extends Application implements ControlInterface{
     @FXML public void handleGoButton(ActionEvent event){
         System.out.println("Go button pressed");
         Main.currentSession = Main.activeSessions.get(sessionSelect.getValue());
-        System.out.println("RECOVERING MATCHES");
-        Main.openMatches.addAll(Lib.recoverMatches(Main.currentSession.eventDir));
-        System.out.println("MATCHES RECOVERED\nRECOVERING TEAMS");
-        Main.openTeams.addAll(Lib.recoverTeams(Main.currentSession.eventDir));
-        System.out.println("TEAMS RECOVERED");
-        // Main.openPits.addAll(Lib.recoverPits(Main.currentSession.eventDir));
-        System.out.println(Main.openMatches.get(1).toReadableString());
-        System.out.println(Main.openTeams.get(5).toReadableString());
+        Main.teamRecoveryThread = new DataRecoveryThread(true);
+        Main.matchRecoveryThread = new DataRecoveryThread(false);
+        Main.teamRecoveryThread.start();
+        Main.matchRecoveryThread.start();
         Lib.pageChangeRequest(Windows.sessionLaunch, false, this);
     }
 

@@ -1,13 +1,12 @@
 package base.controllers;
 
 import java.awt.Checkbox;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ResourceBundle.Control;
 
-import base.Lib;
-import base.PrankToast;
-import base.Main;
+import base.*;
 import base.Main.Windows;
-import base.Session;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -43,6 +42,7 @@ public class PitDataEntryControl extends Application implements ControlInterface
 
     @FXML RadioButton rocketLevel3;
     @FXML RadioButton rocketLevel2;
+    @FXML RadioButton rocketLevel1;
 
     @FXML Slider mechanicalIssues;
 
@@ -62,7 +62,7 @@ public class PitDataEntryControl extends Application implements ControlInterface
     @FXML CheckBox noControl;
 
     @FXML CheckBox autoCloseRocketHatch;
-    @FXML CheckBox autoFArRocketHatch;
+    @FXML CheckBox autoFarRocketHatch;
     @FXML CheckBox autoFrontShipHatch;
     @FXML CheckBox autoOtherShipHatch;
     @FXML CheckBox autoShipCargo;
@@ -140,7 +140,80 @@ public class PitDataEntryControl extends Application implements ControlInterface
 
     @FXML
     public void handleSubmit(ActionEvent event){
-        //TODO add The Thingy to make it part of the object
+        // link to Pit.java
+
+        Pit tempPit = new Pit();
+
+        tempPit.teamNumber = Integer.valueOf(this.teamNumber.getText());
+        tempPit.teamName = this.teamName.getText();
+        tempPit.scoutName = this.scoutName.getText();
+        tempPit.level2Climb = this.level2.isSelected();
+        tempPit.level3Climb = this.level3.isSelected();
+        tempPit.intakeType = (this.cargoIntake.isSelected() && this.hatchIntake.isSelected())
+                                ? "Both" : (this.cargoIntake.isSelected() ? "Cargo"
+                                    : (this.hatchIntake.isSelected() ? "Hatch" : "None"));
+        tempPit.rocketLevel = (this.rocketLevel3.isSelected() ? 3
+                                : (this.rocketLevel2.isSelected() ? 2
+                                : (this.rocketLevel1.isSelected() ? 1 : 0)));
+        tempPit.mechIssues = (int)Math.floor(this.mechanicalIssues.getValue());
+        tempPit.cam = this.hasCamera.isSelected();
+        tempPit.preset = this.usesPresets.isSelected();
+        tempPit.sense = this.hasSensor.isSelected();
+        tempPit.reach = this.reachCargo.isSelected();
+        tempPit.ramp = this.rampbot.isSelected();
+        tempPit.nicknames = Lib.stringToArray(this.nicknames.getText(), false);
+
+        tempPit.startHab = (this.startHab2.isSelected() ? 2 : (this.startHab1.isSelected() ? 1: 0));
+        tempPit.driverControl = this.driverControl.isSelected();
+        tempPit.pathing = this.pathing.isSelected();
+        tempPit.noControl = this.noControl.isSelected();
+        tempPit.autoStrats = new ArrayList<String>(Arrays.asList(
+                this.autoCloseRocketHatch.getText(),
+                this.autoFarRocketHatch.getText(),
+                this.autoFrontShipHatch.getText(),
+                this.autoOtherShipHatch.getText(),
+                this.autoShipCargo.getText(),
+                this.autoline.getText(),
+                this.autoMultiPiece.getText(),
+                this.autoNoStrat.getText(),
+                this.autoOtherStrat.getText()
+        ));
+        tempPit.autoNotes = this.autoStratNotes.getText();
+
+        tempPit.prefHatch = this.prefHatch.isSelected();
+        tempPit.prefCargo = this.prefCargo.isSelected();
+        tempPit.ppm = (int)this.piecesPerMatch.getValue();
+        tempPit.teleStrats = new ArrayList<>(Arrays.asList(
+                this.teleopShipCargo.getText(),
+                this.teleopShipHatch.getText(),
+                this.teleopRocketCargo.getText(),
+                this.teleopRocketHatch.getText(),
+                this.teleopDefense.getText(),
+                this.teleopMixed.getText(),
+                this.teleopFlex.getText(),
+                this.teleopStratOther.getText()
+        ));
+        tempPit.cycleTime = (int)this.cycleTime.getValue();
+        tempPit.teleNotes = this.teleopStratNotes.getText();
+
+        tempPit.hpPref = (this.hpIntegral.isSelected() ? "Integral"
+                            : (this.hpIdeal.isSelected() ? "Ideal"
+                            : "Unnecessary"));
+        tempPit.stratPref = (this.sticksStrat.isSelected() ? "Strong"
+                            : (this.prefStrat.isSelected() ? "Preferred"
+                            : "Flexible"));
+        tempPit.notes = this.notes.getText();
+
+
+
+
+        Lib.savePit(tempPit, Main.currentSession.eventDir);
+        Lib.savePitData(tempPit, Main.currentSession.eventDir);
+        Main.openPits.add(tempPit);
+        tempPit.s3ndToTxt(Main.currentSession.eventDir+"pit/");
+        System.out.println("Yes");
+
+        Lib.pageChangeRequest(Windows.pitLaunch, false, this.getThis());
     }
 
 }
