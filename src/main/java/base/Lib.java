@@ -1,9 +1,6 @@
 package base;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.nio.channels.NotYetConnectedException;
 import java.util.*;
 import java.util.ArrayList;
@@ -71,6 +68,10 @@ public class Lib {
     }
 
     public static String arrayToString(Object[] groups){
+        return arrayToString(groups, ",");
+    }
+
+    public static String arrayToString(Object[] groups, String delim){
         if(groups!=null){
             String str="|";
             if(groups.length>1){
@@ -89,7 +90,7 @@ public class Lib {
     public static String arrayToLinebreakString(Object[] array, String spacing){
         String str="";
         if(array.length>1){
-            for(int i=0; i<=array.length; i++){
+            for(int i=0; i<=array.length-1; i++){
                 str+=spacing;
                 str+=array[i].toString();
                 str+="\n";
@@ -221,6 +222,7 @@ public class Lib {
 
     public static List<CustomMatch> recoverMatches(String eventDir){
         List<CustomMatch> recovered = new ArrayList<>();
+        int recoverFails = 0;
 
         File[] files = new File(eventDir+"backups/matches/").listFiles();
 
@@ -231,8 +233,10 @@ public class Lib {
             }catch(Exception e){
                 report("recover failed");
                 report(e.toString());
+                recoverFails++;
             }
         }
+        report(recoverFails+" RECOVER FAILURES");
 
         return recovered;
     }
@@ -254,6 +258,7 @@ public class Lib {
 
     public static List<CustomTeam> recoverTeams(String eventDir){
         List<CustomTeam> recovered = new ArrayList<>();
+        int recoverFails = 0;
 
         File[] files = new File(eventDir+"backups/teams/").listFiles();
 
@@ -263,8 +268,10 @@ public class Lib {
             }catch(Exception e){
                 report("recover failed");
                 report(e.toString());
+                recoverFails++;
             }
         }
+        report(recoverFails+" RECOVER FAILURES");
 
         return recovered;
     }
@@ -315,6 +322,53 @@ public class Lib {
     static class TeamNotFoundException extends Exception { TeamNotFoundException(String message) { super(message); } }
     public static void savePit(Pit pit, String eventDir){
         savePits(new ArrayList<Pit>(Arrays.asList(pit)), eventDir);
+    }
+    public static void savePitData(Pit pit, String eventDir){
+        FileWriter writer = null;
+        try{
+            writer = new FileWriter(eventDir+"data/pit/"+pit.teamNumber+"-"+pit.scoutName+".csv", false);
+        }catch(IOException e){
+            Lib.report("File not found error");
+            System.out.println(e);
+        }
+
+        try{
+            writer.write(
+                    pit.teamNumber+","+
+                    pit.teamName+","+
+                    pit.scoutName+","+
+                    pit.level2Climb+","+
+                    pit.level3Climb+","+
+                    pit.intakeType+","+
+                    pit.rocketLevel+","+
+                    pit.mechIssues+","+
+                    pit.cam+","+
+                    pit.preset+","+
+                    pit.sense+","+
+                    pit.reach+","+
+                    pit.ramp+","+
+                    arrayToString(pit.nicknames, ",")+","+
+                    pit.startHab+","+
+                    pit.driverControl+","+
+                    pit.pathing+","+
+                    pit.noControl+","+
+                    arrayToString(pit.autoStrats.toArray())+","+
+                    pit.autoNotes+","+
+                    pit.prefHatch+","+
+                    pit.prefCargo+","+
+                    pit.ppm+","+
+                    arrayToString(pit.teleStrats.toArray())+","+
+                    pit.cycleTime+","+
+                    pit.teleNotes+","+
+                    pit.hpPref+","+
+                    pit.stratPref+","+
+                    pit.notes
+            );
+
+            writer.close();
+        }catch(Exception e){
+            report(e.toString());
+        }
     }
 
     public static void savePits(List<Pit> pits, String eventDir){

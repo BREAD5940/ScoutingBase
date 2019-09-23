@@ -22,7 +22,7 @@ public class CustomTeam {
     private int number;
     private boolean isFullySync = true;
 
-    private ArrayList<String> robotNicknames;
+    private ArrayList<String> robotNicknames = new ArrayList<>();
 
     private ArrayList<CustomMatch> matches = new ArrayList<CustomMatch>();
 
@@ -166,8 +166,7 @@ public class CustomTeam {
         this.number, 
         this.scoutedName, 
         this.tbaName, 
-        "", //FIXME
-        //Lib.arrayToString(this.robotNicknames.toArray()), 
+        Lib.arrayToString(this.robotNicknames.toArray()), 
         this.sponsors, 
         this.isFullySync, 
         this.avGPSand,

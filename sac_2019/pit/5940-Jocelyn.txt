@@ -1,0 +1,57 @@
+Scout name: Jocelyn
+Team Number: 5940  Team Name: BREAD
+Nicknames: ||
+-----------------------------------------------------------------------
+
+AUTO STRATEGY:
+    Starts on: 1
+    Controlled by...
+        Driver? true
+        Paths? true
+        Nothing? false
+    Strategies:
+         Hatch on the close side rocket
+         Hatch on the far side rocket
+         Hatch on the front of the cargo ship
+         Hatch elsewhere on the cargo ship
+         Cargo in the cargo ship
+         Crosses line
+         Multi game piece (describe in notes)
+         No
+         Other (describe in notes)
+
+    Notes:
+         
+
+
+TELEOP STRATEGY:
+    Prefers: Hatch
+    Game Pieces Per Match: 11    Average Cycle Time (sec): 10
+    Strategies:
+         Cargo ship cargo
+         Cargo ship hatch
+         Rocket cargo
+         Rocket hatch
+         Defense
+         Mixed (describe in notes)
+         Flexible (describe in notes)
+         Other (describe in notes)
+
+    Notes:
+         
+
+
+GENERAL:
+    Climbs Level 2: false  Climbs Level 3: false
+    Reaches Level: 3      Intake: Both
+    Has...
+        Camera? true
+        LimeLight/Sensor? true
+        Presets? true
+        Over-Cargo Reach? true
+        Ramp? false
+    Mechanical issues (1-10): 7
+    Human Player Is: Ideal
+    Strategy Is: Strong
+    Notes:
+         

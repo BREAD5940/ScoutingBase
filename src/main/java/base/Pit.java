@@ -6,45 +6,45 @@ import java.util.ArrayList;
 
 public class Pit {
  
-    private int teamNumber;
-    private String teamName;
-    private String scoutName;
+    public int teamNumber;
+    public String teamName;
+    public String scoutName;
 
-    private boolean level2Climb, level3Climb;
+    public boolean level2Climb, level3Climb;
 
-    private String intakeType; // Hatch Cargo Both
+    public String intakeType; // Hatch Cargo Both
 
-    private int rocketLevel; // 1 2 3
+    public int rocketLevel; // 1 2 3
 
-    private int mechIssues;
+    public int mechIssues;
 
-    private boolean cam, preset, sense, reach, ramp;
+    public boolean cam, preset, sense, reach, ramp;
 
-    private String[] nicknames;
+    public String[] nicknames;
 
-    private int startHab; // 1 2
+    public int startHab; // 1 2
 
-    private boolean driverControl, pathing, noControl; // auto
+    public boolean driverControl, pathing, noControl; // auto
 
-    private ArrayList<String> autoStrats;
+    public ArrayList<String> autoStrats;
 
-    private String autoNotes;
+    public String autoNotes;
 
-    private boolean prefHatch, prefCargo;
+    public boolean prefHatch, prefCargo;
 
-    private int ppm; //pieces per match
+    public int ppm; //pieces per match
 
-    private ArrayList<String> teleStrats;
+    public ArrayList<String> teleStrats;
 
-    private int cycleTime;
+    public int cycleTime;
 
-    private String teleNotes;
+    public String teleNotes;
 
-    private String hpPref; // Integral Ideal Unnecessary
+    public String hpPref; // Integral Ideal Unnecessary
 
-    private String stratPref; // Strong Preferred Flexible
+    public String stratPref; // Strong Preferred Flexible
 
-    private String notes;
+    public String notes;
 
     public Pit(String[] csvRow){
         //TODO match to vars
@@ -106,7 +106,7 @@ public class Pit {
                 "         %s\n", 
                     this.scoutName, 
                     this.teamNumber, this.teamName,
-                    Lib.arrayToString(this.nicknames).substring(1,Lib.arrayToString(this.nicknames).length()-2),
+                    Lib.arrayToString(this.nicknames),//.substring(1,Lib.arrayToString(this.nicknames).length()-2),
                     this.startHab,
                     this.driverControl,
                     this.pathing,
