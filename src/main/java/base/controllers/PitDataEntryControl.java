@@ -129,6 +129,8 @@ public class PitDataEntryControl extends Application implements ControlInterface
     @Override
     public void start(Stage primaryStage) throws Exception {
         Lib.memeStart(primaryStage, FXMLLoader.load(getClass().getResource(this.getName().toString())));
+        primaryStage.setHeight(600);
+        primaryStage.setWidth(850);
     }
 
     @Override
@@ -136,6 +138,7 @@ public class PitDataEntryControl extends Application implements ControlInterface
         ControlInterface.super.handleBack(event);
     }
 
+    @FXML
     public void handleSubmit(ActionEvent event){
         //TODO add The Thingy to make it part of the object
     }
