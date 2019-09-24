@@ -6,12 +6,21 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.Window;
+
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class StandEntryControl extends Application implements ControlInterface{
-
+    File file;
     Main.Windows previousPage = Main.Windows.sessionLaunch;
     @FXML
     AnchorPane basePane;
@@ -55,7 +64,14 @@ public class StandEntryControl extends Application implements ControlInterface{
 
     @FXML
     public void handleDataEntry(ActionEvent event) {
-        // TODO: actually do this
-        return;
+        FileChooser chooser = new FileChooser();
+        file = chooser.showOpenDialog(getStage());
+        // TODO: Copy the file to the stand section of active session data directory (sac_2019/data/stand)
+        try {
+            Files.copy(file.toPath(), Paths.get(Main.currentSession.dataDir + "stand/" + file.getName()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        handleBack(event);
     }
 }
