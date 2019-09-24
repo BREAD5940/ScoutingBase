@@ -87,7 +87,7 @@ public class SessionLaunchControl extends Application implements ControlInterfac
 
     @FXML
     public void handleOnlineData(ActionEvent event){
-        Lib.pageChangeRequest(Windows.teamStatsOnline, false, this.getThis());
+        Lib.pageChangeRequest(Windows.statsOnline, false, this.getThis());
     }
 
     @FXML

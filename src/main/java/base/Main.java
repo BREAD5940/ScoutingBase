@@ -29,7 +29,7 @@ public class Main {
         standRotEdit("/layouts/standRotEdit.fxml"), standRotView("/layouts/standRotView.fxml"),
         standRotViewAll("/layouts/standRotViewAll.fxml"), startup("/layouts/startup.fxml"),
         statsOffline("/layouts/statsOffline.fxml"), teamCompare("/layouts/teamCompare.fxml"),
-        teamSearch("/layouts/teamSearch.fxml"), teamStatsOnline("/layouts/teamStatsOnline.fxml"),
+        teamSearch("/layouts/teamSearch.fxml"), statsOnline("/layouts/statsOnline.fxml"),
         teamSearchResults("/layouts/teamSearchResults.fxml");
         public String filePath;
 
@@ -55,6 +55,8 @@ public class Main {
             put(Windows.pitLaunch, new PitLaunchControl());
             put(Windows.pitDataEntry, new PitDataEntryControl());
             put(Windows.teamSearchResults, new TeamSearchResultsControl());
+            put(Windows.statsOffline, new StatsOfflineControl());
+            put(Windows.statsOnline, new StatsOnlineControl());
         }
     };
 
