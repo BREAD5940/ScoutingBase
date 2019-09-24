@@ -6,17 +6,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import base.controllers.*;
 import com.cpjd.main.TBA;
 
-import base.controllers.NewSessionControl;
-import base.controllers.PitDataEntryControl;
-import base.controllers.PitLaunchControl;
-import base.controllers.SessionLaunchControl;
-import base.controllers.StartupControl;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import base.controllers.AdminSignInControl;
-import base.controllers.ControlInterface;
 
 public class Main {
     public static TBA tbaApi;
@@ -35,8 +29,8 @@ public class Main {
         standRotEdit("/layouts/standRotEdit.fxml"), standRotView("/layouts/standRotView.fxml"),
         standRotViewAll("/layouts/standRotViewAll.fxml"), startup("/layouts/startup.fxml"),
         statsOffline("/layouts/statsOffline.fxml"), teamCompare("/layouts/teamCompare.fxml"),
-        teamSearch("/layouts/teamSearch.fxml"), teamStatsOnline("/layouts/teamStatsOnline.fxml");
-
+        teamSearch("/layouts/teamSearch.fxml"), statsOnline("/layouts/statsOnline.fxml"),
+        teamSearchResults("/layouts/teamSearchResults.fxml");
         public String filePath;
 
         private Windows(String filePath) {
@@ -60,6 +54,9 @@ public class Main {
             put(Windows.sessionLaunch, SessionLaunchControl.getInstance());
             put(Windows.pitLaunch, new PitLaunchControl());
             put(Windows.pitDataEntry, new PitDataEntryControl());
+            put(Windows.teamSearchResults, new TeamSearchResultsControl());
+            put(Windows.statsOffline, new StatsOfflineControl());
+            put(Windows.statsOnline, new StatsOnlineControl());
         }
     };
 
@@ -70,7 +67,7 @@ public class Main {
     public static ArrayList<CustomMatch> openMatches = new ArrayList<>();
     public static ArrayList<CustomTeam> openTeams = new ArrayList<>();
     public static ArrayList<Pit> openPits = new ArrayList<>();
-
+    public static ArrayList<CustomTeam> searchResults = new ArrayList<>();
 
     public static synchronized void addToOpenMatches(List<CustomMatch> matches){
         openMatches.addAll(matches);
