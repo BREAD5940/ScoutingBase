@@ -57,6 +57,8 @@ public class Main {
             put(Windows.teamSearchResults, new TeamSearchResultsControl());
             put(Windows.statsOffline, new StatsOfflineControl());
             put(Windows.statsOnline, new StatsOnlineControl());
+            put(Windows.standEntry, new StandEntryControl());
+            put(Windows.standLaunch, new StandLaunchControl());
         }
     };
 
