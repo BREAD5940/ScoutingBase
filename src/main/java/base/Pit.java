@@ -26,7 +26,7 @@ public class Pit {
 
     public boolean driverControl, pathing, noControl; // auto
 
-    public ArrayList<String> autoStrats;
+    public ArrayList<String> autoStrats = new ArrayList<>();
 
     public String autoNotes;
 
@@ -34,7 +34,7 @@ public class Pit {
 
     public int ppm; //pieces per match
 
-    public ArrayList<String> teleStrats;
+    public ArrayList<String> teleStrats = new ArrayList<>();
 
     public int cycleTime;
 

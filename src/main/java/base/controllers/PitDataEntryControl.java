@@ -168,30 +168,62 @@ public class PitDataEntryControl extends Application implements ControlInterface
         tempPit.driverControl = this.driverControl.isSelected();
         tempPit.pathing = this.pathing.isSelected();
         tempPit.noControl = this.noControl.isSelected();
-                if(this.autoCloseRocketHatch.isSelected
-                this.autoFarRocketHatch.getText(),
-                this.autoFrontShipHatch.getText(),
-                this.autoOtherShipHatch.getText(),
-                this.autoShipCargo.getText(),
-                this.autoline.getText(),
-                this.autoMultiPiece.getText(),
-                this.autoNoStrat.getText(),
-                this.autoOtherStrat.getText()
+                if(this.autoCloseRocketHatch.isSelected()){
+                    tempPit.autoStrats.add(this.autoCloseRocketHatch.getText());
+                }
+                if(this.autoFarRocketHatch.isSelected()) {
+                    tempPit.autoStrats.add(this.autoFarRocketHatch.getText());
+                }
+                if(this.autoFrontShipHatch.isSelected()) {
+                    tempPit.autoStrats.add(this.autoFrontShipHatch.getText());
+                }
+                if(this.autoOtherShipHatch.isSelected()) {
+                    tempPit.autoStrats.add(this.autoOtherShipHatch.getText());
+                }
+                if(this.autoShipCargo.isSelected()) {
+                    tempPit.autoStrats.add(this.autoShipCargo.getText());
+                }
+                if(this.autoline.isSelected()) {
+                    tempPit.autoStrats.add(this.autoline.getText());
+                }
+                if(this.autoMultiPiece.isSelected()) {
+                    tempPit.autoStrats.add(this.autoMultiPiece.getText());
+                }
+                if(this.autoNoStrat.isSelected()) {
+                    tempPit.autoStrats.add(this.autoNoStrat.getText());
+                }
+                if(this.autoOtherStrat.isSelected()) {
+                    tempPit.autoStrats.add(this.autoOtherStrat.getText());
+                }
         tempPit.autoNotes = this.autoStratNotes.getText();
 
         tempPit.prefHatch = this.prefHatch.isSelected();
         tempPit.prefCargo = this.prefCargo.isSelected();
         tempPit.ppm = (int)this.piecesPerMatch.getValue();
-        tempPit.teleStrats = new ArrayList<>(Arrays.asList(
-                this.teleopShipCargo.getText(),
-                this.teleopShipHatch.getText(),
-                this.teleopRocketCargo.getText(),
-                this.teleopRocketHatch.getText(),
-                this.teleopDefense.getText(),
-                this.teleopMixed.getText(),
-                this.teleopFlex.getText(),
-                this.teleopStratOther.getText()
-        ));
+        if(this.teleopShipCargo.isSelected()) {
+            tempPit.teleStrats.add(this.teleopShipCargo.getText());
+        }
+        if(this.teleopShipHatch.isSelected()) {
+            tempPit.teleStrats.add(this.teleopShipHatch.getText());
+        }
+        if(this.teleopRocketCargo.isSelected()) {
+            tempPit.teleStrats.add(this.teleopRocketCargo.getText());
+        }
+        if(this.teleopRocketHatch.isSelected()) {
+            tempPit.teleStrats.add(this.teleopRocketHatch.getText());
+        }
+        if(this.teleopDefense.isSelected()) {
+            tempPit.teleStrats.add(this.teleopDefense.getText());
+        }
+        if(this.teleopMixed.isSelected()) {
+            tempPit.teleStrats.add(this.teleopMixed.getText());
+        }
+        if(this.teleopFlex.isSelected()) {
+            tempPit.teleStrats.add(this.teleopFlex.getText());
+        }
+        if(this.teleopStratOther.isSelected()) {
+            tempPit.teleStrats.add(this.teleopStratOther.getText());
+        }
         tempPit.cycleTime = (int)this.cycleTime.getValue();
         tempPit.teleNotes = this.teleopStratNotes.getText();
 
