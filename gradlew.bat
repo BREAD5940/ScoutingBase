@@ -12,7 +12,7 @@ set DIRNAME=%~dp0
 if "%DIRNAME%" == "" set DIRNAME=.
 set APP_BASE_NAME=%~n0
 set APP_HOME=%DIRNAME%
-set JAVA_HOME="C:\Program Files\Java\jdk-11.0.1"
+set JAVA_HOME="C:\Program Files\Java\jdk-11.0.4"
 set PATH_TO_FX="C:\Program Files\Java\jdk-11.0.1\lib\javafx-sdk-11.0.2\lib"
 
 @rem Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.

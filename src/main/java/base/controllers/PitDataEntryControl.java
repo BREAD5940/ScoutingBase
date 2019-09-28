@@ -142,7 +142,10 @@ public class PitDataEntryControl extends Application implements ControlInterface
 
         Pit tempPit = new Pit();
 
-        tempPit.teamNumber = Integer.valueOf(this.teamNumber.getText());
+
+        if(!this.teamNumber.getText().equals("")) {
+            tempPit.teamNumber = Integer.valueOf(this.teamNumber.getText());
+        }
         tempPit.teamName = this.teamName.getText();
         tempPit.scoutName = this.scoutName.getText();
         tempPit.level2Climb = this.level2.isSelected();
@@ -165,8 +168,7 @@ public class PitDataEntryControl extends Application implements ControlInterface
         tempPit.driverControl = this.driverControl.isSelected();
         tempPit.pathing = this.pathing.isSelected();
         tempPit.noControl = this.noControl.isSelected();
-        tempPit.autoStrats = new ArrayList<String>(Arrays.asList(
-                this.autoCloseRocketHatch.getText(),
+                if(this.autoCloseRocketHatch.isSelected
                 this.autoFarRocketHatch.getText(),
                 this.autoFrontShipHatch.getText(),
                 this.autoOtherShipHatch.getText(),
@@ -175,7 +177,6 @@ public class PitDataEntryControl extends Application implements ControlInterface
                 this.autoMultiPiece.getText(),
                 this.autoNoStrat.getText(),
                 this.autoOtherStrat.getText()
-        ));
         tempPit.autoNotes = this.autoStratNotes.getText();
 
         tempPit.prefHatch = this.prefHatch.isSelected();
@@ -210,6 +211,12 @@ public class PitDataEntryControl extends Application implements ControlInterface
         Main.openPits.add(tempPit);
         tempPit.s3ndToTxt(Main.currentSession.eventDir+"pit/");
         System.out.println("Yes");
+
+        for (CustomTeam team : Main.openTeams){
+            if(team.getNumber()==tempPit.teamNumber){
+                team.addPit(tempPit);
+            }
+        }
 
         Lib.pageChangeRequest(Windows.pitLaunch, false, this.getThis());
     }

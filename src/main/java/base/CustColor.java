@@ -21,6 +21,8 @@ public class CustColor{
             Lib.report(hexVal);
         }
 
+        public CustColor (){}
+
         /**
          * @return the hexVal
          */

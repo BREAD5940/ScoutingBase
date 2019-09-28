@@ -70,6 +70,12 @@ public class CustomTeam {
         Lib.saveTeam(this, Main.currentSession.eventDir);
     }
 
+    public CustomTeam (int number_){
+        this.number = number_;
+
+        Lib.saveTeam(this, Main.currentSession.eventDir);
+    }
+
     public CustomTeam(){
         //dummy constructor
     }

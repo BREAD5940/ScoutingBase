@@ -59,9 +59,10 @@ public class NewSessionControl extends Application implements ControlInterface{
     }
 
     @FXML public void handleSubmit(ActionEvent event){
-        // Main.currentSession = new Session(Integer.valueOf(year.getText()), name.getText(), tbaKey.getText(), dir.getAbsolutePath(), colorPicker.getValue());
-        Main.activeSessions.put(name.getText(),new Session(Integer.valueOf(year.getText()), name.getText(), tbaKey.getText(), dir.getAbsolutePath(), colorPicker.getValue()));
-        Lib.report(Main.activeSessions.get(0).toString());
+        Session tempSesh = new Session(Integer.valueOf(year.getText()), name.getText(), tbaKey.getText(), dir.getAbsolutePath(), colorPicker.getValue());
+        Main.activeSessions.put(name.getText(),tempSesh);
+//        Lib.report(Main.activeSessions.get(0).toString());
+        Lib.saveSession(tempSesh);
         Lib.pageChangeRequest(Main.Windows.startup, false, this);
     }
 

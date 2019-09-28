@@ -12,6 +12,7 @@ public class DataRecoveryThread extends Thread{
     @Override
     public void run(){
         if(isTeam){
+            Main.openTeams.addAll(Lib.generateTeams(Main.currentSession.eventDir+"teams.csv"));
             System.out.println("RECOVERING TEAMS");
             Main.addToOpenTeams(Lib.recoverTeams(Main.currentSession.eventDir));
             System.out.println(Main.openTeams.get(1).toReadableString());

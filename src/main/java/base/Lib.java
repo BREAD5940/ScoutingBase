@@ -174,7 +174,7 @@ public class Lib {
             report("Team Read IO Exception:\n"+e);
         }
         for(String[] row : rows){
-            gennedTeams.add(new CustomTeam(row[1], Integer.valueOf(row[0])));
+            gennedTeams.add(new CustomTeam(Integer.valueOf(row[0])));
         }
 
         try{
@@ -402,6 +402,7 @@ public class Lib {
     public static void saveSession(Session session){
         try{
             mapper.writeValue(new File("main_storage/"+session.tbaEventKey+".json"), session);
+            report("done");
         }catch (Exception e){
             report("write failed for session "+session.tbaEventKey);
             report(e.toString());

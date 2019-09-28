@@ -92,36 +92,11 @@ public class Main {
 
         for(Session sesh : tempActiveSessions){
             activeSessions.put(sesh.toString(), sesh);
+//            Lib.report
         }
 
-        currentSession = activeSessions.get("Sac 2019");
-        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/claire.csv"));
-        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/claire2.csv"));
-        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/geran.csv"));
-        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/geran2.csv"));
-        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/max.csv"));
-        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/nick.csv"));
-        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/nick2.csv"));
-        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/thomas.csv"));
-
-        openTeams.addAll(Lib.generateTeams(currentSession.eventDir+"teams.csv"));
-
-        for(CustomMatch match : openMatches){
-            match.syncTBA();
-        }
-
-        for(CustomTeam team : openTeams){
-            for(CustomMatch match : openMatches){
-                if(match.getTeamNum()==team.getNumber()){
-                    team.addMatch(match);
-                }
-            }
-            team.syncTBA();
-        }
-
-        Lib.saveTeams(openTeams, currentSession.eventDir);
-
-        openTeams.clear();
+//        currentSession = activeSessions.get("Sac 2019");
+//        openTeams.addAll(Lib.generateTeams(eventDir+"teams.csv"));
 
         
 
