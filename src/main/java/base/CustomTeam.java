@@ -25,6 +25,7 @@ public class CustomTeam {
     private ArrayList<String> robotNicknames = new ArrayList<>();
 
     private ArrayList<CustomMatch> matches = new ArrayList<CustomMatch>();
+    private ArrayList<Pit> pits = new ArrayList<>();
 
     private double avGPSand;
     private double avHPShip;
@@ -139,6 +140,7 @@ public class CustomTeam {
     }
 
     public void addPit(Pit pitData){
+        this.pits.add(pitData);
 
 
         Lib.saveTeam(this, Main.currentSession.eventDir);
