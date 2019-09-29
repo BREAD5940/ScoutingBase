@@ -1,0 +1,44 @@
+Scout name: Areeba
+Team Number: 2733  Team Name: Pigmice
+Nicknames: ||
+-----------------------------------------------------------------------
+
+AUTO STRATEGY:
+    Starts on: 1
+    Controlled by...
+        Driver? true
+        Paths? false
+        Nothing? false
+    Strategies:
+
+    Notes:
+         Hatch on rocket (not sure where)
+
+
+TELEOP STRATEGY:
+    Prefers: Hatch
+    Game Pieces Per Match: 0    Average Cycle Time (sec): 15
+    Strategies:
+         Rocket cargo
+         Rocket hatch
+
+    Notes:
+         Not sure about game pieces per match
+< 15 sec cycle time
+
+
+GENERAL:
+    Climbs Level 2: false  Climbs Level 3: true
+    Reaches Level: 3      Intake: Both
+    Has...
+        Camera? false
+        LimeLight/Sensor? true
+        Presets? true
+        Over-Cargo Reach? false
+        Ramp? false
+    Mechanical issues (1-10): 0
+    Human Player Is: Unnecessary
+    Strategy Is: Preferred
+    Notes:
+         better at offense
+Okay at defense

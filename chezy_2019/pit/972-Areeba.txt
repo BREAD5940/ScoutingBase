@@ -1,0 +1,43 @@
+Scout name: Areeba
+Team Number: 972   Team Name: Iron Claw
+Nicknames: ||
+-----------------------------------------------------------------------
+
+AUTO STRATEGY:
+    Starts on: 2
+    Controlled by...
+        Driver? true
+        Paths? false
+        Nothing? false
+    Strategies:
+
+    Notes:
+         1-2 cargo
+
+
+
+TELEOP STRATEGY:
+    Prefers: Cargo
+    Game Pieces Per Match: 10    Average Cycle Time (sec): 11
+    Strategies:
+
+    Notes:
+         Cargo ship mostly (8-12 cargo)
+Fixing hatch mech
+
+
+GENERAL:
+    Climbs Level 2: false  Climbs Level 3: false
+    Reaches Level: 2      Intake: Both
+    Has...
+        Camera? true
+        LimeLight/Sensor? false
+        Presets? true
+        Over-Cargo Reach? false
+        Ramp? false
+    Mechanical issues (1-10): 1
+    Human Player Is: Ideal
+    Strategy Is: Preferred
+    Notes:
+         Want their human player but it depends on the side they're on
+Offense

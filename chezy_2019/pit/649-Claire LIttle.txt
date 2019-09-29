@@ -1,0 +1,42 @@
+Scout name: Claire LIttle
+Team Number: 649   Team Name: M-set Fish
+Nicknames: |Can not actually reach over, but it can intake in the front and out take out the back, but it can intake in the front and out take out the back|
+-----------------------------------------------------------------------
+
+AUTO STRATEGY:
+    Starts on: 1
+    Controlled by...
+        Driver? true
+        Paths? false
+        Nothing? false
+    Strategies:
+
+    Notes:
+         flexible 
+
+
+TELEOP STRATEGY:
+    Prefers: Both
+    Game Pieces Per Match: 8    Average Cycle Time (sec): 7
+    Strategies:
+         Rocket cargo
+         Rocket hatch
+
+    Notes:
+         
+
+
+GENERAL:
+    Climbs Level 2: false  Climbs Level 3: true
+    Reaches Level: 3      Intake: Both
+    Has...
+        Camera? true
+        LimeLight/Sensor? false
+        Presets? true
+        Over-Cargo Reach? true
+        Ramp? false
+    Mechanical issues (1-10): 1
+    Human Player Is: Ideal
+    Strategy Is: Preferred
+    Notes:
+         They are somewhat flexible and can place anything anywhere

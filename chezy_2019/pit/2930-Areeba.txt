@@ -1,0 +1,42 @@
+Scout name: Areeba
+Team Number: 2930  Team Name: Sonic Squirrels
+Nicknames: ||
+-----------------------------------------------------------------------
+
+AUTO STRATEGY:
+    Starts on: 1
+    Controlled by...
+        Driver? true
+        Paths? false
+        Nothing? false
+    Strategies:
+
+    Notes:
+         hatch anywhere on cargo ship, go back to grab another
+
+
+TELEOP STRATEGY:
+    Prefers: Cargo
+    Game Pieces Per Match: 10    Average Cycle Time (sec): 10
+    Strategies:
+
+    Notes:
+         9 game pieces with defense, 13 pieces without\
+
+Don't seem to care about any specific strategy
+
+
+GENERAL:
+    Climbs Level 2: false  Climbs Level 3: true
+    Reaches Level: 1      Intake: Both
+    Has...
+        Camera? true
+        LimeLight/Sensor? true
+        Presets? false
+        Over-Cargo Reach? false
+        Ramp? false
+    Mechanical issues (1-10): 0
+    Human Player Is: Ideal
+    Strategy Is: Preferred
+    Notes:
+         prefer offense, flexible within that

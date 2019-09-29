@@ -1,0 +1,42 @@
+Scout name: Kayla
+Team Number: 846   Team Name: The Funky Monkeys
+Nicknames: ||
+-----------------------------------------------------------------------
+
+AUTO STRATEGY:
+    Starts on: 2
+    Controlled by...
+        Driver? true
+        Paths? false
+        Nothing? false
+    Strategies:
+         Hatch on the close side rocket
+         Hatch on the front of the cargo ship
+
+    Notes:
+         
+
+
+TELEOP STRATEGY:
+    Prefers: None
+    Game Pieces Per Match: 7    Average Cycle Time (sec): 13
+    Strategies:
+
+    Notes:
+         no preference on game peice, can do rocket and cargo ship depending on alliance members
+
+
+GENERAL:
+    Climbs Level 2: false  Climbs Level 3: true
+    Reaches Level: 3      Intake: Both
+    Has...
+        Camera? true
+        LimeLight/Sensor? true
+        Presets? true
+        Over-Cargo Reach? false
+        Ramp? false
+    Mechanical issues (1-10): 0
+    Human Player Is: Ideal
+    Strategy Is: Flexible
+    Notes:
+         

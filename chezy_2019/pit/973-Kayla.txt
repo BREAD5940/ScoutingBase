@@ -1,0 +1,45 @@
+Scout name: Kayla
+Team Number: 973   Team Name: Greybots
+Nicknames: ||
+-----------------------------------------------------------------------
+
+AUTO STRATEGY:
+    Starts on: 2
+    Controlled by...
+        Driver? true
+        Paths? false
+        Nothing? false
+    Strategies:
+         Hatch on the front of the cargo ship
+         Hatch elsewhere on the cargo ship
+         Crosses line
+
+    Notes:
+         
+
+
+TELEOP STRATEGY:
+    Prefers: Both
+    Game Pieces Per Match: 0    Average Cycle Time (sec): 0
+    Strategies:
+         Rocket cargo
+         Rocket hatch
+
+    Notes:
+         dont have a preferance of game peices
+
+
+GENERAL:
+    Climbs Level 2: false  Climbs Level 3: true
+    Reaches Level: 2      Intake: Both
+    Has...
+        Camera? false
+        LimeLight/Sensor? true
+        Presets? true
+        Over-Cargo Reach? false
+        Ramp? false
+    Mechanical issues (1-10): 0
+    Human Player Is: Ideal
+    Strategy Is: Preferred
+    Notes:
+         Can buddy climb

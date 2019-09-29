@@ -1,0 +1,44 @@
+Scout name: Areeba
+Team Number: 2659  Team Name: RoboWarriors
+Nicknames: ||
+-----------------------------------------------------------------------
+
+AUTO STRATEGY:
+    Starts on: 1
+    Controlled by...
+        Driver? true
+        Paths? false
+        Nothing? false
+    Strategies:
+
+    Notes:
+         auto 2 hatch rocket or 1 hatch cargo ship and 1 hatch rocket
+can also do hab 2
+
+
+TELEOP STRATEGY:
+    Prefers: None
+    Game Pieces Per Match: 8    Average Cycle Time (sec): 6
+    Strategies:
+         Cargo ship cargo
+         Cargo ship hatch
+
+    Notes:
+         prefer cargo ship,
+can either fill cargo ship or first two levels of rocket
+
+
+GENERAL:
+    Climbs Level 2: false  Climbs Level 3: true
+    Reaches Level: 2      Intake: Both
+    Has...
+        Camera? false
+        LimeLight/Sensor? true
+        Presets? false
+        Over-Cargo Reach? false
+        Ramp? false
+    Mechanical issues (1-10): 0
+    Human Player Is: Unnecessary
+    Strategy Is: Strong
+    Notes:
+         offense only

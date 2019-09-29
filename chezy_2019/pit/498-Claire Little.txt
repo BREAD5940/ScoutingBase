@@ -1,12 +1,12 @@
-Scout name: 
-Team Number: 0     Team Name: 
+Scout name: Claire Little
+Team Number: 498   Team Name: The Cobra Commanders
 Nicknames: ||
 -----------------------------------------------------------------------
 
 AUTO STRATEGY:
-    Starts on: 0
+    Starts on: 2
     Controlled by...
-        Driver? false
+        Driver? true
         Paths? false
         Nothing? false
     Strategies:
@@ -16,25 +16,25 @@ AUTO STRATEGY:
 
 
 TELEOP STRATEGY:
-    Prefers: None
-    Game Pieces Per Match: 0    Average Cycle Time (sec): 0
+    Prefers: Hatch
+    Game Pieces Per Match: 7    Average Cycle Time (sec): 0
     Strategies:
 
     Notes:
-         
+         Don't know cycle time
 
 
 GENERAL:
     Climbs Level 2: false  Climbs Level 3: false
-    Reaches Level: 0      Intake: None
+    Reaches Level: 0      Intake: Hatch
     Has...
-        Camera? false
+        Camera? true
         LimeLight/Sensor? false
         Presets? false
         Over-Cargo Reach? false
         Ramp? false
-    Mechanical issues (1-10): 0
+    Mechanical issues (1-10): 1
     Human Player Is: Unnecessary
     Strategy Is: Flexible
     Notes:
-         
+         Hatch panel manipulator very consistant, doesn't drop.

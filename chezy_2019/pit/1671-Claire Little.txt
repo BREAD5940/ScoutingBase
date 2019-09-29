@@ -1,0 +1,42 @@
+Scout name: Claire Little
+Team Number: 1671  Team Name: Buchanaun Bird Brains
+Nicknames: ||
+-----------------------------------------------------------------------
+
+AUTO STRATEGY:
+    Starts on: 2
+    Controlled by...
+        Driver? true
+        Paths? false
+        Nothing? false
+    Strategies:
+
+    Notes:
+         
+
+
+TELEOP STRATEGY:
+    Prefers: Both
+    Game Pieces Per Match: 7    Average Cycle Time (sec): 0
+    Strategies:
+
+    Notes:
+         Don't know cycle time. 
+They work on cargo ship then help out rocket if needed.
+Can do defense
+
+
+GENERAL:
+    Climbs Level 2: false  Climbs Level 3: true
+    Reaches Level: 3      Intake: Both
+    Has...
+        Camera? true
+        LimeLight/Sensor? true
+        Presets? true
+        Over-Cargo Reach? true
+        Ramp? false
+    Mechanical issues (1-10): 1
+    Human Player Is: Unnecessary
+    Strategy Is: Preferred
+    Notes:
+         Climb takes a minimum of 15secs, 19 sec to be all the way on.

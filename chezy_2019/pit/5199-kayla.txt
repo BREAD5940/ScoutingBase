@@ -1,0 +1,40 @@
+Scout name: kayla
+Team Number: 5199  Team Name: Robot dolphins from outer space 
+Nicknames: ||
+-----------------------------------------------------------------------
+
+AUTO STRATEGY:
+    Starts on: 0
+    Controlled by...
+        Driver? true
+        Paths? false
+        Nothing? false
+    Strategies:
+
+    Notes:
+         didnt ask what hab they start on
+
+
+TELEOP STRATEGY:
+    Prefers: Cargo
+    Game Pieces Per Match: 14    Average Cycle Time (sec): 6
+    Strategies:
+
+    Notes:
+         Can fill up rocket solo, Strategy=split feild and fill rocket
+
+
+GENERAL:
+    Climbs Level 2: false  Climbs Level 3: true
+    Reaches Level: 0      Intake: Both
+    Has...
+        Camera? true
+        LimeLight/Sensor? true
+        Presets? true
+        Over-Cargo Reach? true
+        Ramp? false
+    Mechanical issues (1-10): 0
+    Human Player Is: Ideal
+    Strategy Is: Preferred
+    Notes:
+         

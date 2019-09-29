@@ -1,0 +1,47 @@
+Scout name: Areeba
+Team Number: 696   Team Name: Circuit Breakers
+Nicknames: ||
+-----------------------------------------------------------------------
+
+AUTO STRATEGY:
+    Starts on: 2
+    Controlled by...
+        Driver? true
+        Paths? false
+        Nothing? false
+    Strategies:
+
+    Notes:
+         hatch on cargo ship, go to pick up ball
+
+
+TELEOP STRATEGY:
+    Prefers: Cargo
+    Game Pieces Per Match: 6    Average Cycle Time (sec): 6
+    Strategies:
+         Cargo ship cargo
+         Cargo ship hatch
+
+    Notes:
+         said 5 second cycle time cargo, 6 second for hatches
+
+prefer cargo, can hatch on rocket level one, but no cargo
+
+
+GENERAL:
+    Climbs Level 2: false  Climbs Level 3: true
+    Reaches Level: 1      Intake: Both
+    Has...
+        Camera? true
+        LimeLight/Sensor? false
+        Presets? true
+        Over-Cargo Reach? false
+        Ramp? false
+    Mechanical issues (1-10): 0
+    Human Player Is: Unnecessary
+    Strategy Is: Preferred
+    Notes:
+         Offense mainly
+
+3 sec climb
+can climb both lvl 2 and lvl 3

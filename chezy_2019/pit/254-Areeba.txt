@@ -1,0 +1,47 @@
+Scout name: Areeba
+Team Number: 254   Team Name: The Cheesy Poofs
+Nicknames: ||
+-----------------------------------------------------------------------
+
+AUTO STRATEGY:
+    Starts on: 1
+    Controlled by...
+        Driver? false
+        Paths? false
+        Nothing? false
+    Strategies:
+         Hatch on the close side rocket
+         Hatch on the far side rocket
+
+    Notes:
+         2 Hatches on rocket
+
+
+TELEOP STRATEGY:
+    Prefers: None
+    Game Pieces Per Match: 24    Average Cycle Time (sec): 8
+    Strategies:
+
+    Notes:
+         idk about game pieces
+Do rocket first then cargo ship
+cycle time is for rocket
+
+
+
+GENERAL:
+    Climbs Level 2: false  Climbs Level 3: true
+    Reaches Level: 3      Intake: Both
+    Has...
+        Camera? true
+        LimeLight/Sensor? true
+        Presets? true
+        Over-Cargo Reach? true
+        Ramp? false
+    Mechanical issues (1-10): 0
+    Human Player Is: Integral
+    Strategy Is: Strong
+    Notes:
+         pretty sure they want their own human player
+succ climb
+they aren't going to do defense

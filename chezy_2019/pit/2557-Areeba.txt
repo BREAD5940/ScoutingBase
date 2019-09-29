@@ -1,0 +1,42 @@
+Scout name: Areeba
+Team Number: 2557  Team Name: SOTAbots
+Nicknames: ||
+-----------------------------------------------------------------------
+
+AUTO STRATEGY:
+    Starts on: 1
+    Controlled by...
+        Driver? true
+        Paths? false
+        Nothing? false
+    Strategies:
+
+    Notes:
+         Hatch panel, not sure where, go back to grab another
+
+
+TELEOP STRATEGY:
+    Prefers: None
+    Game Pieces Per Match: 12    Average Cycle Time (sec): 11
+    Strategies:
+         Rocket cargo
+         Rocket hatch
+
+    Notes:
+         fill rocket
+
+
+GENERAL:
+    Climbs Level 2: false  Climbs Level 3: true
+    Reaches Level: 3      Intake: Both
+    Has...
+        Camera? false
+        LimeLight/Sensor? true
+        Presets? true
+        Over-Cargo Reach? false
+        Ramp? false
+    Mechanical issues (1-10): 0
+    Human Player Is: Unnecessary
+    Strategy Is: Preferred
+    Notes:
+         Offense only 

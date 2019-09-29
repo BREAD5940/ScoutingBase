@@ -1,0 +1,43 @@
+Scout name: Claire Little
+Team Number: 604   Team Name: Quixilver
+Nicknames: ||
+-----------------------------------------------------------------------
+
+AUTO STRATEGY:
+    Starts on: 2
+    Controlled by...
+        Driver? true
+        Paths? false
+        Nothing? false
+    Strategies:
+
+    Notes:
+         
+
+
+TELEOP STRATEGY:
+    Prefers: Hatch
+    Game Pieces Per Match: 8    Average Cycle Time (sec): 0
+    Strategies:
+         Cargo ship cargo
+         Cargo ship hatch
+
+    Notes:
+         Do not know their cycle time.
+
+
+GENERAL:
+    Climbs Level 2: false  Climbs Level 3: true
+    Reaches Level: 1      Intake: Both
+    Has...
+        Camera? true
+        LimeLight/Sensor? true
+        Presets? true
+        Over-Cargo Reach? false
+        Ramp? false
+    Mechanical issues (1-10): 1
+    Human Player Is: Ideal
+    Strategy Is: Flexible
+    Notes:
+         Can outtake both sides
+Has pnuematic hook thing that makes there intake better (I got slightly confused)

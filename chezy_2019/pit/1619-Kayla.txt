@@ -1,0 +1,42 @@
+Scout name: Kayla
+Team Number: 1619  Team Name: Up-A-Creek
+Nicknames: ||
+-----------------------------------------------------------------------
+
+AUTO STRATEGY:
+    Starts on: 0
+    Controlled by...
+        Driver? true
+        Paths? false
+        Nothing? false
+    Strategies:
+
+    Notes:
+         Didnt specify their staring hab
+
+
+TELEOP STRATEGY:
+    Prefers: Both
+    Game Pieces Per Match: 10    Average Cycle Time (sec): 13
+    Strategies:
+         Cargo ship cargo
+         Cargo ship hatch
+
+    Notes:
+         
+
+
+GENERAL:
+    Climbs Level 2: false  Climbs Level 3: true
+    Reaches Level: 3      Intake: Both
+    Has...
+        Camera? true
+        LimeLight/Sensor? true
+        Presets? false
+        Over-Cargo Reach? false
+        Ramp? false
+    Mechanical issues (1-10): 0
+    Human Player Is: Unnecessary
+    Strategy Is: Preferred
+    Notes:
+         crossbow intake

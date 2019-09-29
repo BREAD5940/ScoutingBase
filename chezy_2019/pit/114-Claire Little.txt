@@ -1,0 +1,45 @@
+Scout name: Claire Little
+Team Number: 114   Team Name: Eaglestrike
+Nicknames: ||
+-----------------------------------------------------------------------
+
+AUTO STRATEGY:
+    Starts on: 0
+    Controlled by...
+        Driver? true
+        Paths? false
+        Nothing? false
+    Strategies:
+         Hatch on the close side rocket
+         Hatch on the far side rocket
+         Crosses line
+
+    Notes:
+         
+
+
+TELEOP STRATEGY:
+    Prefers: Both
+    Game Pieces Per Match: 13    Average Cycle Time (sec): 6
+    Strategies:
+         Rocket cargo
+         Rocket hatch
+
+    Notes:
+         Pretty flexible robot, can play defense if need. Strangly low center of gravity.
+
+
+GENERAL:
+    Climbs Level 2: false  Climbs Level 3: false
+    Reaches Level: 3      Intake: Both
+    Has...
+        Camera? true
+        LimeLight/Sensor? false
+        Presets? true
+        Over-Cargo Reach? true
+        Ramp? false
+    Mechanical issues (1-10): 0
+    Human Player Is: Ideal
+    Strategy Is: Flexible
+    Notes:
+         

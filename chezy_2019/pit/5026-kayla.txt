@@ -1,0 +1,48 @@
+Scout name: Kayla
+Team Number: 5026  Team Name: Iron Panthers
+Nicknames: ||
+-----------------------------------------------------------------------
+
+AUTO STRATEGY:
+    Starts on: 2
+    Controlled by...
+        Driver? true
+        Paths? false
+        Nothing? false
+    Strategies:
+         Hatch on the close side rocket
+         Hatch on the far side rocket
+         Hatch on the front of the cargo ship
+         Hatch elsewhere on the cargo ship
+
+    Notes:
+         They placve 1-2 hatch pannels on the lower levels , dosent matter where they are flexibe
+
+
+TELEOP STRATEGY:
+    Prefers: Both
+    Game Pieces Per Match: 7    Average Cycle Time (sec): 19
+    Strategies:
+         Cargo ship cargo
+         Cargo ship hatch
+         Rocket cargo
+         Rocket hatch
+
+    Notes:
+         They focus onb lower levels
+
+
+GENERAL:
+    Climbs Level 2: false  Climbs Level 3: true
+    Reaches Level: 3      Intake: Both
+    Has...
+        Camera? true
+        LimeLight/Sensor? false
+        Presets? true
+        Over-Cargo Reach? true
+        Ramp? false
+    Mechanical issues (1-10): 0
+    Human Player Is: Unnecessary
+    Strategy Is: Flexible
+    Notes:
+         Can can carry 2 other robots.

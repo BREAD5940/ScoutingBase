@@ -1,0 +1,46 @@
+Scout name: Areeba
+Team Number: 2046  Team Name: Bear Metal
+Nicknames: ||
+-----------------------------------------------------------------------
+
+AUTO STRATEGY:
+    Starts on: 2
+    Controlled by...
+        Driver? true
+        Paths? false
+        Nothing? false
+    Strategies:
+
+    Notes:
+         places hatch idk where
+
+
+TELEOP STRATEGY:
+    Prefers: None
+    Game Pieces Per Match: 15    Average Cycle Time (sec): 5
+    Strategies:
+         Cargo ship cargo
+         Cargo ship hatch
+         Rocket cargo
+         Rocket hatch
+
+    Notes:
+         solo rocket + 3 cargo ship bays
+
+didn't know cycle time
+
+
+GENERAL:
+    Climbs Level 2: false  Climbs Level 3: true
+    Reaches Level: 3      Intake: Both
+    Has...
+        Camera? true
+        LimeLight/Sensor? true
+        Presets? true
+        Over-Cargo Reach? false
+        Ramp? false
+    Mechanical issues (1-10): 0
+    Human Player Is: Unnecessary
+    Strategy Is: Preferred
+    Notes:
+         Can play both defense an offense, usually plays offense though

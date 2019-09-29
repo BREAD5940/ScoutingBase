@@ -1,0 +1,46 @@
+Scout name: kayla
+Team Number: 3309  Team Name: Friar Bots
+Nicknames: ||
+-----------------------------------------------------------------------
+
+AUTO STRATEGY:
+    Starts on: 2
+    Controlled by...
+        Driver? true
+        Paths? false
+        Nothing? false
+    Strategies:
+         Hatch on the close side rocket
+         Hatch on the far side rocket
+
+    Notes:
+         Can start on either, depends on alliance
+
+
+TELEOP STRATEGY:
+    Prefers: None
+    Game Pieces Per Match: 0    Average Cycle Time (sec): 0
+    Strategies:
+         Cargo ship cargo
+         Cargo ship hatch
+         Rocket cargo
+         Rocket hatch
+
+    Notes:
+         No preffered game peice, Very flexible when it comes to Strategy
+
+
+GENERAL:
+    Climbs Level 2: false  Climbs Level 3: true
+    Reaches Level: 3      Intake: Both
+    Has...
+        Camera? false
+        LimeLight/Sensor? true
+        Presets? true
+        Over-Cargo Reach? false
+        Ramp? false
+    Mechanical issues (1-10): 0
+    Human Player Is: Unnecessary
+    Strategy Is: Flexible
+    Notes:
+         Cant play defense

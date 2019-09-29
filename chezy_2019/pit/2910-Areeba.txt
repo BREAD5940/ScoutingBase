@@ -1,0 +1,47 @@
+Scout name: Areeba
+Team Number: 2910  Team Name: Jack in the Bot
+Nicknames: ||
+-----------------------------------------------------------------------
+
+AUTO STRATEGY:
+    Starts on: 2
+    Controlled by...
+        Driver? true
+        Paths? true
+        Nothing? false
+    Strategies:
+         Hatch on the front of the cargo ship
+         Hatch elsewhere on the cargo ship
+
+    Notes:
+         2 hatches on cargo ship + get another
+
+
+TELEOP STRATEGY:
+    Prefers: None
+    Game Pieces Per Match: 24    Average Cycle Time (sec): 11
+    Strategies:
+         Cargo ship cargo
+         Cargo ship hatch
+         Rocket cargo
+         Rocket hatch
+
+    Notes:
+         Said they could fill up 1st level of field- not sure about null hatch panels 
+First cargo ship, then rocket
+
+
+GENERAL:
+    Climbs Level 2: false  Climbs Level 3: false
+    Reaches Level: 1      Intake: Both
+    Has...
+        Camera? false
+        LimeLight/Sensor? true
+        Presets? true
+        Over-Cargo Reach? false
+        Ramp? false
+    Mechanical issues (1-10): 0
+    Human Player Is: Unnecessary
+    Strategy Is: Flexible
+    Notes:
+         Open to playing defense

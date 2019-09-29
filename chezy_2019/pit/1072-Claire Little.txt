@@ -1,0 +1,47 @@
+Scout name: Claire Little
+Team Number: 1072  Team Name: Harker Robotics
+Nicknames: |Can maybe reach over cargo, haven't tried but the have a longer intake, haven't tried but the have a longer intake|
+-----------------------------------------------------------------------
+
+AUTO STRATEGY:
+    Starts on: 2
+    Controlled by...
+        Driver? true
+        Paths? false
+        Nothing? false
+    Strategies:
+         Hatch on the close side rocket
+         Hatch on the front of the cargo ship
+
+    Notes:
+         I am 88% sure they don't have auto
+
+
+TELEOP STRATEGY:
+    Prefers: Both
+    Game Pieces Per Match: 8    Average Cycle Time (sec): 0
+    Strategies:
+         Cargo ship cargo
+         Cargo ship hatch
+         Rocket cargo
+         Rocket hatch
+
+    Notes:
+         They do not keep track of cycle time
+
+
+GENERAL:
+    Climbs Level 2: false  Climbs Level 3: false
+    Reaches Level: 2      Intake: Both
+    Has...
+        Camera? true
+        LimeLight/Sensor? true
+        Presets? false
+        Over-Cargo Reach? true
+        Ramp? false
+    Mechanical issues (1-10): 2
+    Human Player Is: Integral
+    Strategy Is: Preferred
+    Notes:
+         Newish driver 
+Has pass through 

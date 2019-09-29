@@ -1,0 +1,43 @@
+Scout name: Areeba
+Team Number: 1868  Team Name: Space Cookiese
+Nicknames: ||
+-----------------------------------------------------------------------
+
+AUTO STRATEGY:
+    Starts on: 2
+    Controlled by...
+        Driver? true
+        Paths? false
+        Nothing? false
+    Strategies:
+
+    Notes:
+         Hatch on cargo ship
+
+
+TELEOP STRATEGY:
+    Prefers: None
+    Game Pieces Per Match: 7    Average Cycle Time (sec): 15
+    Strategies:
+         Cargo ship cargo
+         Cargo ship hatch
+
+    Notes:
+         
+
+
+GENERAL:
+    Climbs Level 2: false  Climbs Level 3: true
+    Reaches Level: 1      Intake: Both
+    Has...
+        Camera? true
+        LimeLight/Sensor? true
+        Presets? true
+        Over-Cargo Reach? false
+        Ramp? false
+    Mechanical issues (1-10): 0
+    Human Player Is: Unnecessary
+    Strategy Is: Flexible
+    Notes:
+         Mostly plays offense, willing to play defense
+Inconsistent lvl 2 climb as well

@@ -1,0 +1,47 @@
+Scout name: Areeba
+Team Number: 2102  Team Name: Teram Paradox
+Nicknames: ||
+-----------------------------------------------------------------------
+
+AUTO STRATEGY:
+    Starts on: 2
+    Controlled by...
+        Driver? true
+        Paths? false
+        Nothing? false
+    Strategies:
+
+    Notes:
+         Starting hab is lvl 1 i think it's glitching bc it won't let me select level 1 only
+Use raspberry pi for vision
+2 hatch auto idk where
+
+
+TELEOP STRATEGY:
+    Prefers: None
+    Game Pieces Per Match: 6    Average Cycle Time (sec): 11
+    Strategies:
+         Cargo ship cargo
+         Cargo ship hatch
+         Rocket cargo
+         Rocket hatch
+
+    Notes:
+         cargo 12s hatch 10s
+cargo ship mostly before, have been practicing rocket lately
+
+
+GENERAL:
+    Climbs Level 2: false  Climbs Level 3: true
+    Reaches Level: 1      Intake: Both
+    Has...
+        Camera? true
+        LimeLight/Sensor? true
+        Presets? true
+        Over-Cargo Reach? false
+        Ramp? false
+    Mechanical issues (1-10): 0
+    Human Player Is: Ideal
+    Strategy Is: Preferred
+    Notes:
+         Offense

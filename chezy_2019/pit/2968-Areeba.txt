@@ -1,0 +1,49 @@
+Scout name: Areeba
+Team Number: 2968  Team Name: Viking Robotics
+Nicknames: ||
+-----------------------------------------------------------------------
+
+AUTO STRATEGY:
+    Starts on: 2
+    Controlled by...
+        Driver? true
+        Paths? false
+        Nothing? false
+    Strategies:
+
+    Notes:
+         2 limelights, front and back
+2 hatches basically anywhere
+
+
+TELEOP STRATEGY:
+    Prefers: None
+    Game Pieces Per Match: 11    Average Cycle Time (sec): 4
+    Strategies:
+         Cargo ship cargo
+         Cargo ship hatch
+         Flexible (describe in notes)
+
+    Notes:
+         cargo cycle time: 2-3s
+Hatch cycle time: 4-5s
+I would recommend checking if they're exaggerating or not
+Strategy depends, but they prefer cargo ship
+
+
+GENERAL:
+    Climbs Level 2: true  Climbs Level 3: false
+    Reaches Level: 3      Intake: Both
+    Has...
+        Camera? false
+        LimeLight/Sensor? true
+        Presets? true
+        Over-Cargo Reach? false
+        Ramp? false
+    Mechanical issues (1-10): 0
+    Human Player Is: Unnecessary
+    Strategy Is: Flexible
+    Notes:
+         Don't need lineup commands
+
+Known for defense in PNW

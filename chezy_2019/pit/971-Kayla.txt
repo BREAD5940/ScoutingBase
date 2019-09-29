@@ -1,0 +1,42 @@
+Scout name: Kayla
+Team Number: 971   Team Name: Spartan Robotics
+Nicknames: ||
+-----------------------------------------------------------------------
+
+AUTO STRATEGY:
+    Starts on: 2
+    Controlled by...
+        Driver? true
+        Paths? false
+        Nothing? false
+    Strategies:
+         Hatch on the close side rocket
+         Hatch on the front of the cargo ship
+
+    Notes:
+         
+
+
+TELEOP STRATEGY:
+    Prefers: None
+    Game Pieces Per Match: 15    Average Cycle Time (sec): 10
+    Strategies:
+
+    Notes:
+         focuseson Cargo ship and level 1 & 2 of rocket but can do level 3 if needed
+
+
+GENERAL:
+    Climbs Level 2: false  Climbs Level 3: false
+    Reaches Level: 3      Intake: Both
+    Has...
+        Camera? true
+        LimeLight/Sensor? true
+        Presets? true
+        Over-Cargo Reach? false
+        Ramp? false
+    Mechanical issues (1-10): 1
+    Human Player Is: Unnecessary
+    Strategy Is: Preferred
+    Notes:
+         

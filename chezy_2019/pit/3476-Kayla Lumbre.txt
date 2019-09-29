@@ -1,0 +1,40 @@
+Scout name: Kayla Lumbre
+Team Number: 3476  Team Name: Panther Robotics
+Nicknames: ||
+-----------------------------------------------------------------------
+
+AUTO STRATEGY:
+    Starts on: 2
+    Controlled by...
+        Driver? true
+        Paths? false
+        Nothing? false
+    Strategies:
+
+    Notes:
+         They "dont really care" about strategy
+
+
+TELEOP STRATEGY:
+    Prefers: Hatch
+    Game Pieces Per Match: 5    Average Cycle Time (sec): 0
+    Strategies:
+
+    Notes:
+         Very versitile, depends what other alliance members do and they dont know the average cycle time
+
+
+GENERAL:
+    Climbs Level 2: true  Climbs Level 3: false
+    Reaches Level: 3      Intake: Cargo
+    Has...
+        Camera? true
+        LimeLight/Sensor? false
+        Presets? false
+        Over-Cargo Reach? true
+        Ramp? false
+    Mechanical issues (1-10): 0
+    Human Player Is: Unnecessary
+    Strategy Is: Flexible
+    Notes:
+         I was interveiwing the human player and she didnt seem too sure of her answers

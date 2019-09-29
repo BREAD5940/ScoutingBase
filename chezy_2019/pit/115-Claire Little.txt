@@ -1,0 +1,46 @@
+Scout name: Claire Little
+Team Number: 115   Team Name: MVRT
+Nicknames: ||
+-----------------------------------------------------------------------
+
+AUTO STRATEGY:
+    Starts on: 0
+    Controlled by...
+        Driver? true
+        Paths? false
+        Nothing? false
+    Strategies:
+         Hatch on the front of the cargo ship
+         Hatch elsewhere on the cargo ship
+
+    Notes:
+         
+
+
+TELEOP STRATEGY:
+    Prefers: Both
+    Game Pieces Per Match: 7    Average Cycle Time (sec): 9
+    Strategies:
+         Cargo ship cargo
+         Cargo ship hatch
+         Rocket cargo
+         Rocket hatch
+
+    Notes:
+         Tries to fill everything 1st lvl for half the field. Slightly faster at cargo.
+
+
+GENERAL:
+    Climbs Level 2: true  Climbs Level 3: false
+    Reaches Level: 1      Intake: Both
+    Has...
+        Camera? true
+        LimeLight/Sensor? true
+        Presets? true
+        Over-Cargo Reach? false
+        Ramp? false
+    Mechanical issues (1-10): 0
+    Human Player Is: Ideal
+    Strategy Is: Preferred
+    Notes:
+         Intake can move 180 degrees, so can flip from scoring on one side to the other.

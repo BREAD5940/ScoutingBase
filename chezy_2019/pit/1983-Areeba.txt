@@ -1,0 +1,43 @@
+Scout name: Areeba
+Team Number: 1983  Team Name: Skunk Works Robotics
+Nicknames: ||
+-----------------------------------------------------------------------
+
+AUTO STRATEGY:
+    Starts on: 2
+    Controlled by...
+        Driver? true
+        Paths? false
+        Nothing? false
+    Strategies:
+
+    Notes:
+         
+
+
+TELEOP STRATEGY:
+    Prefers: None
+    Game Pieces Per Match: 12    Average Cycle Time (sec): 9
+    Strategies:
+         Rocket cargo
+         Rocket hatch
+
+    Notes:
+         try to fill rocket
+
+
+GENERAL:
+    Climbs Level 2: false  Climbs Level 3: true
+    Reaches Level: 3      Intake: Both
+    Has...
+        Camera? true
+        LimeLight/Sensor? false
+        Presets? false
+        Over-Cargo Reach? false
+        Ramp? false
+    Mechanical issues (1-10): 0
+    Human Player Is: Ideal
+    Strategy Is: Strong
+    Notes:
+         Want their own human player
+seem to stick to offense and rocket
