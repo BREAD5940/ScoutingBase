@@ -1,0 +1,38 @@
+IS FULLY SYNCED WITH TBA: true
+1619  (null/Up-A-Creek Robotics) 
+Sponsors: Seagate Technology&The GEAR Alliance
+Nicknames: ||
+-----------------------------------------------------------------------
+
+Groups: ||
+Consistantly Off the Hab? true    Most Common Starting Hab: 1    Maximum Starting Hab: 1
+Starting Hab Levels (By Match): |1,1,1,1,1|
+
+Is Ramp Bot? false                 Most Common Scale Level: 3     Maximum Scale Level: 3
+Scale Levels (By Match): |3,3,3,1,1|
+
+Total Ranking Points: 11    Hab-Related RPs: 3    Rocket-Realted RPs: 4    Filled Rockets: 0
+
+Average Fouls Per Match: 0.50    Average Tech Fouls Per Match: 0.00
+Total Yellow Cards: 0           Total Red Cards: 0
+Total Emergency Stops: 0        Total Robot Breakages: 0
+
+Average Game Pieces Placed (Sandstorm): 2.13
+Average Hatch Panel Placement:    Average Cargo Placement:
+    Cargo Ship: 1.50                  Cargo Ship: 1.63
+    Rocket: 4.63                      Rocket: 4.25
+    Dropped: 1.25                     Dropped: 1.25
+
+Match Number | Note
+          49 | fluid movement, score d despite defense, level 3 with suction arm
+          19 | 
+           4 | dropped a lot of cargo
+          41 | challenged by defense
+
+-----------------------------------------------------------------------
+
+MATCHES: 
+1619,Qualifier,41,Red 2,false,0,0,2,0,0,0,2,0,2,0,2,0,0,0,3,false,1,false,0,0,false,false,false,false,59,59,1,false,false,false,true,true,|challenged by defense|
+1619,Qualifier,49,Blue 3,true,0,0,3,1,1,1,1,1,4,1,4,1,1,0,3,false,1,false,0,0,false,false,false,false,86,86,4,false,false,true,true,true,|fluid movement, score d despite defense, level 3 with suction arm|
+1619,Qualifier,4,Red 2,false,1,1,3,1,2,0,2,1,2,0,2,0,2,0,3,false,1,false,0,0,false,false,false,false,83,83,2,false,false,true,true,true,|dropped a lot of cargo|
+1619,Qualifier,19,Red 3,false,1,1,5,1,1,0,1,0,6,0,6,0,1,0,1,false,1,false,1,0,false,false,false,false,96,93,4,false,false,true,true,true,||

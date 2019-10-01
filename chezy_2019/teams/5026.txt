@@ -1,0 +1,38 @@
+IS FULLY SYNCED WITH TBA: true
+5026  (null/Iron Panthers) 
+Sponsors: Google / BAE / Intuitive Surgical / Datron / OSIsoft / Solidworks / San Mateo Union High School Gate Parents Group / Iron Panther Families & Burlingame High School
+Nicknames: ||
+-----------------------------------------------------------------------
+
+Groups: ||
+Consistantly Off the Hab? true    Most Common Starting Hab: 2    Maximum Starting Hab: 2
+Starting Hab Levels (By Match): |2,2,1,2,2|
+
+Is Ramp Bot? false                 Most Common Scale Level: 1     Maximum Scale Level: 3
+Scale Levels (By Match): |0,1,3,1,1|
+
+Total Ranking Points: 11    Hab-Related RPs: 3    Rocket-Realted RPs: 2    Filled Rockets: 0
+
+Average Fouls Per Match: 0.00    Average Tech Fouls Per Match: 0.00
+Total Yellow Cards: 0           Total Red Cards: 0
+Total Emergency Stops: 0        Total Robot Breakages: 1
+
+Average Game Pieces Placed (Sandstorm): 2.44
+Average Hatch Panel Placement:    Average Cargo Placement:
+    Cargo Ship: 1.75                  Cargo Ship: 1.13
+    Rocket: 2.75                      Rocket: 2.56
+    Dropped: 3.25                     Dropped: 3.25
+
+Match Number | Note
+          51 | raised 3 robots to level 3
+          23 | attempted to assist hab climb but could not hold up the robots..  .  dropped some hatches.  played defence for a while.
+          40 | played petty good defense. got in between opponent and rocket
+          13 | played effective defense
+
+-----------------------------------------------------------------------
+
+MATCHES: 
+5026,Qualifier,51,Blue 3,true,0,0,1,1,1,1,3,1,2,1,2,1,1,0,0,false,2,false,0,0,false,false,false,false,87,84,3,false,false,true,false,true,|raised 3 robots to level 3|
+5026,Qualifier,23,Red 2,false,1,1,0,1,2,1,1,0,3,0,3,0,1,1,1,false,2,false,0,0,false,false,false,false,54,54,0,false,false,false,false,true,|attempted to assist hab climb but could not hold up the robots..  .  dropped some hatches.  played defence for a while.|
+5026,Qualifier,40,Blue 1,true,1,1,3,1,2,1,1,0,2,0,2,0,1,1,3,false,1,false,0,0,false,false,false,true,87,87,4,false,false,true,true,true,|played petty good defense. got in between opponent and rocket|
+5026,Qualifier,13,Red 3,false,1,1,2,1,3,1,0,1,3,0,3,0,1,0,1,false,2,false,0,0,false,false,false,false,107,104,4,false,false,true,true,true,|played effective defense|

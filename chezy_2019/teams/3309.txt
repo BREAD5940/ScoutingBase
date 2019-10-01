@@ -1,0 +1,38 @@
+IS FULLY SYNCED WITH TBA: true
+3309  (null/Friarbots) 
+Sponsors: The Boeing Company / Hamrock / McLaren / Google / Ganahl Lumber / II-VI Optical Systems / Apple / Raytheon / The Stump Family / First American Title / Will-Mann / Serra Laser / VXB Bearings / SoCal Devs / Reliable Sheet Metal / Vision Miner & Cornelia Connelly School & Servite High School
+Nicknames: ||
+-----------------------------------------------------------------------
+
+Groups: ||
+Consistantly Off the Hab? true    Most Common Starting Hab: 1    Maximum Starting Hab: 1
+Starting Hab Levels (By Match): |1,1,1,1,1|
+
+Is Ramp Bot? false                 Most Common Scale Level: 3     Maximum Scale Level: 3
+Scale Levels (By Match): |3,3,0,3,3|
+
+Total Ranking Points: 13    Hab-Related RPs: 3    Rocket-Realted RPs: 4    Filled Rockets: 0
+
+Average Fouls Per Match: 0.94    Average Tech Fouls Per Match: 0.88
+Total Yellow Cards: 0           Total Red Cards: 0
+Total Emergency Stops: 0        Total Robot Breakages: 1
+
+Average Game Pieces Placed (Sandstorm): 2.19
+Average Hatch Panel Placement:    Average Cargo Placement:
+    Cargo Ship: 1.50                  Cargo Ship: 1.50
+    Rocket: 3.75                      Rocket: 4.38
+    Dropped: 1.75                     Dropped: 1.75
+
+Match Number | Note
+          53 | focused on hatches.  woukd pick
+          41 | no climb, fast fluid movement, scored despite defense
+          27 | played defense
+          14 | fluid movement
+
+-----------------------------------------------------------------------
+
+MATCHES: 
+3309,Qualifier,14,Red 1,false,3,1,4,2,1,1,2,0,4,0,4,0,1,0,3,false,1,false,1,0,false,false,false,true,97,97,4,false,false,true,true,true,|fluid movement|
+3309,Qualifier,27,Red 2,false,1,1,2,1,0,1,1,0,3,0,3,0,3,0,3,false,1,false,1,1,false,false,false,false,77,68,4,false,false,true,true,true,|played defense|
+3309,Qualifier,41,Red 3,false,1,1,3,1,1,1,3,0,4,1,4,1,1,0,0,false,1,false,1,1,false,false,false,false,59,59,1,false,false,false,true,true,|no climb, fast fluid movement, scored despite defense|
+3309,Qualifier,53,Red 3,false,1,0,3,1,1,1,1,0,4,1,4,1,1,0,3,false,1,false,1,1,false,false,false,false,83,83,4,false,false,true,true,true,|focused on hatches.  woukd pick|

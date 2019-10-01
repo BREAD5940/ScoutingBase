@@ -1,0 +1,36 @@
+IS FULLY SYNCED WITH TBA: true
+971   (null/Spartan Robotics) 
+Sponsors: NASA / NASA Ames Research Center / Google / Apple / Abbott Fund / Auris Health / Peleton Technology / DSS SolidWorks / The Linley Group / Lockheed-Martin / Nvidia / Mountain View High School PTSA / Markforged Inc. / Intuitive Surgical / West Coast Products / Automation Direct / Creative Manufacturing Solutions / Group Manufacturing Services / Harmonic Drive & Mountain View High School
+Nicknames: ||
+-----------------------------------------------------------------------
+
+Groups: ||
+Consistantly Off the Hab? true    Most Common Starting Hab: 2    Maximum Starting Hab: 2
+Starting Hab Levels (By Match): |1,2,2,2|
+
+Is Ramp Bot? false                 Most Common Scale Level: 3     Maximum Scale Level: 3
+Scale Levels (By Match): |2,0,3,3|
+
+Total Ranking Points: 8    Hab-Related RPs: 2    Rocket-Realted RPs: 2    Filled Rockets: 0
+
+Average Fouls Per Match: 0.00    Average Tech Fouls Per Match: 0.00
+Total Yellow Cards: 0           Total Red Cards: 0
+Total Emergency Stops: 0        Total Robot Breakages: 0
+
+Average Game Pieces Placed (Sandstorm): 0.50
+Average Hatch Panel Placement:    Average Cargo Placement:
+    Cargo Ship: 1.00                  Cargo Ship: 1.00
+    Rocket: 3.00                      Rocket: 2.00
+    Dropped: 1.00                     Dropped: 1.00
+
+Match Number | Note
+          16 | fellover
+           1 | spent time not doing much didn't score during sandstorm
+          52 | it did the wrong auto path during sandstorm and placed hatches where there already was hatches
+
+-----------------------------------------------------------------------
+
+MATCHES: 
+971,Qualifier,1,Red 1,false,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,false,1,false,0,0,false,false,false,false,106,106,4,false,false,true,true,true,|spent time not doing much didn't score during sandstorm|
+971,Qualifier,16,Red 3,false,0,2,4,0,0,0,0,0,0,0,0,0,0,0,0,false,2,false,0,0,false,false,false,false,69,56,0,false,false,false,false,true,|fellover|
+971,Qualifier,52,Blue 2,true,1,0,4,0,0,2,2,0,4,0,4,0,1,0,3,false,2,false,0,0,false,false,false,false,85,82,4,false,false,true,true,true,|it did the wrong auto path during sandstorm and placed hatches where there already was hatches|

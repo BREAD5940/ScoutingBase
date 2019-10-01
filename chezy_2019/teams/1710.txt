@@ -1,0 +1,38 @@
+IS FULLY SYNCED WITH TBA: true
+1710  (null/The Ravonics Revolution) 
+Sponsors: Rockwell Automation / Top Notch Heating and Cooling / Imagine Dental and Summit Dental / Olathe Chamber of Commerce / Olathe Public Schools Foundation / Orizon Aerostructures / Mark and Beverly Belgya / Olathe Public Schools / Chipotle / Mitchell Capitol / Visolution, Inc. / Comfort Inn / DST Systems / Garmin / KC STEM Alliance / People's State Bank / Reproductive Resources, LLC / Robert Brogden's Olathe Buick-GMC Truck / Robert and Kathleen Stout / Sarah and James Donley / Sherman Family Foundation / US Engineering / Webco Manufacturing / John and Mary Sherman & Olathe Northwest High School
+Nicknames: ||
+-----------------------------------------------------------------------
+
+Groups: ||
+Consistantly Off the Hab? true    Most Common Starting Hab: 1    Maximum Starting Hab: 1
+Starting Hab Levels (By Match): |1,1,1,1,1|
+
+Is Ramp Bot? false                 Most Common Scale Level: 1     Maximum Scale Level: 1
+Scale Levels (By Match): |1,0,1,0,0|
+
+Total Ranking Points: 1    Hab-Related RPs: 1    Rocket-Realted RPs: 0    Filled Rockets: 0
+
+Average Fouls Per Match: 2.00    Average Tech Fouls Per Match: 0.00
+Total Yellow Cards: 0           Total Red Cards: 0
+Total Emergency Stops: 0        Total Robot Breakages: 3
+
+Average Game Pieces Placed (Sandstorm): 1.56
+Average Hatch Panel Placement:    Average Cargo Placement:
+    Cargo Ship: 1.56                  Cargo Ship: 1.13
+    Rocket: 2.81                      Rocket: 1.50
+    Dropped: 2.50                     Dropped: 2.50
+
+Match Number | Note
+          48 | hatch outtake was pretty bad. didn't make of on hab
+          19 | hard time getting cargo in. not great
+           6 | played good defense, broke and reconnected a few times towards the end
+          43 | outside frame perimeter on blue side. stayed in the middle of the field for a while
+
+-----------------------------------------------------------------------
+
+MATCHES: 
+1710,Qualifier,19,Blue 1,true,1,0,0,1,2,0,2,0,0,0,0,0,2,0,1,false,1,false,0,0,false,false,false,false,44,41,0,false,false,false,false,true,|hard time getting cargo in. not great|
+1710,Qualifier,6,Red 1,false,0,0,6,0,0,1,0,0,6,0,6,0,1,0,0,false,1,false,0,0,false,false,false,true,48,48,0,false,false,false,false,true,|played good defense, broke and reconnected a few times towards the end|
+1710,Qualifier,43,Red 1,false,1,1,1,1,2,1,2,0,1,0,1,0,1,1,1,false,1,false,4,0,false,false,false,true,75,75,1,false,false,true,false,true,|outside frame perimeter on blue side. stayed in the middle of the field for a while|
+1710,Qualifier,48,Red 3,false,1,1,2,1,2,1,1,0,1,0,1,0,2,1,0,false,1,false,2,0,false,false,false,true,57,54,0,false,false,false,false,true,|hatch outtake was pretty bad. didn't make of on hab|

@@ -1,0 +1,36 @@
+IS FULLY SYNCED WITH TBA: true
+1983  (null/Skunk Works Robotics) 
+Sponsors: The Boeing Company/Lockheed Martin/OmanTek&4H
+Nicknames: ||
+-----------------------------------------------------------------------
+
+Groups: ||
+Consistantly Off the Hab? true    Most Common Starting Hab: 2    Maximum Starting Hab: 2
+Starting Hab Levels (By Match): |2,2,1,1|
+
+Is Ramp Bot? false                 Most Common Scale Level: 3     Maximum Scale Level: 3
+Scale Levels (By Match): |2,3,3,3|
+
+Total Ranking Points: 10    Hab-Related RPs: 3    Rocket-Realted RPs: 1    Filled Rockets: 0
+
+Average Fouls Per Match: 0.75    Average Tech Fouls Per Match: 0.75
+Total Yellow Cards: 0           Total Red Cards: 0
+Total Emergency Stops: 0        Total Robot Breakages: 0
+
+Average Game Pieces Placed (Sandstorm): 2.50
+Average Hatch Panel Placement:    Average Cargo Placement:
+    Cargo Ship: 1.75                  Cargo Ship: 3.75
+    Rocket: 3.63                      Rocket: 2.38
+    Dropped: 2.25                     Dropped: 2.25
+
+Match Number | Note
+          48 | hatchp focus didn't see score
+          26 | got a hatch stuck on their intake, took a while but got it off
+          43 | got blocked
+
+-----------------------------------------------------------------------
+
+MATCHES: 
+1983,Qualifier,26,Red 3,false,1,1,4,1,1,1,4,0,1,0,1,0,2,1,2,false,2,false,0,0,false,false,false,false,81,81,3,false,false,true,false,true,|got a hatch stuck on their intake, took a while but got it off|
+1983,Qualifier,43,Blue 3,true,1,1,1,1,1,1,3,0,2,1,2,1,1,0,3,false,2,false,1,1,false,false,false,false,128,95,4,false,false,true,true,true,|got blocked|
+1983,Qualifier,48,Blue 1,true,1,1,4,1,2,1,5,0,2,1,2,1,1,0,3,false,1,false,1,1,false,false,false,false,67,67,3,false,false,true,false,true,|hatchp focus didn't see score|

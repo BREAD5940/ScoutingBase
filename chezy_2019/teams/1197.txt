@@ -1,0 +1,32 @@
+IS FULLY SYNCED WITH TBA: true
+1197  (null/TorBots) 
+Sponsors: SolidWorks/Northrop Grumman/John Deere/Praxair/Raytheon/The Boeing Company/SAGE Millimeter, Inc./LA Solar Group/The Johnson Family/Moog Aircraft Group/Torrance Education Foundation/Blue Robotics/LA Stagecall/Torrance Refinery Company/Masimo Corp./Mastercam/MathWorks&South High School
+Nicknames: ||
+-----------------------------------------------------------------------
+
+Groups: ||
+Consistantly Off the Hab? true    Most Common Starting Hab: 1    Maximum Starting Hab: 1
+Starting Hab Levels (By Match): ||
+
+Is Ramp Bot? false                 Most Common Scale Level: 1     Maximum Scale Level: 1
+Scale Levels (By Match): ||
+
+Total Ranking Points: 3    Hab-Related RPs: 1    Rocket-Realted RPs: 0    Filled Rockets: 0
+
+Average Fouls Per Match: 0.50    Average Tech Fouls Per Match: 0.50
+Total Yellow Cards: 0           Total Red Cards: 0
+Total Emergency Stops: 0        Total Robot Breakages: 0
+
+Average Game Pieces Placed (Sandstorm): 1.00
+Average Hatch Panel Placement:    Average Cargo Placement:
+    Cargo Ship: 1.00                  Cargo Ship: 0.50
+    Rocket: 1.50                      Rocket: 1.50
+    Dropped: 0.50                     Dropped: 0.50
+
+Match Number | Note
+          28 | defense
+
+-----------------------------------------------------------------------
+
+MATCHES: 
+1197,Qualifier,28,Red 3,false,1,1,2,1,0,1,1,0,3,0,3,0,3,0,1,false,1,false,1,1,false,false,false,false,66,66,3,false,false,true,false,true,|defense|

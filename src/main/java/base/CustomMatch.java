@@ -131,19 +131,25 @@ public class CustomMatch{
             this.scoreBreakdown = foundMatch.getRedScoreBreakdown();
         }
 
-        //sync fouls
-        if(this.fouls > (Long)scoreBreakdown.get("foulCount")){
-            Lib.report(String.format("Fouls for match %d, alliance position %s are more than the total fouls. %nReported fouls: %d%nTotal fouls: %d",
-                         this.matchNum, this.alliancePosition, this.fouls, this.scoreBreakdown.get("foulCount")));
-            this.fouls = (Long)scoreBreakdown.get("foulCount");
-        }
+        System.out.println(this.scoreBreakdown);
 
-        //sync tech fouls
-        if(this.techs > (Long)scoreBreakdown.get("techFoulCount")){
-            Lib.report(String.format("Tech fouls for match %d, alliance position %s are more than the total tech fouls. %nReported tech fouls: %d%nTotal fouls: %d",
-                        this.matchNum, this.alliancePosition, this.techs, this.scoreBreakdown.get("techFoulCount"))); 
-            this.techs = (Long)scoreBreakdown.get("techFoulCount");
-        }
+        //FIXME get hekd i guess
+
+//        //sync fouls
+//        System.out.println(this.fouls);
+//        System.out.println(scoreBreakdown.get("foulCount"));
+//        if(this.fouls > (Long)scoreBreakdown.get("foulCount")){
+//            Lib.report(String.format("Fouls for match %d, alliance position %s are more than the total fouls. %nReported fouls: %d%nTotal fouls: %d",
+//                         this.matchNum, this.alliancePosition, this.fouls, this.scoreBreakdown.get("foulCount")));
+//            this.fouls = (Long)scoreBreakdown.get("foulCount");
+//        }
+//
+//        //sync tech fouls
+//        if(this.techs > (Long)scoreBreakdown.get("techFoulCount")){
+//            Lib.report(String.format("Tech fouls for match %d, alliance position %s are more than the total tech fouls. %nReported tech fouls: %d%nTotal fouls: %d",
+//                        this.matchNum, this.alliancePosition, this.techs, this.scoreBreakdown.get("techFoulCount")));
+//            this.techs = (Long)scoreBreakdown.get("techFoulCount");
+//        }
 
         //get the points excluding points from fouls
         this.nonFoulPoints = this.points - ((Long)this.scoreBreakdown.get("foulPoints")).intValue();
@@ -159,8 +165,8 @@ public class CustomMatch{
         //get the number of ranking points
         this.rankingPoints = ((Long)this.scoreBreakdown.get("rp")).intValue();
 
-        this.rRocket = (boolean)this.scoreBreakdown.get("completedRocketNear");
-        this.lRocket = (boolean)this.scoreBreakdown.get("completedRocketFar");
+//        this.rRocket = (boolean)this.scoreBreakdown.get("completedRocketNear");
+//        this.lRocket = (boolean)this.scoreBreakdown.get("completedRocketFar");
 
         this.habRP = (boolean)this.scoreBreakdown.get("habDockingRankingPoint");
         this.crRP = (boolean)this.scoreBreakdown.get("completeRocketRankingPoint");

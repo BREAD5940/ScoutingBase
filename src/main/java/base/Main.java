@@ -20,6 +20,9 @@ public class Main {
     public static DataRecoveryThread matchRecoveryThread;
     public static DataRecoveryThread teamRecoveryThread;
 
+//    public static ArrayList<CustomTeam> teamSearchResults = new ArrayList<>();
+    public static CustomTeam teamResult;
+
     public enum Windows {
         adminSignIn("/layouts/adminSignIn.fxml"), newSession("/layouts/newSession.fxml"),
         pitAssignEdit("/layouts/pitAssignEdit.fxml"), pitAssignView("/layouts/pitAssignView.fxml"),
@@ -89,6 +92,40 @@ public class Main {
         TBA.setAuthToken("OPynqKt8K0vueAXqxZzdigY9OBYK3KMgQQrsM4l8jE5cBmGfByhy6YzVIb2Ts7xD");
         tbaApi = new TBA();
         List<Session> tempActiveSessions= Lib.recoverAllSessions();
+
+        for(Session sesh : tempActiveSessions){
+            activeSessions.put(sesh.toString(), sesh);
+//            Lib.report
+        }
+
+        currentSession = activeSessions.get("Chezy");
+        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/geran.csv"));
+        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/matt.csv"));
+        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/nick.csv"));
+        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/thomas.csv"));
+
+        openTeams.addAll(Lib.generateTeams(currentSession.eventDir+"teams.csv"));
+
+        for(CustomMatch match : openMatches){
+            match.syncTBA();
+        }
+
+        for(CustomTeam team : openTeams){
+            for(CustomMatch match : openMatches){
+                if(match.getTeamNum()==team.getNumber()){
+                    team.addMatch(match);
+                }
+            }
+            team.syncTBA();
+        }
+
+        Lib.saveTeams(openTeams, currentSession.eventDir);
+
+        for(CustomTeam team : openTeams){
+            team.sendToTxt(currentSession.eventDir+"teams/");
+        }
+
+        openTeams.clear();
 
         for(Session sesh : tempActiveSessions){
             activeSessions.put(sesh.toString(), sesh);

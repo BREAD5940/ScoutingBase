@@ -68,7 +68,9 @@ public class StandEntryControl extends Application implements ControlInterface{
         file = chooser.showOpenDialog(getStage());
         // TODO: Copy the file to the stand section of active session data directory (sac_2019/data/stand)
         try {
-            Files.copy(file.toPath(), Paths.get(Main.currentSession.dataDir + "stand/" + file.getName()));
+            System.out.println(file.getName());
+//            file.renameTo(new File(Main.currentSession.eventDir+file.getName()));
+            Files.copy(Paths.get(file.getPath()), Paths.get(Main.currentSession.dataDir + "stand/" + file.getName()));
         } catch (IOException e) {
             e.printStackTrace();
         }

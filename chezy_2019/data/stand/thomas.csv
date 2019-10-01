@@ -1,0 +1,46 @@
+Qualifier,1,254,Red 2,1,0,0,0,0,2,0,1,4,1,0,3,0,3,0,0,false,false,false,106,|trouble placing hatch precisely, not super impacted by defense|
+Qualifier,2,2733,Blue 1,1,0,0,0,0,1,0,1,4,1,0,4,1,2,0,0,false,false,false,65,|trouble getting hatches player station|
+Qualifier,3,115,Red 2,2,1,0,0,1,1,0,1,2,2,1,4,2,1,0,0,false,false,false,42,|dropped a lot|
+Qualifier,4,1619,Red 2,1,1,0,0,1,1,0,2,2,2,1,3,2,3,0,0,false,false,false,83,|dropped a lot of cargo|
+Qualifier,5,2557,Blue 3,1,1,0,0,1,1,0,2,1,1,1,2,2,2,0,0,false,false,false,52,||
+Qualifier,6,1072,Red 2,2,1,0,0,1,1,0,2,1,1,1,2,2,1,0,0,false,false,false,48,|super slow. wrist jammed|
+Qualifier,7,2928,Red 2,1,1,0,0,1,1,0,1,2,1,1,2,3,2,0,0,false,false,false,68,|hard time picking up hatches. intake not good. jumped to level 2.|
+Qualifier,8,3218,Blue 2,1,1,0,0,1,1,0,0,2,1,1,2,3,0,0,0,false,false,false,69,|elevation slow. can move sideways. tryed to clime to level 2.|
+Qualifier,9,5700,Blue 2,1,0,0,0,1,1,0,0,3,1,1,2,3,0,0,0,false,false,false,80,||
+Qualifier,11,4183,Red 2,1,0,0,0,1,1,1,2,3,1,1,2,3,0,0,0,false,false,false,42,|very vary bad at connecting hatches. |
+Qualifier,12,3647,Red 2,1,1,0,0,1,1,1,0,3,1,1,2,3,1,0,0,false,false,false,50,||
+Qualifier,13,5026,Red 3,2,1,0,0,1,1,1,0,3,1,1,2,3,1,0,0,false,false,false,50,|played effective defense|
+Qualifier,16,649,Red 1,1,1,0,0,1,1,1,0,3,1,1,1,3,0,0,1,false,false,false,69,|fast, can't get around defense|
+Qualifier,17,114,Red 1,1,0,0,0,1,1,1,1,4,1,1,3,3,1,0,1,false,false,false,85,|fast fluid movement|
+Qualifier,18,6443,Red 3,2,0,0,0,1,1,0,1,4,1,1,3,1,3,0,1,false,false,false,72,|played defense, |
+Qualifier,19,1619,Red 3,1,0,0,0,1,1,0,1,6,1,1,5,1,1,0,1,false,false,false,96,||
+Qualifier,20,2102,Red 1,1,0,0,0,1,1,1,1,6,1,1,5,1,1,0,1,false,false,false,62,|defense, tried to climb and fell|
+Qualifier,21,4414,Blue 1,2,0,0,0,1,1,1,1,6,3,1,2,1,0,0,1,false,false,false,69,|struggled to pick up hatch panels, got defended, popped a cargo|
+Qualifier,22,1678,Blue 1,1,0,0,0,1,1,1,2,4,3,1,5,1,3,0,1,false,false,false,84,||
+Qualifier,23,696,Red 1,2,0,0,0,1,1,1,4,4,1,1,5,1,1,0,1,false,false,false,54,|dropped a lot, unreliable outtake|
+Qualifier,24,3647,Blue 1,2,0,0,0,1,1,1,3,2,1,1,1,2,1,0,1,false,false,false,53,|dropped a few, failed to pick up hatch panel occasionally|
+Qualifier,25,5818,Red 1,2,0,0,0,2,1,1,1,2,1,1,2,0,3,0,1,false,false,false,67,|struggled a little when defended|
+Qualifier,26,3218,Red 2,1,0,0,0,1,1,1,1,3,3,1,2,0,1,0,1,false,false,false,81,|dropped a lot, defended at rocket, rammed teammates|
+Qualifier,27,3309,Red 2,1,0,0,0,1,1,1,1,3,3,1,2,0,3,1,1,false,false,false,66,|played defense|
+Qualifier,28,1197,Red 3,1,0,0,0,1,1,1,1,3,3,1,2,0,1,1,1,false,false,false,66,|defense|
+Qualifier,30,846,Red 3,1,0,1,0,1,1,1,1,1,3,0,4,5,1,1,1,false,false,false,70,|was attacked|
+Qualifier,34,2930,Blue 3,1,0,1,0,1,1,1,5,2,3,2,1,5,2,1,1,false,false,false,103,|scored under defense|
+Qualifier,35,254,Blue 3,1,0,1,0,1,2,1,4,5,3,1,1,5,3,1,1,false,false,false,101,||
+Qualifier,36,1678,Red 3,1,0,1,0,1,1,1,4,4,3,1,3,5,3,1,1,false,false,false,84,|fast, scored while blocked|
+Qualifier,37,649,Red 3,1,0,1,0,1,1,1,1,2,3,1,3,5,3,1,1,false,false,false,55,|climb by moving frame up elevator, see illustration. some pieces took a few tries to deposit|
+Qualifier,38,115,Red 3,2,0,1,0,1,1,1,1,2,2,3,3,5,2,1,1,false,false,false,57,|flips intake backwards to push for climb, struggled with defense|
+Qualifier,39,5507,Red 3,1,0,1,0,1,1,1,3,2,2,1,2,1,0,1,1,false,false,false,76,|fast consistent cycle time, level 2 by using intake with back support wheels|
+Qualifier,40,3476,Red 3,1,0,1,0,1,1,1,1,2,1,1,2,1,1,1,1,false,false,false,77,|fast smooth movement,climbed with z arm|
+Qualifier,41,3309,Red 3,1,0,1,0,1,1,1,3,4,1,1,3,1,0,1,1,false,false,false,59,|no climb, fast fluid movement, scored despite defense|
+Qualifier,42,1072,Red 3,2,0,1,0,1,1,1,3,2,1,1,1,1,1,1,1,false,false,false,51,|was blocked for entire match|
+Qualifier,43,1983,Blue 3,2,0,1,0,1,1,1,3,2,1,1,1,1,3,1,1,false,false,false,128,|got blocked|
+Qualifier,44,5940,Blue 3,1,0,1,0,1,1,1,3,2,1,1,1,1,0,1,1,false,false,false,46,|got rammed and fell over at start|
+Qualifier,45,4183,Blue 3,1,0,1,0,1,1,1,5,2,1,1,1,1,1,1,1,false,false,false,69,|a little slow, only did cargo ship|
+Qualifier,47,2910,Blue 2,2,0,1,0,2,1,1,5,2,1,1,1,2,3,1,1,false,false,false,74,|focused on hatch panels, moves well|
+Qualifier,48,1983,Blue 1,2,0,1,0,1,1,1,5,2,1,1,4,2,3,1,1,false,false,false,0,|hatchp focus didn't see score|
+Qualifier,49,604,Blue 2,2,0,1,0,1,1,1,3,0,2,1,2,2,3,1,1,false,false,false,86,|flips onto hab 3|
+Qualifier,50,696,Blue 2,2,0,1,0,1,1,1,3,0,1,1,1,1,3,1,1,false,false,false,58,|look like spider when climb|
+Qualifier,51,5818,Red 3,1,0,1,0,1,1,1,3,1,1,1,2,1,3,1,1,false,false,false,87,|DONT PICK THEY ARE MEAN THEY BROKE OUR ENCODERS|
+Qualifier,52,2930,Red 2,1,0,1,0,1,1,1,3,1,1,1,2,1,1,1,1,false,false,false,67,|played defense whole time against poofs and temporarily lost connection|
+Qualifier,53,3309,Red 3,1,0,1,0,0,1,1,1,4,1,1,3,1,3,1,1,false,false,false,83,|focused on hatches
+woukd pick|

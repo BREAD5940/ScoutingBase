@@ -1,0 +1,36 @@
+IS FULLY SYNCED WITH TBA: true
+3476  (null/Code Orange) 
+Sponsors: Code Orange Robotics, Inc./Lasergraphics/Applied Medical/UST Global, Inc./Boeing/Western Digital/Exact Industries&Neighborhood Group
+Nicknames: ||
+-----------------------------------------------------------------------
+
+Groups: ||
+Consistantly Off the Hab? true    Most Common Starting Hab: 1    Maximum Starting Hab: 1
+Starting Hab Levels (By Match): |1,1,1,1|
+
+Is Ramp Bot? false                 Most Common Scale Level: 3     Maximum Scale Level: 3
+Scale Levels (By Match): |3,0,1,1|
+
+Total Ranking Points: 5    Hab-Related RPs: 1    Rocket-Realted RPs: 2    Filled Rockets: 0
+
+Average Fouls Per Match: 0.63    Average Tech Fouls Per Match: 0.50
+Total Yellow Cards: 0           Total Red Cards: 0
+Total Emergency Stops: 0        Total Robot Breakages: 0
+
+Average Game Pieces Placed (Sandstorm): 2.13
+Average Hatch Panel Placement:    Average Cargo Placement:
+    Cargo Ship: 1.50                  Cargo Ship: 2.13
+    Rocket: 2.50                      Rocket: 2.25
+    Dropped: 1.75                     Dropped: 1.75
+
+Match Number | Note
+          40 | fast smooth movement,climbed with z arm
+          29 | went on defence (not super effective against citrus), stopped moving, but started moving again at the last part to go back to hab. not sure what happened there
+          14 | turning elevator, intake got stuck on top lvl rocket after putting cargo in  
+
+-----------------------------------------------------------------------
+
+MATCHES: 
+3476,Qualifier,14,Blue 1,true,0,0,3,1,1,1,5,0,4,0,4,0,0,0,3,false,1,false,1,0,false,false,false,false,78,78,2,false,false,true,true,true,|turning elevator, intake got stuck on top lvl rocket after putting cargo in  |
+3476,Qualifier,29,Red 2,false,1,1,1,1,1,1,4,0,1,0,1,0,2,1,0,false,1,false,0,0,false,false,false,false,77,77,2,false,false,false,false,true,|went on defence (not super effective against citrus), stopped moving, but started moving again at the last part to go back to hab. not sure what happened there|
+3476,Qualifier,40,Red 3,false,1,1,2,1,1,1,1,0,2,1,2,1,1,0,1,false,1,false,1,1,false,false,false,false,77,77,1,false,false,false,true,true,|fast smooth movement,climbed with z arm|

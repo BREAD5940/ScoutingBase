@@ -1,0 +1,38 @@
+IS FULLY SYNCED WITH TBA: true
+254   (null/The Cheesy Poofs) 
+Sponsors: NASA Ames Research Center/Apple/Google/Lockheed Martin/Innovation First International/Analog Devices/West Coast Products/AMEX Plating/Gilbert Spray Coat/Applied Welding/Auris Health/Carbon 3D/BAE Systems/Seabed VC/The Magarelli Family/Intuitive Surgical/Vivid-Hosting/Dropbox&Bellarmine College Preparatory
+Nicknames: ||
+-----------------------------------------------------------------------
+
+Groups: ||
+Consistantly Off the Hab? true    Most Common Starting Hab: 1    Maximum Starting Hab: 1
+Starting Hab Levels (By Match): |1,1,1,1,1|
+
+Is Ramp Bot? false                 Most Common Scale Level: 3     Maximum Scale Level: 3
+Scale Levels (By Match): |1,3,3,3,3|
+
+Total Ranking Points: 15    Hab-Related RPs: 4    Rocket-Realted RPs: 3    Filled Rockets: 0
+
+Average Fouls Per Match: 0.56    Average Tech Fouls Per Match: 0.50
+Total Yellow Cards: 0           Total Red Cards: 0
+Total Emergency Stops: 0        Total Robot Breakages: 0
+
+Average Game Pieces Placed (Sandstorm): 3.19
+Average Hatch Panel Placement:    Average Cargo Placement:
+    Cargo Ship: 1.13                  Cargo Ship: 2.88
+    Rocket: 3.38                      Rocket: 4.44
+    Dropped: 3.75                     Dropped: 3.75
+
+Match Number | Note
+           1 | trouble placing hatch precisely, not super impacted by defense
+          35 | 
+          52 | got blocked very hard
+          28 | was really shut down by 6443
+
+-----------------------------------------------------------------------
+
+MATCHES: 
+254,Qualifier,28,Red 1,false,1,1,2,2,1,1,2,0,1,0,1,0,1,0,1,false,1,false,1,0,false,false,false,false,66,66,3,false,false,true,false,true,|was really shut down by 6443|
+254,Qualifier,52,Blue 3,true,0,0,1,2,4,1,3,1,2,1,2,1,1,0,3,false,1,false,0,0,false,false,false,false,85,82,4,false,false,true,true,true,|got blocked very hard|
+254,Qualifier,1,Red 2,false,0,0,3,2,0,0,1,0,4,0,4,0,1,0,3,false,1,false,0,0,false,false,false,false,106,106,4,false,false,true,true,true,|trouble placing hatch precisely, not super impacted by defense|
+254,Qualifier,35,Blue 3,true,1,1,1,2,5,1,4,0,5,1,5,1,3,0,3,false,1,false,1,1,false,false,false,false,101,101,4,false,false,true,true,true,||

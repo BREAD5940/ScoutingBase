@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.effect.Lighting?>
 <?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base.controllers.TeamSearchControl">
+<VBox prefHeight="752.0" prefWidth="1288.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -54,9 +53,9 @@
         </Menu>
       </menus>
     </MenuBar>
-    <AnchorPane fx:id="basePane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane fx:id="basePane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="726.0" prefWidth="1283.0" VBox.vgrow="ALWAYS">
          <children>
-            <Button fx:id="backButton" graphicTextGap="0.0" layoutX="14.0" layoutY="14.0" onAction="#handleBack" pickOnBounds="true" prefHeight="26.0" prefWidth="54.0" style="-fx-background-color: #ffffff;" text="Back" textAlignment="CENTER">
+            <Button fx:id="backButton" graphicTextGap="0.0" layoutX="14.0" layoutY="14.0" onAction="#handleBackButton" pickOnBounds="true" prefHeight="26.0" prefWidth="54.0" style="-fx-background-color: #ffffff;" text="Back" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -68,37 +67,13 @@
                   </Lighting>
                </effect>
             </Button>
-            <Label layoutX="208.0" layoutY="44.0" text="Team Search">
+            <Label layoutX="542.0" layoutY="33.0" text="Team Name">
                <font>
                   <Font name="System Bold" size="36.0" />
                </font>
             </Label>
-            <TextField fx:id="numberBox" layoutX="27.0" layoutY="204.0" prefHeight="27.0" prefWidth="184.0" />
-            <Label layoutX="268.0" layoutY="115.0" prefHeight="26.0" prefWidth="95.0" text="Search by......">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <TextField fx:id="nameBox" layoutX="224.0" layoutY="204.0" prefHeight="27.0" prefWidth="184.0" />
-            <TextField fx:id="nicknameBox" layoutX="423.0" layoutY="204.0" prefHeight="27.0" prefWidth="184.0" />
-            <Label layoutX="88.0" layoutY="174.0" prefHeight="26.0" prefWidth="62.0" text="Number">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="292.0" layoutY="173.0" prefHeight="26.0" prefWidth="48.0" text="Name">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="454.0" layoutY="174.0" prefHeight="26.0" prefWidth="122.0" text="Nickname (beta)">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Button fx:id="goNumber" layoutX="93.0" layoutY="250.0" mnemonicParsing="false" onAction="#handleGoNumber" text="Go" />
-            <Button fx:id="goNickname" layoutX="489.0" layoutY="250.0" mnemonicParsing="false" onAction="#handleGoNickname" text="Go" />
-            <Button fx:id="goName" layoutX="290.0" layoutY="250.0" mnemonicParsing="false" onAction="#handleGoName" text="Go" />
+            <TextArea fx:id="teamText" editable="false" layoutX="18.0" layoutY="87.0" prefHeight="639.0" prefWidth="614.0" />
+            <TextArea fx:id="pitText" editable="false" layoutX="643.0" layoutY="87.0" prefHeight="639.0" prefWidth="614.0" />
          </children>
     </AnchorPane>
   </children>
