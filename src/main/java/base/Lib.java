@@ -256,6 +256,7 @@ public class Lib {
         }
     }
 
+
     public static List<CustomTeam> recoverTeams(String eventDir){
         List<CustomTeam> recovered = new ArrayList<>();
         int recoverFails = 0;
@@ -275,6 +276,42 @@ public class Lib {
 
         return recovered;
     }
+    // Scouter management
+    public static void saveScouter(Scouter scouter, String eventDir) {
+        saveScouters(new ArrayList<>(Arrays.asList(scouter)), eventDir);
+    }
+
+    public static void saveScouters(List<Scouter> scouters, String eventDir) {
+        for(Scouter scouter : scouters){
+            try{
+                mapper.writeValue(new File(eventDir + "backups/scouters/" + scouter.getName() + ".json"), scouter);
+            }catch (Exception e){
+                report("write failed for scouter " + scouter.getName());
+                report(e.toString());
+            }
+        }
+    }
+    public static List<Scouter> recoverScouters(String eventDir){
+        List<Scouter> recovered = new ArrayList<>();
+        int recoverFails = 0;
+
+        File[] files = new File(eventDir+"backups/scouters/").listFiles();
+
+        for(File file : files){
+            try{
+                recovered.add(mapper.readValue(file, Scouter.class));
+            }catch(Exception e){
+                report("recover failed");
+                report(e.toString());
+                recoverFails++;
+            }
+        }
+        report(recoverFails+" RECOVER FAILURES");
+
+        return recovered;
+    }
+
+
 
     /**
      * Search for a team by it's team number
