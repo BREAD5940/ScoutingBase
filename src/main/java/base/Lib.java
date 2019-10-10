@@ -276,6 +276,45 @@ public class Lib {
 
         return recovered;
     }
+    // StandRotation management
+    public static void saveStandRotation(StandRotation standRotation, String eventDir) {
+        saveStandRotations(new ArrayList<>(Arrays.asList(standRotation)), eventDir);
+    }
+
+    public static void saveStandRotations(List<StandRotation> standRotations, String eventDir) {
+        for(StandRotation standRotation : standRotations){
+            try{
+                mapper.writeValue(new File(eventDir + "backups/standRotations/" + standRotation.getScouters().toString()
+                        + '-' + standRotation.getTime().toString() + ".json"), standRotation);
+            }catch (Exception e){
+                report("write failed for stand rotation " +  standRotation.getScouters().toString()
+                        + '-' + standRotation.getTime().toString());
+                report(e.toString());
+            }
+        }
+    }
+    public static List<Scouter> recoverStandRotations(String eventDir){
+        List<StandRotation> recovered = new ArrayList<>();
+        int recoverFails = 0;
+
+        File[] files = new File(eventDir+"backups/standRotations/").listFiles();
+
+        for(File file : files){
+            try{
+                recovered.add(mapper.readValue(file, StandRotation.class));
+            }catch(Exception e){
+                report("recover failed");
+                report(e.toString());
+                recoverFails++;
+            }
+        }
+        report(recoverFails+" RECOVER FAILURES");
+
+        return recovered;
+    }
+
+
+
     // Scouter management
     public static void saveScouter(Scouter scouter, String eventDir) {
         saveScouters(new ArrayList<>(Arrays.asList(scouter)), eventDir);
