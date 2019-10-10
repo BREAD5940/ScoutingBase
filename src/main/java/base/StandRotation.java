@@ -10,7 +10,7 @@ public class StandRotation {
     public String station; // Station scouters are assigned to
     public Scouter[] scouters; // List of the two scouters
 
-    public Scouter(LocalDate date, LocalTime time, String station, Scouter scoutA, Scouter scoutB) {
+    public StandRotation(LocalDate date, LocalTime time, String station, Scouter scoutA, Scouter scoutB) {
         this.date = date;
         this.time = time;
         this.station = station;
