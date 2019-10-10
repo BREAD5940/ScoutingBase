@@ -6,13 +6,15 @@ package base;
 
 public class StandRotation {
     public LocalDate date; // Date of assignment
-    public LocalTime time; // Time of assignment
+    public LocalTime startTime; // Time of assignment
+    public LocalTime endTime;
     public String station; // Station scouters are assigned to
     public Scouter[] scouters; // List of the two scouters
 
-    public StandRotation(LocalDate date, LocalTime time, String station, Scouter scoutA, Scouter scoutB) {
+    public StandRotation(LocalDate date, LocalTime startTime, LocalTime endTime, String station, Scouter scoutA, Scouter scoutB) {
         this.date = date;
-        this.time = time;
+        this.startTime = startTime;
+        this.endTime = endTime;
         this.station = station;
         this.scouters = [scoutA, scoutB];
     }
@@ -21,8 +23,12 @@ public class StandRotation {
         return date;
     }
 
-    public LocalTime getTime() {
-        return time;
+    public LocalTime getEndTime() {
+        return endTime;
+    }
+
+    public LocalTime getStartTime() {
+        return startTime;
     }
 
     public Scouter[] getScouters() {
@@ -41,8 +47,12 @@ public class StandRotation {
         this.scouters = scouters;
     }
 
-    public void setTime(LocalTime time) {
-        this.time = time;
+    public void setEndTime(LocalTime endTime) {
+        this.endTime = endTime;
+    }
+
+    public void setStartTime(LocalTime startTime) {
+        this.startTime = startTime;
     }
 
     public void setStation(String station) {
