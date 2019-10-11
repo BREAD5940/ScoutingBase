@@ -1,16 +1,22 @@
 package base;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.nio.channels.NotYetConnectedException;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.temporal.TemporalUnit;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.IntStream;
 
 import com.opencsv.CSVReader;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import base.Main.Windows;
@@ -27,6 +33,8 @@ import javafx.scene.layout.*;
 import javafx.scene.*;
 import javafx.fxml.*;
 import javafx.application.Application;
+
+import static java.util.concurrent.TimeUnit.HOURS;
 
 
 public class Lib {
@@ -277,6 +285,39 @@ public class Lib {
         return recovered;
     }
     // StandRotation management
+
+    public static List<StandRotation> buildStandRotationAssignments(List<Scouter> scouters, List<LocalTime> startTimes, LocalDate date, String station) {
+        Collections.sort(startTimes);
+        Collections.shuffle(scouters); // for fairnesss
+        List<StandRotation> rotations;
+        for (LocalTime time : startTimes) {
+            List<Array> possibleAssignments;
+            for (int a : IntStream.range(0,scouters.size()).toArray() ) {
+                for (int b : IntStream.range(a,scouters.size()).toArray()) {
+                    if (a != b) {
+                        Scouter[] arr = new Scouter[2];
+                        arr[0] = scouters.get(a);
+                        arr[1] = scouters.get(b);
+                        possibleAssignments.add( arr);
+                    }
+                }
+
+            }
+            // Now, we've populated possibleAssignments with all possible scouter assignment pairs.
+
+            for (List<Scouter> assignment : possibleAssignments) {
+                // Make sure there are no scouters who have just scouted
+                if (CollectionUtils.intersection(assignment, rotations.get(rotations.size() - 1)).size() == 0) {
+                    rotations += StandRotation(date, time, time.plus(1, TemporalUnit(HOURS)), station,
+                            assignment);
+                    break;
+                }
+                System.out.println("No assignment possible :c.");
+            }
+        }
+
+    }
+
     public static void saveStandRotation(StandRotation standRotation, String eventDir) {
         saveStandRotations(new ArrayList<>(Arrays.asList(standRotation)), eventDir);
     }
@@ -285,10 +326,10 @@ public class Lib {
         for(StandRotation standRotation : standRotations){
             try{
                 mapper.writeValue(new File(eventDir + "backups/standRotations/" + standRotation.getScouters().toString()
-                        + '-' + standRotation.getTime().toString() + ".json"), standRotation);
+                        + '-' + standRotation.getStartTime().toString() + ".json"), standRotation);
             }catch (Exception e){
                 report("write failed for stand rotation " +  standRotation.getScouters().toString()
-                        + '-' + standRotation.getTime().toString());
+                        + '-' + standRotation.getStartTime().toString());
                 report(e.toString());
             }
         }

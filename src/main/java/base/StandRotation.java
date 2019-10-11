@@ -2,7 +2,6 @@ package base;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-package base;
 
 public class StandRotation {
     public LocalDate date; // Date of assignment
@@ -11,12 +10,12 @@ public class StandRotation {
     public String station; // Station scouters are assigned to
     public Scouter[] scouters; // List of the two scouters
 
-    public StandRotation(LocalDate date, LocalTime startTime, LocalTime endTime, String station, Scouter scoutA, Scouter scoutB) {
+    public StandRotation(LocalDate date, LocalTime startTime, LocalTime endTime, String station, Scouter[] scouters) {
         this.date = date;
         this.startTime = startTime;
         this.endTime = endTime;
         this.station = station;
-        this.scouters = [scoutA, scoutB];
+        this.scouters = scouters;
     }
 
     public LocalDate getDate() {
