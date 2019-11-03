@@ -186,11 +186,11 @@ src\main\python\twoHatchLLtest.csv
 build/distributions/ScoutingBase.tar
 build/distributions/ScoutingBase.zip
 build/libs/ScoutingBase.jar
-Offseason-Croissant/
-# src/main/java/base/CustomMatch.java
-# src/main/java/base/Lib.java
 
 *.json
-
 .idea/*
 .idea
+/out/production/*
+/chezy_2019/teams/*.txt
+/ccc_2019/teams/*.txt
+/sac_2019/teams/*.txt

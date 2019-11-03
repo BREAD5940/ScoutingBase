@@ -98,11 +98,13 @@ public class Main {
 //            Lib.report
         }
 
-        currentSession = activeSessions.get("Chezy");
+        currentSession = activeSessions.get("CCC");
         openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/geran.csv"));
         openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/matt.csv"));
         openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/nick.csv"));
         openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/thomas.csv"));
+        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/claire.csv"));
+        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/max.csv"));
 
         openTeams.addAll(Lib.generateTeams(currentSession.eventDir+"teams.csv"));
 

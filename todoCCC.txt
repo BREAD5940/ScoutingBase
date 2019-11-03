@@ -1,0 +1,2 @@
+limit match number box to 2 char
+show team number on data screen

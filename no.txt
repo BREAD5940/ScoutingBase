@@ -1,0 +1,29 @@
+%4d  --  %s
+-----------------------------------------------------------------------
+
+Most common starting hab: %1d
+
+Average game pieces in sandstorm: %2d
+
+AVERAGE HATCH PANELS:                     AVERAGE CARGO:
+	Cargo ship: %2d                             Cargo ship: %2d
+	Rocket: %2d                                 Rocket: %2d
+	Dropped: %2d                                Dropped: %2d
+
+Most common scale level: %1d                 Is assistant? %b
+	
+Average fouls: %3d                         Average tech fouls: %3d
+
+TOTAL yellow cards: %3d                    TOTAL red cards: %3d
+
+TOTAL E-stops: %3d                         TOTAL partial breaks: %3d
+
+-------------------------------------------------------------------------
+NOTES:
+
+Qualifier number     |  Note
+%2d                   | %s
+
+
+MATCHES:
+Number | Position | Starting Hab Level | S.S. Cargo in Ship | SS Cargo in Rocket | SS Cargo Dropped | SS Hatch in Ship | SS Hatch in Rocket | SS Hatch Dropped | Game Cargo in Ship | Game Cargo in Rocket | Game Cargo Dropped | Game Hatch in Ship | Game Hatch in Rocket | Game Hatch Dropped | Scale | Tech Foul | Foul | Yellow Card | Red Card |

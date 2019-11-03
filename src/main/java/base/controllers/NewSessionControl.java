@@ -59,7 +59,7 @@ public class NewSessionControl extends Application implements ControlInterface{
     }
 
     @FXML public void handleSubmit(ActionEvent event){
-        Session tempSesh = new Session(Integer.valueOf(year.getText()), name.getText(), tbaKey.getText(), dir.getAbsolutePath(), colorPicker.getValue());
+        Session tempSesh = new Session(Integer.valueOf(year.getText()), name.getText(), tbaKey.getText(), dir.getAbsolutePath()+"/", colorPicker.getValue());
         Main.activeSessions.put(name.getText(),tempSesh);
 //        Lib.report(Main.activeSessions.get(0).toString());
         Lib.saveSession(tempSesh);
