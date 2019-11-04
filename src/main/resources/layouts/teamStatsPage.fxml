@@ -268,6 +268,29 @@
             <Circle fx:id="consistTwelve" fill="#bdbdbd" layoutX="706.0" layoutY="465.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
             <Circle fx:id="consistFifteen" fill="#bdbdbd" layoutX="768.0" layoutY="465.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
             <Circle fx:id="consistFourteen" fill="#bdbdbd" layoutX="747.0" layoutY="465.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+
+
+             <fx:define>
+                 <ArrayList fx:id="consistCircles" >
+                     <fx:reference source="consistOne"/>
+                     <fx:reference source="consistTwo"/>
+                     <fx:reference source="consistThree"/>
+                     <fx:reference source="consistFour"/>
+                     <fx:reference source="consistFive"/>
+                     <fx:reference source="consistSix"/>
+                     <fx:reference source="consistSeven"/>
+                     <fx:reference source="consistEight"/>
+                     <fx:reference source="consistNine"/>
+                     <fx:reference source="consistTen"/>
+                     <fx:reference source="consistEleven"/>
+                     <fx:reference source="consistTwelve"/>
+                     <fx:reference source="consistThirteen"/>
+                     <fx:reference source="consistFourteen"/>
+                     <fx:reference source="consistFifteen"/>
+                 </ArrayList>
+             </fx:define>
+
+
             <TableView fx:id="noteTable" layoutX="95.0" layoutY="536.0" prefHeight="200.0" prefWidth="742.0">
               <columns>
                 <TableColumn fx:id="qColumn" prefWidth="38.4000244140625" text="Q" />

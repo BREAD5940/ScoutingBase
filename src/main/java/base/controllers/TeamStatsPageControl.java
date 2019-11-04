@@ -5,6 +5,8 @@ import base.CustomTeam;
 import base.Lib;
 import base.Main;
 import javafx.application.Application;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -157,11 +159,11 @@ public class TeamStatsPageControl extends Application implements ControlInterfac
         this.teamNum.setText("Team "+this.passedTeam.getNumber());
         this.teamName.setText(this.passedTeam.getTbaName());
         
-        this.driverRankMatchAxis.getCategories().add("Rank");
+        this.driverRankMatchAxis.getCategories().addAll("Rank");
         XYChart.Series<String, Integer> driverRankDataSeries = new XYChart.Series<>();
         driverRankDataSeries.setName("Rank");
         
-        this.sandstormPlacementMatchAxis.getCategories().add("Placed");
+        this.sandstormPlacementMatchAxis.getCategories().addAll("Placed");
         XYChart.Series<String, Integer> sandStormPlaceDataSeries = new XYChart.Series<>();
         sandStormPlaceDataSeries.setName("Placed");
 
@@ -216,13 +218,13 @@ public class TeamStatsPageControl extends Application implements ControlInterfac
                     this.climbCircles.get(i-1).setFill(Color.web("#00a9cf"));
             }
 
-//            if(openMatch.getEStopped()){ fixme uncomment
-//                this.consistCircles.get(i-1).setFill(Color.web("#ff7300"));
-//            }else if(openMatch.getBorked()){
-//                this.consistCircles.get(i-1).setFill(Color.web("#ff0000"));
-//            }else{
-//                this.consistCircles.get(i-1).setFill(Color.web("#0cba00"));
-//            }
+            if(openMatch.getEStopped()){
+                this.consistCircles.get(i-1).setFill(Color.web("#ff7300"));
+            }else if(openMatch.getBorked()){
+                this.consistCircles.get(i-1).setFill(Color.web("#ff0000"));
+            }else{
+                this.consistCircles.get(i-1).setFill(Color.web("#0cba00"));
+            }
             this.noteTable.getItems().add(new NotesModel("Q"+i, openMatch.getMatchNum(), openMatch.getAlliancePosition(), openMatch.getMatchNotes()));
             
         }
@@ -248,26 +250,26 @@ public class TeamStatsPageControl extends Application implements ControlInterfac
     @Override
     public void handleBack(ActionEvent event) { ControlInterface.super.handleBack(event);}
 
-    class NotesModel{
-        private String qNum, station, note;
-        private Integer matchNum;
-        public NotesModel(String qNum, int matchNum, String station, String note){
-            this.qNum = qNum;
-            this.matchNum = matchNum;
-            this.station = station;
-            this.note = note;
+    public static class NotesModel{
+        private SimpleStringProperty qNum, station, note;
+        private SimpleIntegerProperty matchNum;
+        NotesModel(String qNum, int matchNum, String station, String note){
+            this.qNum = new SimpleStringProperty(qNum);
+            this.matchNum = new SimpleIntegerProperty(matchNum);
+            this.station = new SimpleStringProperty(station);
+            this.note = new SimpleStringProperty(note);
         }
 
-        public String getqNum(){return this.qNum;}
-        public void setqNum(String num){this.qNum = num;}
+        public String getQNum(){return this.qNum.get();}
+        public void setQNum(String num){this.qNum = new SimpleStringProperty(num);}
         
-        public String getStation(){return this.station;}
-        public void setStation(String station){this.station = station;}
+        public String getStation(){return this.station.get();}
+        public void setStation(String station){this.station = new SimpleStringProperty(station);}
         
-        public String getNote(){return this.note;}
-        public void setNote(String note){this.note=note;}
+        public String getNote(){return this.note.get();}
+        public void setNote(String note){this.note=new SimpleStringProperty(note);}
         
-        public Integer getMatchNum(){return this.matchNum;}
-        public void setMatchNum(int matchNum){this.matchNum=matchNum;}
+        public Integer getMatchNum(){return this.matchNum.get();}
+        public void setMatchNum(int matchNum){this.matchNum=new SimpleIntegerProperty(matchNum);}
     }
 }
