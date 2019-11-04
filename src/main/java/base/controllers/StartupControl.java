@@ -66,8 +66,8 @@ public class StartupControl extends Application implements ControlInterface{
         Main.currentSession = Main.activeSessions.get(sessionSelect.getValue());
         Main.teamRecoveryThread = new DataRecoveryThread(true);
         Main.matchRecoveryThread = new DataRecoveryThread(false);
-        Main.teamRecoveryThread.start();
-        Main.matchRecoveryThread.start();
+//        Main.teamRecoveryThread.start(); FIXME uncomment this
+//        Main.matchRecoveryThread.start();
         Lib.pageChangeRequest(Windows.sessionLaunch, false, this);
     }
 

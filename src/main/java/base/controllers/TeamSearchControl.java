@@ -20,8 +20,11 @@ public class TeamSearchControl extends Application implements ControlInterface {
     @FXML
     Label sessionTitle;
 
-    @FXML
-    TextField numberBox;
+    @FXML TextField numberBox;
+    
+    @FXML TextField nameBox;
+    
+    @FXML TextField nicknameBox;
 
     @Override
     public Main.Windows getPreviousPage() {
@@ -59,10 +62,29 @@ public class TeamSearchControl extends Application implements ControlInterface {
         try {
             Main.teamResult = Lib.searchForTeamNumber((int) Integer.valueOf(this.numberBox.getText()), Main.openTeams);
         }catch(Exception e){
-
+            Lib.report("Team not found");
         }
-
-
+        Lib.pageChangeRequest(Main.Windows.teamStatsPage, false, this.getThis());
+    }
+    
+    @FXML
+    public void handleGoName(ActionEvent event){
+        try{
+            Main.teamResult = Lib.searchForTeamName(this.nameBox.getText(), Main.openTeams);
+        }catch (Exception e){
+            Lib.report("Team not found");
+        }
+        Lib.pageChangeRequest(Main.Windows.teamStatsPage, false, this.getThis());
+    }
+    
+    @FXML
+    public void handleGoNickname(ActionEvent event){
+        try{
+            Main.teamResult = Lib.searchForRobotNickname(this.nicknameBox.getText(), Main.openTeams);
+        }catch(Exception e) {
+            Lib.report("Team not found");
+        }
+        Lib.pageChangeRequest(Main.Windows.teamStatsPage, false, this.getThis());
     }
 
 //    private <T extends Application & ControlInterface> void prankPageChange(){

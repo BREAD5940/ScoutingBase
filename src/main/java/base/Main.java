@@ -33,7 +33,7 @@ public class Main {
         standRotViewAll("/layouts/standRotViewAll.fxml"), startup("/layouts/startup.fxml"),
         statsOffline("/layouts/statsOffline.fxml"), teamCompare("/layouts/teamCompare.fxml"),
         teamSearch("/layouts/teamSearch.fxml"), statsOnline("/layouts/statsOnline.fxml"),
-        teamSearchResults("/layouts/teamSearchResults.fxml");
+        teamSearchResults("/layouts/teamSearchResults.fxml"), teamStatsPage("/layouts/teamStatsPage.fxml");
         public String filePath;
 
         private Windows(String filePath) {
@@ -63,6 +63,7 @@ public class Main {
             put(Windows.standEntry, new StandEntryControl());
             put(Windows.standLaunch, new StandLaunchControl());
             put(Windows.teamSearch, new TeamSearchControl());
+            put(Windows.teamStatsPage, new TeamStatsPageControl());
         }
     };
 
@@ -127,7 +128,7 @@ public class Main {
             team.sendToTxt(currentSession.eventDir+"teams/");
         }
 
-        openTeams.clear();
+//        openTeams.clear();
 
         for(Session sesh : tempActiveSessions){
             activeSessions.put(sesh.toString(), sesh);

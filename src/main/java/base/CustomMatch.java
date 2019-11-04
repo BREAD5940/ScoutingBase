@@ -48,6 +48,8 @@ public class CustomMatch{
     HashMap<String, Object> scoreBreakdown;
     private boolean tbaSynced = false;
 
+    private int driverRank;
+
     private String matchNotes;
 
     
@@ -103,6 +105,14 @@ public class CustomMatch{
     public int sandPlaces(){
         return HPShipSand+HPRocketSand+CShipSand+CRocketSand;
     }
+    public int totalHatch() {return HPRocketGame+HPRocketSand+HPShipGame+HPShipSand;}
+    public int totalCargo() { return CRocketGame+CRocketSand+CShipGame+CShipSand;}
+    public int totalRocketHatch() { return HPRocketGame+HPRocketSand;}
+    public int totalRocketCargo() { return CRocketSand+CRocketGame;}
+    public int totalShipHatch() { return  HPShipSand+HPShipGame;}
+    public int totalShipCargo() {return CShipSand+CShipGame;}
+    public int totalDropHatch() {return HPDropGame+HPDropSand;}
+    public int totalDropCargo() { return CDropGame+CDropSand;}
 
     public void syncTBA(){
         Match foundMatch = new Match();
@@ -214,6 +224,12 @@ public class CustomMatch{
 
 
 
+    public int getDriverRank(){ return this.driverRank; }
+
+    public void setDriverRank(int rank) {
+        this.driverRank = rank;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
 
     public int getTeamNum() {
         return this.teamNum;
