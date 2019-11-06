@@ -74,5 +74,10 @@ public class PitLaunchControl extends Application implements ControlInterface{
     public void handleEditAssign(ActionEvent event){
         Lib.pageChangeRequest(Main.Windows.pitAssignEdit, false, this.getThis());
     }
+    
+    @Override
+    public void initialize() {
+        ControlInterface.super.initialize();
+    }
 
 }

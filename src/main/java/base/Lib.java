@@ -451,6 +451,7 @@ public class Lib {
                 report(newApp.getName().toString());
                 newApp.start(new Stage());
             }catch(Exception e){
+                e.printStackTrace();
                 report(e.toString());
             }
             report(app.getName().toString());

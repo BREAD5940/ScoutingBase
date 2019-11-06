@@ -95,22 +95,22 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <BarChart fx:id="driverRankChart" layoutX="77.0" layoutY="135.0" prefHeight="194.0" prefWidth="238.0" title="Driver Rank">
+            <StackedBarChart fx:id="driverRankChart" layoutX="77.0" layoutY="135.0" prefHeight="194.0" prefWidth="238.0" title="Driver Rank">
               <xAxis>
                 <CategoryAxis fx:id="driverRankMatchAxis" autoRanging="false" label="Match" side="BOTTOM" />
               </xAxis>
               <yAxis>
-                <NumberAxis autoRanging="false" label="Rank" lowerBound="1.0" minorTickCount="0" minorTickVisible="false" side="LEFT" tickUnit="1.0" upperBound="5.0" />
+                <NumberAxis autoRanging="false" label="Rank" lowerBound="0.0" minorTickCount="0" minorTickVisible="false" side="LEFT" tickUnit="1.0" upperBound="5.0" />
               </yAxis>
-            </BarChart>
-            <BarChart fx:id="sandstormPlacementChart" layoutX="603.0" layoutY="135.0" prefHeight="194.0" prefWidth="238.0" title="Sandstorm Placement">
+            </StackedBarChart>
+            <StackedBarChart fx:id="sandstormPlacementChart" layoutX="603.0" layoutY="135.0" prefHeight="194.0" prefWidth="238.0" title="Sandstorm Placement">
                <xAxis>
                   <CategoryAxis fx:id="sandstormPlacementMatchAxis" autoRanging="false" label="Match" side="BOTTOM" />
                </xAxis>
                <yAxis>
-                  <NumberAxis autoRanging="false" label="# Placed" lowerBound="1.0" minorTickCount="2" side="LEFT" tickUnit="2.0" upperBound="5.0" />
+                  <NumberAxis autoRanging="false" label="# Placed" lowerBound="0.0" minorTickCount="2" side="LEFT" tickUnit="2.0" upperBound="5.0" />
                </yAxis>
-            </BarChart>
+            </StackedBarChart>
             <StackedBarChart fx:id="totalPlacementChart" layoutX="352.0" layoutY="135.0" prefHeight="194.0" prefWidth="238.0" title="Total Placement">
               <xAxis>
                 <CategoryAxis fx:id="totalPlacementMatchAxis" label="Match" side="BOTTOM" />

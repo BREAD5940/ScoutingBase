@@ -5,7 +5,7 @@ import java.util.HashMap;
 import com.cpjd.models.matches.Match;
 import com.cpjd.utils.exceptions.DataNotFoundException;
 
-public class CustomMatch{
+public class CustomMatch implements Comparable<CustomMatch>{
 
     private int teamNum;
     private String matchType;
@@ -113,6 +113,12 @@ public class CustomMatch{
     public int totalShipCargo() {return CShipSand+CShipGame;}
     public int totalDropHatch() {return HPDropGame+HPDropSand;}
     public int totalDropCargo() { return CDropGame+CDropSand;}
+    
+    @Override
+    public int compareTo(CustomMatch match){
+        int compareNum = match.getMatchNum();
+        return this.getMatchNum() - compareNum;
+    }
 
     public void syncTBA(){
         Match foundMatch = new Match();

@@ -12,6 +12,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.StackedBarChart;
@@ -29,11 +30,12 @@ import javafx.stage.Stage;
 import java.io.NotActiveException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 
 public class TeamStatsPageControl extends Application implements ControlInterface {
 
-    Main.Windows previousPage = Main.Windows.startup;
+    Main.Windows previousPage = Main.Windows.teamSearch;
     CustomTeam passedTeam = Main.teamResult;
     @FXML AnchorPane basePane;
 
@@ -43,9 +45,9 @@ public class TeamStatsPageControl extends Application implements ControlInterfac
     @FXML Button pitButton;
 
     //Charts
-    @FXML BarChart<String, Integer> driverRankChart;
+    @FXML StackedBarChart<String, Integer> driverRankChart;
     @FXML CategoryAxis driverRankMatchAxis;
-    @FXML BarChart<String, Integer> sandstormPlacementChart;
+    @FXML StackedBarChart<String, Integer> sandstormPlacementChart;
     @FXML CategoryAxis sandstormPlacementMatchAxis;
     @FXML StackedBarChart<String, Integer> totalPlacementChart;
     @FXML CategoryAxis totalPlacementMatchAxis;
@@ -152,32 +154,43 @@ public class TeamStatsPageControl extends Application implements ControlInterfac
     public void start(Stage primaryStage) throws Exception {
         Lib.memeStart(primaryStage, FXMLLoader.load(getClass().getResource(this.getResourceLocation())));
         Lib.report(primaryStage.toString());
+        primaryStage.setHeight(825);
+        primaryStage.setWidth(950);
+//        this.getBasePane().getScene().getStylesheets().add("stylesheet.css");
     }
 
     @Override
-    public void initialize(){
+    public void initialize() {
+ControlInterface.super.initialize();
         this.teamNum.setText("Team "+this.passedTeam.getNumber());
         this.teamName.setText(this.passedTeam.getTbaName());
         
-        this.driverRankMatchAxis.getCategories().addAll("Rank");
+        
         XYChart.Series<String, Integer> driverRankDataSeries = new XYChart.Series<>();
         driverRankDataSeries.setName("Rank");
+//        driverRankDataSeries.getNode().setStyle("-fx-bar-fill: navy;");
         
-        this.sandstormPlacementMatchAxis.getCategories().addAll("Placed");
         XYChart.Series<String, Integer> sandStormPlaceDataSeries = new XYChart.Series<>();
         sandStormPlaceDataSeries.setName("Placed");
+//        sandStormPlaceDataSeries.getNode().setStyle("-fx-bar-fill: mediumspringgreen;");
 
         this.totalPlacementMatchAxis.getCategories().addAll("Hatch", "Cargo");
+//        this.totalPlacementChart.getStyleClass().add(".hatch-cargo-bar");
         XYChart.Series<String, Integer> totalHatchDataSeries = new XYChart.Series<>();
         totalHatchDataSeries.setName("Hatch");
+        
+//        totalHatchDataSeries.getNode().setStyle("-fx-bar-fill: mediumpurple;");
         XYChart.Series<String, Integer> totalCargoDataSeries = new XYChart.Series<>();
         totalCargoDataSeries.setName("Cargo");
+//        totalCargoDataSeries.getNode().setStyle("-fx-bar-fill: mediumturquoise;");
 
         this.placementLocationLocationAxis.getCategories().addAll("Hatch", "Cargo");
         XYChart.Series<String, Integer> locHatchDataSeries = new XYChart.Series<>();
         locHatchDataSeries.setName("Hatch");
+//        locHatchDataSeries.getNode().setStyle("-fx-bar-fill: purple;");
         XYChart.Series<String, Integer> locCargoDataSeries = new XYChart.Series<>();
         locCargoDataSeries.setName("Cargo");
+//        locCargoDataSeries.getNode().setStyle("-fx-bar-fill: turquoise;");
         
         this.qColumn.setCellValueFactory(new PropertyValueFactory<>("qNum"));
         this.matchNumColumn.setCellValueFactory(new PropertyValueFactory<>("matchNum"));
@@ -185,9 +198,14 @@ public class TeamStatsPageControl extends Application implements ControlInterfac
         this.noteColumn.setCellValueFactory(new PropertyValueFactory<>("note"));
 
         int rocketHatch=0, rocketCargo=0, shipHatch=0, shipCargo=0, dropHatch=0, dropCargo=0;
+        
+        ArrayList<CustomMatch> copiedMatches = this.passedTeam.getMatches();
+        Collections.sort(copiedMatches);
 
-        for(int i=1; i<this.passedTeam.getMatches().size()-1; i++){
-            CustomMatch openMatch = this.passedTeam.getMatches().get(i-1);
+        for(int i=1; i<copiedMatches.size()+1; i++){
+            CustomMatch openMatch = copiedMatches.get(i-1);
+            this.driverRankMatchAxis.getCategories().add("Q"+i);
+            this.sandstormPlacementMatchAxis.getCategories().add("Q"+i);
             driverRankDataSeries.getData().add(new XYChart.Data<>("Q"+i, openMatch.getDriverRank()));
             sandStormPlaceDataSeries.getData().add(new XYChart.Data<>("Q"+i, openMatch.sandPlaces()));
             totalHatchDataSeries.getData().add(new XYChart.Data<>("Q"+i, openMatch.totalHatch()));
@@ -201,21 +219,33 @@ public class TeamStatsPageControl extends Application implements ControlInterfac
 
             switch (openMatch.getStartHab()){
                 case 1:
-//                    this.startCircles.get(i-1).setFill(Color.web("#ff9f00"));
-                    System.out.println(this.startCircles.get(i-1));
+                    this.startCircles.get(i-1).setFill(Color.web("#ff9f00"));
+//                    System.out.println(this.startCircles.get(i-1));
+                    break;
                 case 2:
                     this.startCircles.get(i-1).setFill(Color.web("#0cba00"));
+                    break;
+                default:
+                    this.climbCircles.get(i-1).setFill(Color.web("#bdbdbd"));
+                    break;
             }
 
             switch (openMatch.getScaleLevel()){
                 case 0:
                     this.climbCircles.get(i-1).setFill(Color.web("#ff0000"));
+                    break;
                 case 1:
                     this.climbCircles.get(i-1).setFill(Color.web("#ff9f00"));
+                    break;
                 case 2:
                     this.climbCircles.get(i-1).setFill(Color.web("#0cba00"));
+                    break;
                 case 3:
                     this.climbCircles.get(i-1).setFill(Color.web("#00a9cf"));
+                    break;
+                default:
+                    this.climbCircles.get(i-1).setFill(Color.web("#bdbdbd"));
+                    break;
             }
 
             if(openMatch.getEStopped()){
@@ -238,7 +268,9 @@ public class TeamStatsPageControl extends Application implements ControlInterfac
         locCargoDataSeries.getData().add(new XYChart.Data<>("Drop", dropCargo));
         
         this.driverRankChart.getData().add(driverRankDataSeries);
+        this.driverRankChart.setStyle("-fx-bar-fill: navy;");
         this.sandstormPlacementChart.getData().add(sandStormPlaceDataSeries);
+        this.sandstormPlacementChart.setStyle("-fx-bar-fill: navy;");
 
         this.placementLocationChart.getData().add(locHatchDataSeries);
         this.placementLocationChart.getData().add(locCargoDataSeries);

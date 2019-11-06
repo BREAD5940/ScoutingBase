@@ -35,6 +35,7 @@ public class SessionLaunchControl extends Application implements ControlInterfac
 
     @Override
     public void initialize() {
+ControlInterface.super.initialize();
         ControlInterface.super.initialize();
         sessionTitle.setText(Main.currentSession.event);
         sessionTitle.setTextAlignment(TextAlignment.CENTER);

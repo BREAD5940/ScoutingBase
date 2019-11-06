@@ -109,5 +109,9 @@ public class TeamSearchControl extends Application implements ControlInterface {
     public void handleBack(ActionEvent event){
         ControlInterface.super.handleBack(event);
     }
-
+    
+    @Override
+    public void initialize() {
+        ControlInterface.super.initialize();
+    }
 }

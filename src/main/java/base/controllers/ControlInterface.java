@@ -32,7 +32,7 @@ public interface ControlInterface{
 
     
     
-    public default void initialize(){
+    default void initialize(){
         if(!(Main.currentSession==null)){
             this.getBasePane().setBorder(new Border(new BorderStroke(Color.web(Main.currentSession.backgroundColor.getHexVal()), BorderStrokeStyle.SOLID, new CornerRadii(1.0), BorderStroke.THICK)));
     

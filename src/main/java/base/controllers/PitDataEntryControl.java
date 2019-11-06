@@ -251,6 +251,13 @@ public class PitDataEntryControl extends Application implements ControlInterface
         }
 
         Lib.pageChangeRequest(Windows.pitLaunch, false, this.getThis());
+    
+        
+    }
+    
+    @Override
+    public void initialize() {
+        ControlInterface.super.initialize();
     }
 
 }

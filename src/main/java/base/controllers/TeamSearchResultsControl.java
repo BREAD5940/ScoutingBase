@@ -52,6 +52,7 @@ public class TeamSearchResultsControl extends Application implements ControlInte
 
     @Override
     public void initialize() {
+        ControlInterface.super.initialize();
         // Set the columns width auto size
         /*resultsTable.getColumns().get(0).prefWidthProperty().bind(resultsTable.widthProperty().multiply(0.33));    // 33% for id column size
         resultsTable.getColumns().get(1).prefWidthProperty().bind(resultsTable.widthProperty().multiply(0.33));   // 33% for dt column size

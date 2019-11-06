@@ -76,4 +76,9 @@ public class StandEntryControl extends Application implements ControlInterface{
         }
         handleBack(event);
     }
+    
+    @Override
+    public void initialize() {
+        ControlInterface.super.initialize();
+    }
 }

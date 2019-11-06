@@ -55,4 +55,9 @@ public class StatsOnlineControl extends Application implements ControlInterface 
     public void handleTeamSearch(ActionEvent event) {
         Lib.pageChangeRequest(Main.Windows.teamSearch, false,this.getThis());
     }
+    
+    @Override
+    public void initialize() {
+        ControlInterface.super.initialize();
+    }
 }

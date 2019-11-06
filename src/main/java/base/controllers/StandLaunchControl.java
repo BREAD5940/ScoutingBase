@@ -58,4 +58,9 @@ public class StandLaunchControl extends Application implements ControlInterface{
         Lib.pageChangeRequest(Main.Windows.standEntry, false, this.getThis());
     }
     // TODO: actually make the other buttons work.
+    
+    @Override
+    public void initialize() {
+        ControlInterface.super.initialize();
+    }
 }

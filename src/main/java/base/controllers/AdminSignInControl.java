@@ -106,6 +106,7 @@ public class AdminSignInControl extends Application implements ControlInterface{
 
     @Override
     public void initialize() {
+ControlInterface.super.initialize();
 
     }
 

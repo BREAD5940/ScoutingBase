@@ -2,11 +2,8 @@ package base.controllers;
 
 import java.util.Optional;
 
-import base.DataRecoveryThread;
-import base.Lib;
-import base.Main;
+import base.*;
 import base.Main.Windows;
-import base.Session;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -40,13 +37,14 @@ public class StartupControl extends Application implements ControlInterface{
     public void start(Stage primaryStage) throws Exception {
         // sessionSelect = new ComboBox<String>();
         Lib.memeStart(primaryStage, FXMLLoader.load(getClass().getResource("/layouts/startup.fxml")));
-        // basePane.setBorder(new Border(new BorderStroke(Color.web(Main.currentSession.backgroundColor), BorderStrokeStyle.SOLID, new CornerRadii(1.0), BorderStroke.THICK)));
+//         basePane.setBorder(new Border(new BorderStroke(Color.web(Main.currentSession.backgroundColor.getHexVal()), BorderStrokeStyle.SOLID, new CornerRadii(1.0), BorderStroke.THICK)));
 
         stage = primaryStage;
     }
 
     @Override
-    public void initialize(){
+    public void initialize() {
+ControlInterface.super.initialize();
         ControlInterface.super.initialize();
         System.out.println("isempty: "+Main.activeSessions.isEmpty());
         System.out.println("sessSel: "+ sessionSelect);

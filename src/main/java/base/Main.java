@@ -109,9 +109,9 @@ public class Main {
 
         openTeams.addAll(Lib.generateTeams(currentSession.eventDir+"teams.csv"));
 
-        for(CustomMatch match : openMatches){
-            match.syncTBA();
-        }
+//        for(CustomMatch match : openMatches){
+//            match.syncTBA();
+//        }
 
         for(CustomTeam team : openTeams){
             for(CustomMatch match : openMatches){
@@ -119,7 +119,7 @@ public class Main {
                     team.addMatch(match);
                 }
             }
-            team.syncTBA();
+//            team.syncTBA();
         }
 
         Lib.saveTeams(openTeams, currentSession.eventDir);
