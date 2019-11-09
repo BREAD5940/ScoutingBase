@@ -35,8 +35,8 @@ public class CustomMatch implements Comparable<CustomMatch>{
 
     private Long fouls;
     private Long techs;
-    private boolean yellow;
-    private boolean red;
+    private int yellow;
+    private int red;
     private boolean eStopped;
     private boolean borked;
 
@@ -49,51 +49,88 @@ public class CustomMatch implements Comparable<CustomMatch>{
     private boolean tbaSynced = false;
 
     private int driverRank;
+    
+    private String scoutName;
+    private boolean gotOff;
+    private String climbType;
+    private boolean isRamp;
 
     private String matchNotes;
 
     
     public CustomMatch(String[] csvRow){
-        this.matchType = csvRow[0];
-        this.matchNum = Integer.valueOf(csvRow[1]);
+//        this.matchType = csvRow[0];
+        this.matchNum = Integer.valueOf(csvRow[31]);
         this.teamNum = Integer.valueOf(csvRow[2]);
-        System.out.println(csvRow[3].charAt(0));
-        this.alliancePosition = csvRow[3];
+        System.out.println(csvRow[30].charAt(0));
+        this.alliancePosition = csvRow[30];
         this.isBlueAlliance = this.alliancePosition.charAt(0)=='B';
 
-        this.startHab = Integer.valueOf(csvRow[4]);
+        this.startHab = Integer.valueOf(csvRow[3]);
 
         this.CShipSand = Integer.valueOf(csvRow[5]);
-        this.CRocketSand = Integer.valueOf(csvRow[6]);
-        this.CDropSand = Integer.valueOf(csvRow[7]);
+        this.CRocketSand = Integer.valueOf(csvRow[4]);
+        this.CDropSand = Integer.valueOf(csvRow[6]);
         this.HPShipSand = Integer.valueOf(csvRow[8]);
-        this.HPRocketSand = Integer.valueOf(csvRow[9]);
-        this.HPDropSand = Integer.valueOf(csvRow[10]);
+        this.HPRocketSand = Integer.valueOf(csvRow[7]);
+        this.HPDropSand = Integer.valueOf(csvRow[9]);
 
         this.CShipGame = Integer.valueOf(csvRow[11]);
-        this.CRocketGame = Integer.valueOf(csvRow[12]);
-        this.CDropGame = Integer.valueOf(csvRow[13]);
+        this.CRocketGame = Integer.valueOf(csvRow[10]);
+        this.CDropGame = Integer.valueOf(csvRow[12]);
         this.HPShipGame = Integer.valueOf(csvRow[14]);
-        this.HPRocketGame = Integer.valueOf(csvRow[15]);
-        this.HPDropGame = Integer.valueOf(csvRow[16]);
+        this.HPRocketGame = Integer.valueOf(csvRow[13]);
+        this.HPDropGame = Integer.valueOf(csvRow[15]);
 
         try{
-            this.scaleLevel = Integer.valueOf(csvRow[17]);
+            this.scaleLevel = Integer.valueOf(csvRow[19]);
         }catch(NumberFormatException e){
             Lib.report("Scale Level is not a number. Setting to 0.");
             this.scaleLevel = 0;
         }
 
-        this.techs = Long.valueOf(csvRow[18]);
-        this.fouls = Long.valueOf(csvRow[19]);
-        this.yellow = (csvRow[20].equalsIgnoreCase("true"));
-        this.red = csvRow[21].equalsIgnoreCase("true");
-        this.borked = csvRow[22].equalsIgnoreCase("true");
-        this.points = Integer.valueOf(csvRow[23]);
+        this.techs = Long.valueOf(csvRow[23]);
+        this.fouls = Long.valueOf(csvRow[22]);
+        try {
+            this.yellow = Integer.valueOf(csvRow[20]);
+        }catch(NumberFormatException e){
+            Lib.report("Yellow cards aren't numbers. Setting to 0");
+            this.yellow=0;
+        }
+        
+        try {
+            this.red = Integer.valueOf(csvRow[21]);
+        }catch(NumberFormatException e){
+            Lib.report("Red cards aren't numbers. Setting to 0");
+            this.red=0;
+        }
+        switch(csvRow[24]){
+            case "bork":
+                this.borked=true;
+                this.eStopped=false;
+            case "eStop, bork":
+                this.borked=this.eStopped=true;
+            case "eStop":
+                this.eStopped=true;
+                this.borked=false;
+            default:
+                this.eStopped=this.borked=false;
+        }
+        this.points = Integer.valueOf(csvRow[26]);
 
-        this.matchNotes = csvRow[24];
-
+        this.matchNotes = csvRow[27];
         this.matchNotes = this.matchNotes.replace("\n", ".  ");
+        
+        this.scoutName = csvRow[1];
+        this.gotOff = csvRow[16].equalsIgnoreCase("gotOff");
+        this.climbType = csvRow[17];
+        this.isRamp = csvRow[18].equalsIgnoreCase("ramp");
+        try {
+            this.driverRank = Integer.valueOf(csvRow[29]);
+        }catch(NumberFormatException e){
+            Lib.report("Driver rank is not a number. Setting to 0.");
+            this.driverRank=0;
+        }
 
         Lib.saveMatch(this, Main.currentSession.eventDir);
     }
@@ -195,14 +232,14 @@ public class CustomMatch implements Comparable<CustomMatch>{
     }
 
     public String toReadableString(){
-        return String.format("Team Number: %d, Match Type: %s, Match Number: %d, Position: %s, isBlue: %b, "
+        return String.format("Team Number: %d, Match Number: %d, Position: %s, isBlue: %b, "
                                 +"HPShipGame: %d, HPShipSand: %d, HPRocketGame: %d, HPRocketSand: %d, HPDropGame: %d, "
                                 +"HPDropSand: %d, CShipGame: %d, CShipSand: %d, CRocketGame: %d, CRocketSand: %d, CDropGame: %d, "
                                 +"CDropSand: %d, Scale Level: %d, Is a Helper: %b, Starting Level: %d, Crossed the Line: %b, Fouls: %d, Tech Fouls: %d, Yellow Card: %b, "
                                 +"Red Card: %b, Emergency Stop: %b, Broken: %b, Total Points: %d, Points w/o Penalties: %d, "
                                 +"Ranking Points: %d, Filled Right Rocket: %b, Filled Left Rocket: %b, Hab Docking RP: %b, "
                                 +"Rocket RP: %b, Synced? %b, Notes: %s%n",
-                                this.teamNum, this.matchType, this.matchNum, this.alliancePosition, this.isBlueAlliance,
+                                this.teamNum, this.matchNum, this.alliancePosition, this.isBlueAlliance,
                                 this.HPShipGame, this.HPShipSand, this.HPRocketGame, this.HPRocketSand, this.HPDropGame,
                                 this.HPDropSand, this.CShipGame, this.CShipSand, this.CRocketGame, this.CRocketSand, this.CDropGame,
                                 this.CDropSand, this.scaleLevel, this.isHelp, this.startHab, this.crossedLine, this.fouls, this.techs, this.yellow,
@@ -213,7 +250,7 @@ public class CustomMatch implements Comparable<CustomMatch>{
 
     @Override
     public String toString(){
-        return this.teamNum+","+this.matchType+","+this.matchNum+","+this.alliancePosition
+        return this.teamNum+","+this.matchNum+","+this.alliancePosition
                 +","+this.isBlueAlliance+","+this.HPShipGame+","+this.HPShipSand+","+this.HPRocketGame
                 +","+this.HPRocketSand+","+this.HPDropGame+","+this.HPDropSand+","+this.CShipGame
                 +","+this.CShipSand+","+this.CRocketGame+","+this.CRocketSand+","+this.CRocketGame
@@ -246,10 +283,12 @@ public class CustomMatch implements Comparable<CustomMatch>{
         Lib.saveMatch(this, Main.currentSession.eventDir);
     }
 
+    @Deprecated
     public String getMatchType() {
         return this.matchType;
     }
 
+    @Deprecated
     public void setMatchType(String matchType) {
         this.matchType = matchType;
         Lib.saveMatch(this, Main.currentSession.eventDir);
@@ -444,20 +483,20 @@ public class CustomMatch implements Comparable<CustomMatch>{
         Lib.saveMatch(this, Main.currentSession.eventDir);
     }
 
-    public boolean getYellow() {
+    public int getYellow() {
         return this.yellow;
     }
 
-    public void setYellow(boolean yellow) {
+    public void setYellow(int yellow) {
         this.yellow = yellow;
         Lib.saveMatch(this, Main.currentSession.eventDir);
     }
 
-    public boolean getRed() {
+    public int getRed() {
         return this.red;
     }
 
-    public void setRed(boolean red) {
+    public void setRed(int red) {
         this.red = red;
         Lib.saveMatch(this, Main.currentSession.eventDir);
     }
@@ -567,6 +606,42 @@ public class CustomMatch implements Comparable<CustomMatch>{
 
     public void setMatchNotes(String matchNotes) {
         this.matchNotes = matchNotes;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+    
+    public String getScoutName() {
+        return scoutName;
+    }
+    
+    public void setScoutName(String scoutName) {
+        this.scoutName = scoutName;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+    
+    public boolean isGotOff() {
+        return gotOff;
+    }
+    
+    public void setGotOff(boolean gotOff) {
+        this.gotOff = gotOff;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+    
+    public String getClimbType() {
+        return climbType;
+    }
+    
+    public void setClimbType(String climbType) {
+        this.climbType = climbType;
+        Lib.saveMatch(this, Main.currentSession.eventDir);
+    }
+    
+    public boolean isRamp() {
+        return isRamp;
+    }
+    
+    public void setRamp(boolean ramp) {
+        isRamp = ramp;
         Lib.saveMatch(this, Main.currentSession.eventDir);
     }
 }

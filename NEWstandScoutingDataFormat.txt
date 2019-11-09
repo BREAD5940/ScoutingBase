@@ -1,0 +1,30 @@
+[0] timestamp
+[1] scout name
+[2] team number
+[3] start level
+[4] sandstorm cargo in rocket
+[5] sandstorm cargo in ship
+[6] sandstorm cargo dropped
+[7] sandstorm hatch rocket
+[8] sandstorm hatch ship
+[9] sandstorm hatch dropped
+[10] game cargo rocket
+[11] game cargo ship
+[12] game cargo drop
+[13] game hatch rocket
+[14] game hatch ship
+[15] game hatch drop
+[16] got off hab?
+[17] type of climb (self/assisted)
+[18] ramp bot?
+[19] end climb level
+[20] yellow cards
+[21] red cards
+[22] fouls
+[23] tech fouls
+[24] estop/bork (or both)
+[25] calculated points
+[26] displayed points
+[27] notes
+[28] El Email
+[29] driver rank

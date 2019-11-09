@@ -9,8 +9,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
+import com.opencsv.CSVParser;
+import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
 
+import com.opencsv.CSVReaderBuilder;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import base.Main.Windows;
@@ -124,7 +127,7 @@ public class Lib {
         report("NOW CONVERTING MATCHES FROM: "+filePath);
         CSVReader reader;
         try{
-            reader = new CSVReader(new FileReader(filePath), ',', '|');
+            reader = new CSVReaderBuilder(new FileReader(filePath)).withSkipLines(1).withCSVParser(new CSVParserBuilder().withSeparator(',').withQuoteChar('|').build()).build();
         }catch(FileNotFoundException e){
             report("Match Convert file not found:\n"+e);
             return null;

@@ -1,0 +1,25 @@
+[0] match type
+[1] match number
+[2] team number
+[3] alliance station
+[4] start level
+[5] sandstorm cargo in ship
+[6] sandstorm cargo in rocket
+[7] sandstorm cargo dropped
+[8] sandstorm hatch in ship
+[9] sandstorm hatch in rocket
+[10] sandstorm hatch dropped
+[11] game cargo in ship
+[12] game cargo in rocket
+[13] game cargo dropped
+[14] game hatch in ship
+[15] game hatch in rocket
+[16] game hatch dropped
+[17] end hab level
+[18] tech fouls
+[19] fouls
+[20] yellow card?
+[21] red card?
+[22] broke?
+[23] points
+[24] notes

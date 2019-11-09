@@ -105,12 +105,9 @@ public class CustomTeam {
 
         this.avFoul = (this.avFoul + match.getFouls())/2;
         this.avTech = (this.avTech + match.getTechs())/2;
+        this.totalYellow+=match.getYellow();
 
-        if(match.getYellow())
-            this.totalYellow++;
-
-        if(match.getRed())
-            this.totalRed++;
+        this.totalRed+=match.getRed();
 
         if(match.getEStopped())
             this.eStops++;
