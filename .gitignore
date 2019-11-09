@@ -187,7 +187,6 @@ build/distributions/ScoutingBase.tar
 build/distributions/ScoutingBase.zip
 build/libs/ScoutingBase.jar
 
-*.json
 .idea/*
 .idea
 /out/production/*
