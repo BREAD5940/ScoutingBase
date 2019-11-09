@@ -99,16 +99,16 @@ public class Main {
 //            Lib.report
         }
 
-        currentSession = activeSessions.get("TEST");
+        currentSession = activeSessions.get("MadTown");
 //        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/geran.csv"));
 //        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/matt.csv"));
 //        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/nick.csv"));
 //        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/thomas.csv"));
 //        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/claire.csv"));
 //        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/max.csv"));
-        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/testCSV.csv"));
+//        openMatches.addAll(Lib.convertMatches(currentSession.dataDir+"stand/testCSV.csv"));
 
-        openTeams.addAll(Lib.generateTeams(currentSession.eventDir+"teams.csv"));
+//        openTeams.addAll(Lib.generateTeams(currentSession.eventDir+"teams.csv"));//FIXME this doesnt work but ill fix it i swear
 
 //        for(CustomMatch match : openMatches){
 //            match.syncTBA();
