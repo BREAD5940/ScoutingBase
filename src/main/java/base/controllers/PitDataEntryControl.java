@@ -241,7 +241,7 @@ public class PitDataEntryControl extends Application implements ControlInterface
         Lib.savePit(tempPit, Main.currentSession.eventDir);
         Lib.savePitData(tempPit, Main.currentSession.eventDir);
         Main.openPits.add(tempPit);
-        tempPit.s3ndToTxt(Main.currentSession.eventDir+"pit/");
+//        tempPit.s3ndToTxt(Main.currentSession.eventDir+"pit/"); //FIXME gotta do
         System.out.println("Yes");
 
         for (CustomTeam team : Main.openTeams){
